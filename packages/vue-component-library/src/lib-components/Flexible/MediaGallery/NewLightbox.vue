@@ -189,10 +189,9 @@ function setCurrentSlide(currentSlide: number) {
             {{ captionTitle[selectionIndex] }}
           </template>
         </h4>
-        <p v-if="captionText"  class="media-object-caption" v-text="captionText[selectionIndex]" />
+        <p v-if="captionText" class="media-object-caption" v-text="captionText[selectionIndex]" />
 
-        <p
-          v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
+        <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
           {{ items[selectionIndex].credit }}
         </p>
 
