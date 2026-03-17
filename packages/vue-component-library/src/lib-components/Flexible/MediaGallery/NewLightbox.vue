@@ -148,57 +148,31 @@ function setCurrentSlide(currentSlide: number) {
       </Slide>
     </Carousel>
 
-    <!-- Navigation -->
-    <button
-      v-if="items.length > 1"
-      ref="prevBtnRef"
-      class="button-prev"
-      aria-label="Show previous image"
-      :disabled="selectionIndex <= 0"
-      @click="selectionIndex -= 1"
-    >
-      <SvgIconCaretLeft
-        aria-hidden="true"
-        focusable="false"
-      />
+    <!-- NAVIGATION -->
+    <button v-if="items.length > 1" ref="prevBtnRef" class="button-prev" aria-label="Show previous image" :disabled="selectionIndex <= 0" @click="selectionIndex -= 1">
+      <SvgIconCaretLeft aria-hidden="true" focusable="false" />
     </button>
     <button
-      v-if="items.length > 1"
-      ref="nextBtnRef"
-      class="button-next"
-      aria-label="Show next image"
-      :disabled="selectionIndex >= items.length - 1"
+      v-if="items.length > 1" ref="nextBtnRef" class="button-next" aria-label="Show next image" :disabled="selectionIndex >= items.length - 1"
       @click="selectionIndex += 1"
     >
-      <SvgIconCaretRight
-        aria-hidden="true"
-        focusable="false"
-      />
+      <SvgIconCaretRight aria-hidden="true" focusable="false" />
     </button>
 
-    <!-- Pagination -->
+    <!-- PAGINATION -->
     <div class="caption-block">
-      <div
-        v-if="items.length > 1"
-        ref="paginationCounterRef"
-        class="media-counter"
-        aria-label="Slide navigation"
-        role="group"
+      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" aria-label="Slide navigation" role="group"
       >
         <button
           v-for="index in items.length"
-          :key="`caption-block-${index}`"
+          :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex"
           class="media-counter-item"
-          :aria-label="`Go to slide ${index} of ${items.length}`"
-          :aria-current="index - 1 === selectionIndex ? 'true' : null"
-          :disabled="index - 1 === selectionIndex"
-          @click="setCurrentSlide(index - 1)"
+          :aria-label="`Go to slide ${index} of ${items.length}`" :aria-current="index - 1 === selectionIndex ? 'true' : null" @click="setCurrentSlide(index - 1)"
         >
           <SvgIconMoleculeBullet />
         </button>
       </div>
-
-      <!-- Captions -->
+      <!-- CAPTIONS -->
       <div
         class="caption-content"
         aria-live="polite"
