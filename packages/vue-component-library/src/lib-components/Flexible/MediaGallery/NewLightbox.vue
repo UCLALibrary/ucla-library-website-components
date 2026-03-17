@@ -117,11 +117,9 @@ function setCurrentSlide(currentSlide: number) {
 </script>
 
 <template>
-  <div
-    ref="lightbox"
-    :class="classes"
-  >
-    <!-- A11Y FIX: screen reader live region -->
+  <div ref="lightbox" :class="classes">
+
+    <!-- A11Y FIX: SCREEN READER LIVE REGION -->
     <p
       class="sr-only"
       aria-live="polite"
@@ -130,21 +128,13 @@ function setCurrentSlide(currentSlide: number) {
       {{ slideAnnouncement }}
     </p>
 
-    <!-- Close button -->
-    <button
-      class="button-close"
-      aria-label="Close"
-      @click="closeModal"
-    >
-      <SvgIconClose
-        aria-hidden="true"
-        focusable="false"
-      />
+    <!-- CLOSE BUTTON -->
+    <button class="button-close" aria-label="Close" @click="closeModal">
+      <SvgIconClose aria-hidden="true" focusable="false" />
     </button>
 
-    <!-- Carousel -->
-    <Carousel
-      v-model="selectionIndex"
+    <!-- CAROUSEL -->
+    <Carousel v-model="selectionIndex"
       class="media-container"
     >
       <Slide
