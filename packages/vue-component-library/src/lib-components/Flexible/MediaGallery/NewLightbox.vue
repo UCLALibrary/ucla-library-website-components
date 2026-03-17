@@ -208,13 +208,14 @@ function setCurrentSlide(currentSlide: number) {
         ref="paginationCounterRef"
         class="media-counter"
         aria-label="Slide navigation"
+        role="group"
       >
         <button
           v-for="index in items.length"
           :key="`caption-block-${index}`"
           class="media-counter-item"
           :aria-label="`Go to slide ${index} of ${items.length}`"
-          :aria-selected="index - 1 === selectionIndex"
+          :aria-current="index - 1 === selectionIndex ? 'true' : null"
           :disabled="index - 1 === selectionIndex"
           @click="setCurrentSlide(index - 1)"
         >
