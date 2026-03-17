@@ -179,10 +179,7 @@ function setCurrentSlide(currentSlide: number) {
           <!-- additional blocktags/labels/simple elements can be slotted in here by parent -->
         </div>
         <!-- if a url is provided make the title clickable -->
-        <h4
-          v-if="captionTitle[selectionIndex]"
-          class="media-object-title"
-        >
+        <h4 v-if="captionTitle[selectionIndex]" class="media-object-title">
           <template v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl">
             <SmartLink :to="items[selectionIndex].linkUrl">
               {{ captionTitle[selectionIndex] }}
@@ -192,25 +189,17 @@ function setCurrentSlide(currentSlide: number) {
             {{ captionTitle[selectionIndex] }}
           </template>
         </h4>
-        <p
-          v-if="captionText"
-          class="media-object-caption"
-          v-text="captionText[selectionIndex]"
-        />
+        <p v-if="captionText"  class="media-object-caption" v-text="captionText[selectionIndex]" />
 
         <p
-          v-if="items && items[selectionIndex] && items[selectionIndex].credit"
-          class="media-object-credit"
-        >
+          v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
           {{ items[selectionIndex].credit }}
         </p>
 
         <SmartLink
           v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl
             && items[selectionIndex].linkText
-          "
-          class="media-object-caption-link"
-          :to="items[selectionIndex].linkUrl"
+          " class="media-object-caption-link" :to="items[selectionIndex].linkUrl"
         >
           {{ items[selectionIndex].linkText }}
           <SvgExternalLink
@@ -223,10 +212,7 @@ function setCurrentSlide(currentSlide: number) {
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
-  @import "@/styles/default/_new-lightbox.scss";
-  @import "@/styles/ftva/_new-lightbox.scss";
+<style lang="scss" scoped>
+@import "@/styles/default/_new-lightbox.scss";
+@import "@/styles/ftva/_new-lightbox.scss";
 </style>
