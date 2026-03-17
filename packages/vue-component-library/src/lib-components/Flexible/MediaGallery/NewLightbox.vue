@@ -33,9 +33,9 @@ const { items, selectedItem, inline } = defineProps({
   }
 })
 
-const emit = defineEmits < {
+const emit = defineEmits<{
   (e: 'closeModal'): void
-}> ()
+}>()
 
 const theme = useTheme()
 
@@ -62,7 +62,7 @@ const parsedObjectFit = computed(() => {
   return theme?.value === 'ftva' ? 'cover' : 'contain'
 })
 
-const lightbox = ref < HTMLElement | null > (null) // replacing this.$refs.lightbox
+const lightbox = ref<HTMLElement | null>(null) // replacing this.$refs.lightbox
 
 // For FTVA Homepage Carousel:
 const prevBtnRef = ref()
