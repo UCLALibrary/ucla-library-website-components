@@ -238,10 +238,7 @@ function handleTabKeyNav(event: KeyboardEvent, index: number) {
           @click="setCurrentSlide(index - 1)"
           @keydown="handleTabKeyNav($event, index - 1)"
         >
-          <SvgIconMoleculeBullet
-            aria-hidden="true"
-            focusable="false"
-          />
+          <SvgIconMoleculeBullet />
         </button>
       </div>
 
