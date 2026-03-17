@@ -9,6 +9,7 @@ import CollectionOverview from '../lib-components/CollectionOverview.vue'
 import SectionTeaserCard from '../lib-components/SectionTeaserCard.vue'
 import ButtonMore from '../lib-components/ButtonMore.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
+import SectionWrapper from '../lib-components/SectionWrapper.vue'
 
 // Import mock data
 import { mockPageProgramLanding } from './mock/Funkhaus/MockPageProgramLanding'
@@ -48,6 +49,7 @@ function Template(args) {
       HeaderSmart,
       FooterPrimary,
       FooterSock,
+      SectionWrapper,
       SectionTeaserCard,
       NavSearch,
       CollectionOverview,
@@ -95,8 +97,11 @@ function Template(args) {
     },
     template: `
        <div class="page-program-landing">
+        
+       <!-- Header -->
         <HeaderSmart class="header-smart" />
 
+        <!-- Main Content Area -->
         <main class="main-content">
           <div class="search-field-composite-wrapper">
             <NavSearch 
@@ -110,28 +115,32 @@ function Template(args) {
             />
           </div>
           
-          <CollectionOverview
-            class="collection-overview"
-            :title="mockPageProgramLanding.collectionOverview.title"
-            :subtitle="mockPageProgramLanding.collectionOverview.subtitle"
-            :block-buttons="mockPageProgramLanding.collectionOverview.blockButtons"
-            :description="mockPageProgramLanding.collectionOverview.description"
-            :image="mockPageProgramLanding.collectionOverview.image"
-          />
+          <SectionWrapper>
+            <CollectionOverview
+              class="collection-overview"
+              :title="mockPageProgramLanding.collectionOverview.title"
+              :subtitle="mockPageProgramLanding.collectionOverview.subtitle"
+              :block-buttons="mockPageProgramLanding.collectionOverview.blockButtons"
+              :description="mockPageProgramLanding.collectionOverview.description"
+              :image="mockPageProgramLanding.collectionOverview.image"
+            />
+          </SectionWrapper>
 
-          <h2 class="title-grid-assets">
-            {{ mockPageProgramLanding.gridAssets.title }}
-          </h2>
-          <SectionTeaserCard
-              :items="gridItems" 
-              :grid-layout="true"
-              class="section-teaser-card"
-          />
-          <ButtonMore
-            class="button-more"
-            text="Browse more projects"
-            @click="showMoreFeaturedProjects"
-          />
+          <SectionWrapper class="section-teaser-card-wrapper">
+            <h2 class="title-grid-assets">
+              {{ mockPageProgramLanding.gridAssets.title }}
+            </h2>
+            <SectionTeaserCard
+                :items="gridItems" 
+                :grid-layout="true"
+                class="section-teaser-card"
+            />
+            <ButtonMore
+              class="button-more"
+              text="Browse more projects"
+              @click="showMoreFeaturedProjects"
+            />
+          </SectionWrapper>
         </main>
          
          <!-- Footer -->

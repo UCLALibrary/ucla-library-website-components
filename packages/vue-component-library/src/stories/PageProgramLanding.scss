@@ -1,8 +1,4 @@
-@import "./GlobalPageStyles.scss";
-
 .page-program-landing {
-    @include page-container;
-
     .header-smart {
         .header-main {
             position: unset;
@@ -12,10 +8,6 @@
                 position: relative;
             }
         }
-    }
-
-    .main-content {
-        @include main-content-base;
     }
 
     .search-field-composite.dlc {
@@ -32,16 +24,4 @@
         @include step-4;
         margin: 0 0 var(--space-m);
     }
-    .section-teaser-card {
-        margin: 0 auto;
-        max-width: unset;
-    }
-    .button-more {
-        margin: 0 auto;
-        max-width: unset;
-        padding-inline: var(--gutters);
-    }
-
-    // Breakpoints
-    @include responsive-gutters;
 }
