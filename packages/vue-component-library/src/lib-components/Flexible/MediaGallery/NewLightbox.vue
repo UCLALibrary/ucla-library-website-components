@@ -115,18 +115,6 @@ function closeModal() {
 function setCurrentSlide(currentSlide: number) {
   selectionIndex.value = currentSlide
 }
-
-function handleTabKeyNav(event: KeyboardEvent, index: number) {
-  if (event.key === 'ArrowRight') {
-    event.preventDefault()
-    setCurrentSlide((index + 1) % items.length)
-  }
-
-  if (event.key === 'ArrowLeft') {
-    event.preventDefault()
-    setCurrentSlide((index - 1 + items.length) % items.length)
-  }
-}
 </script>
 
 <template>
@@ -164,12 +152,9 @@ function handleTabKeyNav(event: KeyboardEvent, index: number) {
         v-for="(item, index) in items"
         :key="`media-container-${index}`"
         :aria-hidden="index !== selectionIndex"
+        :inert="index !== selectionIndex"
+        :tabindex="index === selectionIndex ? 0 : -1"
       >
-        <!-- wrapper div for the slide -->
-        <div
-          :inert="index !== selectionIndex"
-          :tabindex="index === selectionIndex ? 0 : -1"
-        >
           <MediaItem
             :key="`${item.captionTitle}-${index}`"
             :object-fit="parsedObjectFit"
@@ -185,7 +170,6 @@ function handleTabKeyNav(event: KeyboardEvent, index: number) {
               <span v-text="item.credit" />
             </div>
           </MediaItem>
-        </div>
       </Slide>
     </Carousel>
 
@@ -231,9 +215,8 @@ function handleTabKeyNav(event: KeyboardEvent, index: number) {
           class="media-counter-item"
           :aria-label="`Go to slide ${index} of ${items.length}`"
           :aria-selected="index - 1 === selectionIndex"
-          :tabindex="index - 1 === selectionIndex ? 0 : -1"
+          :disabled="index - 1 === selectionIndex"
           @click="setCurrentSlide(index - 1)"
-          @keydown="handleTabKeyNav($event, index - 1)"
         >
           <SvgIconMoleculeBullet />
         </button>
@@ -299,17 +282,4 @@ function handleTabKeyNav(event: KeyboardEvent, index: number) {
 >
   @import "@/styles/default/_new-lightbox.scss";
   @import "@/styles/ftva/_new-lightbox.scss";
-
-  // A11Y style for screen reader live region
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
 </style>
