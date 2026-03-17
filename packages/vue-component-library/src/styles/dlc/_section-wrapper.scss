@@ -1,10 +1,10 @@
 // DLC theme for SectionWrapper (e.g. Page Main Landing)
 .dlc.section-wrapper {
-    &.header-collection {
-        max-width: 1600px;
-        margin: 0 auto;
-        padding: 0 var(--gutters);
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 var(--gutters);
 
+    &.header-collection {
         .category {
             @include step-2;
             margin: 0 0 var(--space-m);
