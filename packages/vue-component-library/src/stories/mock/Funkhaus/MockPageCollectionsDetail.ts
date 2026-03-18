@@ -313,14 +313,7 @@ export const mockPageCollectionsDetailAlbanian = {
         ],
       },
     ],
-    excerptPod: {
-      title: 'Notes',
-      subtitle: 'Description',
-      text: 'The Albanian National Film Archive (AQSHF) has digitized a curated selection of materials from the photographic and graphic art collections that includes costume and set design sketches, animation slides and production stills, allowing viewers to trace the journey of Albanian visual artists.',
-      labelOpen: 'Show Less',
-      labelClose: 'Show More',
-      sentenceSplitCount: 1,
-    },
+    excerptPod: null, // Notes only in grid - no ExcerptPod duplicate
     buttonMore: {
       text: 'Browse items in this collection',
       to: '/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Albanian+Photographic+and+Graphic+Art+Collection',

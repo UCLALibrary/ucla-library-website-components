@@ -136,8 +136,8 @@ function Template(args) {
 
             <!-- Grid Metadata -->
             <GridMetadata :items="gridMetadataItems">
-              <template #after>
-                <div v-if="excerptPod" class="excerpt-pod-wrapper">
+              <template v-if="excerptPod" #after>
+                <div class="excerpt-pod-wrapper">
                   <!-- Excerpt Pod (only when variant has excerptPod) -->
                   <ExcerptPod
                     :title="excerptPod.title"
