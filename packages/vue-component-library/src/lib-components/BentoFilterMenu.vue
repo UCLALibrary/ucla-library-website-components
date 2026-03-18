@@ -25,7 +25,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <ul :class="classes">
+  <ul v-if="items && items.length > 0" :class="classes">
     <li
       v-for="item in items"
       :key="item.label"

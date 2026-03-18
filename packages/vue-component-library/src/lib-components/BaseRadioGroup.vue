@@ -35,7 +35,7 @@ function onChange(value: string) {
 
 <template>
   <fieldset class="base-radio-group">
-    <ul class="list">
+    <ul v-if="items && items.length > 0" class="list">
       <li class="list-item">
         <label
           v-for="(item, index) in items"

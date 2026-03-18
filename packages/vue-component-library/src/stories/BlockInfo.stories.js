@@ -197,7 +197,7 @@ export function ExampleFTVAInfo() {
         </template>
 
         <template #block-info-mid>
-          <ul class="block-info-list">
+          <ul v-if="mockParsedInfoList && mockParsedInfoList.length > 0" class="block-info-list">
           <li
             v-for="(item, index) in mockParsedInfoList"
             :key="item + '-' + index"
