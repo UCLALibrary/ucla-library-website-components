@@ -16,7 +16,7 @@ import {
   getMockGlobalNavSearch,
   setupGlobalStore,
 } from './helpers/storyHelpers'
-import { mockPageAssetDetailData } from '@/stories/mock/Funkhaus/MockPageAssetDetailData'
+import { mockPageAssetDetailDataVariants } from '@/stories/mock/Funkhaus/MockPageAssetDetailData'
 
 // Import styles
 import './PageAssetDetail.scss'
@@ -38,6 +38,11 @@ export default {
       control: { type: 'select' },
       options: ['default', 'dlc'],
       description: 'Theme variant for the page',
+    },
+    variant: {
+      control: { type: 'select' },
+      options: ['default', 'songsGirlhood', 'variant2', 'variant3'],
+      description: 'Asset detail page variant',
     },
   },
 }
@@ -65,20 +70,22 @@ function Template(args) {
       // Set up global store with mock header navigation
       setupGlobalStore()
 
+      // Use args from Storybook closure
+      const variant = args?.variant || 'default'
+      const mockData = mockPageAssetDetailDataVariants[variant]
+
       // Nav Search
       const mockGlobalNavSearch = getMockGlobalNavSearch()
       // Detail Header
-      const detailHeader = mockPageAssetDetailData?.detailHeader || {}
+      const detailHeader = mockData?.detailHeader || {}
       // Detail Media
-      const detailMedia = mockPageAssetDetailData?.detailMedia || {}
+      const detailMedia = mockData?.detailMedia || {}
       // Grid Metadata
-      const gridMetadataItems
-                = mockPageAssetDetailData?.gridMetadata?.items || []
+      const gridMetadataItems = mockData?.gridMetadata?.items || []
 
       return {
         args,
         mockGlobalNavSearch,
-        mockPageAssetDetailData,
         gridMetadataItems,
         detailHeader,
         detailMedia,
@@ -146,4 +153,26 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
+  variant: 'default',
+}
+
+// Songs, girlhood in Russia Part 2 (scraped)
+export const SongsGirlhood = Template.bind({})
+SongsGirlhood.args = {
+  theme: 'dlc',
+  variant: 'songsGirlhood',
+}
+
+// Placeholder variant 2
+export const Variant2 = Template.bind({})
+Variant2.args = {
+  theme: 'dlc',
+  variant: 'variant2',
+}
+
+// Placeholder variant 3
+export const Variant3 = Template.bind({})
+Variant3.args = {
+  theme: 'dlc',
+  variant: 'variant3',
 }
