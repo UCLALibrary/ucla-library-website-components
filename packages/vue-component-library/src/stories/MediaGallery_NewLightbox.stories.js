@@ -63,7 +63,7 @@ const mockFTVAGalleryComputedData = computed(() => {
       item: rawItem.image[0],
       credit: rawItem.creditText,
       captionText: 'Caption text', // TODO get homepage carousel data sample to make more accurate
-      captionTitle: 'Caption title', // TODO get homepage carousel data sample to make more accurate
+      captionTitle: 'Caption title' // TODO get homepage carousel data sample to make more accurate
     }
   })
 })
