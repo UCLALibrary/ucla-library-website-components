@@ -42,7 +42,7 @@ export default {
     },
     variant: {
       control: { type: 'select' },
-      options: ['default', 'albanian', 'variant2', 'variant3'],
+      options: ['default', 'albanian', 'ricardoMontejano', 'variant3'],
       description:
                 'Collection page variant (different metadata & overview)',
     },
@@ -203,11 +203,11 @@ Albanian.args = {
   variant: 'albanian',
 }
 
-// Placeholder variant 2
-export const Variant2 = Template.bind({})
-Variant2.args = {
+// The Ricardo Montejano Collection (scraped)
+export const RicardoMontejano = Template.bind({})
+RicardoMontejano.args = {
   theme: 'dlc',
-  variant: 'variant2',
+  variant: 'ricardoMontejano',
 }
 
 // Placeholder variant 3

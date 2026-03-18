@@ -322,20 +322,110 @@ export const mockPageCollectionsDetailAlbanian = {
   sectionTeaserCards: sharedSectionTeaserCards,
 }
 
-// Variant 3: Placeholder for future scraped data
-export const mockPageCollectionsDetailVariant2 = {
-  ...mockPageCollectionsDetail,
+// Variant 3: The Ricardo Montejano Collection (scraped from UCLA DLC)
+export const mockPageCollectionsDetailRicardoMontejano = {
   collectionOverview: {
-    ...mockPageCollectionsDetail.collectionOverview,
-    title: 'Collection Variant 2',
-    itemsCount: 5000,
-    description: 'Placeholder description for variant 2. Add scraped data when available.',
+    title: 'The Ricardo Montejano Collection',
+    subtitle: 'About this Collection',
+    itemsCount: 3303,
+    blockButtons: {
+      buttons: [
+        {
+          label: 'Browse items in this collection',
+          to: '/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=The+Ricardo+Montejano+Collection',
+          iconName: ButtonLinkIcons.ARROW_RIGHT,
+        },
+      ],
+    },
+    description:
+      'Starting in the 1970s, Ricardo Montejano collected field and studio recordings of various populations in Mexico. His work illuminates a history of social movements and indigenous knowledge throughout the country.',
+    image: API.image,
   },
   gridMetadata: {
-    ...mockPageCollectionsDetail.gridMetadata,
-    items: mockPageCollectionsDetail.gridMetadata.items.slice(0, 2),
-    excerptPod: mockPageCollectionsDetail.gridMetadata.excerptPod,
-    buttonMore: mockPageCollectionsDetail.gridMetadata.buttonMore,
+    items: [
+      {
+        title: 'Collection Overview',
+        items: [
+          {
+            label: 'Program',
+            value: {
+              text: 'Modern Endangered Archives Program',
+              href: '/catalog?f%5Bprogram_sim%5D%5B%5D=Modern+Endangered+Archives+Program',
+            },
+          },
+        ],
+      },
+      {
+        title: 'Find this Collection',
+        items: [
+          {
+            label: 'Repository',
+            value: {
+              text: 'Fonoteca Nacional de México',
+              href: '/catalog?f%5Brepository_sim%5D%5B%5D=Fonoteca+Nacional+de+M%C3%A9xico',
+            },
+          },
+          {
+            label: 'ARK',
+            value: { text: 'ark:/21198/z1j44g9k' },
+          },
+          {
+            label: 'Manifest URL',
+            showButtonIiif: true,
+            buttonIiifTo: 'https://iiif.library.ucla.edu/collections/ark%3A%2F21198%2Fz1j44g9k',
+            value: [],
+          },
+        ],
+      },
+      {
+        title: 'Access Condition',
+        items: [
+          {
+            label: 'Rights contact',
+            value: { text: 'investigaciondgfn@cultura.gob.mx' },
+          },
+          {
+            label: 'Funding note',
+            value: {
+              text: 'Digitization for The Ricardo Montejano Collection was sponsored by the Modern Endangered Archives Program with funding from Arcadia.',
+            },
+          },
+        ],
+      },
+      {
+        title: 'Notes',
+        items: [
+          {
+            label: 'Description',
+            value: {
+              text: 'This collection includes 3,300 audio recordings that document Mexican social movements and indigenous cultures through the voices of social activists, peasants, native (indigenous) Mexicans, musicians, traditional physicians, and guardians of traditional culture. The original field and studio recordings were collected throughout Mexico by Ricardo Montejano between 1970 and the present. These audio recordings document political and cultural realities of Mexican people.',
+            },
+          },
+        ],
+      },
+      {
+        title: 'Keywords',
+        items: [
+          {
+            label: 'Genre',
+            value: {
+              text: '<a href="/catalog?f%5Bgenre_sim%5D%5B%5D=radio+news+programs">radio news programs</a>',
+            },
+          },
+          {
+            label: 'Subject Geographic',
+            value: {
+              text: '<a href="/catalog?f%5Bsubject_geographic_sim%5D%5B%5D=Mexico">Mexico</a><br><a href="/catalog?f%5Bsubject_geographic_sim%5D%5B%5D=Latin+America">Latin America</a>',
+            },
+          },
+        ],
+      },
+    ],
+    excerptPod: null, // Notes only in grid - no ExcerptPod duplicate
+    buttonMore: {
+      text: 'Browse items in this collection',
+      to: '/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=The+Ricardo+Montejano+Collection',
+    },
   },
   sectionTeaserCards: sharedSectionTeaserCards,
 }
@@ -362,6 +452,6 @@ export const mockPageCollectionsDetailVariant3 = {
 export const mockPageCollectionsDetailVariants = {
   default: mockPageCollectionsDetail,
   albanian: mockPageCollectionsDetailAlbanian,
-  variant2: mockPageCollectionsDetailVariant2,
+  ricardoMontejano: mockPageCollectionsDetailRicardoMontejano,
   variant3: mockPageCollectionsDetailVariant3,
 }
