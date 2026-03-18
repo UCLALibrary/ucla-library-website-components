@@ -26,6 +26,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  noConstraints: {
+    type: Boolean,
+    default: false,
+  },
 })
 // console.log('SectionWrapper code initialized')
 const parentLevel = inject('sectionLevel', 1)
@@ -53,6 +57,7 @@ const classes = computed(() => {
     `section-wrapper${levelComputed.value}`,
     `theme-${props.theme}`,
     { 'top-level': setMargins.value },
+    { 'no-constraints': props.noConstraints },
     theme?.value || ''
   ]
 })

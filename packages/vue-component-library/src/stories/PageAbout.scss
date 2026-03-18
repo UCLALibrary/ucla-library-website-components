@@ -27,16 +27,14 @@
         @include search-field-wrapper;
     }
 
-    .page-about-flexible-blocks .flexible-block-section-wrapper {
+    .flexible-banner-featured {
         padding-bottom: var(--space-2xl);
     }
 
     // Breakpoints
     @media #{$extra-large} {
         --gutters: 48px;
-        .main-content {
-            padding: 0 var(--gutters);
-        }
+
         .search-field-composite-wrapper {
             padding: 0;
         }

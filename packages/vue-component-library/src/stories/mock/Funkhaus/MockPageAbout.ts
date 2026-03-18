@@ -44,6 +44,7 @@ export function getMockPageAboutBlocks() {
       typeHandle: 'bannerFeatured',
       sectionTitle: '',
       sectionSummary: '',
+      noConstraints: true,
       content: [
         {
           id: 'mission-1',
@@ -61,6 +62,7 @@ export function getMockPageAboutBlocks() {
       typeHandle: 'bannerFeatured',
       sectionTitle: '',
       sectionSummary: '',
+      noConstraints: true,
       content: [
         {
           id: 'about-1',
@@ -78,6 +80,7 @@ export function getMockPageAboutBlocks() {
       typeHandle: 'bannerFeatured',
       sectionTitle: '',
       sectionSummary: '',
+      noConstraints: true,
       content: [
         {
           id: 'questions-1',

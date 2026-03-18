@@ -216,6 +216,7 @@ function getWrapperComponent(block) {
         :theme="block.theme"
         :section-title="sectionTitle(block)"
         :section-summary="sectionSummary(block)"
+        :no-constraints="block.noConstraints"
         class="flexible-block-section-wrapper"
       >
         <component :is="getWrapperComponent(block)">
