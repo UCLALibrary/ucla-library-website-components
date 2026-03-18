@@ -34,3 +34,62 @@ export const mockPageAbout = {
     alignRight: true,
   },
 }
+
+export function getMockPageAboutBlocks() {
+  const { missionData, aboutData, questionsData } = mockPageAbout
+
+  return [
+    {
+      id: 'page-about-mission',
+      typeHandle: 'bannerFeatured',
+      sectionTitle: '',
+      sectionSummary: '',
+      content: [
+        {
+          id: 'mission-1',
+          image: [missionData.image],
+          title: missionData.title,
+          summary: missionData.description,
+          alignment: missionData.alignRight ? 'right' : 'left',
+          sectionHandle: 'about',
+          to: '/help/',
+        },
+      ],
+    },
+    {
+      id: 'page-about-ucla',
+      typeHandle: 'bannerFeatured',
+      sectionTitle: '',
+      sectionSummary: '',
+      content: [
+        {
+          id: 'about-1',
+          image: [aboutData.image],
+          title: aboutData.title,
+          summary: aboutData.description,
+          alignment: aboutData.alignRight ? 'right' : 'left',
+          sectionHandle: 'about',
+          to: '/visit/',
+        },
+      ],
+    },
+    {
+      id: 'page-about-questions',
+      typeHandle: 'bannerFeatured',
+      sectionTitle: '',
+      sectionSummary: '',
+      content: [
+        {
+          id: 'questions-1',
+          image: [questionsData.image],
+          title: questionsData.title,
+          summary: questionsData.description,
+          alignment: questionsData.alignRight ? 'right' : 'left',
+          sectionHandle: 'about',
+          secondaryButtons: questionsData.secondaryButtons || [],
+          to: '/',
+        },
+      ],
+    },
+  ]
+}

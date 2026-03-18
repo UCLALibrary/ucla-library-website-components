@@ -3,7 +3,7 @@ import { computed } from 'vue'
 // Import components
 import FooterPrimary from '../lib-components/FooterPrimary.vue'
 import FooterSock from '../lib-components/FooterSock.vue'
-import BannerFeatured from '../lib-components/BannerFeatured.vue'
+import FlexibleBlocks from '../lib-components/FlexibleBlocks.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
 
@@ -12,7 +12,7 @@ import {
   getMockGlobalNavSearch,
   setupGlobalStore,
 } from './helpers/storyHelpers'
-import { mockPageAbout } from '@/stories/mock/Funkhaus/MockPageAbout'
+import { getMockPageAboutBlocks } from '@/stories/mock/Funkhaus/MockPageAbout'
 
 // Import styles
 import './PageAbout.scss'
@@ -44,7 +44,7 @@ function Template(args) {
     components: {
       FooterPrimary,
       FooterSock,
-      BannerFeatured,
+      FlexibleBlocks,
       HeaderSmart,
       NavSearch,
     },
@@ -59,14 +59,10 @@ function Template(args) {
 
       const mockGlobalNavSearch = getMockGlobalNavSearch()
 
-      const { missionData, aboutData, questionsData } = mockPageAbout
-
       return {
         args,
         mockGlobalNavSearch,
-        missionData,
-        aboutData,
-        questionsData,
+        pageAboutBlocks: getMockPageAboutBlocks(),
       }
     },
     template: `
@@ -86,30 +82,9 @@ function Template(args) {
         </div>
 
         <main class="main-content">
-          <!-- Our Mission Section -->
-          <BannerFeatured
-            class="mission-section color-help"
-            :media="missionData.image"
-            :title="missionData.title"
-            :description="missionData.description"
-            :align-right="missionData.alignRight"
-          />
-          <!-- About UCLA Library Section -->
-          <BannerFeatured
-            class="about-section color-visit"
-            :media="aboutData.image"
-            :title="aboutData.title"
-            :description="aboutData.description"
-            :align-right="aboutData.alignRight"
-          />
-          <!-- Have Other Questions Section -->
-          <BannerFeatured
-            class="questions-section"
-            :media="questionsData.image"
-            :title="questionsData.title"
-            :description="questionsData.description"
-            :secondary-buttons="questionsData.secondaryButtons"
-            :align-right="questionsData.alignRight"
+          <FlexibleBlocks
+            class="page-about-flexible-blocks"
+            :blocks="pageAboutBlocks"
           />
         </main>
         

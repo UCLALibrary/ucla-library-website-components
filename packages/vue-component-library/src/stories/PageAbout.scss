@@ -27,9 +27,7 @@
         @include search-field-wrapper;
     }
 
-    .mission-section,
-    .about-section,
-    .questions-section {
+    .page-about-flexible-blocks .flexible-block-section-wrapper {
         padding-bottom: var(--space-2xl);
     }
 
