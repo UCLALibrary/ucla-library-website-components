@@ -17,7 +17,7 @@ import {
   getMockGlobalNavSearch,
   setupGlobalStore,
 } from './helpers/storyHelpers'
-import { mockPageCollectionsDetail } from '@/stories/mock/Funkhaus/MockPageCollectionsDetail'
+import { mockPageCollectionsDetailVariants } from '@/stories/mock/Funkhaus/MockPageCollectionsDetail'
 
 // Import styles
 import './PageCollectionsDetail.scss'
@@ -39,6 +39,12 @@ export default {
       control: { type: 'select' },
       options: ['default', 'dlc'],
       description: 'Theme variant for the page',
+    },
+    variant: {
+      control: { type: 'select' },
+      options: ['default', 'albanian', 'variant2', 'variant3'],
+      description:
+                'Collection page variant (different metadata & overview)',
     },
   },
 }
@@ -67,19 +73,20 @@ function Template(args) {
       // Set up global store with mock header navigation
       setupGlobalStore()
 
+      // Use args from Storybook closure - props are NOT passed by Storybook
+      const variant = args?.variant || 'default'
+      const mockData = mockPageCollectionsDetailVariants[variant]
+
       // Nav Search
       const mockGlobalNavSearch = getMockGlobalNavSearch()
       // Collection Overview
-      const collectionOverviewProps
-                = mockPageCollectionsDetail.collectionOverview
+      const collectionOverviewProps = mockData.collectionOverview
       // Grid Metadata
-      const gridMetadataItems
-                = mockPageCollectionsDetail.gridMetadata.items
-      const buttonMore = mockPageCollectionsDetail.gridMetadata.buttonMore
-      const excerptPod = mockPageCollectionsDetail.gridMetadata.excerptPod
-      // Section Teaser Cards
-      const sectionTeaserCards
-                = mockPageCollectionsDetail.sectionTeaserCards
+      const gridMetadataItems = mockData.gridMetadata.items
+      const buttonMore = mockData.gridMetadata.buttonMore
+      const excerptPod = mockData.gridMetadata.excerptPod
+      // Section Teaser Cards (shared across all variants)
+      const sectionTeaserCards = mockData.sectionTeaserCards
 
       const splitText = (text, sentenceCount) => {
         if (!text)
@@ -130,8 +137,8 @@ function Template(args) {
             <!-- Grid Metadata -->
             <GridMetadata :items="gridMetadataItems">
               <template #after>
-                <div class="excerpt-pod-wrapper">
-                  <!-- Excerpt Pod -->
+                <div v-if="excerptPod" class="excerpt-pod-wrapper">
+                  <!-- Excerpt Pod (only when variant has excerptPod) -->
                   <ExcerptPod
                     :title="excerptPod.title"
                     :subtitle="excerptPod.subtitle"
@@ -182,8 +189,30 @@ function Template(args) {
   }
 }
 
-// Default story
+// Default story (Los Angeles Times)
 export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
+  variant: 'default',
+}
+
+// Albanian Photographic and Graphic Art Collection (scraped)
+export const Albanian = Template.bind({})
+Albanian.args = {
+  theme: 'dlc',
+  variant: 'albanian',
+}
+
+// Placeholder variant 2
+export const Variant2 = Template.bind({})
+Variant2.args = {
+  theme: 'dlc',
+  variant: 'variant2',
+}
+
+// Placeholder variant 3
+export const Variant3 = Template.bind({})
+Variant3.args = {
+  theme: 'dlc',
+  variant: 'variant3',
 }
