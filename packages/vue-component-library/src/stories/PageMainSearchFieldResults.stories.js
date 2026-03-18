@@ -1,7 +1,6 @@
 import { computed, ref, watch } from 'vue'
 
 // Import components
-import SvgIconFilter from 'ucla-library-design-tokens/assets/svgs/icon-dlc-filter.svg'
 import FooterPrimary from '../lib-components/FooterPrimary.vue'
 import FooterSock from '../lib-components/FooterSock.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
@@ -65,7 +64,9 @@ export default {
 
 function Template(args) {
   // Initialize router with query so ButtonPageView can build URLs correctly
-  router.push({ query: router.currentRoute.value.query })
+  // Use args.initialQuery when provided (e.g. for AllResults, NoResults stories)
+  const query = args.initialQuery !== undefined ? args.initialQuery : router.currentRoute.value.query
+  router.replace({ path: '/', query })
   return {
     components: {
       HeaderSmart,
@@ -83,7 +84,6 @@ function Template(args) {
       SmartLink,
       DefinitionList,
       DividerGeneral,
-      SvgIconFilter,
       RefineSearchPanel,
     },
     provide() {
@@ -97,10 +97,25 @@ function Template(args) {
 
       const mockGlobalNavSearch = getMockGlobalNavSearch()
 
-      // Initialize Elasticsearch search composable
-      // This provides: loading state, error handling, total count, hits array, and performSearch function
-      const { loading, error, total, hits, performSearch }
-                = useElasticSearch()
+      // When mockSearchState is provided (e.g. NoResults story), skip real API calls and use static data
+      const useMockState = !!args.mockSearchState
+      let loading, error, total, hits, performSearch
+      if (useMockState) {
+        const state = args.mockSearchState
+        loading = ref(state.loading ?? false)
+        error = ref(state.error ?? null)
+        total = ref(state.total ?? 0)
+        hits = ref(state.hits ?? [])
+        performSearch = () => {} // no-op: no API call
+      }
+      else {
+        const es = useElasticSearch()
+        loading = es.loading
+        error = es.error
+        total = es.total
+        hits = es.hits
+        performSearch = es.performSearch
+      }
 
       const isGridLayout = ref(false)
 
@@ -566,6 +581,20 @@ function Template(args) {
         Object.assign(activeFilters.value, selections)
       }
 
+      /**
+       * Handle "See All" click in RefineSearchPanel - open the filter modal
+       */
+      const handleOpenSeeAllModal = () => {
+        isModalFilterOpen.value = true
+      }
+
+      /**
+       * Handle modal close
+       */
+      const handleCloseModal = () => {
+        isModalFilterOpen.value = false
+      }
+
       // Execute initial search when component mounts
       executeSearch()
 
@@ -591,6 +620,8 @@ function Template(args) {
         mockSearchFilters,
         handlePageChange,
         handleRefineSearchSelectionChange,
+        handleOpenSeeAllModal,
+        handleCloseModal,
       }
     },
     template: `
@@ -633,15 +664,6 @@ function Template(args) {
                  :animate="searchResultsCount?.animate || false"
                  class="search-results-count"
                />
-               <button
-                 type="button"
-                 class="button-filter-modal"
-                 aria-label="Open filter modal"
-                 @click="isModalFilterOpen = true"
-               >
-                 <SvgIconFilter class="icon-filter" />
-                 <span>Refine Search</span>
-               </button>
              </div>
              <div class="sort-container">
                <DropdownSingleSelect
@@ -673,15 +695,6 @@ function Template(args) {
                  :label="searchResultsCount.label"
                  :animate="searchResultsCount.animate"
                />
-               <button
-                 type="button"
-                 class="button-filter-modal"
-                 aria-label="Open filter modal"
-                 @click="isModalFilterOpen = true"
-               >
-                 <SvgIconFilter class="icon-filter" />
-                 <span>Refine Search</span>
-               </button>
               <ButtonPageView />
              </div>
              <div class="sort-container">
@@ -711,6 +724,7 @@ function Template(args) {
                  :title="mockRefineSearchPanel.title"
                  :filters="mockRefineSearchPanel.filters"
                  @selection-change="handleRefineSearchSelectionChange"
+                 @open-see-all-modal="handleOpenSeeAllModal"
                />
              </aside>
 
@@ -807,7 +821,7 @@ function Template(args) {
            <ModalFilter
              :is-open="isModalFilterOpen"
              :items="mockRefineSearchPanel.modalFilterItems"
-             @close="isModalFilterOpen = false"
+             @close="handleCloseModal"
            /> 
          </main>
           
@@ -824,4 +838,34 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
+}
+
+// All results: no search keyword - default behavior shows all results (match_all query)
+export const AllResults = Template.bind({})
+AllResults.args = {
+  theme: 'dlc',
+  initialQuery: {},
+}
+AllResults.parameters = {
+  docs: {
+    description: {
+      story: 'When there is no search keyword, the default behavior is to show all results.',
+    },
+  },
+}
+
+// No results: static mock state, no API call, count stays at 0
+export const NoResults = Template.bind({})
+NoResults.args = {
+  theme: 'dlc',
+  initialQuery: { q: 'xyznonexistent999' },
+  mockSearchState: { total: 0, hits: [], loading: false },
+
+}
+NoResults.parameters = {
+  docs: {
+    description: {
+      story: 'No results when the search does not return any results.',
+    },
+  },
 }

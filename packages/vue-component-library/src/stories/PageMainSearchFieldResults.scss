@@ -207,6 +207,10 @@
         display: none;
     }
 
+    .bento-box-results-section {
+        margin-top: 24px;
+    }
+
     // Breakpoints
     @media #{$medium} {
         --horizontal-gap: 24px;
