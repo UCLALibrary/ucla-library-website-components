@@ -42,7 +42,7 @@ export default {
     },
     variant: {
       control: { type: 'select' },
-      options: ['default', 'albanian', 'ricardoMontejano', 'variant3'],
+      options: ['default', 'albanian', 'ricardoMontejano', 'motionPictureStills'],
       description:
                 'Collection page variant (different metadata & overview)',
     },
@@ -210,9 +210,9 @@ RicardoMontejano.args = {
   variant: 'ricardoMontejano',
 }
 
-// Placeholder variant 3
-export const Variant3 = Template.bind({})
-Variant3.args = {
+// Motion Picture Stills, 1903- (scraped)
+export const MotionPictureStills = Template.bind({})
+MotionPictureStills.args = {
   theme: 'dlc',
-  variant: 'variant3',
+  variant: 'motionPictureStills',
 }

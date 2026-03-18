@@ -430,20 +430,89 @@ export const mockPageCollectionsDetailRicardoMontejano = {
   sectionTeaserCards: sharedSectionTeaserCards,
 }
 
-// Variant 4: Placeholder for future scraped data
-export const mockPageCollectionsDetailVariant3 = {
-  ...mockPageCollectionsDetail,
+// Variant 4: Motion Picture Stills, 1903- (scraped from UCLA DLC)
+export const mockPageCollectionsDetailMotionPictureStills = {
   collectionOverview: {
-    ...mockPageCollectionsDetail.collectionOverview,
-    title: 'Collection Variant 3',
-    itemsCount: 12000,
-    description: 'Placeholder description for variant 3. Add scraped data when available.',
+    title: 'Motion Picture Stills, 1903-',
+    subtitle: 'About this Collection',
+    itemsCount: 10280,
+    blockButtons: {
+      buttons: [
+        {
+          label: 'Browse items in this collection',
+          to: '/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Motion+Picture+Stills%2C+1903-',
+          iconName: ButtonLinkIcons.ARROW_RIGHT,
+        },
+      ],
+    },
+    description:
+      'American motion picture film stills; includes black and white photographs and some color prints and slides; also includes publicity stills from various studios. The bulk of the collection dates from the early 1920s on.',
+    image: API.image,
   },
   gridMetadata: {
-    ...mockPageCollectionsDetail.gridMetadata,
-    items: mockPageCollectionsDetail.gridMetadata.items.slice(0, 2),
-    excerptPod: mockPageCollectionsDetail.gridMetadata.excerptPod,
-    buttonMore: mockPageCollectionsDetail.gridMetadata.buttonMore,
+    items: [
+      {
+        title: 'Collection Overview',
+        items: [
+          {
+            label: 'Date created',
+            value: { text: '1920-' },
+          },
+        ],
+      },
+      {
+        title: 'Find this Collection',
+        items: [
+          {
+            label: 'Repository',
+            value: {
+              text: 'University of California, Los Angeles. Library. Performing Arts Special Collections',
+              href: '/catalog?f%5Brepository_sim%5D%5B%5D=University+of+California%2C+Los+Angeles.+Library.+Performing+Arts+Special+Collections',
+            },
+          },
+          {
+            label: 'ARK',
+            value: { text: 'ark:/21198/zz0015w23z' },
+          },
+          {
+            label: 'Opac url',
+            value: {
+              text: 'https://search.library.ucla.edu/permalink/01UCS_LAL/17p22dp/alma9942328283606533',
+              href: 'https://search.library.ucla.edu/permalink/01UCS_LAL/17p22dp/alma9942328283606533',
+            },
+          },
+          {
+            label: 'Finding Aid URL',
+            value: {
+              text: 'https://oac.cdlib.org/findaid/ark:/13030/kt9779q7sn/',
+              href: 'https://oac.cdlib.org/findaid/ark:/13030/kt9779q7sn/',
+            },
+          },
+          {
+            label: 'Manifest URL',
+            showButtonIiif: true,
+            buttonIiifTo: 'https://iiif.library.ucla.edu/collections/ark%3A%2F21198%2Fzz0015w23z',
+            value: [],
+          },
+        ],
+      },
+      {
+        title: 'Keywords',
+        items: [
+          {
+            label: 'Genre',
+            value: {
+              text: '<a href="/catalog?f%5Bgenre_sim%5D%5B%5D=color+photographs">color photographs</a><br><a href="/catalog?f%5Bgenre_sim%5D%5B%5D=Black-and-white+photographs">Black-and-white photographs</a>',
+            },
+          },
+        ],
+      },
+    ],
+    excerptPod: null, // No Notes in this collection
+    buttonMore: {
+      text: 'Browse items in this collection',
+      to: '/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Motion+Picture+Stills%2C+1903-',
+    },
   },
   sectionTeaserCards: sharedSectionTeaserCards,
 }
@@ -453,5 +522,5 @@ export const mockPageCollectionsDetailVariants = {
   default: mockPageCollectionsDetail,
   albanian: mockPageCollectionsDetailAlbanian,
   ricardoMontejano: mockPageCollectionsDetailRicardoMontejano,
-  variant3: mockPageCollectionsDetailVariant3,
+  motionPictureStills: mockPageCollectionsDetailMotionPictureStills,
 }
