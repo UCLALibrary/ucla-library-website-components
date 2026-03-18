@@ -41,7 +41,7 @@ export default {
     },
     variant: {
       control: { type: 'select' },
-      options: ['default', 'songsGirlhood', 'variant2', 'variant3'],
+      options: ['default', 'songsGirlhood', 'castaicBridge', 'variant3'],
       description: 'Asset detail page variant',
     },
   },
@@ -163,11 +163,11 @@ SongsGirlhood.args = {
   variant: 'songsGirlhood',
 }
 
-// Placeholder variant 2
-export const Variant2 = Template.bind({})
-Variant2.args = {
+// Main Highway Bridge at Castaic Junction (Saint Francis Dam) - scraped
+export const CastaicBridge = Template.bind({})
+CastaicBridge.args = {
   theme: 'dlc',
-  variant: 'variant2',
+  variant: 'castaicBridge',
 }
 
 // Placeholder variant 3
