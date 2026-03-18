@@ -64,7 +64,6 @@ const mockFTVAGalleryComputedData = computed(() => {
       credit: rawItem.creditText,
       captionText: 'Caption text', // TODO get homepage carousel data sample to make more accurate
       captionTitle: 'Caption title', // TODO get homepage carousel data sample to make more accurate
-      altText: 'A descriptive text for this image',
     }
   })
 })
@@ -150,7 +149,7 @@ const parsedMockHomepagCarousel = computed(() => {
       tag: parseFTVATypeHandles(rawItem.typeHandle),
       captionText: rawItem.ftvaHomepageDescription,
       captionTitle: rawItem.ftvaHomepageTitle,
-      itemDate: parseDatesAndTimes(rawItem.typeHandle, rawItem.startDate, rawItem.endDate, rawItem.startDateWithTime, rawItem.ongoing),
+      itemDate: parseDatesAndTimes(rawItem.typeHandle, rawItem.startDate, rawItem.endDate, rawItem.startDateWithTime, rawItem.ongoing)
     }
   })
 })
@@ -159,14 +158,7 @@ export function FTVA_HomepageCarousel() {
   return {
     data() {
       return {
-        items: parsedMockHomepagCarousel.value.map((item) => ({
-          ...item,
-          // Ensure inner image array has alt attribute
-          item: item.item.map((img) => ({
-            ...img,
-            altText: img.alt || img.altText || 'A descriptive text for this image', // fallback
-          })),
-        })),
+        items: parsedMockHomepagCarousel
       }
     },
     provide() {
