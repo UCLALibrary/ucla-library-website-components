@@ -140,7 +140,6 @@ function setCurrentSlide(currentSlide: number) {
           :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item"
           :cover-image="item.coverImage" :embed-code="item.embedCode"
           class="library-media-item"
-          :alt="item.item[0]?.altText || 'Image description missing'"
         >
           <div v-if="item.credit" class="credit-text">
             <span v-text="item.credit" />
