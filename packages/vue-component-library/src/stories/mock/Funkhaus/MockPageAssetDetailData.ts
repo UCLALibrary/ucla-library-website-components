@@ -450,17 +450,166 @@ export const mockPageAssetDetailDataCastaicBridge = {
   },
 }
 
-// Variant 4: Placeholder for future scraped data
-export const mockPageAssetDetailDataVariant3 = {
-  ...mockPageAssetDetailData,
+// Variant 4: Black Urban Images in Los Angeles, 1987 - scraped from UCLA DLC
+export const mockPageAssetDetailDataBlackUrbanImages = {
+  detailHeader: {
+    totalResults: 21963,
+    tag: {
+      name: 'Collection',
+      value: {
+        label: 'Tom Reed Collection',
+        to: '/catalog/ark:/21198/z1wq1vx1',
+      },
+    },
+    previousTo: null,
+    nextTo: null,
+    backTo: '/catalog',
+  },
   detailMedia: {
-    ...mockPageAssetDetailData.detailMedia,
-    title: 'Asset Variant 3',
-    description: 'Placeholder for variant 3.',
+    manifestUrl: 'https://iiif.library.ucla.edu/ark%3A%2F21198%2Fz1rv42n6/manifest',
+    title: 'Black Urban Images in Los Angeles,1987',
+    description:
+      'Tom Reed program on the Black community in Los Angeles in 1987. Features interviews with Ted Hayes, Nate Holden, Jim Cleaver, Dr. Beverly Robinson, Solomon Herbert, Elaine Pounds, Denzel Washington, Dr. Curtis C. Roseman, Dr. E. Frederick Anderson, Earl Ofari Hutchinson, and George McKenna.',
   },
   gridMetadata: {
-    ...mockPageAssetDetailData.gridMetadata,
-    items: mockPageAssetDetailData.gridMetadata.items.slice(0, 2),
+    items: [
+      {
+        title: 'Item Overview',
+        items: [
+          {
+            label: 'Title',
+            value: { text: 'Black Urban Images in Los Angeles,1987' },
+          },
+          {
+            label: 'Producer',
+            value: {
+              text: 'Reed, Tom, 1936-',
+              href: '/catalog?f%5Bproducer_sim%5D%5B%5D=Reed%2C+Tom%2C+1936-',
+            },
+          },
+          {
+            label: 'Date created',
+            value: { text: '1987-11-20' },
+          },
+          {
+            label: 'Collection',
+            value: {
+              text: 'Tom Reed Collection',
+              href: '/catalog/ark:/21198/z1wq1vx1',
+            },
+          },
+        ],
+      },
+      {
+        title: 'Notes',
+        items: [
+          {
+            label: 'Table of contents',
+            value: {
+              text: 'Segment 1: Host, Tom Reed, introduces the topic of the program: an overview of the Black community in Los Angeles in 1987.<br/><br/>Segment 2: Interview with Ted Hayes, activist for the unhoused in Los Angeles and creator of Justiceville, a community of unhoused residents in Los Angeles. Hayes and Reed discuss the issue of housing insecurity in Los Angeles as well as the activist work Hayes has done in the city.<br/><br/>Segment 3: Interview with Nate Holden, newly elected council member for the 10th District in Los Angeles. Holden and Reed discuss his election campaign, his leadership philosophy, and critical issues in the 10th District. The segment ends with an excerpt from an interview with Robert Farrell, Los Angeles City Council member for the 8th District. Farrell discusses Tom Bradley\'s work as the council member for the 10th District before Bradley was elected as Mayor of Los Angeles.<br/><br/>Segment 4: Interview with Jim Cleaver, Deputy Supervisor for County Supervisor Kenneth Hahn. Cleaver discusses changes in the political landscape of Los Angeles.<br/><br/>Segment 5: Interview with Dr. Beverly Robinson, associate professor of Theater Arts and Folklore Studies at UCLA, Solomon Herbert, President of the Black Journalist Association of Southern California, and Elaine Pounds, Director of the Los Angeles Black Media Coalition. Tom Reed facilitates a discussion with the three interviewees about Black culture - particularly its presence in Los Angeles - and the representation of Black people in media and journalism.<br/><br/>Segment 6: An excerpt from an interview with actor, Denzel Washington, where he discusses the importance of Black creators writing, directing, and producing their own stories.<br/><br/>Segment 7: Interview with Dr. Curtis C. Roseman, professor of geography at USC. Roseman discusses a recently published article in the Los Angeles Times, "Black Flight From L.A.," based on a study performed by himself and James H. Johnson, professor of geography at UCLA. They discuss the historical trends of Black people leaving Los Angeles and the potential causes of this trend.<br/><br/>Segment 8: Interview with Dr. E. Frederick Anderson, Director of Training and Social Work at Children\'s Hospital Los Angeles, and Earl Ofari Hutchinson, author of the book "Crime: Why It Exists, What Can Be Done." Anderson and Hutchinson discuss crime within and against the Black community in Los Angeles.<br/><br/>Segment 9: Interview with educator George McKenna, principal of George Washington Preparatory High School in South Los Angeles. McKenna discusses his experience as a Black educator in the United States.<br/><br/>Segment 10: A clip of Roger Hamilton Spotts\' Big Band and Ernie Andrews performing the song "You Are So Beautiful" at the Watts Tower Art Center Music Festival.<br/><br/>Commercials: Malik Ali, Corporate Manager of Minority Business Enterprise at Walt Disney Company and the company\'s partnership with minority business owners; the film <i>Cry Freedom</i>; Willie Dixon Presents Luke Hayes and The New Blues, "It Don\'t Make Sense You Can\'t Make Peace"; Krylon spray paint; Walt Disney World featuring cast members from <i>The Cosby Show</i>; Budweiser; Los Angeles Police Department Recruitment; Borden; the film <i>Captain EO</i> in 3D at Disneyland; AMPM; First Annual John Coltrane Concert at the Wilshire Ebell Theater; David Sanborn\'s album "A Change of Heart."',
+            },
+          },
+        ],
+      },
+      {
+        title: 'Physical Description',
+        items: [
+          {
+            label: 'Extent',
+            value: { text: '0:58:41' },
+          },
+          {
+            label: 'Dimensions',
+            value: { text: '3/4 in.' },
+          },
+          {
+            label: 'Medium',
+            value: { text: 'VIDEOCASSETTE' },
+          },
+        ],
+      },
+      {
+        title: 'Keywords',
+        items: [
+          {
+            label: 'Named subject',
+            value: {
+              text: '<a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=McKenna%2C+George">McKenna, George</a><br><a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=Spotts%2C+Roger+Hamilton">Spotts, Roger Hamilton</a><br><a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=Farrell%2C+Robert">Farrell, Robert</a><br><a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=Anderson%2C+E.+Frederick">Anderson, E. Frederick</a><br><a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=Robinson%2C+Beverly">Robinson, Beverly</a><br><a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=Holden%2C+Nate">Holden, Nate</a><br><a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=Herbert%2C+Solomon">Herbert, Solomon</a><br><a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=Roseman%2C+Curtis+C.">Roseman, Curtis C.</a><br><a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=Washington%2C+Denzel">Washington, Denzel</a><br><a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=Hutchinson%2C+Earl+Ofari">Hutchinson, Earl Ofari</a><br><a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=Andrews%2C+Ernie">Andrews, Ernie</a><br><a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=Cleaver%2C+Jim">Cleaver, Jim</a><br><a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=Hayes%2C+Ted">Hayes, Ted</a><br><a href="/catalog?f%5Bnamed_subject_sim%5D%5B%5D=Pounds%2C+Elaine">Pounds, Elaine</a>',
+            },
+          },
+          {
+            label: 'Resource type',
+            value: {
+              text: '<a href="/catalog?f%5Bhuman_readable_resource_type_sim%5D%5B%5D=moving+image">moving image</a>',
+            },
+          },
+          {
+            label: 'Subjects',
+            value: {
+              text: '<a href="/catalog?f%5Bsubject_sim%5D%5B%5D=African+Americans--Social+conditions--1987--Los+Angeles">African Americans--Social conditions--1987--Los Angeles</a>',
+            },
+          },
+        ],
+      },
+      {
+        title: 'Find This Item',
+        items: [
+          {
+            label: 'Repository',
+            value: {
+              text: 'UCLA Film & Television Archive',
+              href: '/catalog?f%5Brepository_sim%5D%5B%5D=UCLA+Film+%26+Television+Archive',
+            },
+          },
+          {
+            label: 'Local identifier',
+            value: { text: 'T164247' },
+          },
+          {
+            label: 'ARK',
+            value: { text: 'ark:/21198/z1rv42n6' },
+          },
+        ],
+      },
+      {
+        title: 'Use This Item',
+        items: [
+          {
+            label: 'Manifest url',
+            showButtonIiif: true,
+            buttonIiifTo: 'https://iiif.library.ucla.edu/ark%3A%2F21198%2Fz1rv42n6/manifest',
+            value: [],
+          },
+          {
+            label: 'Learn about IIIF',
+            value: {
+              text: '<a href="https://guides.library.ucla.edu/digital-collections/iiif" target="_blank">IIIF Guide &amp; Toolkit</a>',
+            },
+          },
+          {
+            label: 'How to cite',
+            value: {
+              text: '<a href="https://guides.library.ucla.edu/digital-collections/cite" target="_blank">Citation Guide</a>',
+            },
+          },
+        ],
+      },
+      {
+        title: 'Access Condition',
+        items: [
+          {
+            label: 'Rights statement',
+            value: { text: 'copyrighted' },
+          },
+          {
+            label: 'Funding note',
+            value: {
+              text: 'Preservation funded by the John H. Mitchell Television Preservation Endowment',
+            },
+          },
+        ],
+      },
+    ],
   },
 }
 
@@ -469,5 +618,5 @@ export const mockPageAssetDetailDataVariants = {
   default: mockPageAssetDetailData,
   songsGirlhood: mockPageAssetDetailDataSongsGirlhood,
   castaicBridge: mockPageAssetDetailDataCastaicBridge,
-  variant3: mockPageAssetDetailDataVariant3,
+  blackUrbanImages: mockPageAssetDetailDataBlackUrbanImages,
 }

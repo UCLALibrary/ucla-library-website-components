@@ -41,7 +41,7 @@ export default {
     },
     variant: {
       control: { type: 'select' },
-      options: ['default', 'songsGirlhood', 'castaicBridge', 'variant3'],
+      options: ['default', 'songsGirlhood', 'castaicBridge', 'blackUrbanImages'],
       description: 'Asset detail page variant',
     },
   },
@@ -170,9 +170,9 @@ CastaicBridge.args = {
   variant: 'castaicBridge',
 }
 
-// Placeholder variant 3
-export const Variant3 = Template.bind({})
-Variant3.args = {
+// Black Urban Images in Los Angeles, 1987 - scraped
+export const BlackUrbanImages = Template.bind({})
+BlackUrbanImages.args = {
   theme: 'dlc',
-  variant: 'variant3',
+  variant: 'blackUrbanImages',
 }
