@@ -121,6 +121,7 @@ function setCurrentSlide(currentSlide: number) {
 
     <!-- A11Y FIX: SCREEN READER LIVE REGION -->
     <p
+      class="screen-reader-live"
       aria-live="polite"
       aria-atomic="true"
     >
@@ -139,6 +140,7 @@ function setCurrentSlide(currentSlide: number) {
           :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item"
           :cover-image="item.coverImage" :embed-code="item.embedCode"
           class="library-media-item"
+          :alt="item.item[0]?.altText || 'Image description missing'"
         >
           <div v-if="item.credit" class="credit-text">
             <span v-text="item.credit" />
@@ -160,12 +162,12 @@ function setCurrentSlide(currentSlide: number) {
 
     <!-- PAGINATION -->
     <div class="caption-block">
-      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="group" aria-label="Slide navigation buttons">
+      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="group" aria-label="Slide navigation">
         <button
           v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex"
           class="media-counter-item" :aria-label="`Go to slide ${index} of ${items.length}`" :aria-current="index - 1 === selectionIndex ? 'true' : undefined" @click="setCurrentSlide(index - 1)"
         >
-          <SvgIconMoleculeBullet />
+          <SvgIconMoleculeBullet aria-hidden="true" focusable="false" />
         </button>
       </div>
       <!-- CAPTIONS -->
@@ -213,4 +215,12 @@ function setCurrentSlide(currentSlide: number) {
 <style lang="scss" scoped>
 @import "@/styles/default/_new-lightbox.scss";
 @import "@/styles/ftva/_new-lightbox.scss";
+// Axe Focus styles not visible - Elements must have visible focus
+button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+.screen-reader-live {
+  @include visually-hidden;
+}
 </style>
