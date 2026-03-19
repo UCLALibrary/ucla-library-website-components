@@ -33,7 +33,7 @@ const classes = computed(() => {
         v-html="block.sectionSummary"
       />
     </div>
-    <ul class="impact-number-cards-list">
+    <ul v-if="block.impactNumberCards && block.impactNumberCards.length > 0" class="impact-number-cards-list">
       <ImpactNumberCard
         v-for="(item, index) in block.impactNumberCards"
         :key="`impactNumberCards${index}`"

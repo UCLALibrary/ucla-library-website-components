@@ -245,7 +245,7 @@ function CustomSlotTemplate(args: any) {
             <h4 style="margin: 0; font-size: 18px;">{{ item.title }}</h4>
             <p style="margin: 0; font-size: 14px; line-height: 1.4;">{{ item.detail }}</p>
             <a :href="item.to" style="font-weight: 600; color: #0047bb;">{{ item.cta }}</a>
-            <ul v-if="item.items?.length" style="margin: 4px 0 0; padding-left: 18px; line-height: 1.5; font-size: 13px;">
+            <ul v-if="item.items && item.items?.length > 0" style="margin: 4px 0 0; padding-left: 18px; line-height: 1.5; font-size: 13px;">
               <li v-for="(entry, i) in item.items" :key="entry + i">{{ entry }}</li>
             </ul>
           </div>
