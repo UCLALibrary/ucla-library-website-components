@@ -1,182 +1,158 @@
-<script lang="ts" setup>
-import { computed, defineAsyncComponent, onMounted, ref } from 'vue'
-import type { PropType } from 'vue'
+<script lang="ts" setup>import {
+    computed,
+    defineAsyncComponent,
+    onMounted,
+    ref
+}
+
+from 'vue'
+
+import type {
+    PropType
+}
+
+from 'vue'
 import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide } from 'vue3-carousel'
+
+import {
+    Carousel,
+    Slide
+}
+
+from 'vue3-carousel'
 
 import SvgIconCaretLeft from 'ucla-library-design-tokens/assets/svgs/icon-caret-circle-left.svg'
 import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-circle-right.svg'
 import SvgIconClose from 'ucla-library-design-tokens/assets/svgs/icon-close-large.svg'
 import SvgIconMoleculeBullet from 'ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg'
 import SmartLink from '../../SmartLink.vue'
-import type { MediaGalleryItemType } from '@/types/types'
+
+import type {
+    MediaGalleryItemType
+}
+
+from '@/types/types'
 import MediaItem from '@/lib-components/Media/Item.vue'
 
-import { useTheme } from '@/composables/useTheme'
+import {
+    useTheme
+}
 
-const { items, selectedItem, inline } = defineProps({
-  items: {
-    type: Array as PropType<MediaGalleryItemType[]>,
-    default: () => [],
-    required: true,
-  },
+from '@/composables/useTheme'
 
-  selectedItem: {
-    type: Number,
-    default: 0,
-  },
+const {
+    items,
+    selectedItem,
+    inline
+}
 
-  // Triggers Lightbox to be overlaid (default) or inline
-  inline: {
-    type: Boolean,
-    default: false
-  }
-})
+=defineProps({
+    items: {
+        type: Array as PropType<MediaGalleryItemType[]>,
+        default: ()=> [],
+        required: true,
+    }
 
-const emit = defineEmits<{
-  (e: 'closeModal'): void
-}>()
+    ,
 
-const theme = useTheme()
+    selectedItem: {
+        type: Number,
+        default: 0,
+    }
 
-const SvgExternalLink = defineAsyncComponent(() =>
-  import(
-    'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
-  )
-)
+    ,
 
-const selectionIndex = ref(selectedItem)
+    // Triggers Lightbox to be overlaid (default) or inline
+    inline: {
+        type: Boolean,
+        default: false
+    }
 
-const captionTitle = computed(() => {
-  return items.map(item => item.captionTitle)
-})
-const captionText = computed(() => {
-  return items.map(item => item.captionText)
-})
-const classes = computed(() => {
-  return ['lightbox', theme?.value || '', inline ? 'inline' : '']
-})
-// if ftva, pass cover as object fit, otherwise contain
+}) const emit=defineEmits< {
+    (e: 'closeModal'): void
+}
+
+>() const theme=useTheme() const SvgExternalLink=defineAsyncComponent(()=> import('ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
+
+    )) const selectionIndex=ref(selectedItem) const captionTitle=computed(()=> {
+        return items.map(item=> item.captionTitle)
+
+    }) const captionText=computed(()=> {
+        return items.map(item=> item.captionText)
+
+    }) const classes=computed(()=> {
+        return ['lightbox', theme?.value || '', inline ? 'inline' : '']
+    }) // if ftva, pass cover as object fit, otherwise contain
+
 // note: this is overwritten with css styles for ftva media gallery carousels
-const parsedObjectFit = computed(() => {
-  return theme?.value === 'ftva' ? 'cover' : 'contain'
-})
-
-const lightbox = ref<HTMLElement | null>(null) // replacing this.$refs.lightbox
+const parsedObjectFit=computed(()=> {
+        return theme?.value==='ftva' ? 'cover' : 'contain'
+    }) const lightbox=ref<HTMLElement | null>(null) // replacing this.$refs.lightbox
 
 // For FTVA Homepage Carousel:
-const prevBtnRef = ref()
-const nextBtnRef = ref()
-const paginationCounterRef = ref()
+const prevBtnRef=ref() const nextBtnRef=ref() const paginationCounterRef=ref() onMounted(()=> {
+        lightbox.value?.focus() // Sets placement of arrows for FTVA Homepage Carousel
+        setFTVAHomepageNavigationArrows()
+    }) // For FTVA Homepage Carousel:
 
-onMounted(() => {
-  lightbox.value?.focus()
-
-  // Sets placement of arrows for FTVA Homepage Carousel
-  setFTVAHomepageNavigationArrows()
-})
-
-// For FTVA Homepage Carousel:
 // Offset placement of navigation arrows based on width of pagination counter
 function setFTVAHomepageNavigationArrows() {
-  // Prevent getBoundingClientRect error when there is no pagination counter, i.e., only single item in the carousel
-  if (items.length < 2)
-    return null
 
-  const coordinates = paginationCounterRef.value.getBoundingClientRect()
+    // Prevent getBoundingClientRect error when there is no pagination counter, i.e., only single item in the carousel
+    if (items.length < 2) return null const coordinates=paginationCounterRef.value.getBoundingClientRect() prevBtnRef.value.style.setProperty('--counterWidth', `$ {
+            coordinates.width
+        }
 
-  prevBtnRef.value.style.setProperty('--counterWidth', `${coordinates.width}px`)
-  nextBtnRef.value.style.setProperty('--counterWidth', `${coordinates.width}px`)
+        px`) nextBtnRef.value.style.setProperty('--counterWidth', `$ {
+            coordinates.width
+        }
+
+        px`)
 }
 
 function closeModal() {
-  emit('closeModal')
+    emit('closeModal')
 }
 
 function setCurrentSlide(currentSlide: number) {
-  selectionIndex.value = currentSlide
+    selectionIndex.value=currentSlide
 }
-</script>
 
-<template>
-  <div ref="lightbox" :class="classes">
-    <button class="button-close" aria-label="Close" @click="closeModal">
-      <SvgIconClose aria-hidden="true" />
-    </button>
+</script><template><div ref="lightbox" :class="classes"><button class="button-close" aria-label="Close"@click="closeModal"><SvgIconClose aria-hidden="true" /></button><Carousel v-model="selectionIndex" class="media-container"><Slide v-for="(item, index) in items" :key="`media-container-${index}`"><MediaItem :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item"
+:cover-image="item.coverImage" :embed-code="item.embedCode"
+class="library-media-item"
+:style="{ display: selectionIndex === index ? '' : 'none' }"
+><div v-if="item.credit" class="credit-text"><span v-text="item.credit" /></div></MediaItem></Slide></Carousel>< !-- Navigation --><button v-if="items.length > 1" ref="prevBtnRef" class="button-prev" aria-label="Show previous image" :disabled="selectionIndex <= 0"@click="selectionIndex -= 1"><SvgIconCaretLeft aria-hidden="true" /></button><button v-if="items.length > 1" ref="nextBtnRef" class="button-next" aria-label="Show next image" :disabled="selectionIndex >= items.length - 1"
+@click="selectionIndex += 1"
+><SvgIconCaretRight aria-hidden="true" /></button>< !-- Pagination --><div class="caption-block"><div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="tablist"><button v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex" role="tab"
+class="media-counter-item" :aria-label="`Go to slide ${index}`"@click="setCurrentSlide(index - 1)"
 
-    <Carousel v-model="selectionIndex" class="media-container">
-      <Slide v-for="(item, index) in items" :key="`media-container-${index}`">
-        <MediaItem
-          :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item"
-          :cover-image="item.coverImage" :embed-code="item.embedCode"
-          class="library-media-item"
-          :style="{ display: selectionIndex === index ? '' : 'none' }"
-        >
-          <div v-if="item.credit" class="credit-text">
-            <span v-text="item.credit" />
-          </div>
-        </MediaItem>
-      </Slide>
-    </Carousel>
+><SvgIconMoleculeBullet /></button></div>< !-- Captions --><div class="caption-content"><div class="media-object-caption-slot"><slot :selection-index="selectionIndex" />< !-- additional blocktags/labels/simple elements can be slotted in here by parent --></div>< !-- if a url is provided make the title clickable --><h4 v-if="captionTitle[selectionIndex]" class="media-object-title"><template v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl"><SmartLink :to="items[selectionIndex].linkUrl"> {
+        {
+        captionTitle[selectionIndex]
+    }
+}
 
-    <!-- Navigation -->
-    <button v-if="items.length > 1" ref="prevBtnRef" class="button-prev" aria-label="Show previous image" :disabled="selectionIndex <= 0" @click="selectionIndex -= 1">
-      <SvgIconCaretLeft aria-hidden="true" />
-    </button>
-    <button
-      v-if="items.length > 1" ref="nextBtnRef" class="button-next" aria-label="Show next image" :disabled="selectionIndex >= items.length - 1"
-      @click="selectionIndex += 1"
-    >
-      <SvgIconCaretRight aria-hidden="true" />
-    </button>
+</SmartLink></template><template v-else> {
+        {
+        captionTitle[selectionIndex]
+    }
+}
 
-    <!-- Pagination -->
-    <div class="caption-block">
-      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="tablist">
-        <button
-          v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex" role="tab"
-          class="media-counter-item" :aria-label="`Go to slide ${index}`" @click="setCurrentSlide(index - 1)"
-        >
-          <SvgIconMoleculeBullet />
-        </button>
-      </div>
-      <!-- Captions -->
-      <div class="caption-content">
-        <div class="media-object-caption-slot">
-          <slot :selection-index="selectionIndex" />
-          <!-- additional blocktags/labels/simple elements can be slotted in here by parent -->
-        </div>
-        <!-- if a url is provided make the title clickable -->
-        <h4 v-if="captionTitle[selectionIndex]" class="media-object-title">
-          <template v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl">
-            <SmartLink :to="items[selectionIndex].linkUrl">
-              {{ captionTitle[selectionIndex] }}
-            </SmartLink>
-          </template>
-          <template v-else>
-            {{ captionTitle[selectionIndex] }}
-          </template>
-        </h4>
-        <p v-if="captionText" class="media-object-caption" v-text="captionText[selectionIndex]" />
+</template></h4><p v-if="captionText" class="media-object-caption" v-text="captionText[selectionIndex]" /><p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit"> {
+        {
+        items[selectionIndex].credit
+    }
+}
 
-        <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
-          {{ items[selectionIndex].credit }}
-        </p>
+</p><SmartLink v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl
+ && items[selectionIndex].linkText " class=" media-object-caption-link" :to=" items[selectionIndex].linkUrl"
+> {
+        {
+        items[selectionIndex].linkText
+    }
+}
 
-        <SmartLink
-          v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl
-            && items[selectionIndex].linkText
-          " class="media-object-caption-link" :to="items[selectionIndex].linkUrl"
-        >
-          {{ items[selectionIndex].linkText }}
-          <SvgExternalLink />
-        </SmartLink>
-      </div>
-    </div>
-  </div>
-</template>
-
-<style lang="scss" scoped>
-@import "@/styles/default/_new-lightbox.scss";
+<SvgExternalLink /></SmartLink></div></div></div></template><style lang="scss" scoped>@import "@/styles/default/_new-lightbox.scss";
 @import "@/styles/ftva/_new-lightbox.scss";
 </style>
