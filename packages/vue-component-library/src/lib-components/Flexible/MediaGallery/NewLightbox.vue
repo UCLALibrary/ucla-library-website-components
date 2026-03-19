@@ -80,18 +80,6 @@ onMounted(async () => {
 
   // Sets placement of arrows for FTVA Homepage Carousel
   setFTVAHomepageNavigationArrows()
-
-  // Dynamically load Wicg-inert - only load in browser if needed
-  // wicg-inert is used to make inert work in Chrome
-  if (typeof window !== 'undefined') {
-    try {
-      const moduleName = 'wicg-inert'
-      await import(/* @vite-ignore */ moduleName)
-    }
-    catch {
-      // ignore if not available
-    }
-  }
 })
 
 // For FTVA Homepage Carousel:
