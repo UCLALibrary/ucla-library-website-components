@@ -48,7 +48,7 @@ function handleButtonClick(button: any) {
     <h3 class="title">
       {{ title }}
     </h3>
-    <ul class="items">
+    <ul v-if="items && items.length > 0" class="items">
       <li
         v-for="(item, index) in items"
         :key="index"

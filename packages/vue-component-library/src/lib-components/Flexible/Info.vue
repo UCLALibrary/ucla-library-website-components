@@ -68,7 +68,7 @@ const classes = computed(() => {
         color-scheme="paleblue"
       >
         <template #block-info-mid>
-          <ul class="contact-info">
+          <ul v-if="parsedItems.phone || parsedItems.email || parsedItems.address" class="contact-info">
             <li>
               <IconWithLink
                 :text="`${parsedItems.phone || ''}`"

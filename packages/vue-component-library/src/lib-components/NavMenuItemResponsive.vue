@@ -106,7 +106,7 @@ watch(goBackRef, (newVal) => {
       {{ item.name }}
     </button>
 
-    <ul :data-sub-menu-item-id="index" class="sub-menu hidden">
+    <ul v-if="parsedChildren && parsedChildren.length > 0" :data-sub-menu-item-id="index" class="sub-menu hidden">
       <li v-for="child in parsedChildren" :key="child.id" class="sub-menu-item" @click="closeMenu">
         <SmartLink :class="child.classes" :to="child.to" :link-target="child.target">
           {{ child.name }}
