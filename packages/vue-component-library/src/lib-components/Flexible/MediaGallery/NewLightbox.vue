@@ -75,7 +75,7 @@ const slideAnnouncement = computed(() => {
   return `Slide ${selectionIndex.value + 1} of ${items.length}${title ? `: ${title}` : ''}`
 })
 
-onMounted(async () => {
+onMounted(() => {
   lightbox.value?.focus()
 
   // Sets placement of arrows for FTVA Homepage Carousel
