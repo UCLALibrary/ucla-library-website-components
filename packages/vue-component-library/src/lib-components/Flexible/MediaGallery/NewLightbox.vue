@@ -69,12 +69,6 @@ const prevBtnRef = ref()
 const nextBtnRef = ref()
 const paginationCounterRef = ref()
 
-// A11Y FIX - Announce slide changes to screen readers
-const slideAnnouncement = computed(() => {
-  const title = captionTitle.value[selectionIndex.value]
-  return `Slide ${selectionIndex.value + 1} of ${items.length}${title ? `: ${title}` : ''}`
-})
-
 onMounted(() => {
   lightbox.value?.focus()
 
@@ -106,63 +100,48 @@ function setCurrentSlide(currentSlide: number) {
 
 <template>
   <div ref="lightbox" :class="classes">
-
-    <!-- A11Y FIX: SCREEN READER LIVE REGION -->
-    <p
-      class="screen-reader-live"
-      aria-live="polite"
-      aria-atomic="true"
-    >
-      {{ slideAnnouncement }}
-    </p>
-
-    <!-- CLOSE BUTTON -->
     <button class="button-close" aria-label="Close" @click="closeModal">
-      <SvgIconClose aria-hidden="true" focusable="false" />
+      <SvgIconClose aria-hidden="true" />
     </button>
 
-    <!-- CAROUSEL -->
     <Carousel v-model="selectionIndex" class="media-container">
-      <Slide v-for="(item, index) in items" :key="`media-container-${index}`" :aria-hidden="index !== selectionIndex">
-          <MediaItem
-            :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item"
-            :cover-image="item.coverImage" :embed-code="item.embedCode"
-            class="library-media-item"
-            :style="{ display: selectionIndex === index ? '' : 'none' }"
-          >
-            <div v-if="item.credit" class="credit-text">
-              <span v-text="item.credit" />
-            </div>
-          </MediaItem>
+      <Slide v-for="(item, index) in items" :key="`media-container-${index}`">
+        <MediaItem
+          :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item"
+          :cover-image="item.coverImage" :embed-code="item.embedCode"
+          class="library-media-item"
+          :style="{ display: selectionIndex === index ? '' : 'none' }"
+        >
+          <div v-if="item.credit" class="credit-text">
+            <span v-text="item.credit" />
+          </div>
+        </MediaItem>
       </Slide>
     </Carousel>
 
-    <!-- NAVIGATION -->
+    <!-- Navigation -->
     <button v-if="items.length > 1" ref="prevBtnRef" class="button-prev" aria-label="Show previous image" :disabled="selectionIndex <= 0" @click="selectionIndex -= 1">
-      <SvgIconCaretLeft aria-hidden="true" focusable="false" />
+      <SvgIconCaretLeft aria-hidden="true" />
     </button>
     <button
       v-if="items.length > 1" ref="nextBtnRef" class="button-next" aria-label="Show next image" :disabled="selectionIndex >= items.length - 1"
       @click="selectionIndex += 1"
     >
-      <SvgIconCaretRight aria-hidden="true" focusable="false" />
+      <SvgIconCaretRight aria-hidden="true" />
     </button>
 
-    <!-- PAGINATION -->
+    <!-- Pagination -->
     <div class="caption-block">
-      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="tablist" aria-label="Slide navigation">
+      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="tablist">
         <button
           v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex" role="tab"
-          class="media-counter-item" :aria-label="`Go to slide ${index} of ${items.length}`" :aria-current="index - 1 === selectionIndex ? 'true' : undefined" @click="setCurrentSlide(index - 1)"
+          class="media-counter-item" :aria-label="`Go to slide ${index}`" @click="setCurrentSlide(index - 1)"
         >
-          <SvgIconMoleculeBullet aria-hidden="true" focusable="false" />
+          <SvgIconMoleculeBullet />
         </button>
       </div>
-      <!-- CAPTIONS -->
-      <div
-        class="caption-content"
-        aria-live="polite"
-      >
+      <!-- Captions -->
+      <div class="caption-content">
         <div class="media-object-caption-slot">
           <slot :selection-index="selectionIndex" />
           <!-- additional blocktags/labels/simple elements can be slotted in here by parent -->
@@ -190,10 +169,7 @@ function setCurrentSlide(currentSlide: number) {
           " class="media-object-caption-link" :to="items[selectionIndex].linkUrl"
         >
           {{ items[selectionIndex].linkText }}
-          <SvgExternalLink
-            aria-hidden="true"
-            focusable="false"
-          />
+          <SvgExternalLink />
         </SmartLink>
       </div>
     </div>
@@ -203,8 +179,4 @@ function setCurrentSlide(currentSlide: number) {
 <style lang="scss" scoped>
 @import "@/styles/default/_new-lightbox.scss";
 @import "@/styles/ftva/_new-lightbox.scss";
-
-.screen-reader-live {
-  @include visually-hidden;
-}
 </style>
