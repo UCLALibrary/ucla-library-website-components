@@ -13,7 +13,8 @@
 
     --side-column-min-width: 72px;
     --gap-width: var(--space-m);
-    --media-width: min(calc(100vw - (2 * var(--side-column-min-width)) - (2 * var(--gap-width))), 992px);
+    --media-width: min(calc(100vw - (2 * var(--side-column-min-width)) - (2 * var(--gap-width))),
+            992px);
     --media-height: calc(var(--media-width) * 9 / 16);
     --side-column-width: calc((100vw - var(--media-width) - 2 * var(--gap-width)) / 2);
 
