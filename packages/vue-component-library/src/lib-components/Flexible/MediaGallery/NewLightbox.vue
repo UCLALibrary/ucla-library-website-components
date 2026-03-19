@@ -152,6 +152,7 @@ function setCurrentSlide(currentSlide: number) {
             :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item"
             :cover-image="item.coverImage" :embed-code="item.embedCode"
             class="library-media-item"
+            :style="{ display: selectionIndex === index ? '' : 'none' }"
           >
             <div v-if="item.credit" class="credit-text">
               <span v-text="item.credit" />
@@ -174,9 +175,9 @@ function setCurrentSlide(currentSlide: number) {
 
     <!-- PAGINATION -->
     <div class="caption-block">
-      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="group" aria-label="Slide navigation">
+      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="tablist" aria-label="Slide navigation">
         <button
-          v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex"
+          v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex" role="tab"
           class="media-counter-item" :aria-label="`Go to slide ${index} of ${items.length}`" :aria-current="index - 1 === selectionIndex ? 'true' : undefined" @click="setCurrentSlide(index - 1)"
         >
           <SvgIconMoleculeBullet aria-hidden="true" focusable="false" />
