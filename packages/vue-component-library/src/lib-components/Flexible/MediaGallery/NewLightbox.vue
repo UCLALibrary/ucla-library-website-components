@@ -214,16 +214,6 @@ function setCurrentSlide(currentSlide: number) {
 <style lang="scss" scoped>
 @import "@/styles/default/_new-lightbox.scss";
 @import "@/styles/ftva/_new-lightbox.scss";
-// Fix Axe: elements must have visible focus - Ensures users can see which element is focused
-button:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
-}
-
-// Prevent focus outline from appearing on mouse click (only show for keyboard users via :focus-visible)
-button:focus:not(:focus-visible) {
-  outline: none;
-}
 
 .screen-reader-live {
   @include visually-hidden;
