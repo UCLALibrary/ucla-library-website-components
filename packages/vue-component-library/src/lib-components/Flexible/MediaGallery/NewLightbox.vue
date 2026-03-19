@@ -76,10 +76,10 @@ const slideAnnouncement = computed(() => {
 })
 
 // Detect touch devices (Safari mobile fix)
-const isTouchDevice =
-  typeof window !== 'undefined'
-  && ('ontouchstart' in window
-  || navigator.maxTouchPoints > 0)
+const isTouchDevice
+  = typeof window !== 'undefined'
+    && ('ontouchstart' in window
+      || navigator.maxTouchPoints > 0)
 
 onMounted(async () => {
   lightbox.value?.focus()
