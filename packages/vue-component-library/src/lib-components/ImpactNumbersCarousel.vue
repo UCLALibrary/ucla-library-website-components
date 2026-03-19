@@ -65,7 +65,7 @@ function setCurrentSlide(currentSlideIndex: number) {
         <SvgArrowRight aria-hidden="true" />
       </button>
     </div>
-    <div role="tablist" class="dots" />
+    <!-- <div role="tablist" class="dots" /> -->
   </div>
 </template>
 
