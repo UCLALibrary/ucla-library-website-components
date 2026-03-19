@@ -42,7 +42,7 @@ const parsedChildren = computed(() => {
   <li :class="classes">
     <button class="section-name" v-html="item.name" />
 
-    <ul class="sub-menu">
+    <ul v-if="parsedChildren && parsedChildren.length > 0" class="sub-menu">
       <li v-for="child in parsedChildren" :key="child.id" class="sub-menu-item">
         <SmartLink :class="child.classes" :to="child.to" :link-target="child.target">
           {{ child.name }}
