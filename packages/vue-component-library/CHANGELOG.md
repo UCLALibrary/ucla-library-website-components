@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.5...@ucla-library-monorepo/ucla-library-website-components-v1.68.6) (2026-03-20)
+
+
+### Bug Fixes
+
+* APPS-3749 change div to li ([#920](https://github.com/UCLALibrary/ucla-library-website-components/issues/920)) ([3ad89cf](https://github.com/UCLALibrary/ucla-library-website-components/commit/3ad89cf310f86ab279b57881215c4c5a33ca30f5))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.68.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.4...@ucla-library-monorepo/ucla-library-website-components-v1.68.5) (2026-03-20)
 
 
