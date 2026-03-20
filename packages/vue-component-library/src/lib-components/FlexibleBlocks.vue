@@ -129,20 +129,23 @@ const parsedBlocks = computed(() => {
       block.theme = 'white' // Force theme to white
       block.needsDivider = false // No dividers in ftva theme
     }
+    else if (theme?.value === 'dlc') {
+      block.needsDivider = false // No dividers in dlc theme
+    }
     else {
       // Normal theme logic for other themes
       if (
         index > 0
-        && arr[index - 1].theme === 'white'
-        && !NEVER_GRAY.includes(block.componentName)
-        && index < arr.length - 1
+                && arr[index - 1].theme === 'white'
+                && !NEVER_GRAY.includes(block.componentName)
+                && index < arr.length - 1
       )
         block.theme = 'gray' // Apply gray theme when needed
 
       if (
         index > 0
-        && block.theme === 'white'
-        && arr[index - 1].theme === 'white'
+                && block.theme === 'white'
+                && arr[index - 1].theme === 'white'
       )
         block.needsDivider = true // Set divider if needed
     }
@@ -188,17 +191,15 @@ function getWrapperComponent(block) {
     return Fragment
 
   // else if ftva, add scroll wrapper to specific components in specific cases
-  return (block.componentName === 'flexible-card-with-image' && block.cardWithImageType === 'horizontalScroll')
+  return block.componentName === 'flexible-card-with-image'
+        && block.cardWithImageType === 'horizontalScroll'
     ? ScrollWrapper
     : Fragment
 }
 </script>
 
 <template>
-  <SectionWrapper
-    :class="classes"
-    :no-margins="true"
-  >
+  <SectionWrapper :class="classes" :no-margins="true">
     <SectionHeader class="more-information">
       More Information
     </SectionHeader>
@@ -207,10 +208,7 @@ function getWrapperComponent(block) {
       v-for="(block, index) in parsedBlocks"
       :key="`flexibleblocks-${index}`"
     >
-      <SectionWrapper
-        v-if="block.needsDivider"
-        theme="divider"
-      >
+      <SectionWrapper v-if="block.needsDivider" theme="divider">
         <DividerWayFinder />
       </SectionWrapper>
 
@@ -218,16 +216,21 @@ function getWrapperComponent(block) {
         :theme="block.theme"
         :section-title="sectionTitle(block)"
         :section-summary="sectionSummary(block)"
+        :no-constraints="block.noConstraints"
         class="flexible-block-section-wrapper"
       >
-        <component
-          :is="getWrapperComponent(block)"
-        >
+        <component :is="getWrapperComponent(block)">
           <component
-            :is="getComponent(block.componentName)" :block="block.mediaGalleryStyle === 'halfWidth'
-              ? block
-              : omit(block, ['sectionTitle', 'sectionSummary'])
-            " class="flexible-block"
+            :is="getComponent(block.componentName)"
+            :block="
+              block.mediaGalleryStyle === 'halfWidth'
+                ? block
+                : omit(block, [
+                  'sectionTitle',
+                  'sectionSummary',
+                ])
+            "
+            class="flexible-block"
           />
         </component>
       </SectionWrapper>
@@ -235,32 +238,29 @@ function getWrapperComponent(block) {
   </SectionWrapper>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 // default theme
 .flexible-blocks {
-  .more-information {
-    @include visually-hidden;
-  }
+    .more-information {
+        @include visually-hidden;
+    }
 }
 
 // ftva theme
 .ftva.flexible-blocks {
-  .flexible-block-section-wrapper {
-    // sections within flexible blocks have bold titles and medium grey summaries
-    :deep(.section-header) {
-      margin-bottom: 12px;
-      .section-title {
-          @include ftva-h5;
-          color: $accent-blue;
+    .flexible-block-section-wrapper {
+        // sections within flexible blocks have bold titles and medium grey summaries
+        :deep(.section-header) {
+            margin-bottom: 12px;
+            .section-title {
+                @include ftva-h5;
+                color: $accent-blue;
+            }
+            .section-summary {
+                @include ftva-body;
+                color: $medium-grey;
+            }
         }
-      .section-summary {
-        @include ftva-body;
-        color: $medium-grey;
-      }
     }
-  }
 }
 </style>

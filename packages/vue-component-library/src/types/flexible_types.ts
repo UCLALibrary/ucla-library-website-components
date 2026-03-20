@@ -1,4 +1,9 @@
-import type { BlockImpactNumbersCarouselType, LocationItemType, MediaGalleryItemType, MediaItemType } from '@/types/types'
+import type {
+  BlockImpactNumbersCarouselType,
+  LocationItemType,
+  MediaGalleryItemType,
+  MediaItemType,
+} from '@/types/types'
 
 // Reusable block declaration for Flexible Components
 
@@ -116,6 +121,7 @@ interface FlexibleBannerContent {
   category: string
   contentType: string
   sectionHandle: string
+  secondaryButtons?: Array<{ label: string; to: string }>
 }
 
 interface FlexibleBannerContentLink extends ContentLink {
@@ -231,7 +237,12 @@ export interface FlexibleCallToAction extends FlexibleBlock {
 }
 
 export interface FlexibleCardsWithImage extends FlexibleBlock {
-  cardWithImageType: '' | 'horizontalScroll' | 'blueBackground' | 'whiteBackground' | 'noBackground'
+  cardWithImageType:
+  | ''
+  | 'horizontalScroll'
+  | 'blueBackground'
+  | 'whiteBackground'
+  | 'noBackground'
   cardWithImage: FlexibleCardWithImage[]
 }
 

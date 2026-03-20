@@ -13,39 +13,39 @@ import stripMeapFromURI from '@/utils/stripMeapFromURI'
 const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleBannerFeatured>,
-    default: () => { },
+    default: () => {},
   },
 })
 
 const parseImage = computed(() => {
-  let imageObj = {}
-  // console.log(`FROM BANNERFEATURED:${block.content[0]}`)
+  const c = block?.content?.[0]
+  if (!c)
+    return {}
   if (
-    block.content[0].contentLink
-    && block.content[0].contentLink.length > 0
-    && block.content[0].contentLink[0].heroImage
-    && block.content[0].contentLink[0].heroImage.length > 0
+    c.contentLink
+        && c.contentLink.length > 0
+        && c.contentLink[0].heroImage
+        && c.contentLink[0].heroImage.length > 0
   )
-    imageObj = block.content[0].contentLink[0].heroImage[0].image[0]
-  else if (block.content[0].image)
-    imageObj = block.content[0].image[0]
-
-  // console.log(`image obj: ${JSON.stringify(imageObj)}`)
-  return imageObj
+    return c.contentLink[0].heroImage[0].image[0]
+  if (c.image?.[0])
+    return c.image[0]
+  return {}
 })
 
 const parsedAlignment = computed(() => {
-  return block.content[0].alignment === 'right'
+  return block?.content?.[0]?.alignment === 'right'
 })
 
 const parsePrompt = computed(() => {
-  let prompt = ''
-  if (block.content[0].contentType)
-    prompt = getPrompt(block.content[0].contentType)
-  else
-    prompt = getPrompt(block.content[0].contentLink[0].contentType)
-
-  return prompt
+  const c = block?.content?.[0]
+  if (!c)
+    return ''
+  if (c.contentType)
+    return getPrompt(c.contentType)
+  if (c.contentLink?.[0]?.contentType)
+    return getPrompt(c.contentLink[0].contentType)
+  return ''
 })
 
 const parsedLocations = computed(() => {
@@ -53,7 +53,7 @@ const parsedLocations = computed(() => {
 
   if (block.content && block.content[0].contentLink) {
     const contentType
-      = block.content[0].contentLink[0].contentType.toLowerCase()
+            = block.content[0].contentLink[0].contentType.toLowerCase()
 
     switch (true) {
       case contentType.includes('article'):
@@ -86,7 +86,8 @@ const parsedCategory = computed(() => {
   // INTERNAL
   if (block.content && block.content[0].contentLink) {
     const contentType = block.content[0].contentLink[0].contentType
-    const workshopOrSeries = block.content[0].contentLink[0].workshopOrEventSeriesType
+    const workshopOrSeries
+            = block.content[0].contentLink[0].workshopOrEventSeriesType
 
     switch (true) {
       case contentType.includes('article'):
@@ -143,14 +144,14 @@ const parsedStartDate = computed(() => {
   let startDate = ''
   if (
     block.content
-    && block.content[0].contentLink
-    && block.content[0].contentLink[0].startDateWithTime
+        && block.content[0].contentLink
+        && block.content[0].contentLink[0].startDateWithTime
   )
     startDate = block.content[0].contentLink[0].startDateWithTime
   else if (
     block.content
-    && block.content[0].contentLink
-    && block.content[0].contentLink[0].startDate
+        && block.content[0].contentLink
+        && block.content[0].contentLink[0].startDate
   )
     startDate = block.content[0].contentLink[0].startDate
 
@@ -161,14 +162,14 @@ const parsedEndDate = computed(() => {
   let endDate = ''
   if (
     block.content
-    && block.content[0].contentLink
-    && block.content[0].contentLink[0].endDateWithTime
+        && block.content[0].contentLink
+        && block.content[0].contentLink[0].endDateWithTime
   )
     endDate = block.content[0].contentLink[0].endDateWithTime
   else if (
     block.content
-    && block.content[0].contentLink
-    && block.content[0].contentLink[0].endDate
+        && block.content[0].contentLink
+        && block.content[0].contentLink[0].endDate
   )
     endDate = block.content[0].contentLink[0].endDate
 
@@ -180,7 +181,7 @@ const parseByLine = computed(() => {
 
   if (block.content && block.content[0].contentLink) {
     const entry_type
-      = block.content[0].contentLink[0].contentType.toLowerCase()
+            = block.content[0].contentLink[0].contentType.toLowerCase()
 
     const articleByline1 = block.content[0].contentLink[0].articleByline1
 
@@ -211,7 +212,7 @@ const parseByLine = computed(() => {
 
   if (
     block.content
-    && (block.content[0].byline1 || block.content[0].byline2)
+        && (block.content[0].byline1 || block.content[0].byline2)
   ) {
     output.push(block.content[0].byline1)
     output.push(block.content[0].byline2)
@@ -221,16 +222,14 @@ const parseByLine = computed(() => {
 })
 
 const parsedDescription = computed(() => {
-  let output = ''
-  if (
-    block.content
-    && block.content[0].contentLink
-    && block.content[0].contentLink[0].contentType === 'event'
-  )
-    output = block.content[0].contentLink[0].eventDescription
-  else output = block.content[0].contentLink[0].summary
-
-  return output
+  const c = block?.content?.[0]
+  if (!c)
+    return ''
+  if (c.contentLink?.[0]?.contentType === 'event')
+    return c.contentLink[0].eventDescription ?? ''
+  if (c.contentLink?.[0])
+    return c.contentLink[0].summary ?? ''
+  return c.summary ?? ''
 })
 </script>
 
@@ -269,18 +268,19 @@ const parsedDescription = computed(() => {
       :category="parsedCategory"
       :align-right="parsedAlignment"
       :section-handle="block.content[0].sectionHandle"
+      :secondary-buttons="block.content[0]?.secondaryButtons ?? []"
     />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .flexible-banner-featured {
-  :deep(.breadcrumb) {
-    z-index: 30;
-  }
+    :deep(.breadcrumb) {
+        z-index: 30;
+    }
 
-  :deep(.slot) {
-    z-index: 30;
-  }
+    :deep(.slot) {
+        z-index: 30;
+    }
 }
 </style>

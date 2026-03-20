@@ -358,7 +358,7 @@ const classes = computed(() => {
       </div>
 
       <ButtonLink
-        v-if="to"
+        v-if="to && prompt"
         id="banner-featured-button"
         :label="prompt"
         :to="to"
