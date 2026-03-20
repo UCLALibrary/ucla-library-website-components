@@ -167,7 +167,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div :class="classes">
+  <ul :class="classes">
     <div class="card-container">
       <div class="image-container">
         <ResponsiveImage
@@ -239,7 +239,7 @@ onMounted(() => {
         </div>
       </div>
     </div>
-  </div>
+  </ul>
 </template>
 
 <style lang="scss" scoped>
