@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.2...@ucla-library-monorepo/ucla-library-website-components-v1.68.3) (2026-03-20)
+
+
+### Bug Fixes
+
+* APPS-3719 Fix accessibilty errors in NewLightbox.vue ([#916](https://github.com/UCLALibrary/ucla-library-website-components/issues/916)) ([a72d486](https://github.com/UCLALibrary/ucla-library-website-components/commit/a72d4869a5c75cb2864d3f50a06a6fd3dc51273d))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.68.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.1...@ucla-library-monorepo/ucla-library-website-components-v1.68.2) (2026-03-19)
 
 
