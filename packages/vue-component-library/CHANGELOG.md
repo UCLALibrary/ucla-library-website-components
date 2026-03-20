@@ -1,3 +1,52 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.5...@ucla-library-monorepo/ucla-library-website-components-v1.68.6) (2026-03-20)
+
+
+### Bug Fixes
+
+* APPS-3749 change div to li ([#920](https://github.com/UCLALibrary/ucla-library-website-components/issues/920)) ([3ad89cf](https://github.com/UCLALibrary/ucla-library-website-components/commit/3ad89cf310f86ab279b57881215c4c5a33ca30f5))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.4...@ucla-library-monorepo/ucla-library-website-components-v1.68.5) (2026-03-20)
+
+
+### Bug Fixes
+
+* APPS-3751 remove empty tablist ([#919](https://github.com/UCLALibrary/ucla-library-website-components/issues/919)) ([41214ad](https://github.com/UCLALibrary/ucla-library-website-components/commit/41214adc01f265120826095afb2308d097878fdb))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.3...@ucla-library-monorepo/ucla-library-website-components-v1.68.4) (2026-03-20)
+
+
+### Bug Fixes
+
+* APPS-3194 fix a11y violations 'text is clipped when resized' ([#917](https://github.com/UCLALibrary/ucla-library-website-components/issues/917)) ([a124a21](https://github.com/UCLALibrary/ucla-library-website-components/commit/a124a2181cf55344375f574a04e1a198b069e7d0))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.2...@ucla-library-monorepo/ucla-library-website-components-v1.68.3) (2026-03-20)
+
+
+### Bug Fixes
+
+* APPS-3719 Fix accessibilty errors in NewLightbox.vue ([#916](https://github.com/UCLALibrary/ucla-library-website-components/issues/916)) ([a72d486](https://github.com/UCLALibrary/ucla-library-website-components/commit/a72d4869a5c75cb2864d3f50a06a6fd3dc51273d))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.1...@ucla-library-monorepo/ucla-library-website-components-v1.68.2) (2026-03-19)
+
+
+### Bug Fixes
+
+* Add v-if checks to all ul elements to prevent empty lists ([#918](https://github.com/UCLALibrary/ucla-library-website-components/issues/918)) ([532a9e0](https://github.com/UCLALibrary/ucla-library-website-components/commit/532a9e012f841547dcd7641941eaca2f1f3dd7ba))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.0...@ucla-library-monorepo/ucla-library-website-components-v1.68.1) (2026-03-11)
+
+
+### Bug Fixes
+
+* APPS-3703 Replace MEAP theme with prop to show or hide search in nav secondary component ([#915](https://github.com/UCLALibrary/ucla-library-website-components/issues/915)) ([7838c13](https://github.com/UCLALibrary/ucla-library-website-components/commit/7838c13d4605ae46c46516c3226fe4dea2145642))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.67.0...@ucla-library-monorepo/ucla-library-website-components-v1.68.0) (2026-03-11)
+
+
+### Features
+
+* Add PageBentoBoxResults ([#898](https://github.com/UCLALibrary/ucla-library-website-components/issues/898)) ([7ebf6ca](https://github.com/UCLALibrary/ucla-library-website-components/commit/7ebf6cae8817d2ea1d6b65823b75e4a0eec84676))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.67.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.66.2...@ucla-library-monorepo/ucla-library-website-components-v1.67.0) (2026-03-06)
 
 

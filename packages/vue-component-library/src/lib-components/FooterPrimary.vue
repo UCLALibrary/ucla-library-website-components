@@ -162,7 +162,7 @@ function formatTarget(target: string) {
           <component :is="parsedFooterLogo" class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
         </SmartLink>
-        <ul class="socials">
+        <ul v-if="parsedSocialItems && parsedSocialItems.length > 0" class="socials">
           <li
             v-for="item in parsedSocialItems"
             :key="item.id"
