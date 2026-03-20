@@ -20,7 +20,7 @@ const { items } = defineProps({
 
 <template>
   <div>
-    <ul class="section-staff-list">
+    <ul v-if="items && items.length > 0" class="section-staff-list">
       <BlockStaffList
         v-for="item in items"
         :key="`ucla-staff-${item.to}`"

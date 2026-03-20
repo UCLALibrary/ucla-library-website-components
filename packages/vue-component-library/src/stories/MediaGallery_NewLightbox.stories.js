@@ -180,7 +180,7 @@ const parsedMockHomepagCarouselURL = computed(() => {
       captionText: rawItem.ftvaHomepageDescription,
       captionTitle: rawItem.ftvaHomepageTitle,
       itemDate: parseDatesAndTimes(rawItem.typeHandle, rawItem.startDate, rawItem.endDate, rawItem.startDateWithTime, rawItem.ongoing),
-      linkUrl: 'google.com',
+      linkUrl: 'https://www.artforum.com/features/michael-snows-la-region-centrale-210208/',
     }
   })
 })

@@ -13,7 +13,7 @@ const { items } = defineProps({
 
 <template>
   <section class="section-block-generic-list">
-    <ul class="block-generic-list">
+    <ul v-if="items && items.length > 0" class="block-generic-list">
       <BlockGenericList
         v-for="(item, index) in items" :key="`${item.title}-${index}`"
         section-title="Academic Librarian Jobs" :title="item.title" :alternative-full-name="item.alternativeFullName"

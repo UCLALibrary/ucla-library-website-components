@@ -48,7 +48,7 @@ function onChange(itemName: string) {
 
 <template>
   <fieldset class="base-checkbox-group">
-    <ul class="list">
+    <ul v-if="items && items.length > 0" class="list">
       <li
         v-for="(item, index) in items"
         :key="`BaseCheckboxGroup${index}`"

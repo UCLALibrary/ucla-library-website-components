@@ -175,11 +175,12 @@ const classes = computed(() => {
         .credit-text {
             background-color: rgba(0, 0, 0, 0.64);
             padding: 4px 8px;
+            // CAUSING ISSUES WITH a11y checks due to 'text resize is clipped`
             // enforce 1 line, 50 char limit
-            height: 32px;
-            max-width: 385px;
-            white-space: pre;
-            overflow: hidden;
+            // height: 32px;
+            // max-width: 385px;
+            // white-space: pre;
+            // overflow: hidden;
             text-overflow: ellipsis;
         }
     }
