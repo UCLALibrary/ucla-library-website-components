@@ -71,7 +71,7 @@ function handleSelectedLetter(letter: { letter: string }) {
     <h2 v-if="theme === ''" class="title">
       Browse by Last Name
     </h2>
-    <ul class="alphabet-list">
+    <ul v-if="parsedAlphabet && parsedAlphabet.length > 0" class="alphabet-list">
       <li
         v-for="letter in parsedAlphabet"
         :key="letter.letter"
