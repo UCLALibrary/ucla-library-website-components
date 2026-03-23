@@ -130,10 +130,12 @@ const parsedBlocks = computed(() => {
   // Iterate over blocks and set the theme/divider logic
   output.forEach((block, index, arr) => {
     // First block in section = first block overall, or sectionTitle differs from previous
-    block.isFirstInSection = index === 0 || (block.sectionTitle !== arr[index - 1].sectionTitle)
+    block.isFirstInSection
+            = index === 0 || block.sectionTitle !== arr[index - 1].sectionTitle
 
     // Divider only between sections (not between every block)
-    block.needsDivider = index > 0 && block.sectionTitle !== arr[index - 1].sectionTitle
+    block.needsDivider
+            = index > 0 && block.sectionTitle !== arr[index - 1].sectionTitle
 
     // Apply specific theming for ftva
     if (theme?.value === 'ftva') {
@@ -148,17 +150,17 @@ const parsedBlocks = computed(() => {
       // Normal theme logic for other themes
       if (
         index > 0
-        && arr[index - 1].theme === 'white'
-        && !NEVER_GRAY.includes(block.componentName)
-        && index < arr.length - 1
+                && arr[index - 1].theme === 'white'
+                && !NEVER_GRAY.includes(block.componentName)
+                && index < arr.length - 1
       )
         block.theme = 'gray' // Apply gray theme when needed
 
       if (
         theme?.value !== 'dlc'
-        && index > 0
-        && block.theme === 'white'
-        && arr[index - 1].theme === 'white'
+                && index > 0
+                && block.theme === 'white'
+                && arr[index - 1].theme === 'white'
       )
         block.needsDivider = true // Set divider if needed
     }
@@ -215,17 +217,15 @@ function getWrapperComponent(block) {
     return Fragment
 
   // else if ftva, add scroll wrapper to specific components in specific cases
-  return (block.componentName === 'flexible-card-with-image' && block.cardWithImageType === 'horizontalScroll')
+  return block.componentName === 'flexible-card-with-image'
+        && block.cardWithImageType === 'horizontalScroll'
     ? ScrollWrapper
     : Fragment
 }
 </script>
 
 <template>
-  <SectionWrapper
-    :class="classes"
-    :no-margins="true"
-  >
+  <SectionWrapper :class="classes" :no-margins="true">
     <SectionHeader class="more-information">
       More Information
     </SectionHeader>
@@ -234,10 +234,7 @@ function getWrapperComponent(block) {
       v-for="(block, index) in parsedBlocks"
       :key="`flexibleblocks-${index}`"
     >
-      <SectionWrapper
-        v-if="block.needsDivider"
-        theme="divider"
-      >
+      <SectionWrapper v-if="block.needsDivider" theme="divider">
         <DividerWayFinder />
       </SectionWrapper>
 
@@ -247,14 +244,18 @@ function getWrapperComponent(block) {
         :section-summary="sectionSummary(block)"
         class="flexible-block-section-wrapper"
       >
-        <component
-          :is="getWrapperComponent(block)"
-        >
+        <component :is="getWrapperComponent(block)">
           <component
-            :is="getComponent(block.componentName)" :block="block.mediaGalleryStyle === 'halfWidth'
-              ? block
-              : omit(block, ['sectionTitle', 'sectionSummary'])
-            " class="flexible-block"
+            :is="getComponent(block.componentName)"
+            :block="
+              block.mediaGalleryStyle === 'halfWidth'
+                ? block
+                : omit(block, [
+                  'sectionTitle',
+                  'sectionSummary',
+                ])
+            "
+            class="flexible-block"
             :class="{ 'outlined-container': block.hasOutline }"
           />
         </component>
@@ -263,76 +264,74 @@ function getWrapperComponent(block) {
   </SectionWrapper>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 // default theme
 .flexible-blocks {
-  .more-information {
-    @include visually-hidden;
-  }
+    .more-information {
+        @include visually-hidden;
+    }
 }
 
 // ftva theme
 .ftva.flexible-blocks {
-  .flexible-block-section-wrapper {
-    // sections within flexible blocks have bold titles and medium grey summaries
-    :deep(.section-header) {
-      margin-bottom: 12px;
-      .section-title {
-          @include ftva-h5;
-          color: $accent-blue;
+    .flexible-block-section-wrapper {
+        // sections within flexible blocks have bold titles and medium grey summaries
+        :deep(.section-header) {
+            margin-bottom: 12px;
+            .section-title {
+                @include ftva-h5;
+                color: $accent-blue;
+            }
+            .section-summary {
+                @include ftva-body;
+                color: $medium-grey;
+            }
         }
-      .section-summary {
-        @include ftva-body;
-        color: $medium-grey;
-      }
     }
-  }
 }
 
 // dlc theme – matches PageUsingDigitalCollections (section title, rich text, outline, viewer)
 .dlc.flexible-blocks {
-  .flexible-block-section-wrapper {
-    :deep(.section-header) {
-      .section-title {
-        max-width: 640px;
-        margin: 0 auto 24px;
-        font-size: 32px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 120%;
-        color: var(--color-primary-blue-03);
-      }
+    .flexible-block-section-wrapper {
+        :deep(.section-header) {
+            .section-title {
+                max-width: 640px;
+                margin: 0 auto 24px;
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 120%;
+                color: var(--color-primary-blue-03);
+            }
+        }
+
+        :deep(.flexible-block) {
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-right: 0;
+        }
+
+        /* DL viewer: full width so the viewer is not narrow */
+        :deep(.flexible-block.flexible-dl-viewer) {
+            max-width: 100%;
+        }
+
+        :deep(.flexible-block.outlined-container) {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 32px;
+            border: 1px solid var(--color-secondary-grey-02);
+            border-radius: 15px;
+        }
     }
 
-    :deep(.flexible-block) {
-      max-width: 640px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-right: 0;
+    @media #{$small} {
+        .flexible-block-section-wrapper
+            :deep(.flexible-block.outlined-container) {
+            padding: 24px;
+        }
     }
-
-    /* DL viewer: full width so the viewer is not narrow */
-    :deep(.flexible-block.flexible-dl-viewer) {
-      max-width: 100%;
-    }
-
-    :deep(.flexible-block.outlined-container) {
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 32px;
-      border: 1px solid var(--color-secondary-grey-02);
-      border-radius: 15px;
-    }
-  }
-
-  @media #{$small} {
-    .flexible-block-section-wrapper :deep(.flexible-block.outlined-container) {
-      padding: 24px;
-    }
-  }
 }
 </style>
