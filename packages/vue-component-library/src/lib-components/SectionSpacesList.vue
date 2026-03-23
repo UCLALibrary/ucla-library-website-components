@@ -23,7 +23,7 @@ const { items, nShown } = defineProps({
       Spaces
     </h3>
     <BlockShowHide :disable="items.length <= Number(nShown)">
-      <ul class="section-spaces-list">
+      <ul v-if="items && items.length > 0" class="section-spaces-list">
         <BlockSpaces
           v-for="(item, index) in items"
           :key="`BlockSpace${index}`"
