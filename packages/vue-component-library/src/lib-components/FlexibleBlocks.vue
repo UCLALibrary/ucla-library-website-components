@@ -102,7 +102,7 @@ const components = {
 const NEVER_GRAY = [
   'flexible-associated-topic-cards',
   'flexible-banner-featured',
-  'flexible-dl-viewer',
+  'flexible-divider-general',
   'flexible-form',
   'flexible-impact-numbers-carousel',
   'flexible-pull-quote',
@@ -111,6 +111,7 @@ const NEVER_GRAY = [
   'flexible-cta-block2-up',
   'flexible-impact-number-cards',
   'flexible-grid-gallery-cards',
+  'flexible-dl-viewer',
 ]
 
 const classes = computed(() => {
