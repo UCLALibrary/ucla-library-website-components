@@ -72,7 +72,7 @@ function getNonFTVADate(date: string) {
         class="section-title"
         v-html="sectionTitle"
       />
-      <ul class="block-staff-article-list">
+      <ul v-if="items && items.length > 0" class="block-staff-article-list">
         <BlockStaffArticleList
           v-for="(item, index) in items"
           :key="index"

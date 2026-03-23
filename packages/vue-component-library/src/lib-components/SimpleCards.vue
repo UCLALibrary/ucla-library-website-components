@@ -68,7 +68,7 @@ const classes = computed(() => {
       />
     </div>
 
-    <ul class="simple-cards-list">
+    <ul v-if="parsedContent && parsedContent.length > 0" class="simple-cards-list">
       <BlockSimpleCard
         v-for="(item, index) in parsedContent"
         :key="`SimpleCardsKey${index}`"
