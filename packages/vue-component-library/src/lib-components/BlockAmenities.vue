@@ -95,7 +95,7 @@ const parsedAmenities = computed(() => {
       At This Location
     </h3>
     <div class="amenity-column">
-      <ul class="amenities-list">
+      <ul v-if="parsedAmenities && parsedAmenities.length > 0" class="amenities-list">
         <li v-for="(item, index) in parsedAmenities" :key="`${item.svgLabel}-${index}`" class="amenitiy-row">
           <component :is="item.svgIcon" v-if="item.svgIcon" />
 

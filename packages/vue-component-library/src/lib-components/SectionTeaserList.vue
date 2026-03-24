@@ -58,7 +58,7 @@ const classes = computed(() => {
 <template>
   <section :class="classes">
     <BlockShowHide :disable="isDisabledBlockShowHide">
-      <ul class="list">
+      <ul v-if="items && items.length > 0" class="list">
         <component
           :is="parsedComponentName"
           v-for="(item, index) in items"

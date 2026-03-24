@@ -64,7 +64,8 @@
         letter-spacing: .04px;
 
         height: 34px;
-        overflow: hidden;
+        // CAUSING ISSUES WITH a11y checks due to 'text resize is clipped`
+        // overflow: hidden;
 
         .ongoing-item+.schedule-item {
             // hide the date range if the ongoing label is display

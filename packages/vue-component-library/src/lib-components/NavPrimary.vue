@@ -365,6 +365,7 @@ onMounted(() => {
 
     <!-- this is the primary menu and first in the tab index -->
     <ul
+      v-if="parsedItems && parsedItems.length > 0"
       class="menu"
       :class="[{ 'is-opened-mobile': mobileMenuIsOpened }]"
     >

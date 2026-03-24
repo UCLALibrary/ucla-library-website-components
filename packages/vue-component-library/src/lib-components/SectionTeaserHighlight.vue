@@ -12,7 +12,7 @@ const { items } = defineProps({
 </script>
 
 <template>
-  <ul class="section-teaser-highlight">
+  <ul v-if="items && items.length > 0" class="section-teaser-highlight">
     <BlockFloatingHighlight
       v-for="item in items"
       :key="item.to"
