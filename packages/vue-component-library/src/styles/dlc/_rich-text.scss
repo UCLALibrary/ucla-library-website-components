@@ -102,4 +102,51 @@
             font-weight: 500;
         }
     }
+
+    :deep(.outlined-container) {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 32px;
+        border: 1px solid var(--color-secondary-grey-02);
+        border-radius: 15px;
+    }
+
+    :deep(.text-blue) {
+        color: #00f;
+    }
+
+    :deep(.text-red) {
+        color: #f00;
+    }
+
+    :deep(.text-purple) {
+        color: #8a2be2;
+    }
+
+    :deep(.text-green) {
+        color: #228b22;
+    }
+
+    :deep(.text-yellow) {
+        color: #daa520;
+    }
+
+    :deep(.text-pink) {
+        color: #ff69b4;
+    }
+
+    :deep(.text-orange) {
+        color: #ff7f50;
+    }
+
+    :deep(.text-light-blue) {
+        color: #1e90ff;
+    }
+
+    @media #{$small} {
+        :deep(.outlined-container) {
+            padding: 24px;
+        }
+    }
 }

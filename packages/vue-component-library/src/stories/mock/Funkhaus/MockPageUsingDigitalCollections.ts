@@ -681,8 +681,8 @@ Manifest, but now there are tools, such as the <a href="https://seige.digital/en
  browser plugin mentioned above and the Universal Viewer's download 
 option, that will allow you to find the IIIF image URL for an image in 
 order to embed or transform an image. </p>
-<p>IIIF image URLs follow a standard syntax and contain parameters at the end that can be edited to transform an image:<br />{scheme}://{server}{/prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format}</p>
-<p> Here is an example IIIF image URL for a <a href="https://digital.library.ucla.edu/catalog/ark:/13030/hb300005c2">photograph of the political activist and philosopher, Angela Davis</a>:<br /></p><figure><img src="https://iiif.library.ucla.edu/iiif/2/ark%3A%2F13030%2Fhb300005c2/full/3072,/0/default.jpg" alt="" /></figure>
+<p>IIIF image URLs follow a standard syntax and contain parameters at the end that can be edited to transform an image:<br /><span class="text-blue">{scheme}</span>://<span class="text-red">{server}</span><span class="text-purple">{/prefix}</span><span class="text-green">/{identifier}</span><span class="text-yellow">/{region}</span><span class="text-pink">/{size}</span><span class="text-orange">/{rotation}</span><span class="text-light-blue">/{quality}</span>.{format}</p>
+<p> Here is an example IIIF image URL for a <a href="https://digital.library.ucla.edu/catalog/ark:/13030/hb300005c2">photograph of the political activist and philosopher, Angela Davis</a>:<br /><span class="text-blue">https</span>://<span class="text-red">iiif.library.ucla.edu</span><span class="text-purple">/iiif/2</span><span class="text-green">/ark%3A%2F13030%2Fhb300005c2</span><span class="text-yellow">/full</span><span class="text-pink">/3072,</span><span class="text-orange">/0</span><span class="text-light-blue">/default</span>.jpg</p><figure><img src="https://iiif.library.ucla.edu/iiif/2/ark%3A%2F13030%2Fhb300005c2/full/3072,/0/default.jpg" alt="" /></figure>
 <p>Let's take a look at a IIIF image URL in a IIIF Manifest. The <a href="https://ingest.iiif.library.ucla.edu/ark%3A%2F13030%2Fhb300005c2/manifest?_ga=2.43933285.1578987917.1661118954-1130329856.1655829556">IIIF Manifest for the Angela Davis image</a> contains the IIIF image URL in the "resource.@id" property (circled in red).</p>
 <figure><img alt="Screenshot of the IIIF image URL in the resource at id property" src="https://digital.library.ucla.edu/assets/static/ucla_iiif_manifest-properties-10631d30338af49dfc09085b513956a2e59c123159658e3050ef5d3f7876fb81.png" /></figure>
 <p>There is a lot of information in a IIIF Manifest, so the image URL can be tricky to find. Tip: Use your browser's "Find" or "Search page" function (Ctrl + F, etc.) to look for ".jpg" in the Manifest when you are viewing a IIIF Manifest.</p>
@@ -714,7 +714,7 @@ image URL include adjusting the region (cropping), adjusting the size or
     {
       id: '4699483',
       typeHandle: 'richText',
-      richText: `<p>IIIF images can be cropped by adjusting the region parameter of a IIIF image URL:<br />{scheme}://{server}{/prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format}</p>
+      richText: `<p>IIIF images can be cropped by adjusting the region parameter of a IIIF image URL:<br /><span class="text-blue">{scheme}</span>://<span class="text-red">{server}</span><span class="text-purple">{/prefix}</span><span class="text-green">/{identifier}</span><span class="text-yellow">/{region}</span><span class="text-pink">/{size}</span><span class="text-orange">/{rotation}</span><span class="text-light-blue">/{quality}</span>.{format}</p>
 <p>The 
 default value of a region is "full" – meaning the full image. You can 
 change this value directly in the URL to a specific pixel region defined
@@ -733,8 +733,8 @@ image.</p>
     {
       id: '4699484',
       typeHandle: 'richText',
-      richText: `<p>Images can also be resized and rotated by editing the IIIF image URL size and rotation parameters:<br />{scheme}://{server}{/prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format}</p>
-<p>For example:<br /></p>
+      richText: `<p>Images can also be resized and rotated by editing the IIIF image URL size and rotation parameters:<br /><span class="text-blue">{scheme}</span>://<span class="text-red">{server}</span><span class="text-purple">{/prefix}</span><span class="text-green">/{identifier}</span><span class="text-yellow">/{region}</span><span class="text-pink">/{size}</span><span class="text-orange">/{rotation}</span><span class="text-light-blue">/{quality}</span>.{format}</p>
+<p>For example:<br /><span class="text-blue">https</span>://<span class="text-red">iiif.library.ucla.edu</span><span class="text-purple">/iiif/2</span><span class="text-green">/ark%3A%2F21198%2Fn12k6g%2F5x359j7r</span><span class="text-yellow">/full</span><span class="text-pink">/full</span><span class="text-orange">/0</span><span class="text-light-blue">/default</span>.jpg</p>
 <figure><img src="https://iiif.library.ucla.edu/iiif/2/ark%3A%2F21198%2Fn12k6g%2F5x359j7r/full/full/0/default.jpg" alt="" /></figure>
 <ul class="outlined-container">
  <li>
@@ -757,7 +757,7 @@ degrees. For example, an image rotated 180 degrees (halfway):<br />.../full/&gt;
 
  <p>For more information on rotating IIIF images using the URL parameters, see the <a href="https://iiif.io/api/image/2.0/#rotation" target="_blank" rel="noreferrer noopener">IIIF Image API Rotation Parameter documentation</a>.</p>
 
- <img alt="Screenshot of image shown upsidedown" src="https://digital.library.ucla.edu/assets/static/ucla_iiif_rotated-image-39558fafd8a3e258f1029ed32f7e8f3ff56df968cee2b30b352a4e3b48228a0c.png" />
+ <img alt="Screenshot of image shown upsidedown" src="https://iiif.library.ucla.edu/iiif/2/ark%3A%2F21198%2Fn12k6g%2F5x359j7r/full/full/180/default.jpg" />
  </li>
  </ul>`,
       sectionTitle: 'Resize and Rotate Images with the IIIF URL',
