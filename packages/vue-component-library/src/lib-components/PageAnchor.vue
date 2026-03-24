@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref, toRef } from 'vue'
+import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 import { useRoute } from 'vue-router'
 import { useWindowSize } from '@vueuse/core'
@@ -9,7 +9,7 @@ import { useTheme } from '@/composables/useTheme'
 // Helpers
 import getSectionName from '@/utils/getSectionName'
 
-const props = defineProps({
+const { sectionTitles, color } = defineProps({
   sectionTitles: {
     type: Array as PropType<string[]>,
     required: true,
@@ -23,9 +23,6 @@ const props = defineProps({
     default: true,
   },
 })
-
-const color = toRef(props, 'color')
-const sectionTitlesRef = toRef(props, 'sectionTitles')
 
 const route = useRoute()
 
@@ -55,16 +52,14 @@ const isDropdownOpen = ref(defaultDropdownOpen.value)
 
 // Computed
 const sectionName = computed(() => {
-  return color.value || getSectionName(route?.path)
+  return color || getSectionName(route?.path)
 })
 const listClasses = computed(() => {
   return ['link', `color-${sectionName.value}`]
 })
-const safeSectionTitles = computed(() => sectionTitlesRef.value ?? [])
 const kebabCaseTitles = computed(() => {
-  return safeSectionTitles.value.map((title) => {
-    const str = typeof title === 'string' ? title : String(title ?? '')
-    const titleWithNoSpecialChars = str
+  return sectionTitles.map((title) => {
+    const titleWithNoSpecialChars = title
       .replace('&', '')
       .replace(/\s+/g, ' ')
       .trim()
@@ -116,7 +111,7 @@ function handleListClick() {
         @click="handleListClick"
       >
         <li
-          v-for="(title, index) in safeSectionTitles"
+          v-for="(title, index) in sectionTitles"
           :key="`${title}-${index}`"
           :class="listClasses"
         >

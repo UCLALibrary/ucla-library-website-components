@@ -21,6 +21,7 @@ import {
   groupedSections,
   mockPageUsingDigitalCollections,
   mockPageUsingDigitalCollectionsIIIFGuide,
+  mockPageUsingDigitalCollectionsIIIFGuideModified,
 } from '@/stories/mock/Funkhaus/MockPageUsingDigitalCollections'
 
 // Import styles
@@ -86,7 +87,7 @@ function Template(args) {
       const { pageTitle, contentBlocks, textIntroduction } = mock
 
       const sections = groupedSections(contentBlocks)
-      const sectionTitles = sections.map(s => s.title)
+      const sectionTitles = sections.map(s => s.title).filter(Boolean)
 
       const handleOpenPanel = () => {
         isPanelOpened.value = true
@@ -197,6 +198,20 @@ IIIFGuideFullContent.parameters = {
   docs: {
     description: {
       story: 'Full IIIF guide content with figures, images, and detailed rich text across all sections.',
+    },
+  },
+}
+
+export const IIIFGuideFullContentModified = Template.bind({})
+IIIFGuideFullContentModified.args = {
+  theme: 'dlc',
+  contentBlocks:
+        mockPageUsingDigitalCollectionsIIIFGuideModified.contentBlocks,
+}
+IIIFGuideFullContentModified.parameters = {
+  docs: {
+    description: {
+      story: 'Same layout and data as IIIF guide full content at first; uses `mockPageUsingDigitalCollectionsIIIFGuideModified` so you can customize mock data independently.',
     },
   },
 }

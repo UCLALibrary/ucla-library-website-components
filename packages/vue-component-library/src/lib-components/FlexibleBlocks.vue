@@ -293,11 +293,21 @@ function getWrapperComponent(block) {
             }
         }
 
-        :deep(.flexible-block) {
+        :deep(.flexible-block:not(.rich-text)) {
             max-width: 640px;
             margin-left: auto;
             margin-right: auto;
             padding-right: 0;
+        }
+
+        :deep(.flexible-block.rich-text .parsed-content > *:not(.full-width)) {
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        :deep(.flexible-block.rich-text .parsed-content > .full-width) {
+            max-width: none;
         }
 
         /* DL viewer: full width so the viewer is not narrow */

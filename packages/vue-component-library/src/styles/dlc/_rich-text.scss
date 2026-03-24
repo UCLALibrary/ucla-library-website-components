@@ -84,6 +84,12 @@
         overflow: visible;
     }
 
+    :deep(ul li:has(img)),
+    :deep(ol li:has(img)) {
+        list-style: none;
+        padding-left: 0;
+    }
+
     :deep(table) {
         border: 1px solid var(--color-dark-grey);
 
