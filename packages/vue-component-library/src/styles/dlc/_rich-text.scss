@@ -1,5 +1,7 @@
 .dlc.rich-text {
     @include ftva-body;
+    padding-right: unset;
+
     color: var(--color-dark-grey);
 
     :deep(h3) {

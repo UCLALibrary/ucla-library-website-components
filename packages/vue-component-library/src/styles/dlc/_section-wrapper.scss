@@ -46,6 +46,10 @@
         }
     }
 
+    &.theme-divider {
+        padding: 0;
+    }
+
     @media #{$extra-large} {
         &.section-teaser-card-wrapper {
             max-width: 1600px;

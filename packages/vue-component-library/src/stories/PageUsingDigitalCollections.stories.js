@@ -17,7 +17,11 @@ import {
   getMockGlobalNavSearch,
   setupGlobalStore,
 } from './helpers/storyHelpers'
-import { groupedSections, mockPageUsingDigitalCollections } from '@/stories/mock/Funkhaus/MockPageUsingDigitalCollections'
+import {
+  groupedSections,
+  mockPageUsingDigitalCollections,
+  mockPageUsingDigitalCollectionsIIIFGuide,
+} from '@/stories/mock/Funkhaus/MockPageUsingDigitalCollections'
 
 // Import styles
 import './PageUsingDigitalCollections.scss'
@@ -39,6 +43,10 @@ export default {
       control: { type: 'select' },
       options: ['default', 'dlc'],
       description: 'Theme variant for the page',
+    },
+    contentBlocks: {
+      control: false,
+      description: 'Override blocks (used by IIIFGuideFullContent story)',
     },
   },
 }
@@ -68,11 +76,14 @@ function Template(args) {
       const mockGlobalNavSearch = getMockGlobalNavSearch()
       const isPanelOpened = ref(false)
 
-      const {
-        pageTitle,
-        contentBlocks,
-        textIntroduction,
-      } = mockPageUsingDigitalCollections
+      const mock = args.contentBlocks
+        ? {
+            ...mockPageUsingDigitalCollections,
+            contentBlocks: args.contentBlocks,
+          }
+        : mockPageUsingDigitalCollections
+
+      const { pageTitle, contentBlocks, textIntroduction } = mock
 
       const sections = groupedSections(contentBlocks)
       const sectionTitles = sections.map(s => s.title)
@@ -152,7 +163,6 @@ function Template(args) {
               </PageAnchor>
             </div>
           </div>
-          <DividerGeneral class="divider-general" />
           <FlexibleBlocks :blocks="contentBlocks" />
         </main>
 
@@ -176,4 +186,17 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
+}
+
+export const IIIFGuideFullContent = Template.bind({})
+IIIFGuideFullContent.args = {
+  theme: 'dlc',
+  contentBlocks: mockPageUsingDigitalCollectionsIIIFGuide.contentBlocks,
+}
+IIIFGuideFullContent.parameters = {
+  docs: {
+    description: {
+      story: 'Full IIIF guide content with figures, images, and detailed rich text across all sections.',
+    },
+  },
 }

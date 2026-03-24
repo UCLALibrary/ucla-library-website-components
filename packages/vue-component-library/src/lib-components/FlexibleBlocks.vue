@@ -120,24 +120,20 @@ const classes = computed(() => {
 
 const parsedBlocks = computed(() => {
   // Map over the blocks and add additional properties to each block
-  const output = props.blocks.map(obj => ({
-    ...obj,
-    componentName: convertName(obj.typeHandle),
-    theme: 'white', // Default theme to white
-    needsDivider: false, // Default no divider
-    isFirstInSection: false,
-  }))
+  const output = props.blocks.map((obj) => {
+    const hasDividerAssigned = obj?.needsDivider !== undefined
+
+    return {
+      ...obj,
+      componentName: convertName(obj.typeHandle),
+      theme: 'white', // Default theme to white
+      hasDividerAssigned,
+      needsDivider: hasDividerAssigned ? obj?.needsDivider : false, // Default no divider, but can be overridden by the block itself
+    }
+  })
 
   // Iterate over blocks and set the theme/divider logic
   output.forEach((block, index, arr) => {
-    // First block in section = first block overall, or sectionTitle differs from previous
-    block.isFirstInSection
-            = index === 0 || block.sectionTitle !== arr[index - 1].sectionTitle
-
-    // Divider only between sections (not between every block)
-    block.needsDivider
-            = index > 0 && block.sectionTitle !== arr[index - 1].sectionTitle
-
     // Apply specific theming for ftva
     if (theme?.value === 'ftva') {
       block.theme = 'white' // Force theme to white
@@ -145,7 +141,9 @@ const parsedBlocks = computed(() => {
     }
     else if (theme?.value === 'dlc') {
       block.theme = 'white' // DLC: all white sections
-      // needsDivider already set above (only between sections)
+      block.needsDivider = block.hasDividerAssigned
+        ? block.needsDivider
+        : true // Default has a divider, but can be overridden by the block itself
     }
     else {
       // Normal theme logic for other themes
@@ -181,12 +179,6 @@ function isFlexibleMediaGallery(block) {
 }
 
 function sectionTitle(block) {
-  // No section title for divider blocks
-  if (block.componentName === 'flexible-horizontal-divider')
-    return ''
-  // Show section title only on the first block of each section
-  if (!block.isFirstInSection)
-    return ''
   // Use the type guard to narrow down the type
   if (isFlexibleMediaGallery(block)) {
     // TypeScript now knows block is FlexibleMediaGallery, so it's safe to access mediaGalleryStyle
@@ -198,11 +190,6 @@ function sectionTitle(block) {
 }
 
 function sectionSummary(block) {
-  if (block.componentName === 'flexible-horizontal-divider')
-    return ''
-  // Show section summary only on first block of section (optional; can show on all if desired)
-  if (!block.isFirstInSection)
-    return ''
   return block.mediaGalleryStyle === 'halfWidth'
     ? ''
     : block.sectionSummary || block.richTextSimplified
