@@ -169,7 +169,7 @@ const parsedItems = computed(() => {
         v-html="block.sectionSummary"
       />
     </div>
-    <ul class="block-group">
+    <ul v-if="parsedItems && parsedItems.length > 0" class="block-group">
       <BlockFloatingHighlight
         v-for="(item, index) in parsedItems"
         :key="`FlexibleHighlight${index}`"
