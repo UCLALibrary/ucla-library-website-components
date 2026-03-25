@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.6...@ucla-library-monorepo/ucla-library-website-components-v1.68.7) (2026-03-25)
+
+
+### Bug Fixes
+
+* APPS-3747 NavBreadcrumb component ARIA attribute unsupported or prohibited ([#921](https://github.com/UCLALibrary/ucla-library-website-components/issues/921)) ([9c4620a](https://github.com/UCLALibrary/ucla-library-website-components/commit/9c4620a32ef9bf63bc0d85ceeaddc7d99a48218d))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.68.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.5...@ucla-library-monorepo/ucla-library-website-components-v1.68.6) (2026-03-20)
 
 
