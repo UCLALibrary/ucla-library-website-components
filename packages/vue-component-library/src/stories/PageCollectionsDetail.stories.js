@@ -42,7 +42,12 @@ export default {
     },
     variant: {
       control: { type: 'select' },
-      options: ['default', 'albanian', 'ricardoMontejano', 'motionPictureStills'],
+      options: [
+        'default',
+        'albanian',
+        'ricardoMontejano',
+        'motionPictureStills',
+      ],
       description:
                 'Collection page variant (different metadata & overview)',
     },
@@ -194,6 +199,9 @@ export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
   variant: 'default',
+}
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
 }
 
 // Albanian Photographic and Graphic Art Collection (scraped)
