@@ -155,6 +155,9 @@ Default.args = {
   theme: 'dlc',
   variant: 'default',
 }
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 
 // Songs, girlhood in Russia Part 2 (scraped)
 export const SongsGirlhood = Template.bind({})
