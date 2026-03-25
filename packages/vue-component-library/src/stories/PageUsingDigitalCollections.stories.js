@@ -188,6 +188,9 @@ export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
 }
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 
 export const IIIFGuideFullContent = Template.bind({})
 IIIFGuideFullContent.args = {
