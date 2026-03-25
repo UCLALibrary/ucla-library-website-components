@@ -60,7 +60,7 @@ export default {
       v-html="item.name"
     />
     <slot /> <!-- can be used to insert '>' icons etc, into the row -->
-    <ul class="sub-menu">
+    <ul v-if="parsedChildren && parsedChildren.length > 0" class="sub-menu">
       <li
         v-for="child in parsedChildren"
         :key="child.id"

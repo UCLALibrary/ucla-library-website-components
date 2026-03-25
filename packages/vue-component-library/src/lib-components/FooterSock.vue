@@ -43,7 +43,7 @@ const year = computed(() => {
         &#169; {{ year }} Regents of the University of California
       </div>
 
-      <ul class="links">
+      <ul v-if="parsedSockItems && parsedSockItems.length > 0" class="links">
         <li v-for="item in parsedSockItems" :key="item.id" class="item">
           <SmartLink class="link" :to="item.to" :link-target="item.target">
             {{ item.name }}

@@ -33,7 +33,7 @@ const parsedItems = computed(() => {
 
 <template>
   <div class="grid-gallery">
-    <ul class="cards">
+    <ul v-if="parsedItems && parsedItems.length > 0" class="cards">
       <li
         v-for="card in parsedItems"
         :key="card.to"
