@@ -48,6 +48,26 @@
         }
     }
 
+    &.top-level {
+        padding: 0 var(--gutters);
+
+        > :deep(*) {
+            max-width: unset;
+        }
+    }
+
+    &.no-constraints {
+        padding: 0;
+        margin: 0;
+        max-width: none;
+
+        > :deep(*) {
+            max-width: none;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
     // Breakpoints
     @media #{$extra-large} {
         &.section-teaser-card-wrapper {
@@ -59,13 +79,5 @@
     }
     @media #{$small} {
         --gutters: 24px;
-    }
-
-    &.no-constraints {
-        > :deep(*) {
-            max-width: none;
-            margin-left: 0;
-            margin-right: 0;
-        }
     }
 }
