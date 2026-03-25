@@ -86,11 +86,13 @@ jobs:
         with:
           path: storybook-static
           key: storybook-${{ github.sha }}
-      - env:
+      - name: Build Storybook
+        env:
           VITE_ELASTICSEARCH_HOST: ${{ secrets.VITE_ELASTICSEARCH_HOST }}
           VITE_ELASTICSEARCH_INDEX: ${{ secrets.VITE_ELASTICSEARCH_INDEX }}
           VITE_ELASTICSEARCH_API_KEY: ${{ secrets.VITE_ELASTICSEARCH_API_KEY }}
-      - run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
+        run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
+
       - name: Upload storybook artifact
         uses: actions/upload-artifact@v4
         with:
