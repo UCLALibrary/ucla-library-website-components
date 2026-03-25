@@ -228,7 +228,7 @@ export function useElasticSearch(config?: ElasticsearchConfig) {
       // Require host and index so we never send a request to undefined/undefined/_search
       if (!esConfig.host || !esConfig.index) {
         throw new Error(
-          'Elasticsearch config missing: set VITE_ELASTICSEARCH_HOST and VITE_ELASTICSEARCH_INDEX in .env (repo root for Storybook, or in the app that uses this composable).'
+          'Elasticsearch config missing: set VITE_ELASTICSEARCH_HOST and VITE_ELASTICSEARCH_INDEX in the monorepo root .env (Storybook loads env from there), in packages/vue-component-library/.env for other Vite runs, or pass config into useElasticSearch().'
         )
       }
       // Build the Elasticsearch API URL (normalize host: no trailing slash to avoid double slash)

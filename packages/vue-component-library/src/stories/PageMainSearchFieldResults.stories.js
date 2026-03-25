@@ -840,6 +840,10 @@ Default.args = {
   theme: 'dlc',
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 // All results: no search keyword - default behavior shows all results (match_all query)
 export const AllResults = Template.bind({})
 AllResults.args = {
