@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.7...@ucla-library-monorepo/ucla-library-website-components-v1.68.8) (2026-03-25)
+
+
+### Bug Fixes
+
+* APPS-3759 Fix footerLinks heading structure ([#923](https://github.com/UCLALibrary/ucla-library-website-components/issues/923)) ([83c82f3](https://github.com/UCLALibrary/ucla-library-website-components/commit/83c82f3eda5db96162c64bbe07377be22a71dbbc))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.68.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.6...@ucla-library-monorepo/ucla-library-website-components-v1.68.7) (2026-03-25)
 
 
