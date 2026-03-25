@@ -1,8 +1,18 @@
 // DLC theme for SectionWrapper (e.g. Page Main Landing)
 .dlc.section-wrapper {
+    --gutters: 48px;
+
     max-width: 1600px;
     margin: 0 auto;
     padding: 0 var(--gutters);
+
+    &.top-level {
+        padding: 0 var(--gutters);
+
+        > :deep(*) {
+            max-width: unset;
+        }
+    }
 
     &.header-collection {
         .category {
@@ -46,9 +56,16 @@
         }
     }
 
+    // Breakpoints
     @media #{$extra-large} {
         &.section-teaser-card-wrapper {
             max-width: 1600px;
         }
+    }
+    @media #{$medium} {
+        --gutters: 32px;
+    }
+    @media #{$small} {
+        --gutters: 24px;
     }
 }

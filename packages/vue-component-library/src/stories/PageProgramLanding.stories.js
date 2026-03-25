@@ -101,20 +101,19 @@ function Template(args) {
        <!-- Header -->
         <HeaderSmart class="header-smart" />
 
+        <div class="search-field-composite-wrapper">
+          <NavSearch 
+            :show-divider="true"
+            :dropdown-options="mockGlobalNavSearch.dropdownOptions" 
+            :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
+            :placeholder="mockGlobalNavSearch.placeholder"
+            bottom-text=""
+            :bottom-link="null"
+          />
+        </div>
+
         <!-- Main Content Area -->
         <main class="main-content">
-          <div class="search-field-composite-wrapper">
-            <NavSearch 
-              class='search-field-composite'
-              :show-divider="true"
-              :dropdown-options="mockGlobalNavSearch.dropdownOptions" 
-              :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
-              :placeholder="mockGlobalNavSearch.placeholder"
-              bottom-text=""
-              :bottom-link="null"
-            />
-          </div>
-          
           <SectionWrapper>
             <CollectionOverview
               class="collection-overview"
