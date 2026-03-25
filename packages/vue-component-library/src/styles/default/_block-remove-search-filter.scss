@@ -1,3 +1,4 @@
+@use "sass:color";
 .block-remove-search-filter {
     padding: 0px;
 
@@ -11,7 +12,7 @@
         }
 
         &:hover {
-            background-color: transparentize(($default-cyan-03), 0.9);
+            background-color: color.adjust(($default-cyan-03), $alpha: -0.9);
         }
     }
 
@@ -21,7 +22,7 @@
         }
 
         &:hover {
-            background-color: transparentize(($help-green-03), 0.9);
+            background-color: color.adjust(($help-green-03), $alpha: -0.9);
         }
     }
 
@@ -31,7 +32,7 @@
         }
 
         &:hover {
-            background-color: transparentize(($visit-fushia-03), 0.9);
+            background-color: color.adjust(($visit-fushia-03), $alpha: -0.9);
         }
     }
 
@@ -41,7 +42,7 @@
         }
 
         &:hover {
-            background-color: transparentize(($about-purple-03), 0.9);
+            background-color: color.adjust(($about-purple-03), $alpha: -0.9);
         }
     }
 }

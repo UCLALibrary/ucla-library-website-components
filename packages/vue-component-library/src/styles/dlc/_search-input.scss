@@ -1,5 +1,6 @@
+@use "sass:color";
 $input-background: #f6f9fc;
-$icon-color: darken($input-background, 30%);
+$icon-color: color.adjust($input-background, $lightness: -30%);
 
 .dlc.search-input-wrapper {
     position: relative;
@@ -67,7 +68,7 @@ $icon-color: darken($input-background, 30%);
         transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
         &:focus {
-            background-color: darken($input-background, 10%);
+            background-color: color.adjust($input-background, $lightness: -10%);
         }
 
         &::after,
@@ -108,7 +109,7 @@ $icon-color: darken($input-background, 30%);
     // Hovers
     @media #{$has-hover} {
         .clear-icon:hover {
-            background-color: darken($input-background, 10%);
+            background-color: color.adjust($input-background, $lightness: -10%);
         }
     }
 

@@ -1,3 +1,4 @@
+@use "sass:math";
 .section-teaser-list {
   background-color: var(--color-white);
   max-width: $container-l-main + px;
@@ -5,7 +6,7 @@
   .list {
     @for $i from 1 through 30 {
       :deep(.block-highlight:nth-child(#{$i}) .molecule) {
-        left: calc(random(500) * -1) + px;
+        left: calc(math.random(500) * -1) + px;
       }
     }
   }

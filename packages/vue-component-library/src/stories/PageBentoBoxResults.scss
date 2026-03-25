@@ -1,7 +1,8 @@
-@import "./GlobalPageStyles.scss";
+@use "GlobalPageStyles.scss";
+@forward "GlobalPageStyles.scss";
 
 .bento-box-results-page {
-    @include page-container;
+    @include GlobalPageStyles.page-container;
     align-items: center;
 
     .header-smart {
@@ -31,7 +32,7 @@
     }
 
     .search-field-composite-wrapper {
-        @include search-field-wrapper;
+        @include GlobalPageStyles.search-field-wrapper;
     }
 
     .column-container:first-child {
