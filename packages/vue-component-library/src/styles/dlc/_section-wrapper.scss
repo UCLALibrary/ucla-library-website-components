@@ -6,14 +6,6 @@
     margin: 0 auto;
     padding: 0 var(--gutters);
 
-    &.top-level {
-        padding: 0 var(--gutters);
-
-        > :deep(*) {
-            max-width: unset;
-        }
-    }
-
     &.header-collection {
         .category {
             @include step-2;
@@ -67,5 +59,13 @@
     }
     @media #{$small} {
         --gutters: 24px;
+    }
+
+    &.no-constraints {
+        > :deep(*) {
+            max-width: none;
+            margin-left: 0;
+            margin-right: 0;
+        }
     }
 }

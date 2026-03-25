@@ -114,7 +114,7 @@ function Template(args) {
 
         <!-- Main Content Area -->
         <main class="main-content">
-          <SectionWrapper>
+          <SectionWrapper no-constraints>
             <CollectionOverview
               class="collection-overview"
               :title="mockPageProgramLanding.collectionOverview.title"
@@ -125,7 +125,7 @@ function Template(args) {
             />
           </SectionWrapper>
 
-          <SectionWrapper class="section-teaser-card-wrapper">
+          <SectionWrapper class="section-teaser-card-wrapper" no-constraints>
             <h2 class="title-grid-assets">
               {{ mockPageProgramLanding.gridAssets.title }}
             </h2>
