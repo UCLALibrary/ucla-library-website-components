@@ -290,3 +290,8 @@ export interface FlexibleRichText extends FlexibleBlock {
 export interface FlexibleSimpleCards extends FlexibleBlock {
   cards: FlexibleSimpleCard[]
 }
+
+export interface FlexibleDLViewerBlock extends FlexibleBlock {
+  manifestUrl: string
+  caption?: string
+}

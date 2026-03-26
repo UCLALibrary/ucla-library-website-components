@@ -71,6 +71,9 @@ const FlexibleRichText = defineAsyncComponent(() =>
 const FlexibleSimpleCards = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/SimpleCards.vue')
 )
+const FlexibleDLViewer = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/DLViewer.vue')
+)
 const ScrollWrapper = defineAsyncComponent(() =>
   import('@/lib-components/ScrollWrapper.vue')
 )
@@ -92,6 +95,7 @@ const components = {
   'flexible-pull-quote': FlexiblePullQuote,
   'flexible-rich-text': FlexibleRichText,
   'flexible-simple-cards': FlexibleSimpleCards,
+  'flexible-dl-viewer': FlexibleDLViewer,
   // Add other components here if needed
 }
 
@@ -107,6 +111,7 @@ const NEVER_GRAY = [
   'flexible-cta-block2-up',
   'flexible-impact-number-cards',
   'flexible-grid-gallery-cards',
+  'flexible-dl-viewer',
 ]
 
 const classes = computed(() => {
@@ -115,12 +120,17 @@ const classes = computed(() => {
 
 const parsedBlocks = computed(() => {
   // Map over the blocks and add additional properties to each block
-  const output = props.blocks.map(obj => ({
-    ...obj,
-    componentName: convertName(obj.typeHandle),
-    theme: 'white', // Default theme to white
-    needsDivider: false, // Default no divider
-  }))
+  const output = props.blocks.map((obj) => {
+    const hasDividerAssigned = obj?.needsDivider !== undefined
+
+    return {
+      ...obj,
+      componentName: convertName(obj.typeHandle),
+      theme: 'white', // Default theme to white
+      hasDividerAssigned,
+      needsDivider: hasDividerAssigned ? obj?.needsDivider : false, // Default no divider, but can be overridden by the block itself
+    }
+  })
 
   // Iterate over blocks and set the theme/divider logic
   output.forEach((block, index, arr) => {
@@ -130,7 +140,10 @@ const parsedBlocks = computed(() => {
       block.needsDivider = false // No dividers in ftva theme
     }
     else if (theme?.value === 'dlc') {
-      block.needsDivider = false // No dividers in dlc theme
+      block.theme = 'white' // DLC: all white sections
+      block.needsDivider = block.hasDividerAssigned
+        ? block.needsDivider
+        : true // Default has a divider, but can be overridden by the block itself
     }
     else {
       // Normal theme logic for other themes
@@ -143,7 +156,8 @@ const parsedBlocks = computed(() => {
         block.theme = 'gray' // Apply gray theme when needed
 
       if (
-        index > 0
+        theme?.value !== 'dlc'
+                && index > 0
                 && block.theme === 'white'
                 && arr[index - 1].theme === 'white'
       )
@@ -231,6 +245,7 @@ function getWrapperComponent(block) {
                 ])
             "
             class="flexible-block"
+            :class="{ 'outlined-container': block.hasOutline }"
           />
         </component>
       </SectionWrapper>
@@ -260,6 +275,61 @@ function getWrapperComponent(block) {
                 @include ftva-body;
                 color: $medium-grey;
             }
+        }
+    }
+}
+
+// dlc theme – matches PageUsingDigitalCollections (section title, rich text, outline, viewer)
+.dlc.flexible-blocks {
+    .flexible-block-section-wrapper {
+        :deep(.section-header) {
+            .section-title {
+                max-width: 640px;
+                margin: 0 auto 24px;
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 120%;
+                color: var(--color-primary-blue-03);
+            }
+        }
+
+        :deep(.flexible-block:not(.rich-text)) {
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-right: 0;
+        }
+
+        :deep(.flexible-block.rich-text .parsed-content > *:not(.full-width)) {
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        :deep(.flexible-block.rich-text .parsed-content > .full-width) {
+            max-width: none;
+        }
+
+        /* DL viewer: full width so the viewer is not narrow */
+        :deep(.flexible-block.flexible-dl-viewer) {
+            max-width: 100%;
+        }
+
+        :deep(.flexible-block.outlined-container) {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 32px;
+            border: 1px solid var(--color-secondary-grey-02);
+            border-radius: 15px;
+        }
+    }
+
+    @media #{$small} {
+        .flexible-block-section-wrapper
+            :deep(.flexible-block.outlined-container) {
+            padding: 24px;
         }
     }
 }
