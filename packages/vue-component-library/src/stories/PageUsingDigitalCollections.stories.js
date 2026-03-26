@@ -189,14 +189,13 @@ Default.args = {
   theme: 'dlc',
 }
 
-
 export const IIIFGuideFullContent = Template.bind({})
 IIIFGuideFullContent.args = {
   theme: 'dlc',
   contentBlocks: [
-  mockPageUsingDigitalCollectionsIIIFGuide.contentBlocks[7],
-  mockPageUsingDigitalCollectionsIIIFGuide.contentBlocks[10],
-]
+    mockPageUsingDigitalCollectionsIIIFGuide.contentBlocks[7],
+    mockPageUsingDigitalCollectionsIIIFGuide.contentBlocks[10],
+  ]
 }
 IIIFGuideFullContent.parameters = {
   docs: {
