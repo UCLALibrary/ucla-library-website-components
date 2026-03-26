@@ -188,14 +188,15 @@ export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
 }
-Default.parameters = {
-  chromatic: { disableSnapshot: false },
-}
+
 
 export const IIIFGuideFullContent = Template.bind({})
 IIIFGuideFullContent.args = {
   theme: 'dlc',
-  contentBlocks: mockPageUsingDigitalCollectionsIIIFGuide.contentBlocks,
+  contentBlocks: [
+  mockPageUsingDigitalCollectionsIIIFGuide.contentBlocks[7],
+  mockPageUsingDigitalCollectionsIIIFGuide.contentBlocks[10],
+]
 }
 IIIFGuideFullContent.parameters = {
   docs: {
@@ -203,6 +204,9 @@ IIIFGuideFullContent.parameters = {
       story: 'Full IIIF guide content with figures, images, and detailed rich text across all sections.',
     },
   },
+}
+IIIFGuideFullContent.parameters = {
+  chromatic: { disableSnapshot: false },
 }
 
 export const IIIFGuideFullContentModified = Template.bind({})
