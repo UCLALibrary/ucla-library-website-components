@@ -100,9 +100,9 @@ const parsedIsDownload = computed(() => {
 // A button is only shown if BOTH URL and TEXT are valid
 const showButton = computed(() => {
   return (
-    props.buttonUrl &&
-    props.buttonText &&
-    props.buttonText.trim().length > 0
+    props.buttonUrl
+    && props.buttonText
+    && props.buttonText.trim().length > 0
   )
 })
 </script>
