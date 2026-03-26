@@ -36,6 +36,7 @@ defineEmits<{
   'selection-change': [selectedOptions: Record<string, string[]>]
   'option-selected': [filterName: string, option: { label: string; value: string; count: number }]
   'option-deselected': [filterName: string, option: { label: string; value: string; count: number }]
+  'open-see-all-modal': [filter: { name: string; slotName: string }]
 }>()
 // THEME
 const theme = useTheme()
@@ -71,6 +72,7 @@ const classes = computed(() => ['refine-search-panel', theme?.value || ''])
       @selection-change="$emit('selection-change', $event)"
       @option-selected="(filterName, option) => $emit('option-selected', filterName, option)"
       @option-deselected="(filterName, option) => $emit('option-deselected', filterName, option)"
+      @open-see-all-modal="(filter) => $emit('open-see-all-modal', filter)"
     >
       <!-- Pass through all slots to FilterSelections -->
       <template

@@ -1,3 +1,31 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.70.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.69.0...@ucla-library-monorepo/ucla-library-website-components-v1.70.0) (2026-03-26)
+
+
+### Features
+
+* Add PageUsingDigitalCollections ([#907](https://github.com/UCLALibrary/ucla-library-website-components/issues/907)) ([4366002](https://github.com/UCLALibrary/ucla-library-website-components/commit/43660024cfc7838f077fc104955ac179204407cc))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.69.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.8...@ucla-library-monorepo/ucla-library-website-components-v1.69.0) (2026-03-26)
+
+
+### Features
+
+* Add PageMainSearchFieldResults ([#902](https://github.com/UCLALibrary/ucla-library-website-components/issues/902)) ([6c24d2c](https://github.com/UCLALibrary/ucla-library-website-components/commit/6c24d2cf932d132b0e78a4033e8cd7b1fe3589ac))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.7...@ucla-library-monorepo/ucla-library-website-components-v1.68.8) (2026-03-25)
+
+
+### Bug Fixes
+
+* APPS-3759 Fix footerLinks heading structure ([#923](https://github.com/UCLALibrary/ucla-library-website-components/issues/923)) ([83c82f3](https://github.com/UCLALibrary/ucla-library-website-components/commit/83c82f3eda5db96162c64bbe07377be22a71dbbc))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.6...@ucla-library-monorepo/ucla-library-website-components-v1.68.7) (2026-03-25)
+
+
+### Bug Fixes
+
+* APPS-3747 NavBreadcrumb component ARIA attribute unsupported or prohibited ([#921](https://github.com/UCLALibrary/ucla-library-website-components/issues/921)) ([9c4620a](https://github.com/UCLALibrary/ucla-library-website-components/commit/9c4620a32ef9bf63bc0d85ceeaddc7d99a48218d))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.68.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.5...@ucla-library-monorepo/ucla-library-website-components-v1.68.6) (2026-03-20)
 
 
