@@ -45,6 +45,7 @@ export function getMockPageAboutBlocks() {
       sectionTitle: '',
       sectionSummary: '',
       noConstraints: true,
+      needsDivider: false,
       content: [
         {
           id: 'mission-1',
@@ -63,6 +64,7 @@ export function getMockPageAboutBlocks() {
       sectionTitle: '',
       sectionSummary: '',
       noConstraints: true,
+      needsDivider: false,
       content: [
         {
           id: 'about-1',
@@ -81,6 +83,7 @@ export function getMockPageAboutBlocks() {
       sectionTitle: '',
       sectionSummary: '',
       noConstraints: true,
+      needsDivider: false,
       content: [
         {
           id: 'questions-1',
