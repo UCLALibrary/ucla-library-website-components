@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.71.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.70.1...@ucla-library-monorepo/ucla-library-website-components-v1.71.0) (2026-03-26)
+
+
+### Features
+
+* Add PageProgram ([#901](https://github.com/UCLALibrary/ucla-library-website-components/issues/901)) ([32b34a4](https://github.com/UCLALibrary/ucla-library-website-components/commit/32b34a45967795cb00be0444295c628f6ba3754f))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.70.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.70.0...@ucla-library-monorepo/ucla-library-website-components-v1.70.1) (2026-03-26)
+
+
+### Bug Fixes
+
+* chromatic snapshot size error for desktop ([#926](https://github.com/UCLALibrary/ucla-library-website-components/issues/926)) ([45e4db0](https://github.com/UCLALibrary/ucla-library-website-components/commit/45e4db09e73654cb11d8c0d9d7ff9530edbf9694))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.70.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.69.0...@ucla-library-monorepo/ucla-library-website-components-v1.70.0) (2026-03-26)
 
 

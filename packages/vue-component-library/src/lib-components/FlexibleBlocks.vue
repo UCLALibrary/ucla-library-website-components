@@ -230,6 +230,7 @@ function getWrapperComponent(block) {
         :theme="block.theme"
         :section-title="sectionTitle(block)"
         :section-summary="sectionSummary(block)"
+        :no-constraints="block.noConstraints"
         class="flexible-block-section-wrapper"
       >
         <component :is="getWrapperComponent(block)">
@@ -291,13 +292,6 @@ function getWrapperComponent(block) {
                 line-height: 120%;
                 color: var(--color-primary-blue-03);
             }
-        }
-
-        :deep(.flexible-block:not(.rich-text)) {
-            max-width: 640px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-right: 0;
         }
 
         :deep(.flexible-block.rich-text .parsed-content > *:not(.full-width)) {

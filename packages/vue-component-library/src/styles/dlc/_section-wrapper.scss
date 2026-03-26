@@ -49,6 +49,7 @@
 
     &.top-level {
         padding: 0 var(--gutters);
+        margin-top: 0;
 
         > :deep(*) {
             max-width: unset;
