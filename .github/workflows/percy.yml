@@ -39,6 +39,10 @@ jobs:
 
       - name: Build Storybook
         if: steps.cache-storybook.outputs.cache-hit != 'true'
+        env:
+          VITE_ELASTICSEARCH_HOST: ${{ secrets.VITE_ELASTICSEARCH_HOST }}
+          VITE_ELASTICSEARCH_INDEX: ${{ secrets.VITE_ELASTICSEARCH_INDEX }}
+          VITE_ELASTICSEARCH_API_KEY: ${{ secrets.VITE_ELASTICSEARCH_API_KEY }}
         run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
 
       - name: Percy via Cypress (local storybook)

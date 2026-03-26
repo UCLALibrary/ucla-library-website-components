@@ -27,7 +27,12 @@ jobs:
         with:
           do_checkout: "false" # keep the PR merge ref
 
+      # Vite inlines import.meta.env.VITE_* at build time; GitHub secrets must be passed in here.
       - name: Build Storybook (again)
+        env:
+          VITE_ELASTICSEARCH_HOST: ${{ secrets.VITE_ELASTICSEARCH_HOST }}
+          VITE_ELASTICSEARCH_INDEX: ${{ secrets.VITE_ELASTICSEARCH_INDEX }}
+          VITE_ELASTICSEARCH_API_KEY: ${{ secrets.VITE_ELASTICSEARCH_API_KEY }}
         run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
 
       - name: Deploy to Netlify (gated)
