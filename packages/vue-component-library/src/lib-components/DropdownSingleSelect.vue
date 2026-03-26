@@ -167,6 +167,6 @@ const parsedOptions = computed(() => {
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/dlc/_dropdown-single-select.scss";
-@import "@/styles/default/_dropdown-single-select.scss";
+@use "@/styles/dlc/_dropdown-single-select.scss" as *;
+@use "@/styles/default/_dropdown-single-select.scss" as *;
 </style>

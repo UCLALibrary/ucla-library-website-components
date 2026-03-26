@@ -45,5 +45,5 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_block-buttons.scss";
+@use "@/styles/dlc/_block-buttons.scss" as *;
 </style>

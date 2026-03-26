@@ -66,7 +66,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@import '@/styles/ftva/_scroll-wrapper.scss';
+@use '@/styles/ftva/_scroll-wrapper.scss' as *;
 
 .scroll-wrapper {
   width: 100%;

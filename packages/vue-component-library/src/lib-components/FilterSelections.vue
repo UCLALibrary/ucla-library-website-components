@@ -323,5 +323,5 @@ async function toggleOption(filterName: string, option: FilterOption) {
 </template>
 
 <style scoped>
-@import "@/styles/dlc/_filter-selections.scss";
+@use "@/styles/dlc/_filter-selections.scss" as *;
 </style>

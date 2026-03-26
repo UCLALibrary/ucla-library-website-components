@@ -132,5 +132,5 @@ const classes = computed(() => [
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_panel-anchor-nav.scss";
+@use "@/styles/dlc/_panel-anchor-nav.scss" as *;
 </style>

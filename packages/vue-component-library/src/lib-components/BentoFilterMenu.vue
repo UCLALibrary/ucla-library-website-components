@@ -42,5 +42,5 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_bento-filter-menu.scss";
+@use "@/styles/dlc/_bento-filter-menu.scss" as *;
 </style>

@@ -77,6 +77,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_header-smart.scss";
-@import "@/styles/default/_header-smart.scss";
+@use "@/styles/dlc/_header-smart.scss" as *;
+@use "@/styles/default/_header-smart.scss" as *;
 </style>

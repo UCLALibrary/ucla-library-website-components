@@ -157,6 +157,6 @@ const parsedTextAll = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_block-staff-article-item.scss";
-@import "@/styles/ftva/_block-staff-article-item.scss";
+@use "@/styles/default/_block-staff-article-item.scss" as *;
+@use "@/styles/ftva/_block-staff-article-item.scss" as *;
 </style>

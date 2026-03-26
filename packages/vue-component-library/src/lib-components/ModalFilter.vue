@@ -355,5 +355,5 @@ const hasItems = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_modal-filter.scss";
+@use "@/styles/dlc/_modal-filter.scss" as *;
 </style>
