@@ -956,7 +956,7 @@ export const mockFTVAHomepageCarousel = [
         id: '3157237',
         url: 'https://static.library.ucla.edu/craftassetstest/FTVA/Todd-Solondz_2024-07-04-073854_jbqd.jpg',
         altText: null,
-        alt: "Todd Solondz",
+        alt: 'Todd Solondz',
         focalPoint: [
           0.5,
           0.5
