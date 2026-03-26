@@ -1,0 +1,16 @@
+// DLC theme: match PageUsingDigitalCollections section divider (DividerGeneral style – dotted only, full width)
+.dlc.divider-way-finder {
+  width: 100%;
+  max-width: unset;
+  margin: 40px 0;
+
+  .solid {
+    display: none;
+  }
+
+  .dotted {
+    flex: 1 1 auto;
+    border-bottom: 2px dotted var(--color-secondary-grey-02);
+    height: 1px;
+  }
+}
