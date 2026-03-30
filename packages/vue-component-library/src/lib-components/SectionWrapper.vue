@@ -26,6 +26,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  noConstraints: {
+    type: Boolean,
+    default: false,
+  },
 })
 // console.log('SectionWrapper code initialized')
 const parentLevel = inject('sectionLevel', 1)
@@ -50,10 +54,11 @@ provide('ancestorSetMargins', ancestorSetMargins || setMargins.value)
 const classes = computed(() => {
   return [
     'section-wrapper',
-    `section-wrapper${levelComputed.value}`,
-    `theme-${props.theme}`,
-    { 'top-level': setMargins.value },
-    theme?.value || ''
+        `section-wrapper${levelComputed.value}`,
+        `theme-${props.theme}`,
+        { 'top-level': setMargins.value },
+        { 'no-constraints': props.noConstraints },
+        theme?.value || '',
   ]
 })
 
@@ -65,14 +70,8 @@ const getId = computed(() => {
 
 <template>
   <section :class="classes">
-    <a
-      v-if="sectionTitle"
-      :id="getId"
-    />
-    <div
-      v-if="sectionTitle"
-      class="section-header"
-    >
+    <a v-if="sectionTitle" :id="getId" />
+    <div v-if="sectionTitle" class="section-header">
       <SectionHeader
         v-if="sectionTitle"
         class="section-title"
