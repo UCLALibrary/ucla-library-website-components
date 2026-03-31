@@ -137,7 +137,6 @@ const parsedDateMonth = computed(() => {
         />
       </div>
       <ResponsiveImage
-        v-if="image"
         :media="image"
         :aspect-ratio="imageAspectRatio"
         class="image"
