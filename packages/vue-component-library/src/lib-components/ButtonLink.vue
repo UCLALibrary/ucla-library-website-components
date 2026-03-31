@@ -116,22 +116,13 @@ const parsedIconName = computed(() => {
     :link-target="linkTarget"
   >
     <span class="label">{{ label }}</span>
-    <slot />
     <component
       :is="parsedIconName"
       v-if="parsedIconName !== ''"
       class="arrow"
       aria-hidden="true"
     />
-    <div class="hover">
-      <span class="label">{{ label }}</span>
-      <component
-        :is="parsedIconName"
-        v-if="parsedIconName !== ''"
-        class="arrow"
-        aria-hidden="true"
-      />
-    </div>
+    <slot />
   </SmartLink>
 </template>
 
