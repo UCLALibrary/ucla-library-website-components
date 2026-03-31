@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.72.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.72.0...@ucla-library-monorepo/ucla-library-website-components-v1.72.1) (2026-03-31)
+
+
+### Bug Fixes
+
+* APPS-3675 remove image conditional ([#928](https://github.com/UCLALibrary/ucla-library-website-components/issues/928)) ([959536f](https://github.com/UCLALibrary/ucla-library-website-components/commit/959536f1a05f6b2c847667055c6ee89fa0a066a1))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.72.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.71.0...@ucla-library-monorepo/ucla-library-website-components-v1.72.0) (2026-03-31)
 
 
