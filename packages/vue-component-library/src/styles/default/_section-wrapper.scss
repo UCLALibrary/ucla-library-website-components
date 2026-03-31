@@ -1,9 +1,9 @@
 .section-wrapper {
-    >.section-header {
+    > .section-header {
         position: relative;
         margin-bottom: var(--space-xl);
 
-        >.section-title {
+        > .section-title {
             color: var(--color-primary-blue-03);
             line-height: 1.2;
             margin-bottom: var(--space-m);
@@ -53,7 +53,7 @@
             &.section-banner {
                 margin-top: 0;
 
-                >:deep(*) {
+                > :deep(*) {
                     max-width: $container-xl-banner + px;
                 }
             }
@@ -76,7 +76,7 @@
         background-color: var(--color-theme);
 
         // Configure spacing of child components (individual components might override things like max-width)
-        >:deep(*) {
+        > :deep(*) {
             max-width: #{$container-l-main}px;
             padding: 0;
             margin-left: auto;
@@ -99,7 +99,7 @@
 
     // move link under title on mobile
     @media #{$small} {
-        >.section-header {
+        > .section-header {
             .section-link {
                 margin-top: -20px;
                 position: relative;
