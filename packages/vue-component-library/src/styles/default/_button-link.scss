@@ -1,4 +1,5 @@
 .button-link {
+    // Default variables
     --button-background-color: #{$white};
     --button-text-color: #{$black};
     --button-icon-single-color: #{$default-cyan-03};
@@ -6,15 +7,7 @@
     --button-icon-accent-color: #{$default-cyan-03};
     --button-border-color: #{$primary-blue-02};
 
-    .hover {
-        --button-background-color: #{$primary-blue-03};
-        --button-text-color: #{$white};
-        --button-icon-single-color: #{$white};
-        --button-icon-withaccent-color: #{$white};
-        --button-icon-accent-color: #{$default-cyan-03};
-        --button-border-color: #{$primary-blue-03};
-    }
-
+    // Variants
     &.is-secondary {
         --button-background-color: #{$primary-blue-03};
         --button-text-color: #{$white};
@@ -22,15 +15,6 @@
         --button-icon-withaccent-color: #{$white};
         --button-icon-accent-color: #{$default-cyan-03};
         --button-border-color: #{$primary-blue-03};
-
-        .hover {
-            --button-background-color: #{$white};
-            --button-text-color: #{$black};
-            --button-icon-single-color: #{$default-cyan-03};
-            --button-icon-withaccent-color: #{$primary-blue-03};
-            --button-icon-accent-color: #{$default-cyan-03};
-            --button-border-color: #{$primary-blue-02};
-        }
     }
 
     &.is-tertiary {
@@ -40,15 +24,6 @@
         --button-icon-withaccent-color: #{$white};
         --button-icon-accent-color: #{$white};
         --button-border-color: #{$default-cyan-02};
-
-        .hover {
-            --button-background-color: #{$primary-blue-03};
-            --button-text-color: #{$white};
-            --button-icon-single-color: #{$white};
-            --button-icon-withaccent-color: #{$white};
-            --button-icon-accent-color: #{$white};
-            --button-border-color: #{$white};
-        }
     }
 
     &.is-quaternary {
@@ -58,30 +33,18 @@
         --button-icon-withaccent-color: #{$black};
         --button-icon-accent-color: #{$black};
         --button-border-color: #{$secondary-grey-01};
-
-        .hover {
-            --button-background-color: #{$white};
-            --button-text-color: #{$black};
-            --button-icon-single-color: #{$black};
-            --button-icon-withaccent-color: #{$black};
-            --button-icon-accent-color: #{$black};
-            --button-border-color: #{$secondary-grey-01};
-        }
     }
 
     &.is-senary {
         --button-text-color: #{$primary-blue-03};
-        --button-text-color: #{$primary-blue-03};
-
         background-color: transparent;
         border: none;
-
         width: max-content;
-
         padding: 0;
 
         .label {
             position: relative;
+
             &:after {
                 position: absolute;
                 content: "";
@@ -94,11 +57,6 @@
                 transform-origin: bottom left;
                 @include animate-normal;
             }
-        }
-
-        .hover {
-            display: none;
-            width: max-content;
         }
     }
 
@@ -117,29 +75,6 @@
     background-color: var(--button-background-color);
     overflow: hidden;
     z-index: 0;
-
-    .hover {
-        position: absolute;
-        inset: 0 0 0 0;
-        -webkit-clip-path: inset(0% 100% 0% 0%);
-        clip-path: inset(0% 100% 0% 0%);
-
-        transition-property: -webkit-clip-path;
-
-        transition-property: clip-path;
-
-        transition-property: clip-path, -webkit-clip-path;
-        @include animate-normal;
-
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 4px;
-        color: var(--button-text-color);
-        background-color: var(--button-background-color);
-        overflow: hidden;
-        z-index: 0;
-    }
 
     .label {
         white-space: nowrap;
@@ -177,19 +112,53 @@
         }
     }
 
+    // Remove extra padding for first child if multiple children exist
     *:not(:only-child):first-child {
         padding-left: 8px;
     }
 
+    // Hover / Focus styles
     @media #{$has-hover} {
+
         &:hover,
         &:focus,
         &:focus-visible {
-            cursor: hover;
+            cursor: pointer;
 
-            .hover {
-                -webkit-clip-path: inset(0% 0% 0% 0%);
-                clip-path: inset(0% 0% 0% 0%);
+            // Default hover
+            --button-background-color: #{$primary-blue-03};
+            --button-text-color: #{$white};
+            --button-icon-single-color: #{$white};
+            --button-icon-withaccent-color: #{$white};
+            --button-icon-accent-color: #{$default-cyan-03};
+            --button-border-color: #{$primary-blue-03};
+
+            // Variant hover overrides
+            &.is-secondary {
+                --button-background-color: #{$white};
+                --button-text-color: #{$black};
+                --button-icon-single-color: #{$default-cyan-03};
+                --button-icon-withaccent-color: #{$primary-blue-03};
+                --button-icon-accent-color: #{$default-cyan-03};
+                --button-border-color: #{$primary-blue-02};
+            }
+
+            &.is-tertiary {
+                --button-background-color: #{$primary-blue-03};
+                --button-text-color: #{$white};
+                --button-icon-single-color: #{$white};
+                --button-icon-withaccent-color: #{$white};
+                --button-icon-accent-color: #{$white};
+                --button-border-color: #{$white};
+            }
+
+            &.is-quaternary {
+                --button-background-color: #{$white};
+                --button-text-color: #{$black};
+                --button-icon-single-color: #{$black};
+                --button-icon-withaccent-color: #{$black};
+                --button-icon-accent-color: #{$black};
+                --button-border-color: #{$secondary-grey-01};
             }
 
             &.is-senary {
