@@ -96,14 +96,26 @@ const parsedIsDownload = computed(() => {
   return !!(props.buttonUrl && props.typeMedia === 'other')
 })
 
-// Prevents empty buttons or links
+const hasValidButtonUrl = computed(() => {
+  if (props.buttonUrl === null || props.buttonUrl === undefined) {
+    return false
+  }
+
+  return props.buttonUrl.trim().length > 0
+})
+
+const hasValidButtonText = computed(() => {
+  if (props.buttonText === null || props.buttonText === undefined) {
+    return false
+  }
+
+  return props.buttonText.trim().length > 0
+})
+
+// Prevent empty buttons or links
 // A button is only shown if BOTH URL and TEXT are valid
 const showButton = computed(() => {
-  return (
-    props.buttonUrl
-    && props.buttonText
-    && props.buttonText.trim().length > 0
-  )
+  return hasValidButtonUrl.value && hasValidButtonText.value
 })
 </script>
 
