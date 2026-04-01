@@ -97,13 +97,15 @@ const parsedIsDownload = computed(() => {
 })
 
 const hasValidButtonUrl = computed(() => {
-  if (props.buttonUrl == null) return false
+  if (props.buttonUrl === null || props.buttonUrl === undefined)
+    return false
 
   return props.buttonUrl.trim().length > 0
 })
 
 const hasValidButtonText = computed(() => {
-  if (props.buttonText == null) return false
+  if (props.buttonText === null || props.buttonText === undefined)
+    return false
 
   return props.buttonText.trim().length > 0
 })
