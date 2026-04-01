@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.73.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.72.2...@ucla-library-monorepo/ucla-library-website-components-v1.73.0) (2026-04-01)
+
+
+### Features
+
+* Add PageAssetDetail ([#897](https://github.com/UCLALibrary/ucla-library-website-components/issues/897)) ([06a1fe2](https://github.com/UCLALibrary/ucla-library-website-components/commit/06a1fe275d4d8a213fae538055a57beccdfef347))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.72.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.72.1...@ucla-library-monorepo/ucla-library-website-components-v1.72.2) (2026-04-01)
 
 
