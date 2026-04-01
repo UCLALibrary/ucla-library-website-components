@@ -234,7 +234,7 @@ const mergeSortTopics = computed(() => {
             Ask Me About
           </h2>
           <RichText>
-            <ul class="list topics">
+            <ul v-if="mergeSortTopics && mergeSortTopics.length > 0" class="list topics">
               <li
                 v-for="topic in mergeSortTopics"
                 :key="topic.id"

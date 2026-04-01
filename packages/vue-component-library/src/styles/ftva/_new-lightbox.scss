@@ -2,7 +2,8 @@
 
   background: $navy-blue;
 
-  .button-prev, .button-next {
+  .button-prev,
+  .button-next {
     top: 50%;
     transform: translateY(-50%);
     width: 43px;
@@ -10,11 +11,11 @@
     border: 1px solid $grey-blue;
     border-radius: 8px;
     padding: 2px 0px;
-  
+
     :deep(.svg__fill--primary-blue-03) {
       fill: $grey-blue;
     }
-  
+
     :deep(.svg__stroke--primary-blue-03) {
       stroke: $grey-blue;
     }
@@ -22,27 +23,31 @@
 
   .button-prev {
     svg {
-      margin-left: -4px;  
+      margin-left: -4px;
     }
   }
-  
+
   .button-next {
     svg {
       margin-left: -2px;
     }
   }
-} 
+}
 
- // Does not act like a Lightbox (overlaid); displays inline
-.ftva.inline.lightbox {      
+// Does not act like a Lightbox (overlaid); displays inline
+.ftva.inline.lightbox {
   position: relative;
   z-index: auto;
+
+  height: auto;
+  overflow: visible;
+  overscroll-behavior: auto;
   grid-template-columns: [col] var(--media-width);
   grid-gap: 0px;
 
   .media-container {
     grid-column: col 1 / span 3;
-    
+
     // todo make these styles a mixin?
     .credit-text {
       display: inline-block;
@@ -94,11 +99,13 @@
   }
 
   // hide captions beneath images and close button
-  .caption-content, .button-close {
+  .caption-content,
+  .button-close {
     display: none;
   }
 
-  .button-prev, .button-next {
+  .button-prev,
+  .button-next {
     top: 50%;
     transform: translateY(-50%);
     width: 43px;
@@ -114,7 +121,7 @@
     :deep(.svg__fill--primary-blue-03) {
       fill: $grey-blue;
     }
-    
+
     :deep(.svg__stroke--primary-blue-03) {
       stroke: $grey-blue;
     }
@@ -124,7 +131,7 @@
     left: 30px;
 
     svg {
-      margin-left: -4px;  
+      margin-left: -4px;
     }
   }
 
@@ -135,9 +142,13 @@
       margin-left: -2px;
     }
   }
-} 
+}
 
-  // Homepage Carousel Theme
+.ftva.inline.lightbox .media-container {
+  touch-action: pan-y;
+}
+
+// Homepage Carousel Theme
 .ftva.inline.lightbox.homepage {
   .caption-block {
     display: flex;
@@ -147,8 +158,8 @@
 
     max-height: 400px;
     height: 100%;
-    background: linear-gradient(0deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 100%);
-    
+    background: linear-gradient(0deg, rgba(0, 0, 0, .75) 0%, rgba(0, 0, 0, 0) 100%);
+
     .caption-content {
       position: absolute;
       top: 30%;
@@ -157,7 +168,7 @@
       grid-template-columns: 1fr 400px;
       grid-template-rows: auto 1fr;
       grid-template-areas: 'label label'
-      'title caption';
+        'title caption';
       gap: 4px 36px;
       max-width: 1160px;
       width: 100%;
@@ -184,7 +195,7 @@
       grid-area: label;
       display: flex;
       -moz-column-gap: 12px;
-          column-gap: 12px;
+      column-gap: 12px;
       align-items: center;
       @include ftva-body;
       font-weight: 600;
@@ -208,7 +219,8 @@
     }
   }
 
-  .button-prev, .button-next {
+  .button-prev,
+  .button-next {
     z-index: 1;
     bottom: -8px;
     top: 50%;
@@ -220,7 +232,7 @@
     :deep(.svg__fill--primary-blue-03) {
       fill: var(--color-white);
     }
-  
+
     :deep(.svg__stroke--primary-blue-03) {
       stroke: var(--color-white);
     }
@@ -230,14 +242,14 @@
     left: unset;
     right: calc(50% + var(--counterWidth));
   }
-  
+
   .button-next {
     right: calc(50% - var(--counterWidth));
   }
 
   @media (max-width: 900px) {
 
-    
+
     .caption-block {
       position: relative;
       grid-column: col 1 / span 3;
@@ -248,7 +260,7 @@
       max-height: unset;
       flex-direction: column;
       background: none;
-      
+
       .media-counter {
         position: relative;
         top: -58px;
@@ -263,8 +275,8 @@
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: 'label'
-        'title'
-        'caption';
+          'title'
+          'caption';
         gap: 10px 0;
       }
 
@@ -276,12 +288,13 @@
     .button-prev {
       left: 8%;
     }
-  
+
     .button-next {
       right: 8%;
     }
 
-    .button-prev, .button-next {
+    .button-prev,
+    .button-next {
       display: block;
       top: var(--counterWidth);
       bottom: unset;

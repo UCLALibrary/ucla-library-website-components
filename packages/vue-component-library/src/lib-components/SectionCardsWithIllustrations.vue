@@ -57,7 +57,7 @@ const cypressSelector = computed(() => {
       <div v-if="sectionSummary" class="section-summary" v-html="sectionSummary" />
     </div>
 
-    <ul class="cards">
+    <ul v-if="items && items.length > 0" class="cards">
       <BlockCardWithIllustration
         v-for="item in items" :key="item.to" :icon-name="item.iconName" :to="item.to"
         :title="item.title" :text="item.text" :category="item.category" :is-horizontal="isHorizontal"

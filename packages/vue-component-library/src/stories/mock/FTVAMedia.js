@@ -875,6 +875,7 @@ export const mockFTVAHomepageCarousel = [
         id: '3131255',
         url: 'https://static.library.ucla.edu/craftassetstest/FTVA/laregioncentrale-crop_0.jpeg',
         altText: 'Upside down of a rocky landscape.',
+        alt: 'Upside down of a rocky landscape.',
         focalPoint: [
           0.5,
           0.5
@@ -894,6 +895,7 @@ export const mockFTVAHomepageCarousel = [
         id: '3144389',
         url: 'https://static.library.ucla.edu/craftassetstest/FTVA/TheSalesman_Image6_0.jpg',
         altText: 'The Salesman',
+        alt: 'The Salesman',
         focalPoint: [
           0.5,
           0.5
@@ -913,6 +915,7 @@ export const mockFTVAHomepageCarousel = [
         id: '3144386',
         url: 'https://static.library.ucla.edu/craftassetstest/FTVA/guzman.jpg',
         altText: 'Patricio Guzmán (2010)',
+        alt: 'Patricio Guzmán (2010)',
         focalPoint: [
           0.5,
           0.5
@@ -931,6 +934,7 @@ export const mockFTVAHomepageCarousel = [
         id: '3144388',
         url: 'https://static.library.ucla.edu/craftassetstest/FTVA/fop2011.jpg',
         altText: 'UCLA Festival of Preservation (2011)',
+        alt: 'UCLA Festival of Preservation (2011)',
         focalPoint: [
           0.5,
           0.5
@@ -952,6 +956,7 @@ export const mockFTVAHomepageCarousel = [
         id: '3157237',
         url: 'https://static.library.ucla.edu/craftassetstest/FTVA/Todd-Solondz_2024-07-04-073854_jbqd.jpg',
         altText: null,
+        alt: 'Todd Solondz',
         focalPoint: [
           0.5,
           0.5

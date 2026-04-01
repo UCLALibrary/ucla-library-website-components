@@ -100,8 +100,8 @@ function setCurrentSlide(currentSlide: number) {
 
 <template>
   <div ref="lightbox" :class="classes">
-    <button class="button-close" @click="closeModal">
-      <SvgIconClose aria-label="Close" />
+    <button class="button-close" aria-label="Close" @click="closeModal">
+      <SvgIconClose aria-hidden="true" />
     </button>
 
     <Carousel v-model="selectionIndex" class="media-container">
@@ -110,6 +110,7 @@ function setCurrentSlide(currentSlide: number) {
           :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item"
           :cover-image="item.coverImage" :embed-code="item.embedCode"
           class="library-media-item"
+          :style="{ display: selectionIndex === index ? '' : 'none' }"
         >
           <div v-if="item.credit" class="credit-text">
             <span v-text="item.credit" />
@@ -119,22 +120,22 @@ function setCurrentSlide(currentSlide: number) {
     </Carousel>
 
     <!-- Navigation -->
-    <button v-if="items.length > 1" ref="prevBtnRef" class="button-prev" :disabled="selectionIndex <= 0" @click="selectionIndex -= 1">
-      <SvgIconCaretLeft aria-label="Show previous image" />
+    <button v-if="items.length > 1" ref="prevBtnRef" class="button-prev" aria-label="Show previous image" :disabled="selectionIndex <= 0" @click="selectionIndex -= 1">
+      <SvgIconCaretLeft aria-hidden="true" />
     </button>
     <button
-      v-if="items.length > 1" ref="nextBtnRef" class="button-next" :disabled="selectionIndex >= items.length - 1"
+      v-if="items.length > 1" ref="nextBtnRef" class="button-next" aria-label="Show next image" :disabled="selectionIndex >= items.length - 1"
       @click="selectionIndex += 1"
     >
-      <SvgIconCaretRight aria-label="Show next image" />
+      <SvgIconCaretRight aria-hidden="true" />
     </button>
 
     <!-- Pagination -->
     <div class="caption-block">
       <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="tablist">
         <button
-          v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex"
-          class="media-counter-item" @click="setCurrentSlide(index - 1)"
+          v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex" role="tab"
+          class="media-counter-item" :aria-label="`Go to slide ${index}`" @click="setCurrentSlide(index - 1)"
         >
           <SvgIconMoleculeBullet />
         </button>

@@ -40,6 +40,10 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: packages/vue-component-library
           autoAcceptChanges: true
+        env:
+          VITE_ELASTICSEARCH_HOST: ${{ secrets.VITE_ELASTICSEARCH_HOST }}
+          VITE_ELASTICSEARCH_INDEX: ${{ secrets.VITE_ELASTICSEARCH_INDEX }}
+          VITE_ELASTICSEARCH_API_KEY: ${{ secrets.VITE_ELASTICSEARCH_API_KEY }}
 
   # ---------- MANUAL path: look up PR + branch type ----------
   get-pr-info:
@@ -111,6 +115,10 @@ jobs:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: packages/vue-component-library
+        env:
+          VITE_ELASTICSEARCH_HOST: ${{ secrets.VITE_ELASTICSEARCH_HOST }}
+          VITE_ELASTICSEARCH_INDEX: ${{ secrets.VITE_ELASTICSEARCH_INDEX }}
+          VITE_ELASTICSEARCH_API_KEY: ${{ secrets.VITE_ELASTICSEARCH_API_KEY }}
 
   # ---------- MANUAL: forked PR (gated environment) ----------
   chromatic-fork:
@@ -143,3 +151,12 @@ jobs:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: packages/vue-component-library
+        env:
+          # Set to the PR head commit if it's a PR; otherwise to the ref
+          CHROMATIC_SHA: ${{ needs.get-pr-info.outputs.pr_sha }}
+          # Other useful environment variables:
+          CHROMATIC_BRANCH: pr-${{ github.event.inputs.pr_number }}-${{ needs.get-pr-info.outputs.head_ref_sanitized }}
+          CHROMATIC_SLUG: ${{ github.repository }}
+          VITE_ELASTICSEARCH_HOST: ${{ secrets.VITE_ELASTICSEARCH_HOST }}
+          VITE_ELASTICSEARCH_INDEX: ${{ secrets.VITE_ELASTICSEARCH_INDEX }}
+          VITE_ELASTICSEARCH_API_KEY: ${{ secrets.VITE_ELASTICSEARCH_API_KEY }}

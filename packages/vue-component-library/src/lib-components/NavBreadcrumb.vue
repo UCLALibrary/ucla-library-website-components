@@ -251,7 +251,7 @@ const parsedClasses = computed(() => {
 </script>
 
 <template>
-  <div :class="parsedClasses" aria-label="breadcrumbs">
+  <nav :class="parsedClasses" aria-label="Breadcrumb">
     <ol>
       <li
         v-for="linkObj in parsedBreadcrumbLinks"
@@ -300,7 +300,7 @@ const parsedClasses = computed(() => {
         />
       </li>
     </ol>
-  </div>
+  </nav>
 </template>
 
 <style lang="scss" scoped>

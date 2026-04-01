@@ -227,6 +227,7 @@ watch(status, () => {
       <button
         type="button"
         class="notification--remove"
+        aria-label="Dismiss notification"
         @click="removeNotification()"
       >
         <SvgGlyphClose class="svg-glyph-close" />
@@ -245,6 +246,7 @@ watch(status, () => {
 
         <button
           type="button"
+          aria-label="Close form"
           @click="closeBlockForm()"
         >
           <SvgGlyphClose class="svg-glyph-close" />

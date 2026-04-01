@@ -290,6 +290,7 @@ function submitSearch() {
             <button
               class="button-submit"
               type="submit"
+              aria-label="Submit search"
               @click="submitSearch"
             >
               <IconSearch class="icon" />
@@ -298,7 +299,7 @@ function submitSearch() {
           <div class="divider" />
         </form>
       </div>
-      <ul class="nav-menu-primary">
+      <ul v-if="parsedPrimaryMenuItems && parsedPrimaryMenuItems.length > 0" class="nav-menu-primary">
         <NavMenuItemResponsive
           v-for="(item, index) in parsedPrimaryMenuItems"
           :key="item.name"
@@ -326,7 +327,7 @@ function submitSearch() {
         v-if="isOpened && !title && theme !== 'dlc'"
         class="nav-menu-secondary"
       >
-        <ul class="list">
+        <ul v-if="secondaryNav && secondaryNav.length > 0" class="list">
           <li
             v-for="item in secondaryNav"
             :key="item.name"
@@ -348,7 +349,7 @@ function submitSearch() {
         v-if="theme === 'dlc' && secondaryNav.length"
         class="nav-menu-info"
       >
-        <ul class="list">
+        <ul v-if="secondaryNav && secondaryNav.length > 0" class="list">
           <li
             v-for="item in secondaryNav"
             :key="item.name"
