@@ -64,3 +64,4 @@ packages/*/serve
 packages/*/vite.config.serve.ts
 packages/*/src/App.vue
 packages/*/src/mock.js
+.env

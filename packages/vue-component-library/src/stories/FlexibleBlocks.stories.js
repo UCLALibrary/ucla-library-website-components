@@ -230,6 +230,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function GrayBackgrounds() {
   router.push('/help/ddd')
   return {

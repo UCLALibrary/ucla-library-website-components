@@ -18,6 +18,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function CIsSelected() {
   return {
     provide() {
@@ -58,6 +62,30 @@ export function FTVAAisSelected() {
     provide() {
       return {
         theme: computed(() => 'ftva'),
+      }
+    },
+    components: { AlphabeticalBrowseBy },
+    template: '<alphabetical-browse-by selectedLetterProp="A"/>',
+  }
+}
+
+export function DLC() {
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    components: { AlphabeticalBrowseBy },
+    template: '<alphabetical-browse-by />',
+  }
+}
+
+export function DLCAisSelected() {
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
       }
     },
     components: { AlphabeticalBrowseBy },

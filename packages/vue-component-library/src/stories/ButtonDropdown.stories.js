@@ -74,6 +74,10 @@ Default.args = {
   ...mockDropdownList,
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 const mockSocialList = {
   buttonTitle: 'Share',
   hasIcon: true,

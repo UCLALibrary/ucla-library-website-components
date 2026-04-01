@@ -40,8 +40,8 @@
         row-gap: 14px;
         padding: 24px 20px 20px 20px;
         min-height: auto;
-        min-width: 186px;
-        width: 96%;
+        min-width: 194px;
+        width: 100%;
         margin: 0 auto;
         border-width: 0 1px 1px 1px;
         border-style: solid;
@@ -54,7 +54,6 @@
     .button-dropdown-modal-wrapper.is-expanded {
         position: absolute;
         width: auto;
-        margin: 0 4px;
     }
 
     @media #{$has-hover} {
@@ -120,8 +119,7 @@
         .svg__icon-close.svg-glyph-close {
             position: absolute;
             right: 24px;
-            top: 24px;
-
+            top: 12px;
             z-index: 1;
         }
     }

@@ -32,6 +32,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 const mockEvent = {
   category: 'Event',
   to: '/visit/events-exhibitions/event1',

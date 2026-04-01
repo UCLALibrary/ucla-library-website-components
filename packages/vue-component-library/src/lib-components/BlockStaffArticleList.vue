@@ -5,9 +5,6 @@ import type { PropType } from 'vue'
 // LODASH FUNCTIONS
 import format from 'date-fns/format'
 
-// SVGs
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
-
 // TYPESCRIPT
 import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
 
@@ -67,10 +64,6 @@ const parsedDate = computed(() => {
   return format(new Date(props.date), 'MMMM d, Y')
 })
 
-const imageExists = computed(() => {
-  return !!(props.image && Object.keys(props.image).length !== 0)
-})
-
 const parsedTextTruncated = computed(() => {
   return props.description
     ? removeHtmlTruncate(props.description, 130)
@@ -82,26 +75,22 @@ const parsedTextAll = computed(() => {
     ? removeHtmlTruncate(props.description, 250)
     : ''
 })
+// 1. FTVA DESCRIPTION and TITLE will be truncated to different lines on different screens in the ftva nuxt repo templates
+// keep the default to 2 lines for the description and 3 lines for the title for FTVA theme in this component
+// 2. Color of the text if differs for different templates for FTVA theme, this component will have certain color set which will be
+// overridden by the template styles in the ftva nuxt repo.
+// 3. The Image aspect ratio and height and width can be adjusted at template level in the ftva nuxt repo
+// or other nuxt repos if different from what is set here for default and ftva theme templates
 </script>
 
 <template>
   <li :class="classes">
     <ResponsiveImage
-      v-if="imageExists"
       :media="props.image"
       :aspect-ratio="props.imageAspectRatio"
       object-fit="cover"
       class="image"
     />
-    <div
-      v-else
-      class="molecule-no-image"
-    >
-      <MoleculePlaceholder
-        class="molecule"
-        aria-hidden="true"
-      />
-    </div>
 
     <div class="meta">
       <div
@@ -117,7 +106,7 @@ const parsedTextAll = computed(() => {
       />
 
       <!-- SUMMARY ONLY -->
-      <div v-if="props.authors.length < 1 && !props.date">
+      <div v-if="props.authors.length === 0 && props.date === '' && props.description">
         <!-- If there is no author or date - increase max-length for truncation -->
         <div
           v-if="props.description"
@@ -125,40 +114,43 @@ const parsedTextAll = computed(() => {
         >
           {{ parsedTextAll }}
         </div>
-
-        <div
-          v-if="$slots.customFTVADate"
-          class="date"
-        >
-          <slot name="customFTVADate" />
-        </div>
       </div>
 
       <!-- AUTHOR(S) - DATE - SUMMARY -->
-      <div v-else>
+      <div
+        v-if="(props.authors && props.authors.length > 0) || props.date !== ''"
+        class="byline"
+      >
         <div
-          v-if="props.authors || props.date"
-          class="byline"
-        >
-          <div
-            v-for="author in props.authors"
-            :key="author.id"
-            class="author"
-            v-html="author.title"
-          />
-          <div
-            v-if="props.date"
-            class="date"
-            v-html="parsedDate"
-          />
-        </div>
-
+          v-for="author in props.authors"
+          :key="author.id"
+          class="author"
+          v-html="author.title"
+        />
+        <div
+          v-if="props.date"
+          class="date"
+          v-html="parsedDate"
+        />
         <div
           v-if="props.description"
           class="description"
         >
           {{ parsedTextTruncated }}
         </div>
+      </div>
+
+      <div
+        v-if="$slots.customFTVADescription"
+        class="ftva-description"
+      >
+        <slot name="customFTVADescription" />
+      </div>
+      <div
+        v-if="$slots.customFTVADate"
+        class="ftva-date"
+      >
+        <slot name="customFTVADate" />
       </div>
     </div>
   </li>

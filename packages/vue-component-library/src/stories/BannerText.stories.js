@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import BannerText from '@/lib-components/BannerText'
 import BlockFormData from '@/stories/mock/BlockFormData.json'
 
@@ -53,6 +54,10 @@ export function Default() {
         :language="language"
     />`,
   }
+}
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
 }
 
 export function WithSubjectAreas() {
@@ -211,10 +216,10 @@ export function WithBlockForm() {
     },
     provide: {
       // explicitly provide a computed property
-      eventId: '9383207',
-      blockFormData: BlockFormData.mock0,
+      eventId: computed(() => '9383207'),
+      blockFormData: computed(() => BlockFormData.mock0),
       libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
-      registrationType: 'online',
+      registrationType: computed(() => 'online'),
     },
     components: { BannerText },
     template: `<banner-text

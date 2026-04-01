@@ -4,6 +4,12 @@ on:
     branches:
       - main
 
+permissions:
+  id-token: write
+  contents: write
+  issues: write
+  pull-requests: write
+
 jobs:
   release:
     name: Release
@@ -40,7 +46,6 @@ jobs:
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec -- semantic-release -e semantic-release-monorepo
       # 🔴 Manually publish vue-component-library using pnpm
       - name: Publish Vue Component Library
@@ -78,7 +83,6 @@ jobs:
         # if: steps.filter.outputs.component-library == 'true' || steps.filter.outputs.nuxt-module == 'true'
         env:
           GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm --filter @ucla-library/component-library-nuxt-module exec -- semantic-release -e semantic-release-monorepo
       # 🔴 Manually publish Nuxt Module using pnpm
       - name: Publish Nuxt Module

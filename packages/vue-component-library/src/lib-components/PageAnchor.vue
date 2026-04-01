@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 import { useRoute } from 'vue-router'
+import { useWindowSize } from '@vueuse/core'
 import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
 import { useTheme } from '@/composables/useTheme'
 
@@ -17,6 +18,10 @@ const { sectionTitles, color } = defineProps({
     type: String as PropType<routeColors>,
     default: '',
   },
+  hasBackToTop: {
+    type: Boolean,
+    default: true,
+  },
 })
 
 const route = useRoute()
@@ -24,8 +29,27 @@ const route = useRoute()
 // typify valid route color strings
 type routeColors = 'about' | 'help' | 'visit' | 'default' | ''
 
-const isDropdownOpen = ref(false)
-const windowWidth = ref(window.innerWidth)
+// Theme
+const theme = useTheme()
+const classes = computed(() => {
+  return ['page-anchor', theme?.value || '']
+})
+
+// Use VueUse for reactive window width
+const { width } = useWindowSize()
+
+//  If DLC, default to open
+// If the screen is Desktop and FTVA have pageAnchor default to open
+const defaultDropdownOpen = computed(() => {
+  if (theme?.value === 'dlc')
+    return true
+  if (theme?.value === 'ftva' && width.value > 1024)
+    return true
+  return false
+})
+
+const isDropdownOpen = ref(defaultDropdownOpen.value)
+
 // Computed
 const sectionName = computed(() => {
   return color || getSectionName(route?.path)
@@ -43,52 +67,68 @@ const kebabCaseTitles = computed(() => {
   })
 })
 const isDesktop = computed(() => {
-  if (windowWidth.value > 1024)
-    return true
-
-  return false
+  return width.value > 1024
 })
+
 // Methods
 function toggleDropdown() {
   isDropdownOpen.value = !isDropdownOpen.value
 }
 
-// Theme
-const theme = useTheme()
-const classes = computed(() => {
-  return ['page-anchor', theme?.value || '']
-})
+function handleListClick() {
+  if (isDesktop.value)
+    return
+
+  toggleDropdown()
+}
 </script>
 
 <template>
   <div :class="classes">
     <div class="page-anchor-content">
-      <button class="dropdown-button" @click="toggleDropdown">
-        On this page
-        <span class="caret" :class="{ 'is-active': isDropdownOpen }">
-          <span class="chevron">
-            <SvgIconCaretDown class="caret-down-svg" />
+      <slot
+        name="header"
+        :is-dropdown-open="isDropdownOpen"
+        :toggle-dropdown="toggleDropdown"
+      >
+        <button class="dropdown-button" @click="toggleDropdown">
+          On this page
+          <span
+            class="caret"
+            :class="{ 'is-active': isDropdownOpen }"
+          >
+            <span class="chevron">
+              <SvgIconCaretDown class="caret-down-svg" />
+            </span>
           </span>
-        </span>
-      </button>
+        </button>
+      </slot>
 
       <!-- Desktop - Page Anchor remains open when link is clicked -->
-      <ul v-if="isDropdownOpen && isDesktop" class="dropdown-menu page-anchor-list">
-        <li v-for="(title, index) in sectionTitles" :key="`${title}-${index}`" :class="listClasses">
-          <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
+      <ul
+        v-if="isDropdownOpen"
+        class="dropdown-menu page-anchor-list"
+        @click="handleListClick"
+      >
+        <li
+          v-for="(title, index) in sectionTitles"
+          :key="`${title}-${index}`"
+          :class="listClasses"
+        >
+          <slot
+            name="link"
+            :title="title"
+            :href="`#${kebabCaseTitles[index]}`"
+            :index="index"
+            :kebab-title="kebabCaseTitles[index]"
+          >
+            <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
+          </slot>
         </li>
-        <li :class="listClasses">
-          <a href="#">Back to Top</a>
-        </li>
-      </ul>
-
-      <!-- Tablet or Mobile - Page Anchor closes when link is clicked -->
-      <ul v-if="isDropdownOpen && !isDesktop" class="dropdown-menu page-anchor-list" @click="toggleDropdown">
-        <li v-for="(title, index) in sectionTitles" :key="`${title}-${index}`" :class="listClasses">
-          <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
-        </li>
-        <li :class="listClasses">
-          <a href="#">Back to Top</a>
+        <li v-if="hasBackToTop" :class="listClasses">
+          <slot name="back-to-top">
+            <a href="#">Back to Top</a>
+          </slot>
         </li>
       </ul>
     </div>
@@ -98,4 +138,5 @@ const classes = computed(() => {
 <style lang="scss" scoped>
 @import "@/styles/default/_page-anchor.scss";
 @import "@/styles/ftva/_page-anchor.scss";
+@import "@/styles/dlc/_page-anchor.scss";
 </style>

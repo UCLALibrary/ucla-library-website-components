@@ -65,6 +65,80 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
+export function DLCTheme() {
+  return {
+    components: { DropdownSingleSelect },
+    data() {
+      return {
+        selectedFilters: { esFieldName: '' },
+        options: OptionsDefault,
+        label: 'Filter',
+        fieldName: 'esFieldName',
+        isSearch: false
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    template: `
+      <div>
+      <h1>Default</h1>
+        <span>Selected dropdown value display:{{selectedFilters}}</span>
+        <br><br>
+        <DropdownSingleSelect
+          v-model:selectedFilters='selectedFilters'
+          :label='label'
+          :options='options'
+          :field-name='fieldName'
+          :show-view-all='true'
+          :is-search='isSearch'
+        />
+      </div>
+    `,
+  }
+}
+
+export function DLCThemeSearch() {
+  return {
+    components: { DropdownSingleSelect },
+    data() {
+      return {
+        selectedFilters: { esFieldName: '' },
+        options: OptionsDefault,
+        label: 'Filter',
+        fieldName: 'esFieldName',
+        isSearch: true
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    template: `
+      <div>
+      <h1>Search</h1>
+        <span>Selected dropdown value display:{{selectedFilters}}</span>
+        <br><br>
+        <DropdownSingleSelect
+          v-model:selectedFilters='selectedFilters'
+          :label='label'
+          :options='options'
+          :field-name='fieldName'
+          :show-view-all='true'
+          :is-search='isSearch'
+        />
+      </div>
+    `,
+  }
+}
+
 // MOCK DATA FILTER
 const FilterOptionsDefault = [
   { label: 'Current Events', value: 'current-events' },

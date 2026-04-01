@@ -12,7 +12,7 @@ const { items } = defineProps({
 </script>
 
 <template>
-  <ul class="section-teaser-highlight">
+  <ul v-if="items && items.length > 0" class="section-teaser-highlight">
     <BlockFloatingHighlight
       v-for="item in items"
       :key="item.to"
@@ -51,16 +51,16 @@ const { items } = defineProps({
   gap: var(--space-xl) 32px;
 
   .block {
-      width: calc((100% - 32px) / 2);
+    width: calc((100% - 32px) / 2);
   }
 
   // Breakpoints
   @media #{$small} {
-      padding: 0;
+    padding: 0;
 
-      .block {
-          width: 100%;
-      }
+    .block {
+      width: 100%;
+    }
   }
 }
 </style>

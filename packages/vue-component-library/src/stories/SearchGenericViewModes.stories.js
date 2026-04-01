@@ -44,6 +44,10 @@ Default.args = {
   selected: 'calendar',
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const NotSelected = Template.bind({})
 NotSelected.args = {
   isOpened: false,

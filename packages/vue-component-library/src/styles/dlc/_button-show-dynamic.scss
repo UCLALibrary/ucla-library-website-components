@@ -1,0 +1,137 @@
+.button-show-dynamic,
+.button-show-dynamic.dlc {
+    .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 5px 10px;
+        border-radius: 4px;
+
+        background-color: transparent;
+
+        color: var(--color-primary-blue-03);
+        font-family: var(--font-secondary); // Proxima Nova
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1; /* 24px */
+
+        border: 1px solid var(--color-primary-blue-03);
+        cursor: pointer;
+        @include animate-normal;
+
+        // Variant for excerpt-pod (minimal style)
+        &.btn-minimal {
+            padding: 5px 5px 5px 0;
+            border: none;
+            justify-content: flex-start;
+            font-size: 18px;
+            line-height: normal;
+        }
+    }
+
+    .caret-icon {
+        width: 30px;
+        height: auto;
+        @include animate-normal;
+
+        ::v-deep(path) {
+            @include animate-normal;
+        }
+    }
+
+    // Variant for excerpt-pod (caret icon in minimal button)
+    .btn-minimal .caret-icon {
+        width: auto;
+    }
+
+    // Expanded state
+    &.is-expanded {
+        .btn {
+            background-color: var(--color-primary-blue-03);
+            color: var(--color-white);
+
+            .caret-icon {
+                transform: rotate(180deg);
+                ::v-deep(path) {
+                    stroke: var(--color-white);
+                }
+            }
+
+            // Minimal variant expanded state
+            &.btn-minimal {
+                background-color: transparent;
+                color: var(--color-primary-blue-03);
+
+                .caret-icon {
+                    transform: rotate(180deg);
+                    translate: 0 3px;
+                    ::v-deep(path) {
+                        stroke: var(--color-primary-blue-03);
+                    }
+                }
+            }
+        }
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        .btn:hover {
+            background-color: var(--color-primary-blue-03);
+            color: var(--color-white);
+
+            .caret-icon {
+                ::v-deep(path) {
+                    stroke: var(--color-white);
+                }
+            }
+        }
+
+        &.is-expanded .btn:hover {
+            background-color: transparent;
+            color: var(--color-primary-blue-05);
+
+            .caret-icon {
+                transform: rotate(180deg);
+                ::v-deep(path) {
+                    stroke: var(--color-primary-blue-05);
+                }
+            }
+        }
+
+        // Minimal variant hover
+        .btn-minimal:hover {
+            background-color: transparent;
+            color: var(--color-primary-blue-05);
+
+            .caret-icon {
+                ::v-deep(path) {
+                    stroke: var(--color-primary-blue-05);
+                }
+            }
+        }
+    }
+
+    // Transitions
+    .fade-label-enter-active,
+    .fade-label-leave-active {
+        transition: opacity 0.15s ease-in-out;
+    }
+    .fade-label-enter-from,
+    .fade-label-leave-to {
+        opacity: 0;
+    }
+    .fade-label-enter-to,
+    .fade-label-leave-from {
+        opacity: 1;
+    }
+
+    // Variant for excerpt-pod (faster transition)
+    &.transition-fast {
+        .fade-label-enter-active,
+        .fade-label-leave-active {
+            transition: opacity 0.1s ease-in-out;
+        }
+    }
+}

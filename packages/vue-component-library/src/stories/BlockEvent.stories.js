@@ -32,6 +32,10 @@ export function ShortText() {
   }
 }
 
+ShortText.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function LongText() {
   return {
     data() {

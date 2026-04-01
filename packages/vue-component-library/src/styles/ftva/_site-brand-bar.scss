@@ -1,13 +1,17 @@
 .ftva.site-brand-bar {
     background-color: var(--ftva-off-black);
-    height: 110px;
-    .ucla-text {
-        @include ftva-site-wordmark;
-        color: white;
+    height: 0px;
+    .svg__logo-ftva {
+        display: block;
+        height: 36px;
+        width: auto;
     }
     .button-container {
         .button {
             text-transform: uppercase;
         }
+    }
+    @media (min-width: 850px) {
+        height: 110px;
     }
 }

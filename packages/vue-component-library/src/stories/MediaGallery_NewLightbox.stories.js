@@ -25,6 +25,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function SingleItem() {
   return {
     data() {
@@ -163,6 +167,93 @@ export function FTVA_HomepageCarousel() {
       }
     },
     components: { FlexibleMediaGalleryNewLightbox, BlockTag },
-    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></ flexible-media-gallery-new-lightbox>',
+    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></flexible-media-gallery-new-lightbox>',
+  }
+}
+
+const parsedMockHomepagCarouselURL = computed(() => {
+  return FTVAMedia.mockFTVAHomepageCarousel.map((rawItem) => {
+    return {
+      item: parseFTVACarouselImage(rawItem.ftvaImage),
+      credit: rawItem.creditText,
+      tag: parseFTVATypeHandles(rawItem.typeHandle),
+      captionText: rawItem.ftvaHomepageDescription,
+      captionTitle: rawItem.ftvaHomepageTitle,
+      itemDate: parseDatesAndTimes(rawItem.typeHandle, rawItem.startDate, rawItem.endDate, rawItem.startDateWithTime, rawItem.ongoing),
+      linkUrl: 'https://www.artforum.com/features/michael-snows-la-region-centrale-210208/',
+    }
+  })
+})
+
+export function FTVA_HomepageCarouselURL() {
+  return {
+    data() {
+      return {
+        items: parsedMockHomepagCarouselURL
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { FlexibleMediaGalleryNewLightbox, BlockTag },
+    template: `
+      <flexible-media-gallery-new-lightbox class="homepage" :items="items" inline>
+        <template v-slot="slotProps">
+          <BlockTag :label="items[slotProps.selectionIndex].tag" />
+          {{ items[slotProps.selectionIndex].itemDate }}
+        </template>
+      </flexible-media-gallery-new-lightbox>
+    `,
+  }
+}
+
+export function FTVA_HomepageCarousel_ScrollTest() {
+  return {
+    data() {
+      return { items: parsedMockHomepagCarousel }
+    },
+    provide() {
+      return { theme: computed(() => 'ftva') }
+    },
+    components: { FlexibleMediaGalleryNewLightbox, BlockTag },
+    template: `
+      <div>
+        <div
+          style="
+            height:10vh;
+            background: hotpink;
+            padding:20px;
+            color: white;
+            font-size:24px
+          "
+        >
+          <strong>Example Navbar area to demonstrate scrolling</strong>
+        </div>
+
+        <flexible-media-gallery-new-lightbox class="homepage" :items="items" inline>
+          <template v-slot="slotProps">
+            <BlockTag :label="items[slotProps.selectionIndex].tag" />
+            {{ items[slotProps.selectionIndex].itemDate }}
+          </template>
+        </flexible-media-gallery-new-lightbox>
+
+        <div
+          style="
+            height:120vh;
+            background: #FFE3E8;
+            padding:20px;
+            color: #132941;
+            font-size: 36px;
+          "
+        >
+          <h2 style="font-family: var(--font-primary); font-weight: 400;">
+            Example Body
+          </h2>
+          <p>Example text area to demonstrate scrolling.</p>
+        </div>
+      </div>
+    `,
   }
 }

@@ -16,6 +16,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function Visit() {
   router.push('/visit/eee')
   return {

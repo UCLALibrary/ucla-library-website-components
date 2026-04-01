@@ -21,6 +21,10 @@ Default.args = {
   level: 0,
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function InsideSectionWrapper() {
   return {
     components: { SectionHeader, SectionWrapper },

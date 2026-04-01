@@ -66,6 +66,10 @@ export function Default() {
     `,
   }
 }
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 export function FTVACards() {
   return {
     data() {

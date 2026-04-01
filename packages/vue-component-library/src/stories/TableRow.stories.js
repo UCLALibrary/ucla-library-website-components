@@ -140,7 +140,7 @@ export function Default() {
            </span>
         </SmartLink>
         <div class="job-title" v-html="item.jobTitle" />
-        <ul v-if="item.departments.length" class="departments">
+        <ul v-if="item.departments && item.departments.length > 0" class="departments">
           <li class="department">
             {{ item.departments[item.departments.length - 1].title }}
           </li>
@@ -167,6 +167,10 @@ export function Default() {
       </TableRow>
   `,
   }
+}
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
 }
 
 export function AlternativeName() {

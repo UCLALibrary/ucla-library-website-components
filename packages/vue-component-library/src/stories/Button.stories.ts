@@ -29,6 +29,9 @@ export const Primary: Story = {
     label: 'Button',
   },
 }
+Primary.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 
 export const Secondary: Story = {
   args: {

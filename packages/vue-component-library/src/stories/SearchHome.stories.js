@@ -41,3 +41,7 @@ Default.args = {
     target: '_blank',
   },
 }
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}

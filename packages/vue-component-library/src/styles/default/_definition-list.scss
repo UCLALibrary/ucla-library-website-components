@@ -1,0 +1,35 @@
+.definition-list {
+    .definition-list-item-wrapper {
+        dt,
+        dd {
+            padding: 8px;
+        }
+        dt {
+            @include ftva-emphasized-subtitle;
+            font-size: 20px;
+            color: $subtitle-grey;
+            border-bottom: 1.5px solid $subtitle-grey;
+        }
+        dd.white-space-wrap {
+            @include ftva-card-title-2;
+            white-space: pre-wrap;
+        }
+    }
+    .list-top-wrapper {
+        text-align: center;
+        padding-bottom: 40px;
+    }
+    .list-bottom-wrapper {
+        text-align: center;
+        padding-top: 40px;
+    }
+}
+// horizontal mode
+.horizontal {
+    display: flex;
+}
+.horizontal dt,
+.horizontal dd {
+    flex: 1;
+    border-bottom: 1.5px solid $subtitle-grey;
+}

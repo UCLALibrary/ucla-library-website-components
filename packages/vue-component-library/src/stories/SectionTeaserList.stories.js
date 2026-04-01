@@ -100,6 +100,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function Expandable() {
   return {
     data() {

@@ -80,7 +80,7 @@ function onClick(slug) {
       </div>
     </button>
 
-    <ul class="view-list">
+    <ul v-if="parsedItems && parsedItems.length > 0" class="view-list">
       <li
         v-for="view in parsedItems"
         :key="view.slug"
@@ -97,10 +97,7 @@ function onClick(slug) {
   </div>
 </template>
 
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .search-generic-view-modes {
   position: relative;
 

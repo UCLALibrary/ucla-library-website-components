@@ -10,5 +10,13 @@
         "no-console": "warn",
         "@typescript-eslint/quotes": "warn",
         "vue/custom-event-name-casing": "warn"
-    }
+    },
+    "overrides": [
+        {
+            "files": ["*.stories.js"],
+            "rules": {
+                "antfu/top-level-function": "off"
+            }
+        }
+    ]
 }

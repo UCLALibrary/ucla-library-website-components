@@ -1,0 +1,7 @@
+version: 2
+snapshot:
+  browsers:
+    - chrome
+  widths:
+    - 390
+    - 1440

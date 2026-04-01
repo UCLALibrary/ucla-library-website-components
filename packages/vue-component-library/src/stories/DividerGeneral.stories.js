@@ -11,6 +11,9 @@ export const Default = {
     template: '<divider-general/>',
   }),
 }
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 
 export const IsBold = {
   render: () => ({

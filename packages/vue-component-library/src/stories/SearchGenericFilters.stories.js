@@ -29,6 +29,10 @@ Default.args = {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const WithSingleCheckbox = Template.bind({})
 WithSingleCheckbox.args = {
   filters: [

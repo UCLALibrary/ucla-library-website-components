@@ -1,0 +1,52 @@
+.excerpt-pod,
+.excerpt-pod.dlc {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .info {
+        display: flex;
+        gap: 10vw;
+    }
+
+    .title {
+        margin: 0;
+
+        @include ftva-card-title-2;
+    }
+
+    .subtitle {
+        min-width: 200px;
+        margin: 0;
+
+        font-family: var(--font-secondary);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 160%; /* 25.6px */
+        letter-spacing: 0.16px;
+    }
+
+    .text-excerpt {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+
+        &:deep(.parsed-content) {
+            @include ftva-body-2;
+            margin-bottom: 0;
+        }
+    }
+
+    .text {
+        @include ftva-body-2;
+    }
+
+    // Breakpoints
+    @media #{$small} {
+        .info {
+            flex-direction: column;
+            gap: 16px;
+        }
+    }
+}

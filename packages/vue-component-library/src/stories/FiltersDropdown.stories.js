@@ -37,6 +37,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 // uses async data
 export function InitialSelectedFilters() {
   return {

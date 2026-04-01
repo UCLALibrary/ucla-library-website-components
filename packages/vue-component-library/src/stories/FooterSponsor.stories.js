@@ -15,3 +15,7 @@ export function Default() {
     `,
   }
 }
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}

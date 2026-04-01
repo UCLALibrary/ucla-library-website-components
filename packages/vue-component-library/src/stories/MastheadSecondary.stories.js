@@ -27,6 +27,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 const mock2 = {
   title: 'Find and Reserve a Space',
   summary:

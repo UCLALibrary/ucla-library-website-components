@@ -49,6 +49,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 // -------3----------------
 const mockThreeCards = {
   id: '13783',

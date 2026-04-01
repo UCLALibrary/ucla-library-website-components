@@ -23,6 +23,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 // Internal Content - EVENT
 export function InternalContentEvent() {
   return {

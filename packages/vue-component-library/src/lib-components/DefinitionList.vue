@@ -7,19 +7,19 @@ import { useTheme } from '@/composables/useTheme'
 // Define type for orientation to prevent unknown strings
 const Orientations = {
   Vertical: 'vertical',
-  Horizontal: 'horizontal'
+  Horizontal: 'horizontal',
 } as const
-type OrientationType = typeof Orientations[keyof typeof Orientations]
+type OrientationType = (typeof Orientations)[keyof typeof Orientations]
 
 const { metaDataObject, orientation } = defineProps({
   metaDataObject: {
     type: Object,
-    default: () => {}
+    default: () => {},
   },
   // switch CSS styling between vertical or horizontal layout
   orientation: {
     type: String as PropType<OrientationType>,
-    default: 'vertical'
+    default: 'vertical',
   },
 })
 
@@ -30,9 +30,12 @@ function parsedValue(value: any): string | undefined {
     return value
   }
   else if (Array.isArray(value)) {
-    return value.map((item) => {
-      return parsedValue(item)
-    }).join(', ').replace(/(, ){2,}/g, ', ') // remove extra commas from null values
+    return value
+      .map((item) => {
+        return parsedValue(item)
+      })
+      .join(', ')
+      .replace(/(, ){2,}/g, ', ') // remove extra commas from null values
   } // use join('\r\n') for a newline instead
   else if (typeof value === 'object') {
     // check for null before trying to loop
@@ -40,12 +43,14 @@ function parsedValue(value: any): string | undefined {
       return
 
     // loop through object keys and return key: value pairs
-    return Object.keys(value).map((key) => {
-      if (typeof value[key] === 'string')
-        return `${key}: ${value[key]}`
-      else
-        return parsedValue(value[key])
-    }).join(', ').replace(/,\s*$/, '') // remove trailing comma
+    return Object.keys(value)
+      .map((key) => {
+        if (typeof value[key] === 'string')
+          return `${key}: ${value[key]}`
+        else return parsedValue(value[key])
+      })
+      .join(', ')
+      .replace(/,\s*$/, '') // remove trailing comma
   }
   else {
     return value
@@ -67,16 +72,21 @@ const classes = computed(() => {
     </div>
     <dl class="definition-list-wrapper">
       <div
-        v-for="(value, key) in metaDataObject" :key="key" class="definition-list-item-wrapper"
+        v-for="(value, key) in metaDataObject"
+        :key="key"
+        class="definition-list-item-wrapper"
         :class="orientation"
       >
         <dt v-if="!emptyValues.includes(parsedValue(value))">
           <slot :name="`term-${key}`">
             <!-- converts camelCase variables to sentences with spaces -->
-            {{ key.replace(/([A-Z])/g, ' $1').trim() }}
+            {{ key.replace(/([A-Z])/g, " $1").trim() }}
           </slot>
         </dt>
-        <dd v-if="!emptyValues.includes(parsedValue(value))" class="white-space-wrap">
+        <dd
+          v-if="!emptyValues.includes(parsedValue(value))"
+          class="white-space-wrap"
+        >
           <slot :name="`definition-${key}`">
             {{ parsedValue(value) }}
           </slot>
@@ -90,39 +100,6 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-// Theme not yet implemented.
-.definition-list {
-  .definition-list-item-wrapper {
-    dt, dd {
-      padding: 8px;
-    }
-    dt {
-      @include ftva-emphasized-subtitle;
-      font-size: 20px;
-      color: $subtitle-grey;
-      border-bottom: 1.5px solid $subtitle-grey;
-    }
-    dd.white-space-wrap {
-        @include ftva-card-title-2;
-        white-space: pre-wrap;
-      }
-  }
-  .list-top-wrapper {
-    text-align: center;
-    padding-bottom: 40px;
-  }
-  .list-bottom-wrapper {
-    text-align: center;
-    padding-top: 40px;
-  }
-}
-// horizontal mode
-.horizontal {
-  display: flex;
-}
-.horizontal dt,
-.horizontal dd {
-  flex: 1;
-  border-bottom: 1.5px solid $subtitle-grey;
-}
+@import "@/styles/default/_definition-list.scss";
+@import "@/styles/dlc/_definition-list.scss";
 </style>

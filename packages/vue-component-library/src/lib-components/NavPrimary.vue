@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
+import SvgLibraryLogoDlc from 'ucla-library-design-tokens/assets/svgs/logo-library-digital-collections.svg'
+import SvgLogoFtva from 'ucla-library-design-tokens/assets/svgs/logo-ftva.svg'
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-ftva-search.svg'
 import IconMenu from 'ucla-library-design-tokens/assets/svgs/icon-menu.svg'
 import IconMenuClose from 'ucla-library-design-tokens/assets/svgs/icon-ftva-circle-x.svg'
@@ -60,6 +62,7 @@ const classes = computed(() => [
   { 'is-opened-mobile': mobileMenuIsOpened.value },
   theme?.value || ''
 ])
+
 const themeSettings = computed(() => {
   switch (theme?.value) {
     case 'ftva':
@@ -67,7 +70,6 @@ const themeSettings = computed(() => {
         renderItemTop: false,
         showSearch: true,
         horizontalMobileMenu: true,
-        headerText: 'UCLA Film & Television Archive',
       }
     default:
       return {
@@ -77,9 +79,22 @@ const themeSettings = computed(() => {
       }
   }
 })
+
 const shouldRenderSmartLink = computed(() => titleRef.value || acronymRef.value)
+
+const linkClasses = computed(() => {
+  return theme?.value !== 'dlc'
+    ? [
+        'nochildren-link',
+        'underline-hover',
+      ]
+    : [
+        'nochildren-link-dlc',
+      ]
+})
 const noChildren = computed(() => {
-  if (!titleRef.value)
+  // For DLC theme, show items without children even without a title
+  if (!titleRef.value && theme?.value !== 'dlc')
     return []
   return primaryItems.value.filter(item => !item.children || !item.children.length)
 })
@@ -115,6 +130,7 @@ function toggleMenu() {
     document.body.removeAttribute('tabindex')
   }
 }
+
 // Toggle slot menu (used to render search bar)
 function toggleSlot() {
   // if menu is open, close it first & clear active
@@ -129,18 +145,44 @@ function toggleSlot() {
   // otherwise, just open slot menu
   else { slotIsOpened.value = !slotIsOpened.value }
 }
+
 function setActive(index: number) {
   activeMenuIndex.value = index
 }
+
 function clearActive() {
   activeMenuIndex.value = currentPathActiveIndex.value
 }
+
+// CLOSE SLOT
+function closeSlot() {
+  slotIsOpened.value = false
+}
+
+// expose if needed elsewhere too
+defineExpose({ closeSlot })
 
 // Replace globalStore logic for window width with useWindowSize
 const { width } = useWindowSize()
 
 // Use computed to check if it's mobile based on window width
-const isMobile = computed(() => width.value <= 750) // Use 750px for mobile breakpoint
+const mobileBreakpoint = 850 // change scss breakpoints in ftva _header-sticky.scss, _nav-primary.scss, _site-brand-bar.scss
+const isMobile = computed(() => width.value <= mobileBreakpoint) // Use 850px for mobile breakpoint
+
+// Parsed logo for the header
+const parsedLogo = computed(() => {
+  return theme?.value === 'dlc'
+    ? {
+        width: undefined,
+        height: '20px',
+        svg: SvgLibraryLogoDlc,
+      }
+    : {
+        width: undefined,
+        height: '23px',
+        svg: SvgLogoUclaLibrary,
+      }
+})
 
 // toggle Mobile-only menu
 function toggleMobileMenu() {
@@ -151,6 +193,7 @@ function toggleMobileMenu() {
   // toggle mobile menu
   mobileMenuIsOpened.value = !mobileMenuIsOpened.value
 }
+
 // toggle submenus on mobile
 function toggleMenuOrSubmenus(index: number) {
   if (themeSettings.value?.horizontalMobileMenu && (isMobile.value === true)) {
@@ -167,6 +210,7 @@ function toggleMenuOrSubmenus(index: number) {
     toggleMenu()
   }
 }
+
 watch(isMobile, (oldVal, newVal) => {
   // close menus on resize
   if (newVal !== oldVal) {
@@ -175,6 +219,7 @@ watch(isMobile, (oldVal, newVal) => {
     mobileMenuIsOpened.value = false
   }
 })
+
 function searchClick() {
   isMobile.value === true ? toggleMobileMenu() : toggleSlot()
 }
@@ -193,6 +238,11 @@ onMounted(() => {
     },
     { deep: true }
   )
+  watch(route, () => {
+    // force mobile menu to close on navigatiion change
+    // without messing with the complex click handling waterfall for submenus
+    mobileMenuIsOpened.value = false
+  })
   activeMenuIndex.value = currentPathActiveIndex.value
 })
 </script>
@@ -243,18 +293,27 @@ onMounted(() => {
             class="acronym"
           > {{ acronymRef }} </span>
         </div>
-        <SvgLogoUclaLibrary
+        <component
+          :is="parsedLogo.svg"
           v-else
+          :width="parsedLogo.width"
+          :height="parsedLogo.height"
+          role="button"
           class="svg logo-ucla"
           alt="UCLA Library logo blue"
         />
       </a>
     </div>
     <div
-      v-else-if="isMobile && themeSettings.headerText"
+      v-else-if="isMobile && theme === 'ftva'"
       class="item-top-mobile"
     >
-      {{ themeSettings.headerText }}
+      <a
+        href="/"
+        target="_self"
+      >
+        <SvgLogoFtva />
+      </a>
     </div>
 
     <div class="nav-background-fill" />
@@ -297,12 +356,16 @@ onMounted(() => {
         class="slot-container"
         :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
       >
-        <slot name="additional-menu" />
+        <slot
+          name="additional-menu"
+          :close-slot="closeSlot"
+        />
       </div>
     </div>
 
     <!-- this is the primary menu and first in the tab index -->
     <ul
+      v-if="parsedItems && parsedItems.length > 0"
       class="menu"
       :class="[{ 'is-opened-mobile': mobileMenuIsOpened }]"
     >
@@ -333,13 +396,30 @@ onMounted(() => {
         class="nochildren-links"
       >
         <SmartLink
-          class="nochildren-link underline-hover"
+          :class="linkClasses"
           :to="item.to"
           :link-target="item.target"
         >
           {{ item.name }}
         </SmartLink>
       </li>
+      <!-- Add search icon to nav menu list on desktop for FTVA -->
+      <ButtonLink
+        v-if="!isMobile && theme === 'ftva'"
+        class="search-button"
+        icon-name="none"
+        aria-label="Search"
+        @click="searchClick"
+      >
+        <IconSearch class="icon-search" />
+      </ButtonLink>
+      <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
+      <div
+        v-if="isMobile && mobileMenuIsOpened"
+        class="mobile-menu-slot"
+      >
+        <slot name="additional-mobile-menu-items" />
+      </div>
     </ul>
 
     <div
@@ -359,13 +439,6 @@ onMounted(() => {
         </SmartLink>
       </div>
     </div>
-    <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
-    <div
-      v-if="isMobile && mobileMenuIsOpened"
-      class="mobile-menu-slot"
-    >
-      <slot name="additional-mobile-menu-items" />
-    </div>
     <div class="background-white" />
     <div
       v-if="isOpened || slotIsOpened"
@@ -383,4 +456,5 @@ onMounted(() => {
 <style lang="scss" scoped>
 @import "@/styles/default/_nav-primary.scss";
 @import "@/styles/ftva/_nav-primary.scss";
+@import "@/styles/dlc/_nav-primary.scss";
 </style>

@@ -64,11 +64,19 @@
 
 .v-overlay-container {
 
+  .v-menu > .v-overlay__content {
+    border-radius: 8px;
+  }
+
   .calendar-event-popup-wrapper {
     background-color: $page-blue;
 
     .ftva.block-highlight {
       border-radius: 0;
+
+      .media {
+        border-radius: 4px 4px 0 0; //overwrrite card meta styles that interfere with event pop-up border-radius
+      }
 
       @media #{$has-hover} {
         &:hover {

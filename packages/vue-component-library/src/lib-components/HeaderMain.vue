@@ -3,6 +3,7 @@ import { computed, onMounted, ref, toRefs, watch } from 'vue'
 import type { PropType } from 'vue'
 import NavPrimary from '@/lib-components/NavPrimary.vue'
 import NavSecondary from '@/lib-components/NavSecondary.vue'
+import { useTheme } from '@/composables/useTheme'
 
 // types
 import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
@@ -21,6 +22,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+})
+const theme = useTheme()
+const classes = computed(() => {
+  return ['header-main', theme?.value || '']
 })
 
 // Use `toRefs` to make each prop reactive individually
@@ -52,30 +57,32 @@ const parseTitle = computed(() => {
 </script>
 
 <template>
-  <header class="header-main">
+  <div :class="classes">
     <NavSecondary
+      v-if="secondaryNavRef.length > 0 && theme !== 'dlc'"
       :items="secondaryNavRef"
       :is-microsite="parseTitle"
     />
     <NavPrimary
+      v-if="primaryNavRef.length > 0"
       class="primary"
       :items="primaryNavRef"
       :title="titleRef"
     />
-  </header>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 .header-main {
-  z-index: 200;
+    z-index: 200;
 
-  position: relative;
-  height: 128px;
+    position: relative;
+    height: 128px;
 
-  .primary {
-    position: absolute;
-  }
+    .primary {
+        position: absolute;
+    }
 
-  // TODO nav on smaller viewports
+    // TODO nav on smaller viewports
 }
 </style>

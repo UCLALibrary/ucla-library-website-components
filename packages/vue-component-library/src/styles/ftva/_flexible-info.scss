@@ -1,5 +1,11 @@
 .ftva.flexible-info {
 
+  .block-call-to-action {
+    &.full-width {
+    --block-width: 100%;
+  }
+}
+
   .contact-info {
     list-style-type: none;
   }
@@ -19,6 +25,9 @@
 
   :deep(.icon-with-link .text) {
     color: $accent-blue;
+    @media #{$small} {
+      word-break: break-all;
+    }
   }
 
   .info-address {

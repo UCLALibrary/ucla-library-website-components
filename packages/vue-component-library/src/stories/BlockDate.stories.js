@@ -13,6 +13,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function BigDate() {
   return {
     components: { BlockDate },

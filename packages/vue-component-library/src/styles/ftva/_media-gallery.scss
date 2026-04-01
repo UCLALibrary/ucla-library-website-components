@@ -32,4 +32,13 @@
     padding-top: var(--space-xl);
     list-style-type: none;
   }
+
+  // change image treatment to contain for ftva carousels inside media galleries only
+  :deep(.media-container) {
+    .library-media-item {
+      img.media-image {
+        object-fit: contain !important;
+      }
+    }
+  }
 }

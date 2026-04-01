@@ -4,25 +4,22 @@
 
     border-radius: 12px;
 
-    :deep(.media) {
+    :deep(.media), :deep(.molecule-no-image) {
         border-radius: 10px 10px 0 0;
     }
 
     &.is-vertical {
 
         .image-container {
-            aspect-ratio: 1.71 / 1;
 
             .molecule-no-image {
                 border-radius: 10px 10px 0 0;
-                aspect-ratio: 1.67 / 1;
                 height: 100%;
             }
         }
     }
 
     :deep(.card-meta) {
-        position: relative;
         margin: 0px;
         padding: 25px 20px 15px 20px;
         min-height: 191px;
@@ -67,7 +64,8 @@
         letter-spacing: .04px;
 
         height: 34px;
-        overflow: hidden;
+        // CAUSING ISSUES WITH a11y checks due to 'text resize is clipped`
+        // overflow: hidden;
 
         .ongoing-item+.schedule-item {
             // hide the date range if the ongoing label is display

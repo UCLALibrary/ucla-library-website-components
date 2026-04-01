@@ -1,4 +1,5 @@
 // Import mock api data
+import { computed } from 'vue'
 import * as API from '@/stories/mock-api.json'
 import HeaderMainResponsive from '@/lib-components/HeaderMainResponsive'
 
@@ -211,6 +212,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 // Variations of stories below
 export function Microsite() {
   return {
@@ -262,6 +267,32 @@ function Template(args, { argTypes }) {
       }
     },
     template: '<header-main-responsive :primary-nav="parsePrimaryItems" :secondary-nav="parsedSecondaryItems" current-path= "/about/foo/bar" />',
+  }
+}
+
+export function DLC() {
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    computed: {
+      parsedSecondaryItems() {
+      // Restructuring item to support text key
+        return secondaryItems.map((obj) => {
+          return {
+            ...obj,
+            text: obj.name,
+          }
+        })
+      },
+      parsePrimaryItems() {
+        return primaryItems
+      }
+    },
+    components: { HeaderMainResponsive },
+    template: '<header-main-responsive :primary-nav="primaryItems" :secondary-nav="parsedSecondaryItems" current-path= "/about/foo/bar" />',
   }
 }
 

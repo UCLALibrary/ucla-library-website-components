@@ -209,6 +209,7 @@ onMounted(() => {
       v-if="!isMobile"
       ref="datepicker"
       v-model="date"
+      :aria-labels="{ menu: 'Date Picker' }"
       :config="vue3datepickerConfig"
       :range="!isMobile"
       :week-start="0"
@@ -252,6 +253,7 @@ onMounted(() => {
           <div class="custom-nav-buttons">
             <button
               class="nav-arrow-button"
+              aria-label="Previous month"
               @click="clearTodayBtn(); handleMonthYearChange(false)"
             >
               <SvgIconCaretLeft />
@@ -264,6 +266,7 @@ onMounted(() => {
             </button>
             <button
               class="nav-arrow-button"
+              aria-label="Next month"
               @click="clearTodayBtn(); handleMonthYearChange(true)"
             >
               <SvgIconCaretRight />
@@ -286,7 +289,7 @@ onMounted(() => {
             class="event-dots"
           >
             <template
-              v-for=" index in dateFrequency[date.toLocaleDateString()]"
+              v-for="index in dateFrequency[date.toLocaleDateString()]"
               :key="index"
             >
               <!-- limit display to 3 events dots -->
@@ -369,6 +372,7 @@ onMounted(() => {
               <div class="custom-nav-buttons">
                 <button
                   class="nav-arrow-button"
+                  aria-label="Previous month"
                   @click="clearTodayBtn(); handleMonthYearChange(false)"
                 >
                   <SvgIconCaretLeft />
@@ -381,6 +385,7 @@ onMounted(() => {
                 </button>
                 <button
                   class="nav-arrow-button"
+                  aria-label="Next month"
                   @click="clearTodayBtn(); handleMonthYearChange(true)"
                 >
                   <SvgIconCaretRight />
@@ -403,7 +408,7 @@ onMounted(() => {
                 class="event-dots"
               >
                 <template
-                  v-for=" index in dateFrequency[date.toLocaleDateString()]"
+                  v-for="index in dateFrequency[date.toLocaleDateString()]"
                   :key="index"
                 >
                   <!-- limit display to 3 events dots -->
@@ -482,9 +487,12 @@ onMounted(() => {
       font-size: 18px;
       color: $medium-grey;
       border-radius: 8px;
-      &:hover, &:focus {
+
+      &:hover,
+      &:focus {
         border-color: #ddd;
       }
+
       &:hover {
         background-color: #f1f1f1;
       }

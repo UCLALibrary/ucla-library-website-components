@@ -35,6 +35,7 @@ const mockDefault = [
     endDate: '2021-02-05T11:00:00-08:00',
     sectionHandle: 'workshopOrEventSeries',
     isOnline: true,
+    aspectRatio: 58.47,
   },
   {
     image: API.image,
@@ -233,6 +234,225 @@ export function Default() {
     template: `
       <section-teaser-card
         :items="items"
+      />
+  `,
+  }
+}
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+// DLC Theme Egde Cases With Date
+const mockDLCEdgeCasesWithDate = [
+  {
+    id: 'dlc-1',
+    to: '/collections/digital-archives',
+    title: 'Digital Archives Collection',
+    text: 'Explore our extensive collection of digitized materials including manuscripts, photographs, and historical documents spanning over 200 years of UCLA history.',
+    image: API.image,
+    sectionHandle: 'collection',
+    customDateTime: 'November 1, 1963'
+  },
+  {
+    id: 'dlc-2',
+    to: '/collections/special-collections',
+    title: 'Special Collections & Rare Books',
+    text: 'Discover rare books, manuscripts, and unique materials that form the cornerstone of our research collections. These items provide invaluable insights into various academic disciplines.',
+    image: {
+      id: '3156835',
+      src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/TomReed_MalcolmX.webp',
+      height: 1813,
+      width: 2560,
+      srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 2560w',
+      alt: 'Tom Reed hosting an episode exploring the teachings of Malcolm X',
+      focalPoint: [0.5, 0.5]
+    },
+    sectionHandle: 'collection',
+    customDateTime: 'November 1, 1963'
+  },
+  {
+    id: 'dlc-3',
+    to: '/collections/ethnographic-materials',
+    title: 'Ethnographic Materials & Cultural Artifacts',
+    text: 'A comprehensive collection of ethnographic materials including audio recordings, photographs, and cultural artifacts from communities around the world. These materials support interdisciplinary research in anthropology, ethnomusicology, and cultural studies.',
+    image: {
+      id: '3280534',
+      src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/kpil7j-21cut1large.webp',
+      height: 1664,
+      width: 2560,
+      srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 2560w',
+      alt: 'many hot air balloons in the air',
+      focalPoint: [0.5, 0.5]
+    },
+    sectionHandle: 'collection',
+    customDateTime: 'November 1, 1963'
+  },
+  {
+    id: 'dlc-4',
+    to: '/collections/art-architecture',
+    title: 'Art & Architecture Collections',
+    text: 'Extensive visual resources including architectural drawings, art slides, and digital images supporting research in art history, architecture, and visual culture studies.',
+    image: {
+      id: '3701680',
+      src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/PXL_20240323_163248504.jpg',
+      height: 1920,
+      width: 2560,
+      srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 2560w',
+      alt: 'Image alt text here',
+      focalPoint: [0.5, 0.5]
+    },
+    sectionHandle: 'collection',
+    customDateTime: 'November 1, 1963'
+  },
+  {
+    id: 'dlc-5',
+    to: '/collections/geographic-information',
+    title: 'Geographic Information Systems & Maps',
+    text: 'Comprehensive collection of maps, atlases, and geospatial data supporting research in geography, urban planning, environmental studies, and related fields.',
+    image: API.image,
+    sectionHandle: 'collection',
+    customDateTime: 'November 1, 1963'
+  },
+  {
+    id: 'dlc-6',
+    to: '/collections/audio-visual',
+    title: 'Audio-Visual Materials & Media Archives',
+    text: 'Extensive collection of audio recordings, video materials, and digital media including oral histories, documentaries, and multimedia resources for research and instruction.',
+    image: {
+      id: '3151261',
+      src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/pinkcloud-crop.png',
+      height: 1920,
+      width: 2560,
+      srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/pinkcloud-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/pinkcloud-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/pinkcloud-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/pinkcloud-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/pinkcloud-crop.png 2560w',
+      alt: 'A woman writing on a window.',
+      focalPoint: [0.5, 0.5]
+    },
+    sectionHandle: 'collection',
+    customDateTime: 'November 1, 1963'
+  }
+]
+
+// DLC Theme Edge Cases Story
+const mockDLCEdgeCases = [
+  {
+    id: 'dlc-1',
+    to: '/collections/digital-archives',
+    title: 'Digital Archives Collection',
+    text: 'Explore our extensive collection of digitized materials including manuscripts, photographs, and historical documents spanning over 200 years of UCLA history.',
+    image: API.image,
+    sectionHandle: 'collection'
+  },
+  {
+    id: 'dlc-2',
+    to: '/collections/special-collections',
+    title: 'Special Collections & Rare Books',
+    text: 'Discover rare books, manuscripts, and unique materials that form the cornerstone of our research collections. These items provide invaluable insights into various academic disciplines.',
+    image: {
+      id: '3156835',
+      src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/TomReed_MalcolmX.webp',
+      height: 1813,
+      width: 2560,
+      srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 2560w',
+      alt: 'Tom Reed hosting an episode exploring the teachings of Malcolm X',
+      focalPoint: [0.5, 0.5]
+    },
+    sectionHandle: 'collection'
+  },
+  {
+    id: 'dlc-3',
+    to: '/collections/ethnographic-materials',
+    title: 'Ethnographic Materials & Cultural Artifacts',
+    text: 'A comprehensive collection of ethnographic materials including audio recordings, photographs, and cultural artifacts from communities around the world. These materials support interdisciplinary research in anthropology, ethnomusicology, and cultural studies.',
+    image: {
+      id: '3280534',
+      src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/kpil7j-21cut1large.webp',
+      height: 1664,
+      width: 2560,
+      srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 2560w',
+      alt: 'many hot air balloons in the air',
+      focalPoint: [0.5, 0.5]
+    },
+    sectionHandle: 'collection'
+  },
+  {
+    id: 'dlc-4',
+    to: '/collections/art-architecture',
+    title: 'Art & Architecture Collections',
+    text: 'Extensive visual resources including architectural drawings, art slides, and digital images supporting research in art history, architecture, and visual culture studies.',
+    image: {
+      id: '3701680',
+      src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/PXL_20240323_163248504.jpg',
+      height: 1920,
+      width: 2560,
+      srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 2560w',
+      alt: 'Image alt text here',
+      focalPoint: [0.5, 0.5]
+    },
+    sectionHandle: 'collection'
+  },
+  {
+    id: 'dlc-5',
+    to: '/collections/geographic-information',
+    title: 'Geographic Information Systems & Maps',
+    text: 'Comprehensive collection of maps, atlases, and geospatial data supporting research in geography, urban planning, environmental studies, and related fields.',
+    image: API.image,
+    sectionHandle: 'collection'
+  },
+  {
+    id: 'dlc-6',
+    to: '/collections/audio-visual',
+    title: 'Audio-Visual Materials & Media Archives',
+    text: 'Extensive collection of audio recordings, video materials, and digital media including oral histories, documentaries, and multimedia resources for research and instruction.',
+    image: {
+      id: '3151261',
+      src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/pinkcloud-crop.png',
+      height: 1920,
+      width: 2560,
+      srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/pinkcloud-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/pinkcloud-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/pinkcloud-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/pinkcloud-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/pinkcloud-crop.png 2560w',
+      alt: 'A woman writing on a window.',
+      focalPoint: [0.5, 0.5]
+    },
+    sectionHandle: 'collection'
+  }
+]
+
+export function DLCEdgeCases() {
+  return {
+    data() {
+      return { items: mockDLCEdgeCases }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <section-teaser-card
+        :items="items"
+        section-title="DLC Collections - Edge Cases"
+        :grid-layout="true"
+      />
+  `,
+  }
+}
+
+export function DLCEdgeCasesWithDate() {
+  return {
+    data() {
+      return { items: mockDLCEdgeCasesWithDate }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <section-teaser-card
+        :items="items"
+        section-title="DLC Collections - Edge Cases with Date"
+        :grid-layout="true"
       />
   `,
   }
@@ -559,20 +779,40 @@ export function FTVACollectionListings() {
           box-shadow: none;
         }
 
-        .ftva.block-highlight .card-meta.card-meta-items:hover > a.title  {
-            text-decoration: underline;
-            text-decoration-color: #2C91FF;
-            text-decoration-thickness: 3px;
-            text-underline-offset: 3px;
-;
-        }
-
         @media(min-width: 991px){
           .ftva.block-highlight.is-vertical.card {
             height: 550px;
           }
         }
       </component>
+      <section-teaser-card
+        :items="items"
+      />
+  `,
+  }
+}
+
+const parsedFTVACollectionListingsCustomDate = mockCollectionListings.map((item) => {
+  return {
+    title: item.title,
+    to: item.uri,
+    image: item.ftvaImage[0],
+    customDateTime: 'c. 1942' // random number?
+  }
+})
+
+export function FTVACollectionListingsCustomDate() {
+  return {
+    data() {
+      return { items: parsedFTVACollectionListingsCustomDate }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
       <section-teaser-card
         :items="items"
       />

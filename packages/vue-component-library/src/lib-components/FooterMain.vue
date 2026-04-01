@@ -11,9 +11,11 @@ import FooterLinks from '@/lib-components/FooterLinks.vue'
 
 // THEME
 const theme = useTheme()
+
 const classes = computed(() => {
   return ['footer-main', theme?.value || '']
 })
+
 const showSponsor = computed(() => {
   if (theme?.value === undefined) {
     // if no theme, show sponsors as default behavior
@@ -21,6 +23,7 @@ const showSponsor = computed(() => {
   }
   return false
 })
+
 const showLinks = computed(() => {
   if (theme?.value === undefined) {
     // if no theme, DO NOT show links as default behavior
@@ -28,20 +31,13 @@ const showLinks = computed(() => {
   }
   return true
 })
-const showForm = computed(() => {
-  if (theme?.value === 'ftva') {
-    // if ftva theme, show newletter subscribe form
-    return true
-  }
-  return false
-})
 </script>
 
 <template>
   <footer :class="classes">
     <FooterSponsor v-if="showSponsor" class="sponsor" />
     <!-- todo either pass theme based props like or make all props in primary computed -->
-    <FooterPrimary :form="showForm" class="primary" :is-microsite="true" />
+    <FooterPrimary :form="false" class="primary" :is-microsite="true" />
     <FooterLinks v-if="showLinks" class="links" />
     <FooterSock class="sock" />
   </footer>

@@ -36,10 +36,13 @@ Default.args = {
     { label: 'Filter 2', inputType: 'checkbox', esFieldName: 'filter2' },
     { label: 'Filter 3', inputType: 'date', esFieldName: 'filter3' },
     { label: 'Filter 4', inputType: 'radio', esFieldName: 'filter4' },
-    // Assuming your SingleCheckbox component expects a certain structure
     { label: 'Checkbox Label', inputType: 'single-checkbox', esFieldName: 'filter5' },
   ],
   singleCheckboxState: false,
+}
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
 }
 
 export const Active = Template.bind({})

@@ -27,25 +27,30 @@ const theme = useTheme()
 const classes = computed(() => {
   return ['table-component', theme?.value || '', colorScheme]
 })
+const wrapperClasses = computed(() => {
+  return ['table-wrapper', theme?.value || '', colorScheme]
+})
 </script>
 
 <template>
-  <table :class="classes">
-    <caption>
-      {{ tableCaption }}
-    </caption>
-    <thead>
-      <tr>
-        <th v-for="(header, index) in tableHeaders" :key="index">
-          {{ header }}
-        </th>
-      </tr>
-    </thead>
+  <div :class="wrapperClasses">
+    <table :class="classes">
+      <caption>
+        {{ tableCaption }}
+      </caption>
+      <thead>
+        <tr>
+          <th v-for="(header, index) in tableHeaders" :key="index">
+            {{ header }}
+          </th>
+        </tr>
+      </thead>
 
-    <tbody>
-      <slot />
-    </tbody>
-  </table>
+      <tbody>
+        <slot />
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <style lang="scss" scoped>

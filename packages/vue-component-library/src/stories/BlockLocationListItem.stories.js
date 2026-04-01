@@ -81,6 +81,10 @@ Default.args = {
   libcalLocationIdForHours: '4690',
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const NoHours = Template.bind({})
 NoHours.args = {
   ...mock,

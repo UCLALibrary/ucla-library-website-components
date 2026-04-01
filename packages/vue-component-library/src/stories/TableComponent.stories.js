@@ -157,12 +157,12 @@ export function Default() {
            </span>
         </SmartLink>
         <div class="job-title" v-html="item.jobTitle" />
-        <ul v-if="item.departments.length" class="departments">
+        <ul v-if="item.departments && item.departments.length > 0" class="departments">
           <li class="department">
             {{ item.departments[item.departments.length - 1].title }}
           </li>
         </ul>
-        <div v-if="item.locations && item.locations.length !== 0">
+        <div class="locations" v-if="item.locations && item.locations.length !== 0">
           <IconWithLink
           v-for="location in item.locations " :key="'location-' + location.id" :text="location.title ?? ''"
           icon-name="svg-icon-location" :to="'/' + location.to"
@@ -185,6 +185,10 @@ export function Default() {
     </tableComponent>
   `,
   }
+}
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
 }
 
 const mockFTVAtableHeaders = ['', 'Film', 'Role', 'Year']

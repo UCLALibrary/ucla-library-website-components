@@ -22,6 +22,9 @@ export const Default = {
     item: MEDIA.ImageFile,
   }
 }
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 
 export function Image() {
   return {

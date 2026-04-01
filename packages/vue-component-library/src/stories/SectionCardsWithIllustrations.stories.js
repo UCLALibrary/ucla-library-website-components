@@ -65,6 +65,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 const itemsHorizontal = [
   {
     iconName: 'illustration-book-binding',

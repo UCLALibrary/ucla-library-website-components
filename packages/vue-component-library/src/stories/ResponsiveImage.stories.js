@@ -24,6 +24,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function SquareRatio() {
   return {
     components: { ResponsiveImage },

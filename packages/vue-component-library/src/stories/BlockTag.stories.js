@@ -17,7 +17,7 @@ import BlockTag from '@/lib-components/BlockTag'
  */
 export default {
   title: 'BLOCK / Tag',
-  component: BlockTag
+  component: BlockTag,
 }
 
 // MOCKS
@@ -52,6 +52,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 // note: currently highlighted styles for default are placeholder styles / not yet implemented
 export function DefaultHighlighted() {
   return {
@@ -74,7 +78,7 @@ export function PrimaryFTVA() {
   return {
     data() {
       return {
-        ...ftvamock
+        ...ftvamock,
       }
     },
     provide() {
@@ -95,7 +99,7 @@ export function SecondaryFTVA() {
   return {
     data() {
       return {
-        ...ftvamock
+        ...ftvamock,
       }
     },
     provide() {
@@ -118,7 +122,7 @@ export function SecondaryFTVANoIcon() {
   return {
     data() {
       return {
-        ...ftvamockwLinkLabel
+        ...ftvamockwLinkLabel,
       }
     },
     provide() {
@@ -140,7 +144,7 @@ export function SecondaryFTVAHighlighted() {
   return {
     data() {
       return {
-        ...ftvamock
+        ...ftvamock,
       }
     },
     provide() {
@@ -154,6 +158,52 @@ export function SecondaryFTVAHighlighted() {
         :label="label"
         isSecondary="true"
         isHighlighted="true"
+    />
+  `,
+  }
+}
+
+export function DLC() {
+  return {
+    data() {
+      return {
+        props: {
+          label: 'default label',
+        },
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    components: { BlockTag },
+    template: `
+    <block-tag
+        v-bind="props"
+    />
+  `,
+  }
+}
+
+export function DLCWithMultipleLabels() {
+  return {
+    data() {
+      return {
+        props: {
+          label: ['Genre', 'Black and White Photographs'],
+        },
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    components: { BlockTag },
+    template: `
+    <block-tag
+        v-bind="props"
     />
   `,
   }

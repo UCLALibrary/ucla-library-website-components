@@ -36,3 +36,7 @@ export function Default() {
     components: { MastheadPrimary },
   }
 }
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}

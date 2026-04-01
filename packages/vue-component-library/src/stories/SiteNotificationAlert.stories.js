@@ -21,6 +21,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 // Variations of stories below
 export function LongMessage() {
   return {

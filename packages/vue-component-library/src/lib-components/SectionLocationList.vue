@@ -27,7 +27,7 @@ const { items } = defineProps({
 </script>
 
 <template>
-  <ul class="section-location-list">
+  <ul v-if="items && items.length > 0" class="section-location-list">
     <BlockLocationListItem
       v-for="item in items" :key="item.to" :image="item.image" :location-type="item.locationType"
       :title="item.title" :to="item.to" :affiliate-library-url="item.affiliateLibraryUrl" :address="item.address"

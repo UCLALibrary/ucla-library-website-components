@@ -145,7 +145,7 @@ const mergeSortTopics = computed(() => {
     <div class="section-staff-bio">
       <div :class="image ? 'body-contact' : 'body-contact no-image'">
         <ResponsiveImage
-          v-if="image"
+          v-if="image && image.src"
           :media="image"
           :aspect-ratio="100"
           class="image"
@@ -234,7 +234,7 @@ const mergeSortTopics = computed(() => {
             Ask Me About
           </h2>
           <RichText>
-            <ul class="list topics">
+            <ul v-if="mergeSortTopics && mergeSortTopics.length > 0" class="list topics">
               <li
                 v-for="topic in mergeSortTopics"
                 :key="topic.id"

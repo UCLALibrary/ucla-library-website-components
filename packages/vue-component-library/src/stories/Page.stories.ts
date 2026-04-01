@@ -31,5 +31,8 @@ export const LoggedIn: Story = {
     await userEvent.click(loginButton)
   },
 }
+LoggedIn.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 
 export const LoggedOut: Story = {}

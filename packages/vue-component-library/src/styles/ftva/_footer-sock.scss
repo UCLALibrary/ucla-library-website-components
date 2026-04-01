@@ -1,11 +1,12 @@
 .ftva.footer-sock {
-    --unit-content-width: --ftva-container-max-width;
+    --unit-content-width: var(--ftva-container-max-width);
     background-color: #191919;
 
     .container {
         .link {
             color: $white;
-            text-decoration-color: $grey-blue;
+            -webkit-text-decoration-color: $grey-blue;
+                    text-decoration-color: $grey-blue;
 
             &:hover {
                 color: $grey-blue;

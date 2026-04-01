@@ -16,7 +16,7 @@ const mockDefault = {
   to: 'series/todd-solondz-series',
   startDate: '2025-12-13T06:30:00+00:00',
   image: API.image,
-  category: "ULLAMCO",
+  category: 'ULLAMCO',
   title: 'TEST - Todd Solondz Series',
   endDate: '2025-12-13T05:45:00+00:00',
   tagLabels: [
@@ -34,7 +34,7 @@ const mockSingleDigitDate = {
   to: 'series/todd-solondz-series',
   startDate: '2026-02-03T06:30:00+00:00',
   image: API.image,
-  category: "ULLAMCO",
+  category: 'ULLAMCO',
   title: 'TEST - Todd Solondz Series',
   endDate: '2026-04-08T05:45:00+00:00',
   tagLabels: [
@@ -71,6 +71,10 @@ export function Default(args) {
         :startTime="parsedTime"
       />`,
   }
+}
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
 }
 
 export function SingleDigitDate(args) {

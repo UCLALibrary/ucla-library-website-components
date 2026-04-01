@@ -4,6 +4,7 @@ import path from "path"
 import { mergeConfig } from "vite"
 
 import { fileURLToPath } from 'url'
+const useChromatic = process.env.CHROMATIC_ADDON === "true"
 
 const config: StorybookConfig = {
     stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -11,6 +12,8 @@ const config: StorybookConfig = {
         "@storybook/addon-links",
         "@storybook/addon-essentials",
         "@storybook/addon-interactions",
+        "@storybook/addon-a11y",
+        ...(useChromatic ? ["@chromatic-com/storybook"] : []),
     ],
     framework: {
         name: "@storybook/vue3-vite",

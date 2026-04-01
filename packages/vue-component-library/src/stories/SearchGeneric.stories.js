@@ -82,6 +82,11 @@ Default.args = {
   },
   placeholder: 'FIND ALL THE  LLAMAS THAT TOTALLY RULE'
 }
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const RouterQuery = Template.bind({})
 RouterQuery.args = {
   filters: [

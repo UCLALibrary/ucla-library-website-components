@@ -21,6 +21,10 @@ export function ImageWithVideo() {
   }
 }
 
+ImageWithVideo.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function VideoWithControls() {
   return {
     data() {
