@@ -33,9 +33,9 @@ const classes = computed(() => {
   <div :class="classes">
     <div class="link-wrapper">
       <div v-for="item, index in parsedFooterLinks" :key="item.category" class="link-list">
-        <h4 class="link-list-label">
+        <h3 class="link-list-label">
           {{ item.category }}
-        </h4>
+        </h3>
         <ul>
           <li v-for="listlink in parsedFooterLinks[index].children" :key="listlink.name" class="link-item">
             <SmartLink

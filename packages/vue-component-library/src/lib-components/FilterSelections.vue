@@ -32,6 +32,7 @@ const emit = defineEmits<{
   'selection-change': [selectedOptions: Record<string, string[]>]
   'option-selected': [filterName: string, option: FilterOption]
   'option-deselected': [filterName: string, option: FilterOption]
+  'open-see-all-modal': [filter: { name: string; slotName: string }]
 }>()
 // THEME
 const theme = useTheme()
@@ -308,7 +309,9 @@ async function toggleOption(filterName: string, option: FilterOption) {
                 <button
                   v-if="showButton(filter)"
                   key="see-all"
+                  type="button"
                   class="filter-option see-all"
+                  @click="emit('open-see-all-modal', { name: filter.name, slotName: filter.slotName })"
                 >
                   <span class="option-name">See All</span>
                   <span class="see-all-arrow">→</span>

@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useTheme } from '@/composables/useTheme'
-import { type SearchResultsCountProps, SearchResultsCountVariants } from '@/types/components/SearchResultsCountTypes'
+import {
+  type SearchResultsCountProps,
+  SearchResultsCountVariants,
+} from '@/types/components/SearchResultsCountTypes'
 
 const props = withDefaults(defineProps<SearchResultsCountProps>(), {
   animate: false,
@@ -49,8 +52,7 @@ function animateCount(to: number) {
     animatedCount.value = Math.round(start + (to - start) * eased)
     if (progress < 1)
       requestAnimationFrame(update)
-    else
-      animatedCount.value = to
+    else animatedCount.value = to
   }
   requestAnimationFrame(update)
 }
@@ -59,6 +61,7 @@ let timeoutId: ReturnType<typeof setTimeout> | null = null
 
 onMounted(() => {
   if (props.animate) {
+    // Delay animation on initial mount
     timeoutId = setTimeout(() => {
       animateCount(props.count)
     }, 500)
@@ -67,6 +70,17 @@ onMounted(() => {
     animatedCount.value = props.count
   }
 })
+
+// Watch for changes to count prop and update accordingly
+watch(
+  () => props.count,
+  (newCount) => {
+    // On prop changes after mount, animate immediately if animate is enabled
+    if (props.animate)
+      animateCount(newCount)
+    else animatedCount.value = newCount
+  }
+)
 
 onUnmounted(() => {
   if (timeoutId)
@@ -82,10 +96,7 @@ onUnmounted(() => {
     >
       {{ parsedResults }}
     </span>
-    <div
-      class="count"
-      aria-live="polite"
-    >
+    <div class="count" aria-live="polite">
       <span>{{ animatedCount }}</span>
     </div>
     <span

@@ -52,4 +52,5 @@ onMounted(() => {
 <style lang="scss" scoped>
 @use "@/styles/default/_divider-way-finder.scss" as *;
 @use "@/styles/ftva/_divider-way-finder.scss" as *;
+@use "@/styles/dlc/_divider-way-finder.scss" as *;
 </style>
