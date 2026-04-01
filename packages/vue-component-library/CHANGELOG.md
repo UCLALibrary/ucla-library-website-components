@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.72.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.72.1...@ucla-library-monorepo/ucla-library-website-components-v1.72.2) (2026-04-01)
+
+
+### Bug Fixes
+
+* LADI-3762 Update the current and active links in the AlphabeticalBrowseBy component ([#925](https://github.com/UCLALibrary/ucla-library-website-components/issues/925)) ([f16db5a](https://github.com/UCLALibrary/ucla-library-website-components/commit/f16db5ae330cb4fdfd3a607a43bc730b75f88879))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.72.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.72.0...@ucla-library-monorepo/ucla-library-website-components-v1.72.1) (2026-03-31)
 
 
