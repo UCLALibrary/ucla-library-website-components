@@ -95,6 +95,26 @@ const lightboxItems = computed<MediaGalleryItemType[]>(() => {
 const parsedIsDownload = computed(() => {
   return !!(props.buttonUrl && props.typeMedia === 'other')
 })
+
+const hasValidButtonUrl = computed(() => {
+  if (props.buttonUrl === null || props.buttonUrl === undefined)
+    return false
+
+  return props.buttonUrl.trim().length > 0
+})
+
+const hasValidButtonText = computed(() => {
+  if (props.buttonText === null || props.buttonText === undefined)
+    return false
+
+  return props.buttonText.trim().length > 0
+})
+
+// Prevent empty buttons or links
+// A button is only shown if BOTH URL and TEXT are valid
+const showButton = computed(() => {
+  return hasValidButtonUrl.value && hasValidButtonText.value
+})
 </script>
 
 <template>
@@ -142,21 +162,24 @@ const parsedIsDownload = computed(() => {
         v-html="shortDescription"
       />
 
-      <ButtonLink
-        v-if="buttonUrl && theme !== 'ftva'"
-        class="button"
-        :to="buttonUrl"
-        :label="buttonText"
-        :is-secondary="true"
-        :is-download="parsedIsDownload"
-      />
-      <SmartLink
-        v-else
-        :to="buttonUrl"
-        class="text-link"
-      >
-        {{ buttonText }}
-      </SmartLink>
+      <template v-if="showButton">
+        <ButtonLink
+          v-if="theme !== 'ftva'"
+          class="button"
+          :to="buttonUrl"
+          :label="buttonText"
+          :is-secondary="true"
+          :is-download="parsedIsDownload"
+        />
+
+        <SmartLink
+          v-else
+          :to="buttonUrl"
+          class="text-link"
+        >
+          {{ buttonText }}
+        </SmartLink>
+      </template>
     </div>
 
     <MediaItem
