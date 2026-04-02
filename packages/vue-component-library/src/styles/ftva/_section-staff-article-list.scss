@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.section-staff-article-list {
   background-color: var(--color-white);
   padding: 45px;
@@ -8,7 +9,7 @@
 
   .block-staff-article-list {
     .block-staff-article-item {
-      border-bottom: 1px solid $page-blue;
+      border-bottom: 1px solid ftvatokens.$page-blue;
     }
 
     .block-staff-article-item:last-child {

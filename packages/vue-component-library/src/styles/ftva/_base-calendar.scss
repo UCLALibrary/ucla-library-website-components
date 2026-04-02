@@ -1,13 +1,14 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.base-calendar {
 
   .v-btn.v-calendar-header__today {
     @include ftva-button;
-    background-color: #{$pure-white};
-    color: #{$accent-blue};
-    border-color: #{$accent-blue};
+    background-color: ftvatokens.$pure-white;
+    color: ftvatokens.$accent-blue;
+    border-color: ftvatokens.$accent-blue;
 
     &:hover {
-      background-color: #{$accent-blue};
+      background-color: ftvatokens.$accent-blue;
       color: #{$pure-white};
     }
   }
@@ -36,20 +37,20 @@
 
   // Current date
   .v-calendar-weekly__day-label .v-btn.v-calendar-weekly__day-label__today {
-    background-color: $grey-blue !important;
+    background-color: ftvatokens.$grey-blue !important;
   }
 
   .calendar-event-item {
-    background-color: $accent-blue;
+    background-color: ftvatokens.$accent-blue;
     color: white;
   }
 
   .selected-event.calendar-event-item {
-    background-color: $navy-blue;
+    background-color: ftvatokens.$navy-blue;
   }
 
   .calendar-event-item:hover {
-    background-color: $navy-blue;
+    background-color: ftvatokens.$navy-blue;
     cursor: pointer;
   }
 }
@@ -69,7 +70,7 @@
   }
 
   .calendar-event-popup-wrapper {
-    background-color: $page-blue;
+    background-color: ftvatokens.$page-blue;
 
     .ftva.block-highlight {
       border-radius: 0;
@@ -91,7 +92,7 @@
       }
       
       .card-meta .category {
-        color: $subtitle-grey;
+        color: ftvatokens.$subtitle-grey;
       }
     }
 
@@ -100,7 +101,7 @@
       .ftva.block-tag {
 
         &.highlighted { 
-          background-color: $pure-white;
+          background-color: ftvatokens.$pure-white;
         }
       }
     }

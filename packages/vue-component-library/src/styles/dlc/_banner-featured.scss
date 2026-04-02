@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens; // dlc theme uses some ftva colors
+
 .banner-featured.dlc {
     z-index: 0;
     position: relative;
@@ -289,9 +291,9 @@
     }
 
     .secondary-buttons {
-        --button-background-color: #{$pure-white};
-        --button-text-color: #{$accent-blue};
-        --button-border-color: #{$accent-blue};
+        --button-background-color: ftvatokens.$pure-white;
+        --button-text-color: ftvatokens.$accent-blue;
+        --button-border-color: ftvatokens.$accent-blue;
 
         display: flex;
         flex-direction: column;
@@ -321,8 +323,8 @@
     // Hover
     @media #{$has-hover} {
         .secondary-button:hover {
-            --button-background-color: #{$accent-blue};
-            --button-text-color: #{$pure-white};
+            --button-background-color: ftvatokens.$accent-blue;
+            --button-text-color: ftvatokens.$pure-white;
         }
     }
 

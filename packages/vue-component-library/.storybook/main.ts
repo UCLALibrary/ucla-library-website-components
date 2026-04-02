@@ -32,8 +32,6 @@ const config: StorybookConfig = {
                             @use "ucla-library-design-tokens/scss/abstracts" as *;
                             @use "ucla-library-design-tokens/scss/app.scss" as *;
                             @use "ucla-library-design-tokens/scss/abstracts/_tokens.scss" as *;
-                            @use "ucla-library-design-tokens/scss/abstracts/_tokens-ftva.scss" as ftvatokens;
-                            @use "ucla-library-design-tokens/scss/abstracts/_tokens-dlc.scss" as dlctokens;
                         `,
                     },
                 },

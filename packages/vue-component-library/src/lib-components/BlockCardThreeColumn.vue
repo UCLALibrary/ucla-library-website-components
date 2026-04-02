@@ -148,6 +148,8 @@ const parsedDateFormat = computed(() => {
   lang="scss"
   scoped
 >
+// Since block-card-three-column is newer it only has FTVA styles
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .block-card-three-column {
   display: flex;
   flex-direction: row;
@@ -163,13 +165,13 @@ const parsedDateFormat = computed(() => {
     flex-direction: column;
     flex: 1;
 
-    color: $accent-blue;
+    color: ftvatokens.$accent-blue;
     padding-top: 2px;
   }
 
   .day {
     @include ftva-subtitle-1;
-    color: $body-grey;
+    color: ftvatokens.$body-grey;
   }
 
   .month-date {
@@ -217,19 +219,19 @@ const parsedDateFormat = computed(() => {
 
       .category {
         @include ftva-subtitle-1;
-        color: $subtitle-grey;
+        color: ftvatokens.$subtitle-grey;
       }
 
       .title {
         @include ftva-card-title-2;
-        color: $heading-grey;
+        color: ftvatokens.$heading-grey;
       }
 
       .date-time {
         align-self: flex-end;
 
         @include ftva-emphasized-subtitle;
-        color: $accent-blue;
+        color: ftvatokens.$accent-blue;
         letter-spacing: .04px;
         padding-top: 15px;
         padding-bottom: 10px;
@@ -248,7 +250,7 @@ const parsedDateFormat = computed(() => {
     .time-tags {
       text-transform: uppercase;
       @include ftva-emphasized-subtitle;
-      color: $accent-blue;
+      color: ftvatokens.$accent-blue;
     }
 
     :deep(.floating-slot) {

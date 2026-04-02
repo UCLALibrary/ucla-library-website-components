@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "ucla-library-design-tokens/scss/abstracts" as *;
 .section-teaser-list {
   background-color: var(--color-white);
   max-width: $container-l-main + px;

@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides has-hover mixin
+
 .section-teaser-card.dlc {
     :deep(.card) {
         height: 100%;

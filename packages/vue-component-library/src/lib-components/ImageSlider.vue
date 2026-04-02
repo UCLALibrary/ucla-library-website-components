@@ -74,7 +74,7 @@ function handleSliderInput(event: Event) {
 <style lang="scss" scoped>
 /* Add your styles here */
 @use "ucla-library-design-tokens/scss/abstracts" as *;
-
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 *,
 *::after,
 *::before {
@@ -149,7 +149,7 @@ function handleSliderInput(event: Event) {
   padding-top: 15px;
   width: 100%;
   text-align: center;
-  color: $medium-grey;
+  color: ftvatokens.$medium-grey;
 }
 
 .slider {

@@ -443,6 +443,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .date-filter {
   .dp__calendar_header_separator {
     display: none;
@@ -455,7 +456,7 @@ onMounted(() => {
 
   button:focus,
   button:focus-visible {
-    outline: 1px hidden $accent-blue;
+    outline: 1px hidden ftvatokens.$accent-blue;
   }
 
   .button-text {
@@ -467,7 +468,7 @@ onMounted(() => {
     }
 
     :deep(path.svg__fill--accent-blue) {
-      fill: $medium-grey;
+      fill: ftvatokens.$medium-grey;
     }
   }
 
@@ -485,7 +486,7 @@ onMounted(() => {
       font-family: var(--font-primary);
       font-weight: 500;
       font-size: 18px;
-      color: $medium-grey;
+      color: ftvatokens.$medium-grey;
       border-radius: 8px;
 
       &:hover,
@@ -502,7 +503,7 @@ onMounted(() => {
       }
 
       &::placeholder {
-        color: $medium-grey;
+        color: ftvatokens.$medium-grey;
         opacity: 1;
       }
     }
@@ -567,7 +568,7 @@ onMounted(() => {
     // Calendar styling
 
     .custom-month-year-component {
-      color: $heading-grey;
+      color: ftvatokens.$heading-grey;
     }
 
     :deep(.dp__calendar_header_separator) {
@@ -581,7 +582,7 @@ onMounted(() => {
     :deep(.dp__cell_inner) {
       transition: background-color 0.3s ease;
       width: 41px;
-      color: $heading-grey;
+      color: ftvatokens.$heading-grey;
       border-radius: 0px;
 
       &.dp__range_between,
@@ -592,7 +593,7 @@ onMounted(() => {
         &::before {
           content: '';
           z-index: 0;
-          background-color: $accent-blue;
+          background-color: ftvatokens.$accent-blue;
           width: 53px;
           height: 38px;
           position: absolute;
@@ -609,7 +610,7 @@ onMounted(() => {
       &.dp__range_end,
       &.dp__range_start,
       &.dp__active_date {
-        background: $navy-blue;
+        background: ftvatokens.$navy-blue;
         color: var(--color-white);
 
         .day-content>.event-dots>.dot {
@@ -626,22 +627,22 @@ onMounted(() => {
       }
 
       &:hover {
-        background-color: $grey-blue;
+        background-color: ftvatokens.$grey-blue;
       }
     }
 
     :deep(.dp__cell_offset) {
-      color: $light-grey;
+      color: ftvatokens.$light-grey;
 
       .day-content>.event-dots>.dot {
-        background-color: $light-grey;
+        background-color: ftvatokens.$light-grey;
       }
 
       &:hover {
-        color: $heading-grey;
+        color: ftvatokens.$heading-grey;
 
         .day-content>.event-dots>.dot {
-          background-color: $accent-blue;
+          background-color: ftvatokens.$accent-blue;
         }
       }
     }
@@ -649,19 +650,19 @@ onMounted(() => {
     &.is-selecting {
       :deep(.dp__cell_inner) {
         &.dp__range_between {
-          color: $heading-grey;
+          color: ftvatokens.$heading-grey;
 
           &::before {
-            background-color: $page-blue;
+            background-color: ftvatokens.$page-blue;
           }
 
           .day-content>.event-dots>.dot {
-            background-color: $accent-blue;
+            background-color: ftvatokens.$accent-blue;
           }
         }
 
         &.dp__range_end:not(.dp__range_start):before {
-          background-color: $page-blue;
+          background-color: ftvatokens.$page-blue;
         }
       }
     }
@@ -680,7 +681,7 @@ onMounted(() => {
 
         .today-button,
         .nav-arrow-button {
-          background-color: $page-blue;
+          background-color: ftvatokens.$page-blue;
           border: none;
           border-radius: 0px;
           padding: 0;
@@ -692,18 +693,18 @@ onMounted(() => {
           transition: background-color 0.3s ease;
 
           &:hover {
-            background-color: $grey-blue;
+            background-color: ftvatokens.$grey-blue;
           }
         }
 
         .today-button {
-          color: $accent-blue;
+          color: ftvatokens.$accent-blue;
           width: 81px;
           font-size: 16px;
           font-weight: 500;
 
           &.is-active-selection {
-            background-color: $accent-blue;
+            background-color: ftvatokens.$accent-blue;
             color: var(--color-white);
           }
         }
@@ -722,7 +723,7 @@ onMounted(() => {
     .day-header {
       font-size: 16px;
       font-weight: normal;
-      color: $medium-grey;
+      color: ftvatokens.$medium-grey;
       text-align: center;
     }
 
@@ -747,7 +748,7 @@ onMounted(() => {
           width: 5px;
           height: 5px;
           border-radius: 50%;
-          background-color: $accent-blue;
+          background-color: ftvatokens.$accent-blue;
         }
       }
     }
@@ -767,8 +768,8 @@ onMounted(() => {
         font-weight: 500;
         line-height: 27px;
         color: var(--color-white);
-        background-color: $accent-blue;
-        border: 1px solid $accent-blue;
+        background-color: ftvatokens.$accent-blue;
+        border: 1px solid ftvatokens.$accent-blue;
         cursor: pointer;
         transition: background-color 0.3s ease;
 
@@ -781,20 +782,20 @@ onMounted(() => {
         }
 
         &:hover {
-          background-color: $navy-blue;
+          background-color: ftvatokens.$navy-blue;
         }
       }
 
       .clear-button {
         background-color: var(--color-white);
-        color: $accent-blue;
+        color: ftvatokens.$accent-blue;
 
         :deep(.svg__stroke--primary-blue-03) {
-          stroke: $accent-blue;
+          stroke: ftvatokens.$accent-blue;
         }
 
         &:hover {
-          background-color: $navy-blue;
+          background-color: ftvatokens.$navy-blue;
           color: var(--color-white);
 
           :deep(.svg__stroke--primary-blue-03) {
@@ -837,7 +838,7 @@ onMounted(() => {
 
       &:active {
         color: white;
-        background-color: $accent-blue;
+        background-color: ftvatokens.$accent-blue;
 
         path.svg__fill--accent-blue {
           fill: white;
@@ -845,11 +846,11 @@ onMounted(() => {
       }
 
       &.is-expanded {
-        color: $accent-blue;
-        border: 2px solid $accent-blue;
+        color: ftvatokens.$accent-blue;
+        border: 2px solid ftvatokens.$accent-blue;
 
         path.svg__fill--accent-blue {
-          fill: $accent-blue;
+          fill: ftvatokens.$accent-blue;
         }
       }
     }
