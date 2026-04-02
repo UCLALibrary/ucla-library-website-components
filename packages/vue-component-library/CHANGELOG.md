@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.73.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.0...@ucla-library-monorepo/ucla-library-website-components-v1.73.1) (2026-04-02)
+
+
+### Bug Fixes
+
+* LADI-3746 Revisit logic for rendering button in Block media with text component ([#927](https://github.com/UCLALibrary/ucla-library-website-components/issues/927)) ([89c2a2a](https://github.com/UCLALibrary/ucla-library-website-components/commit/89c2a2a3b7eac59399c5d1865edf667c249dea4a))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.73.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.72.2...@ucla-library-monorepo/ucla-library-website-components-v1.73.0) (2026-04-01)
 
 
