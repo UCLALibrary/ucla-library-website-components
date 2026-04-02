@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // needed for any sass variables like $container-l-main
+
 .rich-text {
   max-width: $container-l-main + px;
   margin: 0 auto;

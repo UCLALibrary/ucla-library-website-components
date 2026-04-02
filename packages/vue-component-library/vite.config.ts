@@ -73,11 +73,12 @@ export default defineConfig({
       // Additional Sass options go here
       scss: {
         additionalData: `
-                  @use "ucla-library-design-tokens/scss/fonts.scss";
-                  @use "ucla-library-design-tokens/scss/_tokens-ftva";
-                  @use "ucla-library-design-tokens/scss/_tokens-dlc";
-                  @use "ucla-library-design-tokens/scss/_tokens-css-dlc";
-                  @use "ucla-library-design-tokens/scss/app.scss";
+                  @use "ucla-library-design-tokens/scss/fonts.scss" as *;
+                  @use "ucla-library-design-tokens/scss/abstracts" as *;
+                  @use "ucla-library-design-tokens/scss/app.scss" as *;
+                  @use "ucla-library-design-tokens/scss/abstracts/_tokens.scss" as *;
+                  @use "ucla-library-design-tokens/scss/abstracts/_tokens-ftva.scss" as ftvatokens;
+                  @use "ucla-library-design-tokens/scss/abstracts/_tokens-dlc.scss" as dlctokens;
                 `,
       },
       postcss: {

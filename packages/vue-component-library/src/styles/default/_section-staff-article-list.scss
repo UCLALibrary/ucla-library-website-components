@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "ucla-library-design-tokens/scss/abstracts" as *;
 .section-staff-article-list {
   --divider-color: var(--color-secondary-grey-02);
   max-width: 100%;

@@ -1,5 +1,6 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;  
 .ftva.divider-way-finder {
   &.color-default {
-    --color-border: #{$accent-blue};
+    --color-border: ftvatokens.$accent-blue;
   }
 }

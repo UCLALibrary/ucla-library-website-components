@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // needed any sass variables
+
 .base-calendar {
   position: relative;
   height: 1100px;

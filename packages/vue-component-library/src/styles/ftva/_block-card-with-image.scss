@@ -1,4 +1,6 @@
 // TODO refactor this component to get rid of position absolute for the date/byline
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-card-title-2 mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.block-highlight {
     position: relative;
 
@@ -43,7 +45,7 @@
             }
 
             .schedule-item.date-created {
-                color: $subtitle-grey;
+                color: ftvatokens.$subtitle-grey;
                 font-weight: 500;
             }
         }
@@ -60,7 +62,7 @@
         flex-direction: row;
 
         @include ftva-emphasized-subtitle;
-        color: $accent-blue;
+        color: ftvatokens.$accent-blue;
         letter-spacing: .04px;
 
         height: 34px;
@@ -109,7 +111,7 @@
     // - use the 'color' prop to use these styles
     // - do not add css rules below this section or it could overwrite these colors
     &.blueBackground {
-        background: $page-blue;
+        background: ftvatokens.$page-blue;
     }
     &.whiteBackground {
         background: white;

@@ -254,6 +254,7 @@ function getWrapperComponent(block) {
 </template>
 
 <style lang="scss" scoped>
+@use "ucla-library-design-tokens/scss/abstracts" as *;
 // default theme
 .flexible-blocks {
     .more-information {

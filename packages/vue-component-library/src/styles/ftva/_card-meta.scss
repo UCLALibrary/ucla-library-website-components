@@ -1,31 +1,32 @@
 // CardMeta THEME
-
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-button-link mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.card-meta {
   .category {
     @include ftva-button-link;
-    color: $accent-blue;
+    color: ftvatokens.$accent-blue;
     margin: 0 0 12px;
   }
 
   .linked-category {
     @include ftva-subtitle-1;
-    color: $subtitle-grey;
+    color: ftvatokens.$subtitle-grey;
     margin: 0 0 12px;
 
     &:hover {
-      color: $accent-blue;
+      color: ftvatokens.$accent-blue;
     }
   }
 
   .title {
     @include ftva-h2;
-    color: $heading-grey;
+    color: ftvatokens.$heading-grey;
     margin: 0 0 24px;
   }
 
   .title-no-link {
     @include ftva-h2;
-    color: $heading-grey;
+    color: ftvatokens.$heading-grey;
     margin: 0 0 24px;
   }
 
@@ -41,7 +42,7 @@
   .byline-group {
     flex-direction: row;
     @include ftva-body-2;
-    color: $medium-grey;
+    color: ftvatokens.$medium-grey;
 
     .date-created:not(:first-child)::before {
       content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
@@ -124,7 +125,7 @@
 
   .parsed-start-time {
     @include ftva-emphasized-subtitle;
-    color: $accent-blue;
+    color: ftvatokens.$accent-blue;
   }
 
   &.ftvaArticle {
@@ -133,14 +134,14 @@
     // we have a unique 'About the Author' section which uses different styles
     .heading-about-author {
       @include ftva-subtitle-2;
-      color: $accent-blue;
+      color: ftvatokens.$accent-blue;
       padding-bottom: 4px;
     }
 
     .text {
       :deep(.parsed-content)>p {
         @include ftva-body-2;
-        color: $medium-grey;
+        color: ftvatokens.$medium-grey;
       }
     }
   }
