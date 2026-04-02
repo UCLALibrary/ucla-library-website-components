@@ -89,6 +89,8 @@ export function VideoWithNoButton() {
         <block-media-with-text
             :section-header="mediaWithText[0].titleLink"
             :short-description="mediaWithText[0].description"
+            :button-text=""
+            button-url="http://cinema.ucla.edu"
             :item="item"
             :coverImage="coverImage"
             type-media="video"
