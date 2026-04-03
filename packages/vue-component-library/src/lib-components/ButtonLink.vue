@@ -114,15 +114,29 @@ const parsedIconName = computed(() => {
     :class="classes"
     :is-download="isDownload"
     :link-target="linkTarget"
+    :aria-label="label"
   >
-    <span class="label">{{ label }}</span>
+    <!-- Default layer (hidden from screen readers) -->
+    <span class="label" aria-hidden="true">{{ label }}</span>
+    <slot  aria-hidden="true" />
+
     <component
       :is="parsedIconName"
       v-if="parsedIconName !== ''"
       class="arrow"
       aria-hidden="true"
     />
-    <slot />
+
+    <!-- Hover layer (also hidden from screen readers) -->
+    <div class="hover" aria-hidden="true">
+      <span class="label">{{ label }}</span>
+      <component
+        :is="parsedIconName"
+        v-if="parsedIconName !== ''"
+        class="arrow"
+        aria-hidden="true"
+      />
+    </div>
   </SmartLink>
 </template>
 
