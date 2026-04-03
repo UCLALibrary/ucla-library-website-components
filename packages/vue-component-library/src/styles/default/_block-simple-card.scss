@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+
 .block-simple-card {
   min-height: 296px;
   border-radius: var(--rounded-slightly-all);

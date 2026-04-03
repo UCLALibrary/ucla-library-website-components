@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+
 .header-main-responsive:not(.dlc) {
     width: 100vw;
     height: 100%;

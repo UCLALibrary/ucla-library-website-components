@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-body-2 mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.section-post-small {
   padding: 0;
 
@@ -16,13 +18,13 @@
 
   .section-title {
     @include step-3;
-    color: $body-grey;
+    color: ftvatokens.$body-grey;
     margin-bottom: var(--space-m);
   }
 
   .section-summary {
     @include ftva-body-2;
-    color: $body-grey;
+    color: ftvatokens.$body-grey;
 
     :deep(p:not(:last-of-type)) {
       margin-bottom: 12px;

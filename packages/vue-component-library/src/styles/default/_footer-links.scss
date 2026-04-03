@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+
 .footer-links {
     --unit-content-width: #{$container-l-cta}px;
     padding: var(--space-l) var(--unit-gutter);

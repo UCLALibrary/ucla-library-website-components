@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+
 .nav-primary {
     &.dlc {
         --vertical-gap: 30px;

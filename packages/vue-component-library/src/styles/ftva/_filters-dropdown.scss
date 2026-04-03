@@ -55,9 +55,9 @@
     @media #{$small} { 
         // Input field / Button on Mobile
         :deep(.mobile-button) {
-            border-color: $medium-grey;
+            border-color: ftvatokens.$medium-grey;
             &:hover, &:focus {
-                border-color: $medium-grey;
+                border-color: ftvatokens.$medium-grey;
             }
             &.is-expanded {
                     color: ftvatokens.$accent-blue;

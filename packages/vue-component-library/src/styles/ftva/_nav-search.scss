@@ -1,6 +1,9 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+
 .ftva.nav-search {
-    color: $pure-white;
-    background-color: $navy-blue;
+    color: ftvatokens.$pure-white;
+    background-color: ftvatokens.$navy-blue;
     padding: 2rem;
 
     .top-row {
@@ -14,7 +17,7 @@
         :deep(.search-input-wrapper.search-input) {
             input[data-search-input="true"] {
                 @include ftva-input;
-                background-color: $pure-white;
+                background-color: ftvatokens.$pure-white;
                 border-radius: 4px;
                 padding: 15px 10px 15px 63px;
 
@@ -31,7 +34,7 @@
 
                 &::after,
                 &::before {
-                    background-color: $navy-blue;
+                    background-color: ftvatokens.$navy-blue;
                 }
             }
         }
@@ -41,7 +44,7 @@
             width: 20px;
 
             :deep(.svg__fill--primary-blue-03) {
-                fill: $navy-blue;
+                fill: ftvatokens.$navy-blue;
             }
         }
     }
@@ -52,7 +55,7 @@
 
     .bottom-row {
         @include ftva-body;
-        color: $grey-blue;
+        color: ftvatokens.$grey-blue;
 
         a.bottom-link {
             @include ftva-text-link-default;

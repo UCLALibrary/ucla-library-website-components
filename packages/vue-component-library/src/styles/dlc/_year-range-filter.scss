@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+
 .year-range-filter,
 .year-range-filter.dlc {
     display: flex;
