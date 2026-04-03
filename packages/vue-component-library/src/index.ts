@@ -1,4 +1,4 @@
-import 'ucla-library-design-tokens/scss/app-global.scss'
+// import 'ucla-library-design-tokens/scss/app-global.scss'
 import '@/styles/global.scss'
 
 export { default as AlphabeticalBrowseBy } from './lib-components/AlphabeticalBrowseBy.vue'

@@ -28,11 +28,9 @@ const config: StorybookConfig = {
                 preprocessorOptions: {
                     scss: {
                         additionalData: `
-                            @import "ucla-library-design-tokens/scss/fonts.scss";
-                            @import "ucla-library-design-tokens/scss/_tokens-ftva";
-                            @import "ucla-library-design-tokens/scss/_tokens-dlc";
-                            @import "ucla-library-design-tokens/scss/_tokens-css-dlc";
-                            @import "ucla-library-design-tokens/scss/app.scss";
+                            @use "ucla-library-design-tokens/scss/fonts.scss" as *;
+                            @use "ucla-library-design-tokens/scss/abstracts" as *;
+                            @use "ucla-library-design-tokens/scss/app.scss" as *;
                         `,
                     },
                 },
