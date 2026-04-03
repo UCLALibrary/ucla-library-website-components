@@ -82,6 +82,7 @@
 
         .label {
             position: relative;
+
             &:after {
                 position: absolute;
                 content: "";
@@ -182,6 +183,7 @@
     }
 
     @media #{$has-hover} {
+
         &:hover,
         &:focus,
         &:focus-visible {
