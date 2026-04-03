@@ -1,16 +1,18 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-tags mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.block-tag {
     @include ftva-tags;
      // secondary colors and styles
     background-color: transparent;
-    border: 1.5px solid $subtitle-grey;
+    border: 1.5px solid ftvatokens.$subtitle-grey;
     border-radius: 16px;
-    color: $subtitle-grey;
+    color: ftvatokens.$subtitle-grey;
     padding: 8px 16px;
     height: 32px;
     // focused and disabled,styled in blockRemoveSearchFilter
 
     .label {
-        color: $subtitle-grey;
+        color: ftvatokens.$subtitle-grey;
 
         :deep(a) {
             text-decoration: underline;
@@ -18,7 +20,7 @@
     }
 
     .svg {
-        color: $subtitle-grey;
+        color: ftvatokens.$subtitle-grey;
         margin-right: 8px;
         height: 15px;
         width: 15px;
@@ -26,21 +28,21 @@
 
     // primary colors & styles
     &.primary {
-        color: #{$pure-white};
-        background-color: $accent-blue;
+        color: ftvatokens.$pure-white;
+        background-color: ftvatokens.$accent-blue;
         border: none;
 
         .label {
-            color:#{$pure-white};
+            color:ftvatokens.$pure-white;
         }
     }
 
     &.highlighted {
-        background-color: $page-blue;
-        color: $subtitle-grey;
-        border: 1.5px solid $subtitle-grey;
+        background-color: ftvatokens.$page-blue;
+        color: ftvatokens.$subtitle-grey;
+        border: 1.5px solid ftvatokens.$subtitle-grey;
         .label {
-            color: $subtitle-grey;
+            color: ftvatokens.$subtitle-grey;
         }
     }
 }

@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $small breakpoint, ftva-subtitle-2 mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.table-row {
     align-items: center;
     td {
@@ -45,11 +47,11 @@
     }
     :deep(.film-title){
       @include ftva-card-title-1;
-      color: $accent-blue;
+      color: ftvatokens.$accent-blue;
     }
     :deep(.rich-text){
         .parsed-content {
-            color: $body-grey;
+            color: ftvatokens.$body-grey;
             margin-bottom: 0px;
         }
     }

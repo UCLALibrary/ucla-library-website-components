@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+
 .grid-asset-pod,
 .dlc.grid-asset-pod {
     --columns-count: 1;

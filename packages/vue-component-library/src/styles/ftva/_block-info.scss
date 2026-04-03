@@ -1,7 +1,9 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+
 .ftva.block-info {
-    
+
     &.paleblue {
-        --color-theme: #{$page-blue};
+        --color-theme: #{ftvatokens.$page-blue};
         background-color: var(--color-theme);
     }
 }

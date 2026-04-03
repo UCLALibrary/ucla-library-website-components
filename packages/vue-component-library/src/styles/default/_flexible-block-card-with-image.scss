@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+
 .card-with-image {
   max-width: $container-l-main + px;
   margin: 0 auto;

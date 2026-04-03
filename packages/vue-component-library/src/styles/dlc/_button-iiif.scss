@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $has-hover
 .button-iiif,
 .button-iiif.dlc {
     display: inline-block;

@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-text-link-default mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.section-pagination {
     .previous, .next {
         @include ftva-text-link-default;
@@ -5,18 +7,18 @@
     }
     .pagination-numbers-container {
         .pButton {
-            color: $body-grey;
+            color: ftvatokens.$body-grey;
             font-family: "Karbon", Helvetica, Arial, sans-serif;
             font-size: 20px;
             font-weight: 500;
             transition: background-color 0.3s;
             &:hover {
-                background-color: $grey-blue;
+                background-color: ftvatokens.$grey-blue;
             }
         }
         .pButton-selected {
             color: white;
-            background-color: $navy-blue;
+            background-color: ftvatokens.$navy-blue;
         }
     }
 }

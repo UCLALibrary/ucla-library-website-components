@@ -90,5 +90,5 @@ const classes = computed(() => ['refine-search-panel', theme?.value || ''])
 </template>
 
 <style scoped>
-@import "@/styles/dlc/_refine-search-panel.scss";
+@use "@/styles/dlc/_refine-search-panel.scss" as *;
 </style>

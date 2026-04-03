@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+
 .simple-cards {
   max-width: $container-l-main + px;
 

@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides step-5 mixin
 .impact-number-card {
     width: calc((100% - 32px) / 3);
 

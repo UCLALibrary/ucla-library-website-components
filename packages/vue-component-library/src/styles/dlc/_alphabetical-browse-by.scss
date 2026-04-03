@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-card-title-2 mixin, has-hover mixin
 .dlc.alphabetical-browse-by {
     .alphabet-list {
         @include ftva-card-title-2;

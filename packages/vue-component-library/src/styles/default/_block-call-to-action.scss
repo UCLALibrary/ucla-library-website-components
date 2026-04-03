@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+
 .block-call-to-action {
   max-width: var(--block-width);
   background-color: var(--color-background);

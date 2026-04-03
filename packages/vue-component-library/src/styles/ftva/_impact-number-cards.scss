@@ -1,12 +1,15 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+
 .ftva.impact-number-cards {
     .section-header {
         .section-title {
             @include ftva-h5;
-            color: $accent-blue;
+            color: ftvatokens.$accent-blue;
         }
         .section-summary {
             @include ftva-body;
-            color: $body-grey;
+            color: ftvatokens.$body-grey;
         }
     }
     .impact-number-cards-list {

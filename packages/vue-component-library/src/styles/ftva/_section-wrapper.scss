@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.section-wrapper {
 
     // remove max-width from rich-text inside flexible-blocks for ftva
@@ -22,17 +24,17 @@
     .section-link {
         top: 11px;
         @include ftva-button-link;
-        color: #{$medium-grey};
+        color: ftvatokens.$medium-grey;
 
         text-decoration: underline;
         text-decoration-thickness: 3px;
-        -webkit-text-decoration-color: #{$grey-blue};
-        text-decoration-color: #{$grey-blue};
+        -webkit-text-decoration-color: ftvatokens.$grey-blue;
+        text-decoration-color: ftvatokens.$grey-blue;
         text-underline-offset: 4px;
 
         &:hover {
-            -webkit-text-decoration-color: #{$bright-blue};
-            text-decoration-color: #{$bright-blue};
+            -webkit-text-decoration-color: ftvatokens.$bright-blue;
+            text-decoration-color: ftvatokens.$bright-blue;
         }
     }
 
@@ -49,7 +51,7 @@
             }
 
             :deep(.section-teaser-card) {
-                --color-children-theme: #{$page-blue};
+                --color-children-theme: ftvatokens.$page-blue;
 
                 .block-highlight.card {
                     background-color: var(--color-children-theme);
@@ -58,7 +60,7 @@
         }
 
         &.theme-paleblue {
-            --color-theme: #{$page-blue};
+            --color-theme: ftvatokens.$page-blue;
             --color-children-theme: var(--color-white);
 
             background-color: var(--color-theme);
@@ -97,7 +99,7 @@
         }
 
         &.theme-paleblue {
-            --color-theme: #{$page-blue};
+            --color-theme: ftvatokens.$page-blue;
             --color-children-theme: var(--color-white);
 
             :deep(*) {
@@ -123,7 +125,7 @@
 
     @media #{$small} {
         &.theme-paleblue {
-            --color-theme: #{$page-blue};
+            --color-theme: ftvatokens.$page-blue;
             --color-children-theme: var(--color-white);
 
             :deep(*) {

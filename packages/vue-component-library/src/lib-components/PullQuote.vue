@@ -31,6 +31,6 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_pull-quote.scss";
-@import "@/styles/ftva/_pull-quote.scss";
+@use "@/styles/default/_pull-quote.scss" as *;
+@use "@/styles/ftva/_pull-quote.scss" as *;
 </style>

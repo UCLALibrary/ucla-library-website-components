@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides step-3 mixin
 .alphabetical-browse-by {
   display: flex;
   flex-direction: column;

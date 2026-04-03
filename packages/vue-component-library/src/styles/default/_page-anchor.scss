@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides overline mixin
 .page-anchor {
     position: -webkit-sticky;
     position: sticky;

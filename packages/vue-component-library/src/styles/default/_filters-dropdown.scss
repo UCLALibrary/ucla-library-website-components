@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .filters-dropdown {
     // Dropdown  Window Size & Input
     :deep(.mobile-button) {
@@ -5,7 +7,7 @@
         border-color: #ddd;
         .toggle-triangle-icon { 
             path.svg__fill--accent-blue {
-                fill: $accent-blue;
+                fill: ftvatokens.$accent-blue;
             }
         }
         .button-inner-wrapper {
@@ -37,7 +39,7 @@
         h3 {
             text-transform: uppercase;
             @include ftva-subtitle-1;
-            color: $heading-grey;
+            color: ftvatokens.$heading-grey;
         }
     }
 
@@ -105,7 +107,7 @@
             }
 
             &:hover, &:focus {
-                background-color: $navy-blue;
+                background-color: ftvatokens.$navy-blue;
             }
         }
 
@@ -118,7 +120,7 @@
             }
 
             &:hover, &:focus {
-                background-color: $navy-blue;
+                background-color: ftvatokens.$navy-blue;
                 color: var(--color-white);
 
                 :deep(.svg__stroke--primary-blue-03) {

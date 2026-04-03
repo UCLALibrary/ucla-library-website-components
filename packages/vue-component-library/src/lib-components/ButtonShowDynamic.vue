@@ -90,5 +90,5 @@ function handleClick(e: MouseEvent) {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_button-show-dynamic.scss";
+@use "@/styles/dlc/_button-show-dynamic.scss" as *;
 </style>

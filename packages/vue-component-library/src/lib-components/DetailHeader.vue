@@ -84,5 +84,5 @@ const classes = computed(() => ['detail-header', theme?.value || ''])
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_detail-header.scss";
+@use "@/styles/default/_detail-header.scss" as *;
 </style>

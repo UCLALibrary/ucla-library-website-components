@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $medium, ftva-card-title-1 mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .section-post-small {
   padding: 0 var(--unit-gutter);
 
@@ -36,7 +38,7 @@
     .meta {
       ::v-deep(.title) {
         @include ftva-card-title-1;
-        color: $heading-grey;
+        color: ftvatokens.$heading-grey;
       }
     }
   }

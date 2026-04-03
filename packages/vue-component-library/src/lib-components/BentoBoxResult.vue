@@ -227,5 +227,5 @@ watch(
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_bento-box-result.scss";
+@use "@/styles/dlc/_bento-box-result.scss" as *;
 </style>

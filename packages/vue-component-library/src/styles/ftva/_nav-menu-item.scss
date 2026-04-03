@@ -1,3 +1,6 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+
 .ftva.nav-menu-item {
     max-width: unset;
 
@@ -6,11 +9,11 @@
     }
     
     &:focus-within:not(.is-opened)>.sub-menu {
-        background: $navy-blue;
+        background: ftvatokens.$navy-blue;
 
         &::before,
         &::after {
-            background-color: $navy-blue;
+            background-color: ftvatokens.$navy-blue;
         }
     }
 
@@ -35,7 +38,7 @@
         .sub-menu-item:hover,
         .sub-menu-item:focus,
         .sub-menu-link:focus {
-            background-color: rgba($accent-blue, 0.3);
+            background-color: rgba(ftvatokens.$accent-blue, 0.3);
             text-decoration: none;
         }
 

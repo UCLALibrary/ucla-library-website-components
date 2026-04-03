@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-h5 mixin, ftva-subtitle-1 mixin, ftva-body-2 mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.media-gallery {
 
   .gallery-header {
@@ -6,20 +8,20 @@
 
   .gallery-title {
     @include ftva-h5;
-    color: $accent-blue;
+    color: ftvatokens.$accent-blue;
     margin-bottom: 12px;
   }
 
   .selected-image-title {
     @include ftva-subtitle-1;
-    color: $heading-grey;
+    color: ftvatokens.$heading-grey;
     margin-bottom: 4px;
   }
 
 
   .selected-image-caption {
     @include ftva-body-2;
-    color: $subtitle-grey;
+    color: ftvatokens.$subtitle-grey;
   }
 
   .thumbnails {

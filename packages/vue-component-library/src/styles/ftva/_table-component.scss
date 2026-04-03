@@ -1,10 +1,12 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.table-wrapper {
     padding: 3%;
     margin: 0 auto var(--space-2xl);
     max-width: 928px;
     border-radius: 8px;
     &.paleblue {
-        --color-theme: #{$page-blue};
+        --color-theme: ftvatokens.$page-blue;
         background-color: var(--color-theme);
         max-width: 100%;
     }
@@ -58,12 +60,12 @@
         }
 
         td {
-            color: $body-grey;
+            color: ftvatokens.$body-grey;
         }
     }
 
     &.paleblue {
-        --color-theme: #{$page-blue};
+        --color-theme: ftvatokens.$page-blue;
         background-color: var(--color-theme);
         max-width: 100%;
     }

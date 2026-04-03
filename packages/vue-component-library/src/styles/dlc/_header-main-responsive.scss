@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+
 .header-main-responsive {
     &.dlc {
         --vertical-gap: 30px;

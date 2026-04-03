@@ -254,6 +254,8 @@ function getWrapperComponent(block) {
 </template>
 
 <style lang="scss" scoped>
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 // default theme
 .flexible-blocks {
     .more-information {
@@ -269,11 +271,11 @@ function getWrapperComponent(block) {
             margin-bottom: 12px;
             .section-title {
                 @include ftva-h5;
-                color: $accent-blue;
+                color: ftvatokens.$accent-blue;
             }
             .section-summary {
                 @include ftva-body;
-                color: $medium-grey;
+                color: ftvatokens.$medium-grey;
             }
         }
     }
