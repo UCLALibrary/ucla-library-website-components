@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-subtitle-2 mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.page-anchor {
 
     .page-anchor-content {
@@ -24,7 +26,7 @@
     .page-anchor-list,
     .link a { 
         @include ftva-subtitle-2;
-        color: $subtitle-grey;
+        color: ftvatokens.$subtitle-grey;
         text-align: left;
         text-transform: unset;
         align-items: flex-start;

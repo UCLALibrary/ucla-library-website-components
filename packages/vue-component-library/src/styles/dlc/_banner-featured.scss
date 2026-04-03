@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $component-09, $component-08
 @use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens; // dlc theme uses some ftva colors
 
 .banner-featured.dlc {

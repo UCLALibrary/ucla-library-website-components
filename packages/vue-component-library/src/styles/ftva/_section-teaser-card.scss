@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $medium, $small breakpoints
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.section-teaser-card {
     max-width: 100%; // 100% of the parent container
     align-items: flex-start;
@@ -26,7 +28,7 @@
         &:hover>a.title {
             text-decoration: underline;
             text-decoration-thickness: 2px;
-            text-decoration-color: $bright-blue;
+            text-decoration-color: ftvatokens.$bright-blue;
             text-underline-offset: 2px;
         }
     }
@@ -46,7 +48,7 @@
 
 .ftva.section-teaser-card.no-grid-layout {
     overflow-y: auto;
-    scrollbar-color: $grey-blue $white;
+    scrollbar-color: ftvatokens.$grey-blue ftvatokens.$white;
 
     @media #{$medium} {
         .card {
@@ -58,5 +60,5 @@
 .ftva.section-teaser-card-title {
     @include ftva-card-title-1;
     padding-top: 60px;
-    color: $accent-blue;
+    color: ftvatokens.$accent-blue;
 }

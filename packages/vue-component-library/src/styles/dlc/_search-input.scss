@@ -1,4 +1,6 @@
 @use "sass:color";
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $has-hover
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 $input-background: #f6f9fc;
 $icon-color: color.adjust($input-background, $lightness: -30%);
 
@@ -15,7 +17,7 @@ $icon-color: color.adjust($input-background, $lightness: -30%);
         font-size: 20px;
         line-height: 100%;
         letter-spacing: 0.01em;
-        color: $body-grey;
+        color: ftvatokens.$body-grey;
 
         background-color: var(--color-primary-blue-01);
         border: 2px solid transparent;

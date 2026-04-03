@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $has-hover
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .dlc.block-remove-search-filter {
     padding: 0px;
     user-select: none;
@@ -29,7 +31,7 @@
             width: 11px;
         }
         :deep(path) {
-            fill: $subtitle-grey;
+            fill: ftvatokens.$subtitle-grey;
             transition: fill 0.3s ease-in-out;
         }
     }

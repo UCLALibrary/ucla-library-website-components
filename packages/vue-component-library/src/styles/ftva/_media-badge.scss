@@ -1,6 +1,7 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-button-link mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.media-badge {
   position: relative;
-  // 
   right: 0;
   bottom: 0;
   z-index: 1;
@@ -11,17 +12,17 @@
     -webkit-clip-path: unset;
             clip-path: unset;
     @include ftva-button-link;
-    color: $subtitle-grey;
+    color: ftvatokens.$subtitle-grey;
     text-transform: uppercase;
     text-decoration: underline;
     text-decoration-thickness: 3px;
-    -webkit-text-decoration-color: #{$grey-blue};
-    text-decoration-color: #{$grey-blue};
+    -webkit-text-decoration-color: ftvatokens.$grey-blue;
+    text-decoration-color: ftvatokens.$grey-blue;
     text-underline-offset: 4px;
 
     &:hover {
-        -webkit-text-decoration-color: #{$bright-blue};
-        text-decoration-color: #{$bright-blue};
+        -webkit-text-decoration-color: ftvatokens.$bright-blue;
+        text-decoration-color: ftvatokens.$bright-blue;
     }
   }
 

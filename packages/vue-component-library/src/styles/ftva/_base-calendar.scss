@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-button mixin
 @use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.base-calendar {
 
@@ -9,13 +10,13 @@
 
     &:hover {
       background-color: ftvatokens.$accent-blue;
-      color: #{$pure-white};
+      color: ftvatokens.$pure-white;
     }
   }
 
   .v-calendar-header > button:nth-of-type(2),
   .v-calendar-header > button:nth-of-type(3) {
-    background-color: $navy-blue;
+    background-color: ftvatokens.$navy-blue;
     color: white;
   }
 

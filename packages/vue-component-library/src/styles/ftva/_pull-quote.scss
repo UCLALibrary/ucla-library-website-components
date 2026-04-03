@@ -1,12 +1,14 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-card-title-1 mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.pull-quote {
     --spacing-text-left: 36px;
     padding: 20px var(--spacing-text-left);
-    border-color: $grey-blue;
+    border-color: ftvatokens.$grey-blue;
 
     :deep(div),
     :deep(p) {
         @include ftva-card-title-1;
-        color: $accent-blue;
+        color: ftvatokens.$accent-blue;
         line-height: 140%;
         font-weight: 500;
         font-style: normal;
@@ -29,7 +31,7 @@
         .attribution {
             margin-left: 0px;
             @include ftva-subtitle-1;
-            color: $subtitle-grey;
+            color: ftvatokens.$subtitle-grey;
         }
     }
     // hide default dash for ftva

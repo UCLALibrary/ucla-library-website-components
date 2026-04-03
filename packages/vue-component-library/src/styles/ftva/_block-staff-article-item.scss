@@ -1,4 +1,5 @@
 @use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.block-staff-article-item {
   --image-min-width: 384px;
   --image-aspect-ratio: 4/3;
@@ -30,13 +31,13 @@
     @include ftva-subtitle-1;
     font-size: 20px;
     line-height: 1;
-    color: $accent-blue;
+    color: ftvatokens.$accent-blue;
     margin-bottom: unset
   }
 
   .title {
     @include ftva-card-title-1;
-    color: $heading-grey;
+    color: ftvatokens.$heading-grey;
     @include truncate(3);
     @include card-clickable-area;
     margin-bottom: unset
@@ -44,7 +45,7 @@
 
   .description-summary-only {
     @include ftva-body;
-    color: $body-grey;
+    color: ftvatokens.$body-grey;
     @include truncate(2);
     margin-top: 8px;
   }
@@ -56,7 +57,7 @@
     flex-direction: row;
 
     @include ftva-emphasized-subtitle;
-    color: $accent-blue;
+    color: ftvatokens.$accent-blue;
     letter-spacing: .04px;
 
     height: 70px;
@@ -65,12 +66,12 @@
   /* TODO end */
   .ftva-description {
     @include ftva-body;
-    color: $body-grey;
+    color: ftvatokens.$body-grey;
     @include truncate(2);
   }
   .ftva-date{
     @include ftva-emphasized-subtitle;
-    color: $accent-blue;
+    color: ftvatokens.$accent-blue;
     line-height: 1;
     letter-spacing: .04px;
     margin-top: auto;
@@ -134,7 +135,7 @@
       height: 40px;
 
       @include ftva-emphasized-subtitle;
-      color: $accent-blue;
+      color: ftvatokens.$accent-blue;
       letter-spacing: .04px;
       overflow: hidden;
     }
