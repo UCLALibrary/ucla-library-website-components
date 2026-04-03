@@ -1,20 +1,22 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-card-title-1 mixin, ftva-body mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.block-call-to-action {
   // For FTVA default CTA (non-slim, centered) specs if and when needed
 
-  background-color: $page-blue;
+  background-color: ftvatokens.$page-blue;
 
   .title {
-    color: $heading-grey;
+    color: ftvatokens.$heading-grey;
     max-width: 100%;
   }
 
   // Color Themes
   &.theme-light {
-    background-color: $page-blue;
+    background-color: ftvatokens.$page-blue;
 
     :deep(.title) {
       @include ftva-card-title-1;
-      color: $accent-blue;
+      color: ftvatokens.$accent-blue;
     }
 
     :deep(.rich-text.text) {
@@ -24,7 +26,7 @@
       p {
         @include ftva-body;
         font-size: 16px;
-        color: $body-grey;
+        color: ftvatokens.$body-grey;
         @include truncate(5);
 
       }
@@ -32,11 +34,11 @@
   }
 
   &.theme-dark {
-    background-color: $accent-blue;
+    background-color: ftvatokens.$accent-blue;
 
     :deep(.title) {
       @include ftva-card-title-1;
-      color: $pure-white;
+      color: ftvatokens.$pure-white;
     }
 
     :deep(.rich-text.text) {
@@ -46,7 +48,7 @@
       p {
         @include ftva-body;
         font-size: 16px;
-        color: $page-blue;
+        color: ftvatokens.$page-blue;
         @include truncate(5);
       }
     }
@@ -54,7 +56,7 @@
 }
 
 .ftva.block-call-to-action.slim-left-align {
-  background-color: $page-blue;
+  background-color: ftvatokens.$page-blue;
   padding: var(--space-m);
   border-radius: 2px;
   flex-direction: row;
@@ -82,7 +84,7 @@
     @include ftva-body;
     font-size: 18px;
     font-weight: 600;
-    color: $heading-grey;
+    color: ftvatokens.$heading-grey;
     line-height: 1.2;
     margin-bottom: 4px;
     max-width: 100%;

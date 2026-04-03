@@ -89,6 +89,8 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+
 .two-column {
   position: relative;
   width: 100%;
@@ -112,7 +114,7 @@ onMounted(() => {
   }
 
   .sidebar-column {
-    width: #{$sidebar-width}px;
+    width: #{ftvatokens.$sidebar-width}px;
     position: absolute;
     height: 100%;
     top: 0;
