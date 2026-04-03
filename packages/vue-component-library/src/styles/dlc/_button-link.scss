@@ -1,6 +1,10 @@
 .dlc.button-link {
     --transition-duration: 0.3s;
 
+    .hover {
+        display: none;
+    }
+
     .arrow {
         display: none;
     }

@@ -118,8 +118,11 @@ const parsedIconName = computed(() => {
   >
     <!-- Default layer (hidden from screen readers) -->
     <span class="label" aria-hidden="true">{{ label }}</span>
-    <slot  aria-hidden="true" />
 
+    <!-- Allows for adding additional elements inside the button -->
+    <slot aria-hidden="true" />
+
+    <!-- Allows for adding an icon to the button -->
     <component
       :is="parsedIconName"
       v-if="parsedIconName !== ''"
