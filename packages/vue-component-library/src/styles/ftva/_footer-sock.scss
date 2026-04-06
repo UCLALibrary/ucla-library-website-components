@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.footer-sock {
     --unit-content-width: var(--ftva-container-max-width);
     background-color: #191919;
@@ -5,11 +7,11 @@
     .container {
         .link {
             color: $white;
-            -webkit-text-decoration-color: $grey-blue;
-                    text-decoration-color: $grey-blue;
+            -webkit-text-decoration-color: ftvatokens.$grey-blue;
+                    text-decoration-color: ftvatokens.$grey-blue;
 
             &:hover {
-                color: $grey-blue;
+                color: ftvatokens.$grey-blue;
             }
         }
 

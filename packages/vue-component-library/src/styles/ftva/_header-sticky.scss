@@ -1,5 +1,6 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.header-sticky {
-    background-color: $navy-blue;
+    background-color: ftvatokens.$navy-blue;
     border-bottom: 1px solid var(--ftva-medium-blue);
 
     .primary {

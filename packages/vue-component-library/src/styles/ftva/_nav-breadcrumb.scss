@@ -1,3 +1,6 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+
 .ftva.nav-breadcrumb {
     .breadcrumb-wrapper:not(:last-of-type)::after {
         background-image: url('ucla-library-design-tokens/assets/svgs/icon-right-carat.svg');
@@ -7,17 +10,17 @@
 
     .parent-page-url {
         @include ftva-breadcrumb-inactive;
-        color: $heading-grey;
+        color: ftvatokens.$heading-grey;
     }
 
     .collapsed-url {
-        color: $accent-blue;
+        color: ftvatokens.$accent-blue;
         font-weight: 600;
     }
 
     .current-page-title {
         @include ftva-breadcrumb-active;
-        color: $accent-blue;
+        color: ftvatokens.$accent-blue;
     }
 
     @media (max-width: 1199px) {

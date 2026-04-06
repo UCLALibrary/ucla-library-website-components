@@ -1,4 +1,4 @@
-@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-subtitle-1 mixin, ftva-h3 mixin, ftva-h4 mixin
 @use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.block-screening-detail {
   .count {
@@ -6,7 +6,7 @@
     text-transform: none;
     font-size: 18px;
     font-weight: 400;
-    color: $subtitle-grey;
+    color: ftvatokens.$subtitle-grey;
   }
 
   .event-title {
@@ -15,12 +15,12 @@
 
   .title {
     @include ftva-h3;
-    color: $heading-grey;
+    color: ftvatokens.$heading-grey;
   }
 
   .alternate-title {
     @include ftva-h4;
-    color: $medium-grey;
+    color: ftvatokens.$medium-grey;
   }
 
   .block-tags {

@@ -1,10 +1,11 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.banner-image {
 
   .ftva-image-stack-bckgrd {
     --width: calc(min(80px, 30%));
     width: var(--width);
     height: var(--width);
-    background-color: $accent-blue;
+    background-color: ftvatokens.$accent-blue;
     position: absolute;
     left: calc(50% - var(--width) / 2);
     top: calc(50% - var(--width) / 2);
@@ -20,7 +21,7 @@
     top: calc(50% - var(--width) / 2);
 
     :deep(.svg__stroke--primary-blue-03) {
-      stroke: $white;
+      stroke: ftvatokens.$white;
     }
 
     :deep(.svg__stroke--default-cyan-03) {

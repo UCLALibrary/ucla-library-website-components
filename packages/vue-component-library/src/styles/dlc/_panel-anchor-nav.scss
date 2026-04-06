@@ -1,4 +1,5 @@
 @use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 
 .panel-anchor-nav {
     --transition-duration: 0.4s;
@@ -159,14 +160,14 @@
         .icon-close {
             &:hover {
                 :deep(path) {
-                    stroke: $accent-blue;
+                    stroke: ftvatokens.$accent-blue;
                 }
             }
         }
         .icon-open {
             &:hover {
                 :deep(path) {
-                    fill: $accent-blue;
+                    fill: ftvatokens.$accent-blue;
                 }
             }
         }

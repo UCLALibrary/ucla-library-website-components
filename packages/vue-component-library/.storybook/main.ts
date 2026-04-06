@@ -27,6 +27,7 @@ const config: StorybookConfig = {
             css: {
                 preprocessorOptions: {
                     scss: {
+                        api: 'modern-compiler',
                         additionalData: `
                             @use "ucla-library-design-tokens/scss/fonts.scss" as *;
                             @use "ucla-library-design-tokens/scss/abstracts" as *;

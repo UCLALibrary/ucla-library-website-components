@@ -1,10 +1,11 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.simple-cards {
   .section-title {
-    color: $accent-blue;
+    color: ftvatokens.$accent-blue;
   }
 
   .section-summary {
-    color: $body-grey;
+    color: ftvatokens.$body-grey;
   }
 }
 
