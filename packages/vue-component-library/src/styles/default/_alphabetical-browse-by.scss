@@ -28,7 +28,7 @@
       margin-bottom: 24px;
       width: 44px;
       text-align: center;
-      font-weight: $font-weight-semibold;
+      font-weight: $font-weight-medium;
 
       &.is-selected {
         @include link-hover;
