@@ -12,7 +12,7 @@
     aspect-ratio: var(--image-aspect-ratio);
     margin-right: var(--space-xl);
   }
-  
+
   .meta {
     display: flex;
     flex-direction: column;
@@ -41,13 +41,26 @@
     margin-bottom: unset
   }
 
-  .description-summary-only {
+  .description-summary-only,
+  .ftva-description {
     @include ftva-body;
     color: $body-grey;
-    @include truncate(2);
-    margin-top: 8px;
+    display: block; // remove -webkit-box
+    overflow: visible; // allow text to expand
+    max-height: none; // remove line-limit
+    -webkit-line-clamp: unset;
+    margin-top: 8px; // keep spacing for summary-only
   }
-/* TODO Remove .date css rules for ftva as we are using ftva-date class where this component is used on the different templates*/
+
+  // .description-summary-only {
+  //   @include ftva-body;
+  //   color: $body-grey;
+  //   @include truncate(2);
+  //   color: green;
+  //   margin-top: 8px;
+  // }
+
+  /* TODO Remove .date css rules for ftva as we are using ftva-date class where this component is used on the different templates*/
   .date {
     position: absolute;
     bottom: var(--space-s);
@@ -61,13 +74,15 @@
     height: 70px;
     overflow: hidden;
   }
+
   /* TODO end */
-  .ftva-description {
-    @include ftva-body;
-    color: $body-grey;
-    @include truncate(2);
-  }
-  .ftva-date{
+  // .ftva-description {
+  //   @include ftva-body;
+  //   color: $body-grey;
+  //   @include truncate(2);
+  // }
+
+  .ftva-date {
     @include ftva-emphasized-subtitle;
     color: $accent-blue;
     line-height: 1;
