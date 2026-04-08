@@ -78,7 +78,7 @@ const parsedTextAll = computed(() => {
     : ''
 })
 
-//const parsedText = computed(() => props.description || '')
+// const parsedText = computed(() => props.description || '')
 
 // 1. FTVA DESCRIPTION and TITLE will be truncated to different lines on different screens in the ftva nuxt repo templates
 // keep the default to 2 lines for the description and 3 lines for the title for FTVA theme in this component
