@@ -9,7 +9,7 @@ import format from 'date-fns/format'
 import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
 
 // UTILITY FUNCTIONS
-// import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
+import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 // THEME
 import { useTheme } from '@/composables/useTheme'
@@ -64,19 +64,21 @@ const parsedDate = computed(() => {
   return format(new Date(props.date), 'MMMM d, Y')
 })
 
-// const parsedTextTruncated = computed(() => {
-//   return props.description
-//     ? removeHtmlTruncate(props.description, 130)
-//     : ''
-// })
+// removeHtmlTruncate(props.description, 130)
+const parsedTextTruncated = computed(() => {
+  return props.description
+    ? removeHtmlTruncate(props.description)
+    : ''
+})
 
-// const parsedTextAll = computed(() => {
-//   return props.description
-//     ? removeHtmlTruncate(props.description, 250)
-//     : ''
-// })
+// removeHtmlTruncate(props.description, 250)
+const parsedTextAll = computed(() => {
+  return props.description
+    ? removeHtmlTruncate(props.description)
+    : ''
+})
 
-const parsedText = computed(() => props.description || '')
+//const parsedText = computed(() => props.description || '')
 
 // 1. FTVA DESCRIPTION and TITLE will be truncated to different lines on different screens in the ftva nuxt repo templates
 // keep the default to 2 lines for the description and 3 lines for the title for FTVA theme in this component
@@ -115,7 +117,7 @@ const parsedText = computed(() => props.description || '')
           v-if="props.description"
           class="description-summary-only"
         >
-          {{ parsedText }}
+          {{ parsedTextAll }}
         </div>
       </div>
 
@@ -139,7 +141,7 @@ const parsedText = computed(() => props.description || '')
           v-if="props.description"
           class="description"
         >
-          {{ parsedText }}
+          {{ parsedTextTruncated }}
         </div>
       </div>
 
