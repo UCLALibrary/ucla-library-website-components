@@ -9,7 +9,7 @@ import format from 'date-fns/format'
 import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
 
 // UTILITY FUNCTIONS
-import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
+// import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 // THEME
 import { useTheme } from '@/composables/useTheme'
