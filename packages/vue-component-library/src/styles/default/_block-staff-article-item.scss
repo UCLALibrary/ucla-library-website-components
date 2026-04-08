@@ -7,7 +7,6 @@
   align-items: center;
   width: 100%;
   position: relative;
-  background-color: white;
 
   margin-bottom: var(--space-xl);
   padding-bottom: var(--space-xl);
@@ -37,7 +36,6 @@
   .meta {
     width: calc(50% - var(--space-xl));
     height: 272px;
-    background-color: aqua;
   }
 
   .category {
@@ -66,14 +64,12 @@
   // .description {
   //   @include step-0;
   //   color: var(--color-black);
-  //   color: green;
   //   //@include truncate(4);
   // }
 
   // .description-summary-only {
   //   @include step-0;
   //   color: var(--color-black);
-  //   color: hotpink;
   //   @include truncate(5);
   // }
 
@@ -93,7 +89,6 @@
     overflow: visible; // allow text to expand
     max-height: none; // remove line-limit
     -webkit-line-clamp: unset;
-    color: hotpink;
   }
 
   :deep(.image) {

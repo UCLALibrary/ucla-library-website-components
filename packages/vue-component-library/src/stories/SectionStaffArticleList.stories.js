@@ -19,7 +19,7 @@ const mockDefault = [
     date: '1995-12-17T03:24:00',
     authors: [{ title: 'Phyllis Blackshear', id: 123 }],
     description:
-            '<p>The squirrel family includes tree squirrels, ground squirrels, and <a href=\'https://natashaskitchen.com/french-dip-pastrami-sandwich-recipe/\'>Fflying squirrels</a>.</p>',
+            '<p>The squirrel family includes tree squirrels, ground squirrels, and <a href=\'https://natashaskitchen.com/french-dip-pastrami-sandwich-recipe/\'>Flying squirrels</a>.</p>',
   },
   {
     image: API.image,
@@ -32,7 +32,7 @@ const mockDefault = [
       { title: 'Luctus Suscipit', id: 124 },
     ],
     description:
-            'The lamb morsels in this Lamb Stew just melt in your mouth and so do the potatoes. This recipe is uncomplicated (a one-pot meal!) and it simmers in the oven for awhile so every bite is completely delicious. The lengthy (and care free) baking time creates a most satisfying broth consistency. Even if you have no clue what the old days were like, this lamb stew will take you there!',
+            'The lamb morsels in this Lamb Stew just melt in your mouth and so do the potatoes.  This recipe is uncomplicated. The lengthy ( and care free ) baking time creates a most satisfying broth consistency.',
   },
   {
     image: API.image,
@@ -45,7 +45,7 @@ const mockDefault = [
       { title: 'Luctus Suscipit', id: 124 },
     ],
     description:
-            '<p>Homemade Marinara Sauce doesn’t get any easier! This requires just a handful of ingredients and 20 minutes on the stove for a memorable Italian Marinara. Everyone needs a great pasta sauce in their recipe collection and this one is a keeper.</p>',
+            '<p>Homemade Marinara Sauce doesn’t get any easier! This requires just a handful of ingredients and 20 minutes on the stove for a memorable Italian sauce.  A great pasta sauce for your recipe collection..</p>',
   },
 ]
 
@@ -74,7 +74,7 @@ const mockCurrentEntriesWithDates = [
     to: 'a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
     title: 'A Film Series for You: Celebrating Giant Robot‚Äôs 30th Anniversary',
     image: API.image,
-    description: 'This deep into the post-print era it may be hard for some to understand how something as ephemeral as a magazine could change the world. That may be especially true when the magazine hasn‚Äôt been in print for over a decade. But from its first issue as a Xeroxed zine in 1994 to its final run as a full-page glossy in 2011, Giant Robot did just that.',
+    description: 'In the post-print era, it can be hard to imagine how print once shaped life. But by considering the skill, care, and dedication behind it, you can begin to understand the craft that defined the past.',
     startDate: '2024-11-01T19:30:00',
     endDate: '2024-11-17T19:30:00',
     ongoing: false,
@@ -94,7 +94,7 @@ const mockCurrentEntriesWithDates = [
     to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
     title: 'An Ongoing Film Series for You',
     image: API.image,
-    description: 'This deep into the post-print era it may be hard for some to understand. Someday, if you study hard enough you might be able to inderstand. Unless that it, you are particularly dense.',
+    description: 'In the post-print era, it can be hard to imagine how print once shaped life. But by considering the skill, care, and dedication behind it, you can begin to understand the craft that defined the past.',
     startDate: '2024-05-07T19:30:00',
     endDate: null,
     ongoing: true,
@@ -129,8 +129,8 @@ export function FtvaCurrentEntriesWithDates() {
             }
           }
           @media screen and (max-width: 750px) {
-      .stories-ftva-current-entries.ftva.section-staff-article-list { 
-        background-color: #e7edf2; 
+      .stories-ftva-current-entries.ftva.section-staff-article-list {
+        background-color: #e7edf2;
         padding: 0 16px;
 
         .ftva.block-staff-article-item {
@@ -142,12 +142,12 @@ export function FtvaCurrentEntriesWithDates() {
           aspect-ratio: 16/9;
           height: auto;
           margin-bottom: 0;
-          
+
           .sizer {
             padding-bottom: 0 !important;
           }
         }
-        
+
         .meta {
           margin: 0;
           padding: 20px;
@@ -159,7 +159,7 @@ export function FtvaCurrentEntriesWithDates() {
           .ftva-description {
             display: none;
           }
-          
+
           .ftva-date {
             font-size: 20px;
           }
@@ -202,8 +202,8 @@ export function FtvaNoSectionTitle() {
             }
     }
     @media screen and (max-width: 750px) {
-      .stories-ftva-event-series.ftva.section-staff-article-list { 
-        background-color: #e7edf2; 
+      .stories-ftva-event-series.ftva.section-staff-article-list {
+        background-color: #e7edf2;
         padding: 0 16px;
 
         .ftva.block-staff-article-item {
@@ -215,12 +215,12 @@ export function FtvaNoSectionTitle() {
           aspect-ratio: 16/9;
           height: auto;
           margin-bottom: 0;
-          
+
           .sizer {
             padding-bottom: 0 !important;
           }
         }
-        
+
         .meta {
           margin: 0;
           padding: 20px;
@@ -232,7 +232,7 @@ export function FtvaNoSectionTitle() {
           .ftva-description {
             display: none;
           }
-          
+
           .ftva-date {
             font-size: 20px;
           }
@@ -275,7 +275,7 @@ export function FtvaSearchResultsArticle() {
       }
     }
       @media screen and (max-width: 834px) {
-      
+
         .stories-ftva-search-articles .ftva.block-staff-article-item .title {
             -webkit-line-clamp: 2;
             }
@@ -319,15 +319,15 @@ export function FtvaSearchResultsArticle() {
           }
       }
         .stories-ftva-search-articles .ftva.block-staff-article-item {
-        
-        
+
+
           figure,
           .molecule-no-image {
             display: none;
           }
         }
       }
-        
+
         </component>
       <section-staff-article-list class="stories-ftva-search-articles"
         :items="items"
@@ -389,7 +389,7 @@ export function FtvaSearchResultsCollections() {
           }
       }
         .stories-ftva-search-collections .ftva.block-staff-article-item {
-        
+
           figure,
           .molecule-no-image {
             display: none;
@@ -457,7 +457,7 @@ export function FtvaSearchResultsGC() {
       }
         .stories-ftva-general-content .ftva.block-staff-article-item {
           border-radius: 0;
-          
+
           figure,
           .molecule-no-image {
             display: none;
@@ -488,7 +488,7 @@ export function FtvaFilmMakers() {
          .stories-ftva-film-makers .ftva.block-staff-article-item {
            --image-min-width: 180px;
            --image-aspect-ratio: 1;
-           
+
            .image {
               height: var(--image-min-width);
            }
@@ -529,7 +529,7 @@ export function FtvaFilmMakers() {
                 padding: 0;
                 height: unset;
               }
-              
+
               .title {
                 font-size: 21px;
                 line-height: 1.2;
@@ -583,8 +583,8 @@ export function FtvaBlogList() {
           }
         }
         @media screen and (max-width: 750px) {
-        .stories-ftva-articles.ftva.section-staff-article-list { 
-          background-color: #e7edf2; 
+        .stories-ftva-articles.ftva.section-staff-article-list {
+          background-color: #e7edf2;
           padding: 0 16px;
         }
         .stories-ftva-articles.ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item {
@@ -624,8 +624,8 @@ export function FtvaBlogList() {
             display:none;
           }
         }
-        
-       
+
+
       </component>
       <section-staff-article-list class="stories-ftva-articles"
         :items="items" :section-title="'FTVA Blog Listing'"
