@@ -349,7 +349,7 @@ const mockOngoing = {
   to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
   title: 'An Ongoing Film Series for You',
   image: API.image,
-  description: 'In the post-print era, it can be hard to imagine how print once shaped life. But by considering the skill, care, and dedication behind it, you can begin to understand the craft that defined the past. While technology has transformed how we create and share information, the legacy of that dedication still influences our standards of design, clarity, and meaning today.',
+  description: 'In the post-print era, it can be hard to imagine how print once shaped life. But by considering the skill, care, and dedication behind it, you can begin to understand the craft that defined the past.',
   startDate: '2024-11-01T19:30:00',
   endDate: null,
   ongoing: true,
