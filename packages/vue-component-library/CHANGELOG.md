@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.73.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.1...@ucla-library-monorepo/ucla-library-website-components-v1.73.2) (2026-04-08)
+
+
+### Bug Fixes
+
+* LADI-3775 Update the styles of the hover states in the AlphabeticalBrowseBy component ([#931](https://github.com/UCLALibrary/ucla-library-website-components/issues/931)) ([398ded4](https://github.com/UCLALibrary/ucla-library-website-components/commit/398ded458aa0f02b6ecd9fee725ea270977630dd))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.73.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.0...@ucla-library-monorepo/ucla-library-website-components-v1.73.1) (2026-04-02)
 
 
