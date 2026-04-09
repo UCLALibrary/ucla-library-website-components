@@ -362,7 +362,7 @@ const classes = computed(() => {
 
       <ButtonLink
         v-if="to && prompt"
-        :id="useId()"
+        :id="buttonId"
         :label="prompt"
         :to="to"
         :aria-labelledby="`${buttonId} ${titleId}`"

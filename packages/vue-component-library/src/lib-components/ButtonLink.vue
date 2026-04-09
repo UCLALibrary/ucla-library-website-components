@@ -117,7 +117,7 @@ const parsedIconName = computed(() => {
     :aria-label="label"
   >
     <!-- Default layer (hidden from screen readers) -->
-    <span class="label">{{ label }}</span>
+    <span class="label" aria-hidden="true">{{ label }}</span>
 
     <!-- Allows for adding additional elements inside the button -->
     <slot aria-hidden="true" />
@@ -132,7 +132,7 @@ const parsedIconName = computed(() => {
 
     <!-- Hover layer (also hidden from screen readers) -->
     <div class="hover" aria-hidden="true">
-      <span class="label" aria-hidden="true">{{ label }}</span>
+      <span class="label">{{ label }}</span>
       <component
         :is="parsedIconName"
         v-if="parsedIconName !== ''"
