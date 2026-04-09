@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.73.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.2...@ucla-library-monorepo/ucla-library-website-components-v1.73.3) (2026-04-09)
+
+
+### Bug Fixes
+
+* LADI-3761 Visible label and accessible name do not match ([#929](https://github.com/UCLALibrary/ucla-library-website-components/issues/929)) ([1012b0e](https://github.com/UCLALibrary/ucla-library-website-components/commit/1012b0e3e4c9b2c13ff727c7757df5004bc1c12c))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.73.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.1...@ucla-library-monorepo/ucla-library-website-components-v1.73.2) (2026-04-08)
 
 
