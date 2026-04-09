@@ -12,6 +12,7 @@
       &.is-selected {
         @include ftva-card-title-2;
         color: $accent-blue;
+        //font-weight: $font-weight-medium;
       }
 
       &:hover {
