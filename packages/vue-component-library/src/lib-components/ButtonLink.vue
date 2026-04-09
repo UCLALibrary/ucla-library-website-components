@@ -114,16 +114,24 @@ const parsedIconName = computed(() => {
     :class="classes"
     :is-download="isDownload"
     :link-target="linkTarget"
+    :aria-label="label"
   >
-    <span class="label">{{ label }}</span>
-    <slot />
+    <!-- Default layer (hidden from screen readers) -->
+    <span class="label" aria-hidden="true">{{ label }}</span>
+
+    <!-- Allows for adding additional elements inside the button -->
+    <slot aria-hidden="true" />
+
+    <!-- Allows for adding an icon to the button -->
     <component
       :is="parsedIconName"
       v-if="parsedIconName !== ''"
       class="arrow"
       aria-hidden="true"
     />
-    <div class="hover">
+
+    <!-- Hover layer (also hidden from screen readers) -->
+    <div class="hover" aria-hidden="true">
       <span class="label">{{ label }}</span>
       <component
         :is="parsedIconName"

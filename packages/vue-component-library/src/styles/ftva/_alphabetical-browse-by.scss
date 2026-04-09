@@ -14,6 +14,7 @@
       &.is-selected {
         @include ftva-card-title-2;
         color: ftvatokens.$accent-blue;
+        //font-weight: $font-weight-medium;
       }
 
       &:hover {

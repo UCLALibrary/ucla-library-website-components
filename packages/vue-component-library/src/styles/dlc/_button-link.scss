@@ -2,9 +2,11 @@
 @use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .dlc.button-link {
     --transition-duration: 0.3s;
+
     .hover {
         display: none;
     }
+
     .arrow {
         display: none;
     }
@@ -23,8 +25,8 @@
     min-height: 38px;
 
     transition: background-color var(--transition-duration) ease-out,
-        color var(--transition-duration) ease-out,
-        border-color var(--transition-duration) ease-out;
+    color var(--transition-duration) ease-out,
+    border-color var(--transition-duration) ease-out;
 
     // Remove padding from first child
     *:not(:only-child):first-child {
