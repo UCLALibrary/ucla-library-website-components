@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.73.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.3...@ucla-library-monorepo/ucla-library-website-components-v1.73.4) (2026-04-10)
+
+
+### Bug Fixes
+
+* APPS-5127 useId instead of id to prevent duplicate ids ([#933](https://github.com/UCLALibrary/ucla-library-website-components/issues/933)) ([7c5421e](https://github.com/UCLALibrary/ucla-library-website-components/commit/7c5421ecfac9c1596954970de2b730a53b77e5e8))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.73.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.2...@ucla-library-monorepo/ucla-library-website-components-v1.73.3) (2026-04-09)
 
 
