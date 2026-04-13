@@ -14,7 +14,6 @@ export default {
   component: BlockStaffArticleList,
 }
 
-// description is exactly 200 characters
 const mock = {
   image: API.image,
   to: '/about/foo/bar/',
@@ -23,7 +22,7 @@ const mock = {
   date: '1995-12-17T03:24:00',
   authors: [{ title: 'Justo Magna', id: 123 }],
   description:
-        'Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien sade risus imperdiet.',
+        'Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien.',
 }
 
 // Variations of stories below
@@ -131,7 +130,7 @@ export function LongDescription() {
           :title="title"
           :date="date"
           :authors="authors"
-          description="Mauris rhoncus aeneane vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh present tristique. Quis imperdet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa."
+          description="Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien."
       />
   `,
   }
@@ -157,7 +156,6 @@ export function NoImage() {
   }
 }
 
-// description 200 characters - using class description-summary-only
 export function NoAuthorOrDate() {
   return {
     data() {
@@ -170,19 +168,18 @@ export function NoAuthorOrDate() {
           :to="to"
           :category="category"
           title="Mauris Rhoncus Aenean Vel Elit Scelerisque MaurisP"
-          description="Mauris rhoncus aeneane vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh present tristique. Quis imperdet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa."
+
+          description="Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien."
       />
   `,
   }
 }
-
-// description 200 characters
 const mockDateRange2 = {
   to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
   title: 'Restored Animation Classics, but With a Title That Goes Into the Second Line',
   image: API.image,
   category: 'Ullamco',
-  description: 'After receiving her B.A. from Mount Holyoke College, Gay Abel-Bey earned her M.F.A. in Film from UCLA. She was granted The Dorothy Arzner Award for recognition of a dramatic piece for her thesis film.',
+  description: 'After receiving her B.A. from Mount Holyoke College, Gay Abel-Bey earned her M.F.A. in Film from UCLA. She was granted The Dorothy Arzner Award for high recognition of a dramatic piece by a woman for her thesis film, Fragrance (1991).',
   startDate: '2024-11-01T19:30:00',
   endDate: '2024-11-17T19:30:00',
   ongoing: false,
@@ -329,7 +326,13 @@ export function FtvaSameStartEndDate() {
       <template
             #customFTVADescription
           >
-            Two friends hike along a breathtaking coastline, sharing quiet moments and meaningful conversations as the landscape shifts around them. Emotions surface and deepen with every step they take together.
+
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
 
       </template>
       <template
@@ -344,12 +347,11 @@ export function FtvaSameStartEndDate() {
   `,
   }
 }
-// description is 369 characters
 const mockOngoing = {
   to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
   title: 'An Ongoing Film Series for You',
   image: API.image,
-  description: 'In the post-print era, it can be hard to imagine how print once shaped life. But by considering the skill, care, and dedication behind it, you can begin to understand the craft that defined the past.',
+  description: 'This deep into the post-print era it may be hard for some to understand. Someday, if you study hard enough you might be able to inderstand. Unless that it, you are particularly dense.',
   startDate: '2024-11-01T19:30:00',
   endDate: null,
   ongoing: true,
