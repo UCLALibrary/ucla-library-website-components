@@ -52,7 +52,7 @@ function parseDate(sectionHandle: string, startDate: string, endDate: string, on
 // removeHtmlTruncate(description, 250)
 function parsedTextAll(description: string) {
   return description
-    ? removeHtmlTruncate(description)
+    ? removeHtmlTruncate(description, 250)
     : ''
 }
 function getNonFTVADescription(description: string) {
