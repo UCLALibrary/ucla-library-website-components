@@ -75,7 +75,6 @@ const parsedTextAll = computed(() => {
     ? removeHtmlTruncate(props.description, 250)
     : ''
 })
-
 // 1. FTVA DESCRIPTION and TITLE will be truncated to different lines on different screens in the ftva nuxt repo templates
 // keep the default to 2 lines for the description and 3 lines for the title for FTVA theme in this component
 // 2. Color of the text if differs for different templates for FTVA theme, this component will have certain color set which will be
