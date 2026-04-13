@@ -64,21 +64,17 @@ const parsedDate = computed(() => {
   return format(new Date(props.date), 'MMMM d, Y')
 })
 
-// removeHtmlTruncate(props.description, 130)
 const parsedTextTruncated = computed(() => {
   return props.description
     ? removeHtmlTruncate(props.description, 100)
     : ''
 })
 
-// removeHtmlTruncate(props.description, 250)
 const parsedTextAll = computed(() => {
   return props.description
     ? removeHtmlTruncate(props.description, 250)
     : ''
 })
-
-// const parsedText = computed(() => props.description || '')
 
 // 1. FTVA DESCRIPTION and TITLE will be truncated to different lines on different screens in the ftva nuxt repo templates
 // keep the default to 2 lines for the description and 3 lines for the title for FTVA theme in this component
