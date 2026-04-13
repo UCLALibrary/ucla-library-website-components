@@ -61,18 +61,6 @@
     flex-wrap: wrap;
   }
 
-  // .description {
-  //   @include step-0;
-  //   color: var(--color-black);
-  //   //@include truncate(4);
-  // }
-
-  // .description-summary-only {
-  //   @include step-0;
-  //   color: var(--color-black);
-  //   @include truncate(5);
-  // }
-
   .description {
     @include step-0;
     color: var(--color-black);

@@ -52,13 +52,6 @@
     margin-top: 8px; // keep spacing for summary-only
   }
 
-  // .description-summary-only {
-  //   @include ftva-body;
-  //   color: $body-grey;
-  //   @include truncate(2);
-  //   margin-top: 8px;
-  // }
-
   /* TODO Remove .date css rules for ftva as we are using ftva-date class where this component is used on the different templates*/
   .date {
     position: absolute;
@@ -75,11 +68,6 @@
   }
 
   /* TODO end */
-  // .ftva-description {
-  //   @include ftva-body;
-  //   color: $body-grey;
-  //   @include truncate(2);
-  // }
 
   .ftva-date {
     @include ftva-emphasized-subtitle;
