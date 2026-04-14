@@ -41,8 +41,7 @@
     margin-bottom: unset
   }
 
-  .description-summary-only,
-  .ftva-description {
+  .description-summary-only {
     @include ftva-body;
     color: $body-grey;
     margin-top: 8px;
