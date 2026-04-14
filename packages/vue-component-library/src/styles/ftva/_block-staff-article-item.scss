@@ -45,11 +45,6 @@
   .ftva-description {
     @include ftva-body;
     color: $body-grey;
-    display: block; // remove -webkit-box
-    overflow: visible; // allow text to expand
-    max-height: none; // remove line-limit
-    -webkit-line-clamp: unset;
-    margin-top: 8px; // keep spacing for summary-only
   }
 
   /* TODO Remove .date css rules for ftva as we are using ftva-date class where this component is used on the different templates*/
@@ -68,6 +63,11 @@
   }
 
   /* TODO end */
+
+  .ftva-description {
+    @include ftva-body;
+    color: $body-grey;
+  }
 
   .ftva-date {
     @include ftva-emphasized-subtitle;

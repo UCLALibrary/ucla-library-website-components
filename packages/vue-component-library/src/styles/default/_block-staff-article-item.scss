@@ -64,19 +64,11 @@
   .description {
     @include step-0;
     color: var(--color-black);
-    display: block;
-    overflow: visible;
-    max-height: none;
-    -webkit-line-clamp: unset;
   }
 
   .description-summary-only {
     @include step-0;
     color: var(--color-black);
-    display: block; // remove -webkit-box
-    overflow: visible; // allow text to expand
-    max-height: none; // remove line-limit
-    -webkit-line-clamp: unset;
   }
 
   :deep(.image) {
