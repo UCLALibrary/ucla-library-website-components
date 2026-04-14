@@ -45,6 +45,7 @@
   .ftva-description {
     @include ftva-body;
     color: $body-grey;
+    margin-top: 8px;
   }
 
   /* TODO Remove .date css rules for ftva as we are using ftva-date class where this component is used on the different templates*/

@@ -66,7 +66,7 @@ const parsedDate = computed(() => {
 
 const parsedTextTruncated = computed(() => {
   return props.description
-    ? removeHtmlTruncate(props.description, 100)
+    ? removeHtmlTruncate(props.description, 130)
     : ''
 })
 
