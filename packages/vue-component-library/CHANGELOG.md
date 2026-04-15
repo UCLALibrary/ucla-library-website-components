@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.73.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.5...@ucla-library-monorepo/ucla-library-website-components-v1.73.6) (2026-04-15)
+
+
+### Bug Fixes
+
+* LADI-5138 fix overflowing placeholder ([#935](https://github.com/UCLALibrary/ucla-library-website-components/issues/935)) ([29c60a9](https://github.com/UCLALibrary/ucla-library-website-components/commit/29c60a92e7912194fe8e3f0d467b1754f824f642))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.73.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.4...@ucla-library-monorepo/ucla-library-website-components-v1.73.5) (2026-04-10)
 
 
