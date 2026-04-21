@@ -593,7 +593,6 @@ export function FtvaBlogList() {
         }
           .stories-ftva-articles .ftva.block-staff-article-item .image, .stories-ftva-articles .ftva.block-staff-article-item .molecule-no-image {
             min-width: 100%;
-            height: auto;
             margin: 0;
           }
           .stories-ftva-articles .ftva.block-staff-article-item .meta {
