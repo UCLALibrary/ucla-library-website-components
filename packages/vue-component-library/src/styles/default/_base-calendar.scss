@@ -2,7 +2,7 @@
 @use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .base-calendar {
   position: relative;
-  height: 1100px;
+  min-height: 1100px;
 
   .calendar-wrapper {
     display: grid;
