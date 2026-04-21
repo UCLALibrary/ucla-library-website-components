@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.74.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.6...@ucla-library-monorepo/ucla-library-website-components-v1.74.0) (2026-04-21)
+
+
+### Features
+
+* LADI-5142 allow calendar height to grow to fit events ([#936](https://github.com/UCLALibrary/ucla-library-website-components/issues/936)) ([e8be524](https://github.com/UCLALibrary/ucla-library-website-components/commit/e8be5242d625a40b3b975610dfe1ab81bd29c89c))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.73.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.5...@ucla-library-monorepo/ucla-library-website-components-v1.73.6) (2026-04-15)
 
 
