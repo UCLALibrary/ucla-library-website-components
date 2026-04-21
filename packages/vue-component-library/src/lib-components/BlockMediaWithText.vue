@@ -126,7 +126,7 @@ const showButton = computed(() => {
       />
       <div class="meta-mobile">
         <MediaItem
-          v-if="item || coverImage"
+          v-if="item.length > 0 || coverImage.length > 0"
           :item="item"
           :cover-image="coverImage"
           :cover-only="true"
@@ -134,7 +134,7 @@ const showButton = computed(() => {
           @click="showLightbox = true"
         />
         <div
-          v-if="!(item || coverImage)"
+          v-if="!(item.length > 0 || coverImage.length > 0)"
           class="no-media-mobile"
         />
         <div class="clippy">
@@ -183,7 +183,7 @@ const showButton = computed(() => {
     </div>
 
     <MediaItem
-      v-if="item || coverImage"
+      v-if="item.length > 0 || coverImage.length > 0"
       :item="item"
       :cover-image="coverImage"
       :cover-only="true"
@@ -216,7 +216,7 @@ const showButton = computed(() => {
     </MediaItem>
 
     <div
-      v-if="!(item || coverImage)"
+      v-if="!(item.length > 0 || coverImage.length > 0)"
       class="no-media"
     />
     <!--eslint-disable-->
