@@ -181,6 +181,7 @@ const showButton = computed(() => {
         </SmartLink>
       </template>
     </div>
+
     <MediaItem
       v-if="item || coverImage"
       :item="item"
@@ -213,6 +214,7 @@ const showButton = computed(() => {
         class="icon-headphones"
       />
     </MediaItem>
+
     <div
       v-if="!(item || coverImage)"
       class="no-media"
