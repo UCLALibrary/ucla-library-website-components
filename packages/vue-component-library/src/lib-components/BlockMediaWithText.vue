@@ -126,7 +126,7 @@ const showButton = computed(() => {
       />
       <div class="meta-mobile">
         <MediaItem
-          v-if="item.length > 0 || coverImage.length > 0"
+          v-if="item || coverImage"
           :item="item"
           :cover-image="coverImage"
           :cover-only="true"
@@ -134,7 +134,7 @@ const showButton = computed(() => {
           @click="showLightbox = true"
         />
         <div
-          v-if="!(item.length > 0 || coverImage.length > 0)"
+          v-if="!(item || coverImage)"
           class="no-media-mobile"
         />
         <div class="clippy">
@@ -181,9 +181,8 @@ const showButton = computed(() => {
         </SmartLink>
       </template>
     </div>
-
     <MediaItem
-      v-if="item.length > 0 || coverImage.length > 0"
+      v-if="item || coverImage"
       :item="item"
       :cover-image="coverImage"
       :cover-only="true"
@@ -214,9 +213,8 @@ const showButton = computed(() => {
         class="icon-headphones"
       />
     </MediaItem>
-
     <div
-      v-if="!(item.length > 0 || coverImage.length > 0)"
+      v-if="!(item || coverImage)"
       class="no-media"
     />
     <!--eslint-disable-->

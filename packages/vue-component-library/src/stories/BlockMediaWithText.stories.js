@@ -147,6 +147,8 @@ export function Embed() {
   }
 }
 
+// Sometimes the type-media is an image but an image is not provided, so we need to display a placeholder image.
+
 export function NoImage() {
   return {
     data() {

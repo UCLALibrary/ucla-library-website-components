@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 import VideoJs from './VideoJs.vue'
 import type { MediaItemType } from '@/types/types'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 
 const props = defineProps({
   // the image / video / audio / embed
@@ -71,12 +72,17 @@ const sizerStyles = computed(() => {
     `paddingBottom: ${parsedAspectRatio.value}%`,
   ]
 })
+
+const hasImage = computed(() => {
+  return isImage.value && (props.item && props.item.length > 0)
+})
 </script>
 
 <template>
   <div class="media-item">
     <div v-if="isEmbed" class="media media-embed" v-html="embedCode" />
-    <img v-else-if="isImage" class="media media-image" :style="mediaStyles" v-bind="item[0]">
+    <img v-else-if="hasImage" class="media media-image" :style="mediaStyles" v-bind="item[0]">
+    <ResponsiveImage v-else-if="!hasImage" :media="{} as MediaItemType" object-fit="cover" class="media media-image" />
     <img v-else-if="props.coverOnly" class="media media-image" :style="mediaStyles" v-bind="props.coverImage[0]">
     <VideoJs
       v-else-if="isVideo || isAudio" class="media media-video" :style="mediaStyles" :sources="props.item"
