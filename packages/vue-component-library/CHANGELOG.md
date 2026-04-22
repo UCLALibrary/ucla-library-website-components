@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.74.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.74.0...@ucla-library-monorepo/ucla-library-website-components-v1.74.1) (2026-04-22)
+
+
+### Bug Fixes
+
+* Flexible Media with Text fallback to buttonURL if item is empty ([#938](https://github.com/UCLALibrary/ucla-library-website-components/issues/938)) ([ef2603c](https://github.com/UCLALibrary/ucla-library-website-components/commit/ef2603c9ecec99c3347c698e604bc7280fc435d3))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.74.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.6...@ucla-library-monorepo/ucla-library-website-components-v1.74.0) (2026-04-21)
+
+
+### Features
+
+* LADI-5142 allow calendar height to grow to fit events ([#936](https://github.com/UCLALibrary/ucla-library-website-components/issues/936)) ([e8be524](https://github.com/UCLALibrary/ucla-library-website-components/commit/e8be5242d625a40b3b975610dfe1ab81bd29c89c))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.73.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.5...@ucla-library-monorepo/ucla-library-website-components-v1.73.6) (2026-04-15)
 
 
