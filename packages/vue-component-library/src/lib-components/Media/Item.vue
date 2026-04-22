@@ -105,7 +105,7 @@ const hasImage = computed(() => {
   position: relative;
   margin: 0;
   z-index: 0;
-  // opacity: 0; // TODO add this back when we resolve why onload is not firing on craft images in netlify, works locally
+  // opacity: 0;  // TODO add this back when we resolve why onload is not firing on craft images in netlify, works locally
   transition: opacity 400ms ease-in-out;
 
   .media {
