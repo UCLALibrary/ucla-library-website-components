@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.74.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.74.1...@ucla-library-monorepo/ucla-library-website-components-v1.74.2) (2026-04-23)
+
+
+### Bug Fixes
+
+* LADI-5143 Add a placeholder to item ([#937](https://github.com/UCLALibrary/ucla-library-website-components/issues/937)) ([96a9d04](https://github.com/UCLALibrary/ucla-library-website-components/commit/96a9d04a0c65dd09a8d9243bd25837b3b790952c))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.74.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.74.0...@ucla-library-monorepo/ucla-library-website-components-v1.74.1) (2026-04-22)
 
 
