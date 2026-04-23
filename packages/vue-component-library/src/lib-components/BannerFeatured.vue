@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useId } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
 
@@ -104,6 +104,9 @@ const props = defineProps({
 })
 
 const theme = useTheme()
+
+const titleId = useId()
+const buttonId = useId()
 
 // Video & Image
 const isVideo = computed(() => {
@@ -278,7 +281,7 @@ const classes = computed(() => {
 
       <div v-if="titleLink.length > 0">
         <SmartLink
-          id="banner-featured"
+          :id="titleId"
           :to="titleLink"
           class="title title-linked"
         >
@@ -288,7 +291,7 @@ const classes = computed(() => {
 
       <div v-else>
         <h3
-          id="banner-featured"
+          :id="titleId"
           class="title"
           v-html="title"
         />
@@ -358,11 +361,11 @@ const classes = computed(() => {
       </div>
 
       <ButtonLink
-        v-if="to"
-        id="banner-featured-button"
+        v-if="to && prompt"
+        :id="buttonId"
         :label="prompt"
         :to="to"
-        aria-labelledby="banner-featured-button banner-featured"
+        :aria-labelledby="`${buttonId} ${titleId}`"
         class="button"
       />
 

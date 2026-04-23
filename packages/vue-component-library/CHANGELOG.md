@@ -1,3 +1,87 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.74.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.74.0...@ucla-library-monorepo/ucla-library-website-components-v1.74.1) (2026-04-22)
+
+
+### Bug Fixes
+
+* Flexible Media with Text fallback to buttonURL if item is empty ([#938](https://github.com/UCLALibrary/ucla-library-website-components/issues/938)) ([ef2603c](https://github.com/UCLALibrary/ucla-library-website-components/commit/ef2603c9ecec99c3347c698e604bc7280fc435d3))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.74.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.6...@ucla-library-monorepo/ucla-library-website-components-v1.74.0) (2026-04-21)
+
+
+### Features
+
+* LADI-5142 allow calendar height to grow to fit events ([#936](https://github.com/UCLALibrary/ucla-library-website-components/issues/936)) ([e8be524](https://github.com/UCLALibrary/ucla-library-website-components/commit/e8be5242d625a40b3b975610dfe1ab81bd29c89c))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.73.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.5...@ucla-library-monorepo/ucla-library-website-components-v1.73.6) (2026-04-15)
+
+
+### Bug Fixes
+
+* LADI-5138 fix overflowing placeholder ([#935](https://github.com/UCLALibrary/ucla-library-website-components/issues/935)) ([29c60a9](https://github.com/UCLALibrary/ucla-library-website-components/commit/29c60a92e7912194fe8e3f0d467b1754f824f642))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.73.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.4...@ucla-library-monorepo/ucla-library-website-components-v1.73.5) (2026-04-10)
+
+
+### Bug Fixes
+
+* LADI-5126 useID to prevent duplicate ids ([#934](https://github.com/UCLALibrary/ucla-library-website-components/issues/934)) ([d80e788](https://github.com/UCLALibrary/ucla-library-website-components/commit/d80e7884c3502978bc09d2fa540dde11cc1d1d10))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.73.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.3...@ucla-library-monorepo/ucla-library-website-components-v1.73.4) (2026-04-10)
+
+
+### Bug Fixes
+
+* APPS-5127 useId instead of id to prevent duplicate ids ([#933](https://github.com/UCLALibrary/ucla-library-website-components/issues/933)) ([7c5421e](https://github.com/UCLALibrary/ucla-library-website-components/commit/7c5421ecfac9c1596954970de2b730a53b77e5e8))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.73.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.2...@ucla-library-monorepo/ucla-library-website-components-v1.73.3) (2026-04-09)
+
+
+### Bug Fixes
+
+* LADI-3761 Visible label and accessible name do not match ([#929](https://github.com/UCLALibrary/ucla-library-website-components/issues/929)) ([1012b0e](https://github.com/UCLALibrary/ucla-library-website-components/commit/1012b0e3e4c9b2c13ff727c7757df5004bc1c12c))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.73.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.1...@ucla-library-monorepo/ucla-library-website-components-v1.73.2) (2026-04-08)
+
+
+### Bug Fixes
+
+* LADI-3775 Update the styles of the hover states in the AlphabeticalBrowseBy component ([#931](https://github.com/UCLALibrary/ucla-library-website-components/issues/931)) ([398ded4](https://github.com/UCLALibrary/ucla-library-website-components/commit/398ded458aa0f02b6ecd9fee725ea270977630dd))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.73.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.0...@ucla-library-monorepo/ucla-library-website-components-v1.73.1) (2026-04-02)
+
+
+### Bug Fixes
+
+* LADI-3746 Revisit logic for rendering button in Block media with text component ([#927](https://github.com/UCLALibrary/ucla-library-website-components/issues/927)) ([89c2a2a](https://github.com/UCLALibrary/ucla-library-website-components/commit/89c2a2a3b7eac59399c5d1865edf667c249dea4a))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.73.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.72.2...@ucla-library-monorepo/ucla-library-website-components-v1.73.0) (2026-04-01)
+
+
+### Features
+
+* Add PageAssetDetail ([#897](https://github.com/UCLALibrary/ucla-library-website-components/issues/897)) ([06a1fe2](https://github.com/UCLALibrary/ucla-library-website-components/commit/06a1fe275d4d8a213fae538055a57beccdfef347))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.72.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.72.1...@ucla-library-monorepo/ucla-library-website-components-v1.72.2) (2026-04-01)
+
+
+### Bug Fixes
+
+* LADI-3762 Update the current and active links in the AlphabeticalBrowseBy component ([#925](https://github.com/UCLALibrary/ucla-library-website-components/issues/925)) ([f16db5a](https://github.com/UCLALibrary/ucla-library-website-components/commit/f16db5ae330cb4fdfd3a607a43bc730b75f88879))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.72.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.72.0...@ucla-library-monorepo/ucla-library-website-components-v1.72.1) (2026-03-31)
+
+
+### Bug Fixes
+
+* APPS-3675 remove image conditional ([#928](https://github.com/UCLALibrary/ucla-library-website-components/issues/928)) ([959536f](https://github.com/UCLALibrary/ucla-library-website-components/commit/959536f1a05f6b2c847667055c6ee89fa0a066a1))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.72.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.71.0...@ucla-library-monorepo/ucla-library-website-components-v1.72.0) (2026-03-31)
+
+
+### Features
+
+* Add PageAbout ([#896](https://github.com/UCLALibrary/ucla-library-website-components/issues/896)) ([8f94e58](https://github.com/UCLALibrary/ucla-library-website-components/commit/8f94e58189fc2ac497f7cf0f3e9f4d0ddcdf93e8))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.71.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.70.1...@ucla-library-monorepo/ucla-library-website-components-v1.71.0) (2026-03-26)
 
 
