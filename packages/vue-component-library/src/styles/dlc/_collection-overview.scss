@@ -1,22 +1,25 @@
 .dlc.collection-overview,
 .collection-overview {
+    --metadata-gap: 24px;
+    --layout-gap: 48px;
+
     position: relative;
 
     .layout-container {
         display: flex;
         align-items: flex-start;
-        gap: 48px;
+        gap: var(--layout-gap);
     }
 
     .meta {
-        width: 50%;
+        width: calc(50% - (var(--metadata-gap) + var(--layout-gap)) / 2);
     }
     .image {
         position: sticky;
         top: 10px;
 
         aspect-ratio: 592 / 576;
-        width: 50%;
+        width: calc(50% + (var(--metadata-gap) + var(--layout-gap)) / 2);
         height: 100%;
     }
 
@@ -63,9 +66,7 @@
 
     // Breakpoints
     @media #{$medium} {
-        .layout-container {
-            gap: 24px;
-        }
+        --layout-gap: 24px;
 
         // Show/Hide mobile/desktop elements
         .phone {
@@ -76,9 +77,10 @@
         }
     }
     @media #{$small} {
+        --layout-gap: 48px;
+
         .layout-container {
             flex-direction: column-reverse;
-            gap: 48px;
         }
 
         .meta,
