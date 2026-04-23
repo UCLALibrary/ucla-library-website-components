@@ -1,5 +1,6 @@
 <script>
 import format from 'date-fns/format'
+import { useId } from 'vue'
 import SmartLink from '@/lib-components/SmartLink'
 
 // Utility functions
@@ -40,6 +41,14 @@ export default {
       default: '',
     },
   },
+  setup() {
+    const titleId = useId()
+    const buttonId = useId()
+    return {
+      titleId,
+      buttonId,
+    }
+  },
   computed: {
     classes() {
       return ['block-event', `button color-${this.sectionName}`]
@@ -69,13 +78,12 @@ export default {
 
     <div class="text row">
       <span class="category">{{ category }}</span>
-      <h2 class="title" v-text="title" />
+      <h2 class="title" :id="titleId" v-text="title" />
       <div class="date-time">
         <time v-if="startDate" class="dates" v-text="parsedDate" />
         <time v-if="parsedTime" class="time" v-text="parsedTime" />
       </div>
-      <SmartLink :class="classes" :to="to" v-text="prompt" />
-      <!-- TO DO: Use button-link component instead -->
+      <SmartLink :id="buttonId" :class="classes" :to="to" :aria-labelledby="`${buttonId} ${titleId}`" v-text="prompt" />
     </div>
 
     <div class="sizer" />
