@@ -87,5 +87,5 @@ function toggle() {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_excerpt-pod.scss";
+@use "@/styles/dlc/_excerpt-pod.scss" as *;
 </style>

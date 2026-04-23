@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $accent-blue
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .dlc.button-link {
     --transition-duration: 0.3s;
 
@@ -11,7 +13,7 @@
 
     padding: 10px 15px;
     border-radius: 30px;
-    background-color: $subtitle-grey;
+    background-color: ftvatokens.$subtitle-grey;
 
     font-size: 15px;
     font-family: var(--font-primary);
@@ -19,7 +21,7 @@
     line-height: 1;
     color: var(--color-white);
     outline: none;
-    border: 1px solid $subtitle-grey;
+    border: 1px solid ftvatokens.$subtitle-grey;
     min-height: 38px;
 
     transition: background-color var(--transition-duration) ease-out,
@@ -37,8 +39,8 @@
         border-radius: 5px;
 
         background-color: transparent;
-        border: 1px solid $accent-blue;
-        color: $accent-blue;
+        border: 1px solid ftvatokens.$accent-blue;
+        color: ftvatokens.$accent-blue;
 
         font-size: 18px;
         font-family: var(--font-primary);
@@ -55,8 +57,8 @@
 
             // Secondary variant hover
             &.is-secondary {
-                background-color: $accent-blue;
-                border-color: $accent-blue;
+                background-color: ftvatokens.$accent-blue;
+                border-color: ftvatokens.$accent-blue;
                 color: var(--color-white);
             }
         }

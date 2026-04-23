@@ -29,5 +29,5 @@ const classes = computed(() => (['button-iiif', theme?.value || '']))
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_button-iiif.scss";
+@use "@/styles/dlc/_button-iiif.scss" as *;
 </style>

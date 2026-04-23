@@ -1,23 +1,26 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+
 .ftva.lightbox {
 
-  background: $navy-blue;
+  background: ftvatokens.$navy-blue;
 
   .button-prev,
   .button-next {
     top: 50%;
     transform: translateY(-50%);
     width: 43px;
-    background-color: $navy-blue;
-    border: 1px solid $grey-blue;
+    background-color: ftvatokens.$navy-blue;
+    border: 1px solid ftvatokens.$grey-blue;
     border-radius: 8px;
     padding: 2px 0px;
 
     :deep(.svg__fill--primary-blue-03) {
-      fill: $grey-blue;
+      fill: ftvatokens.$grey-blue;
     }
 
     :deep(.svg__stroke--primary-blue-03) {
-      stroke: $grey-blue;
+      stroke: ftvatokens.$grey-blue;
     }
   }
 
@@ -82,7 +85,7 @@
     transform: translateX(-50%);
 
     .media-counter {
-      background-color: $heading-grey;
+      background-color: ftvatokens.$heading-grey;
       border-radius: 20px;
       padding: 0px 15px;
 
@@ -109,8 +112,8 @@
     top: 50%;
     transform: translateY(-50%);
     width: 43px;
-    background-color: $navy-blue;
-    border: 1px solid $grey-blue;
+    background-color: ftvatokens.$navy-blue;
+    border: 1px solid ftvatokens.$grey-blue;
     border-radius: 8px;
     padding: 2px 0px;
     // unset grid positioning from default theme
@@ -119,11 +122,11 @@
     justify-self: auto;
 
     :deep(.svg__fill--primary-blue-03) {
-      fill: $grey-blue;
+      fill: ftvatokens.$grey-blue;
     }
 
     :deep(.svg__stroke--primary-blue-03) {
-      stroke: $grey-blue;
+      stroke: ftvatokens.$grey-blue;
     }
   }
 

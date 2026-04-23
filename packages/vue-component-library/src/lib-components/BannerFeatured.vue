@@ -394,6 +394,6 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_banner-featured.scss";
-@import "@/styles/dlc/_banner-featured.scss";
+@use "@/styles/default/_banner-featured.scss" as *;
+@use "@/styles/dlc/_banner-featured.scss" as *;
 </style>

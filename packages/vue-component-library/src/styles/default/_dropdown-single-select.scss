@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-button mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .dropdown-single-select {
     width: 380px;
 
@@ -7,7 +9,7 @@
 
     .filter-summary {
         @include ftva-button;
-        color: $medium-grey;
+        color: ftvatokens.$medium-grey;
         display: flex;
         align-items: center;
         padding: 10px;
@@ -37,7 +39,7 @@
     .pill-content {
         @include ftva-button;
         line-height: 1.5;
-        color: $medium-grey;
+        color: ftvatokens.$medium-grey;
         gap: 0.5rem;
         padding: 2px 10px;
     }
@@ -70,9 +72,9 @@
             align-items: center;
             justify-content: space-between;
             @include ftva-button;
-            color: $medium-grey;
+            color: ftvatokens.$medium-grey;
             padding: 10px;
-            border: 1px solid $medium-grey;
+            border: 1px solid ftvatokens.$medium-grey;
             width: 100%;
 
             &:hover {
@@ -93,11 +95,11 @@
         }
 
         .filter-summary {
-            color: $accent-blue;
+            color: ftvatokens.$accent-blue;
         }
 
         :deep(.mobile-drawer .mobile-button) {
-            border-color: $accent-blue;
+            border-color: ftvatokens.$accent-blue;
         }
 
         :deep(.svg__icon-close.svg-glyph-close) {

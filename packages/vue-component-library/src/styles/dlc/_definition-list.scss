@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .dlc.definition-list {
     .definition-list-item-wrapper {
         margin-bottom: 10px;
@@ -55,5 +56,5 @@
 .horizontal dt,
 .horizontal dd {
     flex: 1;
-    border-bottom: 1.5px solid $subtitle-grey;
+    border-bottom: 1.5px solid ftvatokens.$subtitle-grey;
 }

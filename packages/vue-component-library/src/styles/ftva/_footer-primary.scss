@@ -1,6 +1,9 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+
 .ftva.footer-primary {
     --unit-content-width: var(--ftva-container-max-width);
-    background-color: $navy-blue;
+    background-color: ftvatokens.$navy-blue;
     border-bottom: 0px;
 
     .container {
@@ -19,7 +22,7 @@
             .statement {
                 padding-top: 5px;
                 @include ftva-body;
-                -webkit-text-stroke: .25px $navy-blue;
+                -webkit-text-stroke: .25px ftvatokens.$navy-blue;
             }
         }
 
@@ -43,7 +46,7 @@
 
             input:not(:placeholder-shown)+label,
             input:focus+label { 
-                color: $grey-blue;
+                color: ftvatokens.$grey-blue;
             }
 
             .form-header {

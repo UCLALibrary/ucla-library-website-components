@@ -1,22 +1,24 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-body, ftva-card-title-2 mixin
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.alphabetical-browse-by {
   .title {
     @include ftva-body;
-    color: $heading-grey;
+    color: ftvatokens.$heading-grey;
   }
 
   .alphabet-list {
     @include ftva-card-title-2;
-    color: $navy-blue;
+    color: ftvatokens.$navy-blue;
 
     .letter {
       &.is-selected {
         @include ftva-card-title-2;
-        color: $accent-blue;
+        color: ftvatokens.$accent-blue;
         //font-weight: $font-weight-medium;
       }
 
       &:hover {
-        color: $accent-blue;
+        color: ftvatokens.$accent-blue;
       }
     }
   }

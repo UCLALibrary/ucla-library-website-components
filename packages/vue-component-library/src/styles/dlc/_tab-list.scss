@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .dlc.tab-list {
     
     .tab-list-header {
@@ -5,17 +6,17 @@
     }
 
     .tab-list-item {
-        color: $medium-grey;
+        color: ftvatokens.$medium-grey;
         margin: 8px 6.5px;
     }
 
     .tab-list-item .svg {
         :deep(.svg__stroke--primary-blue-03),
         :deep(.svg__stroke--default-cyan-03) {
-            stroke: $medium-grey;
+            stroke: ftvatokens.$medium-grey;
         }
         :deep(rect) {
-            stroke: $medium-grey;
+            stroke: ftvatokens.$medium-grey;
         }
     }
 }

@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // needed for the $black color
+
 .block-event-detail {
     font-size: 20px;
     color: #{$black};

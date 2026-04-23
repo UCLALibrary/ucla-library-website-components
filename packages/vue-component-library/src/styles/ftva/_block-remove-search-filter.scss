@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.block-remove-search-filter {
     align-items: center;
 
@@ -9,8 +10,8 @@
 
     :deep(.block-tag) {
         font-size: 18px;
-        background-color: #{$pure-white};
-        border-color: $subtitle-grey;
+        background-color: ftvatokens.$pure-white;
+        border-color: ftvatokens.$subtitle-grey;
         border-radius: 25px;
         padding: inherit 18px;
         height: 40px;
@@ -38,36 +39,36 @@
     &:focus,
     &:hover {
         :deep(.block-tag) {
-            border-color: $accent-blue;
-            background-color: $accent-blue;
+            border-color: ftvatokens.$accent-blue;
+            background-color: ftvatokens.$accent-blue;
 
             .label {
-                color: #{$pure-white};
+                color: ftvatokens.$pure-white;
             }
         }
 
         :deep(path.svg__fill--medium-grey) {
-            fill: #{$pure-white};
+            fill: ftvatokens.$pure-white;
         }
     }
 
     // TODO will discuss with UX
     // &:disabled {
-    //     color: #{$page-blue};
+    //     color: #{ftvatokens.$page-blue};
     // }
 }
 
 .ftva.block-remove-search-filter.selected {
     :deep(.block-tag) {
-        border-color: $accent-blue;
-        background-color: $accent-blue;
+        border-color: ftvatokens.$accent-blue;
+        background-color: ftvatokens.$accent-blue;
 
         .label {
-            color: #{$pure-white};
+            color: ftvatokens.$pure-white;
         }
     }
 
     :deep(path.svg__fill--medium-grey) {
-        fill: #{$pure-white};
+        fill: ftvatokens.$pure-white;
     }
 }

@@ -1,22 +1,25 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+
 .ftva.impact-number-card {
     .card {
-        background-color: $page-blue;
+        background-color: ftvatokens.$page-blue;
     }
 
     .impact-number {
         @include ftva-h3;
         font-size: 60px;
-        color: $navy-blue;
+        color: ftvatokens.$navy-blue;
         padding-bottom: 12px;
     }
 
     .title {
         @include ftva-card-title-2;
-        color: $accent-blue;
+        color: ftvatokens.$accent-blue;
     }
 
     .text {
         @include ftva-body;
-        color: $body-grey;
+        color: ftvatokens.$body-grey;
     }
 }

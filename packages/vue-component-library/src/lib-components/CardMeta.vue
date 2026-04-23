@@ -329,6 +329,6 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_card-meta.scss";
-@import "@/styles/ftva/_card-meta.scss";
+@use "@/styles/default/_card-meta.scss" as *;
+@use "@/styles/ftva/_card-meta.scss" as *;
 </style>

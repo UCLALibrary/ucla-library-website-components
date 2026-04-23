@@ -1,6 +1,7 @@
+@use "sass:color";
 $input-color: #333;
 $input-background: #f6f9fc;
-$icon-color: darken($input-background, 30%);
+$icon-color: color.adjust($input-background, $lightness: -30%);
 $active-color: #1ea7fd;
 
 .search-input-wrapper {
@@ -57,7 +58,7 @@ $active-color: #1ea7fd;
         opacity: 0;
 
         &:focus {
-            background: darken($input-background, 4%);
+            background: color.adjust($input-background, $lightness: -4%);
         }
 
         &::after,

@@ -1,3 +1,5 @@
+@use "sass:math";
+@use "ucla-library-design-tokens/scss/abstracts" as *;
 .section-staff-article-list {
   --divider-color: var(--color-secondary-grey-02);
   max-width: 100%;
@@ -36,7 +38,7 @@
 
     @for $i from 1 through 30 {
       :deep(.block-staff-article-item:nth-child(#{$i}) .molecule) {
-        left: calc(random(500) * -1) + px;
+        left: calc(math.random(500) * -1) + px;
       }
     }
   }

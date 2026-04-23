@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.scroll-wrapper {
   // styles for FTVA block-highlight within scroll-wrapper
   :deep(.ftva.block-highlight) {
@@ -9,7 +10,7 @@
       text-decoration: underline;
       text-decoration-thickness: 2px;
       text-underline-offset: 2px;
-      text-decoration-color: $bright-blue;
+      text-decoration-color: ftvatokens.$bright-blue;
     }
   }
 }

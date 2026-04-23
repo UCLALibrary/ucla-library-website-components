@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+
 .section-pagination {
     max-width: 990px;
     font-family: var(--font-secondary);

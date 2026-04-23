@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $primary-blue-03
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .button-dropdown {
     position: relative;
     z-index: 100;
@@ -24,7 +26,7 @@
         :deep(.icon-with-link) .text {
             font-family: "Karbon", Helvetica, Arial, sans-serif;
             font-weight: 500;
-            color: $medium-grey;
+            color: ftvatokens.$medium-grey;
         }
 
         :deep(.icon-with-link) .link,
@@ -32,8 +34,8 @@
             text-decoration: underline;
             text-decoration-thickness: 3px;
             text-underline-offset: 6px;
-            -webkit-text-decoration-color: $grey-blue;
-                    text-decoration-color: $grey-blue;
+            -webkit-text-decoration-color: ftvatokens.$grey-blue;
+                    text-decoration-color: ftvatokens.$grey-blue;
         }
 
         :deep(.icon-with-link.not-smart-link) {
@@ -51,8 +53,8 @@
     @media #{$has-hover} {
         :deep(.icon-with-link) .link:hover,
         :deep(.icon-with-link.not-smart-link):hover .text {
-            -webkit-text-decoration-color: #{$bright-blue};
-                    text-decoration-color: #{$bright-blue};
+            -webkit-text-decoration-color: ftvatokens.$bright-blue;
+                    text-decoration-color: ftvatokens.$bright-blue;
         }
 
         :deep(.icon-with-link) {
@@ -90,7 +92,7 @@
 
         :deep(.icon-with-link.is-link-copied) {
             width: 85%;
-            background-color: $page-blue;
+            background-color: ftvatokens.$page-blue;
             .text {
                 top: 3px;
             }
@@ -176,16 +178,16 @@
         font-weight: 500;
         font-size: 18px; 
         line-height: inherit;
-        color: $medium-grey;
+        color: ftvatokens.$medium-grey;
         text-decoration: underline;
         text-decoration-thickness: 3px;
         text-underline-offset: 6px;
-        -webkit-text-decoration-color: $grey-blue;
-                text-decoration-color: $grey-blue;
+        -webkit-text-decoration-color: ftvatokens.$grey-blue;
+                text-decoration-color: ftvatokens.$grey-blue;
     }
 
     add-to-calendar-button::part(atcb-list-item):hover {
-        -webkit-text-decoration-color: #{$bright-blue};
-                text-decoration-color: #{$bright-blue};
+        -webkit-text-decoration-color: ftvatokens.$bright-blue;
+                text-decoration-color: ftvatokens.$bright-blue;
     }
 }

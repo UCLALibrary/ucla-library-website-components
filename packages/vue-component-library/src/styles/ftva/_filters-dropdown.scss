@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $small
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.filters-dropdown {
     :deep(.mobile-button) {
         border-color: #ddd;
@@ -11,19 +13,19 @@
     // Done / Clear Buttons
     .action-row {
         .action-row-button {
-            color: $accent-blue;
-            border-color: $accent-blue;
+            color: ftvatokens.$accent-blue;
+            border-color: ftvatokens.$accent-blue;
             &.select-button {
-                background-color: $accent-blue;
+                background-color: ftvatokens.$accent-blue;
                 color: white;
             }
             &.clear-button {
-                color: $accent-blue;
+                color: ftvatokens.$accent-blue;
                 :deep(.svg__stroke--primary-blue-03) {
-                    stroke: $accent-blue;
+                    stroke: ftvatokens.$accent-blue;
                 }
                 &:hover, &:focus {
-                    background-color: $navy-blue;
+                    background-color: ftvatokens.$navy-blue;
                     color: var(--color-white);
                     :deep(.svg__stroke--primary-blue-03) {
                         stroke: var(--color-white);
@@ -35,8 +37,8 @@
     // Selected Filter Pills
     :deep(.block-tag:hover), :deep(.block-tag:focus),
     .pill-checkbox:checked+ :deep(.block-tag) {
-        background-color: $accent-blue;
-        border-color: $accent-blue;
+        background-color: ftvatokens.$accent-blue;
+        border-color: ftvatokens.$accent-blue;
         .label {
             color: white;
         }
@@ -53,23 +55,23 @@
     @media #{$small} { 
         // Input field / Button on Mobile
         :deep(.mobile-button) {
-            border-color: $medium-grey;
+            border-color: ftvatokens.$medium-grey;
             &:hover, &:focus {
-                border-color: $medium-grey;
+                border-color: ftvatokens.$medium-grey;
             }
             &.is-expanded {
-                    color: $accent-blue;
-                    border: 2px solid $accent-blue;
+                    color: ftvatokens.$accent-blue;
+                    border: 2px solid ftvatokens.$accent-blue;
             
                     path.svg__fill--accent-blue {
-                        fill: $accent-blue;
+                        fill: ftvatokens.$accent-blue;
                     }
                 }
         }
         .icon-svg {
             :deep(svg) {
                 path.svg__fill--accent-blue {
-                    fill: $medium-grey;
+                    fill: ftvatokens.$medium-grey;
                 }
             }
         }

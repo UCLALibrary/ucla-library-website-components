@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides step-1 mixin
 .nav-primary {
     --unit-height: 80px;
     padding: 0 var(--unit-gutter);

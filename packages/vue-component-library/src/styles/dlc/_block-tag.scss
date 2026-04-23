@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .dlc.block-tag {
     --transition-duration: 0.2s;
 
@@ -22,7 +23,7 @@
         font-family: var(--font-primary);
         font-size: 15px;
         font-weight: 700;
-        color: $subtitle-grey;
+        color: ftvatokens.$subtitle-grey;
 
         transition: color var(--transition-duration) ease-in-out;
     }
@@ -32,7 +33,7 @@
         height: 13.5px;
 
         :deep(path) {
-            stroke: $subtitle-grey;
+            stroke: ftvatokens.$subtitle-grey;
 
             transition: stroke var(--transition-duration) ease-in-out;
         }

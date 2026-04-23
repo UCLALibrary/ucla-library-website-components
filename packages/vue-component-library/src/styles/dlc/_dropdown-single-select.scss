@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // provides animate-normal mixin
+
 .dropdown-single-select.dlc {
     .pill-radio {
         display: none;

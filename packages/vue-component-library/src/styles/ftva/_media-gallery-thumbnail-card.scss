@@ -1,15 +1,18 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+
 .ftva.thumbnail-card {
 
   .caption-title {
     @include truncate($lines: 3);
     @include ftva-card-title-2;
-    color: $heading-grey;
+    color: ftvatokens.$heading-grey;
       margin-bottom: var(--space-s);
   }
 
   .caption-text {
     @include truncate($lines: 2);
     @include ftva-body-2;
-    color: $subtitle-grey;
+    color: ftvatokens.$subtitle-grey;
   }
 }

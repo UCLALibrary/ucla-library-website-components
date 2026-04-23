@@ -290,5 +290,5 @@ const trackStyle = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import '@/styles/dlc/_year-range-filter.scss';
+@use '@/styles/dlc/_year-range-filter.scss' as *;
 </style>

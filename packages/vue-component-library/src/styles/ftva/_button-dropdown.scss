@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.button-dropdown {
     z-index: 1;
     
@@ -7,7 +8,7 @@
 
     .toggle-triangle-icon {
         :deep(.svg__fill--accent-blue) {
-            fill: $medium-grey;
+            fill: ftvatokens.$medium-grey;
         }
     }
 
@@ -15,6 +16,6 @@
         border-left-width: 1px;
         border-right-width: 1px;
         border-bottom-width: 1px;
-        border-color: $medium-grey;
+        border-color: ftvatokens.$medium-grey;
     }
 }

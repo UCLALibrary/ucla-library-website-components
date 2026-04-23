@@ -72,12 +72,13 @@ export default defineConfig({
     preprocessorOptions: {
       // Additional Sass options go here
       scss: {
+        // Uses Dart Sass modern API; silences deprecation warning for legacy JS API (Sass 2.0).
+        api: 'modern-compiler',
         additionalData: `
-                  @import "ucla-library-design-tokens/scss/fonts.scss";
-                  @import "ucla-library-design-tokens/scss/_tokens-ftva";
-                  @import "ucla-library-design-tokens/scss/_tokens-dlc";
-                  @import "ucla-library-design-tokens/scss/_tokens-css-dlc";
-                  @import "ucla-library-design-tokens/scss/app.scss";
+                  @use "ucla-library-design-tokens/scss/fonts.scss" as *;
+                  @use "ucla-library-design-tokens/scss/abstracts" as *;
+                  @use "ucla-library-design-tokens/scss/app.scss" as *;
+                  @use "ucla-library-design-tokens/scss/abstracts/_tokens.scss" as *;
                 `,
       },
       postcss: {

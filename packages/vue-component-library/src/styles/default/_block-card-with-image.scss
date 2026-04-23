@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; // needed for the $medium breakpoint
+
 .block-highlight {
     background-color: var(--color-theme, var(--color-white));
     font-family: var(--font-primary);

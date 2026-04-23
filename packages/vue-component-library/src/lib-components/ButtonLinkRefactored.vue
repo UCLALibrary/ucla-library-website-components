@@ -94,6 +94,6 @@ const isDownload = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_button-link.scss";
-@import "@/styles/ftva/_button-link.scss";
+@use "@/styles/default/_button-link.scss" as *;
+@use "@/styles/ftva/_button-link.scss" as *;
 </style>

@@ -1,27 +1,30 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+
 .ftva.rich-text {
   @include ftva-body;
-  color: $body-grey;
+  color: ftvatokens.$body-grey;
 
   :deep(h3) {
     @include ftva-h3;
-    color: $body-grey;
+    color: ftvatokens.$body-grey;
   }
 
   :deep(h4) {
     @include ftva-h4;
-    color: $body-grey;
+    color: ftvatokens.$body-grey;
   }
 
   :deep(h5) {
     @include ftva-h5;
-    color: $body-grey;
+    color: ftvatokens.$body-grey;
   }
 
   :deep(p),
   :deep(li),
   :deep(div) {
     @include ftva-body;
-    color: $body-grey;
+    color: ftvatokens.$body-grey;
   }
 
   :deep(strong) {
@@ -29,15 +32,15 @@
   }
 
   :deep(a) {
-    color: $body-grey;
-    -webkit-text-decoration-color: $grey-blue;
-    text-decoration-color: $grey-blue;
+    color: ftvatokens.$body-grey;
+    -webkit-text-decoration-color: ftvatokens.$grey-blue;
+    text-decoration-color: ftvatokens.$grey-blue;
     text-decoration-thickness: 3px;
     text-underline-offset: 4px;
 
     &:hover {
-      -webkit-text-decoration-color: $bright-blue;
-      text-decoration-color: $bright-blue;
+      -webkit-text-decoration-color: ftvatokens.$bright-blue;
+      text-decoration-color: ftvatokens.$bright-blue;
     }
   }
 
@@ -59,7 +62,7 @@
   :deep(ol) {
     margin-left: 24px;
 
-    color: $body-grey;
+    color: ftvatokens.$body-grey;
 
     li {
       padding-left: 14px;
@@ -67,7 +70,7 @@
 
     ::marker {
       @include ftva-body;
-      color: $body-grey;
+      color: ftvatokens.$body-grey;
     }
   }
 
@@ -109,14 +112,14 @@
   }
 
   :deep(table) {
-    border: 1px solid $body-grey;
+    border: 1px solid ftvatokens.$body-grey;
 
     th {
-      color: $body-grey;
+      color: ftvatokens.$body-grey;
     }
 
     strong {
-      color: $body-grey;
+      color: ftvatokens.$body-grey;
       font-weight: 500;
     }
   }

@@ -1,14 +1,17 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+
 .ftva.block-simple-card {
   background-color: #f1f1f1;
 
   .title {
     @include ftva-card-title-1;
-    color: $accent-blue;
+    color: ftvatokens.$accent-blue;
   }
 
   .text {
     @include ftva-body-2;
-    color: $body-grey;
+    color: ftvatokens.$body-grey;
   }
 
   // Hovers

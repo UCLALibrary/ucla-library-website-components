@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+
 .footer-primary {
     --unit-content-width: #{$container-l-cta}px;
 

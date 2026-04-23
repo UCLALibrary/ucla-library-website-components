@@ -107,5 +107,5 @@ onUnmounted(() => {
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/dlc/_search-results-count.scss";
+@use "@/styles/dlc/_search-results-count.scss" as *;
 </style>

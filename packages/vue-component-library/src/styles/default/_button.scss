@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; //provides $has-hover
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .button {
     --transition-duration: 0.3s;
 
@@ -34,7 +36,7 @@
     &.secondary {
         padding: 9px 20px;
         border-radius: 5px;
-        background-color: $accent-blue;
+        background-color: ftvatokens.$accent-blue;
 
         font-size: 18px;
         font-family: var(--font-primary);
@@ -58,13 +60,13 @@
     }
 
     &.color-grey {
-        background-color: $subtitle-grey;
+        background-color: ftvatokens.$subtitle-grey;
         color: var(--color-white);
 
         &.is-outlined {
             background-color: transparent;
-            border: 1px solid $subtitle-grey;
-            color: $subtitle-grey;
+            border: 1px solid ftvatokens.$subtitle-grey;
+            color: ftvatokens.$subtitle-grey;
         }
     }
 
@@ -95,19 +97,19 @@
                 background-color: var(--color-primary-blue-05);
 
                 &.is-outlined {
-                    background-color: $accent-blue;
-                    border-color: $accent-blue;
+                    background-color: ftvatokens.$accent-blue;
+                    border-color: ftvatokens.$accent-blue;
                     color: var(--color-white);
                 }
 
                 // Grey variant
                 &.color-grey {
-                    background-color: $accent-blue;
+                    background-color: ftvatokens.$accent-blue;
                     color: var(--color-white);
 
                     &.is-outlined {
-                        background-color: $accent-blue;
-                        border-color: $accent-blue;
+                        background-color: ftvatokens.$accent-blue;
+                        border-color: ftvatokens.$accent-blue;
                         color: var(--color-white);
                     }
                 }

@@ -179,7 +179,7 @@ function doSearch() {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_nav-search.scss";
-@import "@/styles/ftva/_nav-search.scss";
-@import "@/styles/dlc/_nav-search.scss";
+@use "@/styles/default/_nav-search.scss" as *;
+@use "@/styles/ftva/_nav-search.scss" as *;
+@use "@/styles/dlc/_nav-search.scss" as *;
 </style>

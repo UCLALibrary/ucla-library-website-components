@@ -1,8 +1,10 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *; 
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
 .ftva.nav-primary.primary {
     position: relative; //absolutely positioned children will be relative to this
     overflow: visible; //allows the search button menu to overflow the container
     // this theme refactors to grid layout so we can place menu items over top of each other w/o absolute positioning
-    background-color: $navy-blue;
+    background-color: ftvatokens.$navy-blue;
 
     &.is-opened {
     height: -webkit-max-content;
@@ -21,7 +23,7 @@
     }
 
     ul {
-        background-color: $navy-blue;
+        background-color: ftvatokens.$navy-blue;
     }
 
     .menu {
@@ -48,7 +50,7 @@
             display: block;
             position: absolute;
             width: 100%;
-            background-color: $navy-blue;
+            background-color: ftvatokens.$navy-blue;
             transform: scaleY(0);
             transform-origin: top;
             transition-duration: .2s;
@@ -85,7 +87,7 @@
             background-color: var(--ftva-medium-blue);
             margin-top: 5px;
             transition-property: opacity;
-            transition-duration: $transition-timing-slow;
+            transition-duration: ftvatokens.$transition-timing-slow;
             transition-timing-function: ease-in-out;
         }
 
@@ -147,7 +149,7 @@
             left: 0;
             width: 100%;
             height: 64px;
-            background-color: $navy-blue;
+            background-color: ftvatokens.$navy-blue;
             z-index: 15;
         }
 
@@ -273,7 +275,7 @@
                         }
 
                         .sub-menu-link {
-                            color: $grey-blue;
+                            color: ftvatokens.$grey-blue;
                             padding-right: 24px;
                             padding-left: 24px;
                             font-size: 18px;
@@ -292,7 +294,7 @@
                     margin-right: -8px; //offset whitespace around icon
 
                     :deep(.svg__stroke--primary-blue-03) {
-                        stroke: $grey-blue;
+                        stroke: ftvatokens.$grey-blue;
                     }
                 }
 
@@ -331,7 +333,7 @@
         .mobile-menu-slot {
             display: block;
             padding-top: 40px;
-            background-color: $navy-blue;
+            background-color: ftvatokens.$navy-blue;
         }
     }
 }

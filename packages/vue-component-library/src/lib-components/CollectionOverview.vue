@@ -99,5 +99,5 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_collection-overview.scss";
+@use "@/styles/dlc/_collection-overview.scss" as *;
 </style>

@@ -1,3 +1,6 @@
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+
 .ftva.media-with-text {
   align-items: stretch;
   justify-content: unset;
@@ -19,28 +22,28 @@
 
   .section-header {
     @include ftva-card-title-1;
-    color: $heading-grey;
+    color: ftvatokens.$heading-grey;
   }
 
   .short-description {
     @include ftva-body;
     @include truncate(3);
-    color: $body-grey;
+    color: ftvatokens.$body-grey;
   }
 
   .text-link {
     @include ftva-button-link;
     line-height: 1.5;
-    color: #{$medium-grey};
+    color: ftvatokens.$medium-grey;
     text-decoration: underline;
     text-decoration-thickness: 3px;
-    -webkit-text-decoration-color: #{$grey-blue};
-    text-decoration-color: #{$grey-blue};
+    -webkit-text-decoration-color: ftvatokens.$grey-blue;
+    text-decoration-color: ftvatokens.$grey-blue;
     text-underline-offset: 4px;
 
     &:hover {
-      -webkit-text-decoration-color: #{$bright-blue};
-      text-decoration-color: #{$bright-blue};
+      -webkit-text-decoration-color: ftvatokens.$bright-blue;
+      text-decoration-color: ftvatokens.$bright-blue;
     }
   }
 

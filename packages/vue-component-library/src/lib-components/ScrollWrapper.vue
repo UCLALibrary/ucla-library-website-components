@@ -66,7 +66,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@import '@/styles/ftva/_scroll-wrapper.scss';
+@use '@/styles/ftva/_scroll-wrapper.scss' as *;
 
 .scroll-wrapper {
   width: 100%;
@@ -98,7 +98,8 @@ onMounted(() => {
     // max-width: 327px !important;
     min-height: 350px;
     // END styles to emulate section-teaser-card for BlockCardWithImage inside Scrollwrapper
-
+    // move arrows on top of content
+    position: relative;
     // ensure links are clickable
     .card-meta {
       a.title {
@@ -112,10 +113,6 @@ onMounted(() => {
       }
     }
   }
-
-  // move arrows on top of content
-  position: relative;
-
   // padded card for single item
   .padded-card {
     background-color: transparent;

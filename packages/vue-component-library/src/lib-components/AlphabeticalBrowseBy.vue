@@ -85,7 +85,7 @@ function handleSelectedLetter(letter: { letter: string }) {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_alphabetical-browse-by.scss";
-@import "@/styles/ftva/_alphabetical-browse-by.scss";
-@import "@/styles/dlc/_alphabetical-browse-by.scss";
+@use "@/styles/default/_alphabetical-browse-by.scss" as *;
+@use "@/styles/ftva/_alphabetical-browse-by.scss" as *;
+@use "@/styles/dlc/_alphabetical-browse-by.scss" as *;
 </style>

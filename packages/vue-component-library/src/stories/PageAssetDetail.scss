@@ -1,4 +1,5 @@
-@import "./GlobalPageStyles.scss";
+@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "./GlobalPageStyles.scss" as *;
 
 .page-asset-detail {
     @include page-container;
