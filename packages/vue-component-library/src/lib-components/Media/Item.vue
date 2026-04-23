@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 import VideoJs from './VideoJs.vue'
 import type { MediaItemType } from '@/types/types'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 
 const props = defineProps({
   // the image / video / audio / embed
@@ -71,18 +72,27 @@ const sizerStyles = computed(() => {
     `paddingBottom: ${parsedAspectRatio.value}%`,
   ]
 })
+
+const hasImage = computed(() => {
+  return isImage.value && (props.item && props.item.length > 0)
+})
+// sometimes coverOnly is true but no cover image is passed, so we need to check for it separately
+const hasCoverImage = computed(() => {
+  return props.coverOnly && (props.coverImage && props.coverImage.length > 0)
+})
 </script>
 
 <template>
   <div class="media-item">
     <div v-if="isEmbed" class="media media-embed" v-html="embedCode" />
-    <img v-else-if="isImage" class="media media-image" :style="mediaStyles" v-bind="item[0]">
-    <img v-else-if="props.coverOnly" class="media media-image" :style="mediaStyles" v-bind="props.coverImage[0]">
+    <img v-else-if="hasImage" class="media media-image" :style="mediaStyles" v-bind="item[0]">
+    <img v-else-if="hasCoverImage" class="media media-image coveronly" :style="mediaStyles" v-bind="props.coverImage[0]">
     <VideoJs
       v-else-if="isVideo || isAudio" class="media media-video" :style="mediaStyles" :sources="props.item"
       :poster="coverImageSrc" :controls="props.controls" :autoplay="props.autoplay" :loop="props.loop"
       :muted="props.muted" :playsinline="props.playsinline" :audio-poster-mode="isAudio"
     />
+    <ResponsiveImage v-else-if="!hasImage" :media="{} as MediaItemType" object-fit="cover" class="media media-image responsive-image" />
     <p
       v-else class="media" style="background-color: white; padding: 10px" v-text="isAudio
         ? 'Audio uploads not supported yet'
@@ -99,7 +109,7 @@ const sizerStyles = computed(() => {
   position: relative;
   margin: 0;
   z-index: 0;
-  // opacity: 0; // TODO add this back when we resolve why onload is not firing on craft images in netlify, works locally
+  // opacity: 0;  // TODO add this back when we resolve why onload is not firing on craft images in netlify, works locally
   transition: opacity 400ms ease-in-out;
 
   .media {
