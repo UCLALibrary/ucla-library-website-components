@@ -230,9 +230,9 @@ export function FtvaDateRange() {
             v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
             #customFTVADate
           >
-            
+
               {{ parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false) }}
-            
+
           </template>
       </block-staff-article-list>
   `,
@@ -269,7 +269,7 @@ export function FtvaCategory() {
       <block-staff-article-list
           :to="to"
           :category="category"
-          :title="title" 
+          :title="title"
       >
        <template
             v-if="description"
@@ -339,9 +339,9 @@ export function FtvaSameStartEndDate() {
             v-if="parseDate(sectionHandle ?? '', '2024-11-01T19:30:00', '2024-11-01T19:30:00', ongoing ?? false)"
             #customFTVADate
           >
-           
+
               {{ parseDate(sectionHandle ?? '', '2024-11-01T19:30:00', '2024-11-01T19:30:00', ongoing ?? false) }}
-            
+
           </template>
       </block-staff-article-list>
   `,
@@ -452,7 +452,7 @@ export function FtvaArticlesListing() {
           :image="image"
           :to="to"
           :category="category"
-          :title="title" 
+          :title="title"
           class="articles-listing"
       >
        <template
@@ -512,7 +512,7 @@ export function FtvaEventSeriesListing() {
       <block-staff-article-list
           :image="image"
           :to="to"
-          :title="title" 
+          :title="title"
           class="event-series-listing"
       >
        <template
@@ -578,7 +578,7 @@ export function FtvaFilmmakersListing() {
       <block-staff-article-list
           :image="image"
           :to="to"
-          :title="title" 
+          :title="title"
           class="filmmakers-listing"
       >
        <template
@@ -642,7 +642,7 @@ export function FtvaSearchResults() {
           :image="image"
           :to="to"
           :category="category"
-          :title="title" 
+          :title="title"
           class="search-results"
       >
        <template
