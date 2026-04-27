@@ -12,6 +12,7 @@
     }
 
     .meta {
+        overflow: hidden;
         width: calc(50% - (var(--metadata-gap) + var(--layout-gap)) / 2);
     }
     .image {
