@@ -35,7 +35,6 @@
 
   .meta {
     width: calc(50% - var(--space-xl));
-    height: 272px;
   }
 
   .category {
@@ -64,13 +63,11 @@
   .description {
     @include step-0;
     color: var(--color-black);
-    @include truncate(4);
   }
 
   .description-summary-only {
     @include step-0;
     color: var(--color-black);
-    @include truncate(5);
   }
 
   :deep(.image) {
@@ -109,6 +106,7 @@
 
       >*:last-child {
         padding-bottom: 0;
+        margin-bottom: 0;
       }
     }
   }

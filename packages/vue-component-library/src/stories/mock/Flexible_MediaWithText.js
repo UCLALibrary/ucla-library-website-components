@@ -268,6 +268,7 @@ export const mockSingle = {
       id: '13670',
       titleLink: 'A media Link',
       description: 'Citation Integration',
+      item: [], // production data sometimes has empty items array
       coverImage: [
         {
           id: '5115',

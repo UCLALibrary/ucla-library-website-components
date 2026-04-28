@@ -75,6 +75,30 @@ export function Video() {
   }
 }
 
+export function VideoWithNoButton() {
+  return {
+    data() {
+      return {
+        ...mock,
+        item: MEDIA.VideoFile,
+        coverImage: MEDIA.VideoFileCoverImage,
+      }
+    },
+    components: { BlockMediaWithText },
+    template: `
+        <block-media-with-text
+            :section-header="mediaWithText[0].titleLink"
+            :short-description="mediaWithText[0].description"
+            :button-text=""
+            button-url="http://cinema.ucla.edu"
+            :item="item"
+            :coverImage="coverImage"
+            type-media="video"
+        />
+    `,
+  }
+}
+
 export function Audio() {
   return {
     data() {
@@ -122,6 +146,8 @@ export function Embed() {
     `,
   }
 }
+
+// Sometimes the type-media is an image but an image is not provided, so we need to display a placeholder image.
 
 export function NoImage() {
   return {
