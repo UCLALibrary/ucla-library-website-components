@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.75.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.0...@ucla-library-monorepo/ucla-library-website-components-v1.75.1) (2026-04-28)
+
+
+### Bug Fixes
+
+* LADI-3776 Block Staff Article Item - Text is clipped when resized ([#932](https://github.com/UCLALibrary/ucla-library-website-components/issues/932)) ([1a13dc5](https://github.com/UCLALibrary/ucla-library-website-components/commit/1a13dc5f00780129fdb98b5fe480e1e36c5efdc0))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.75.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.74.2...@ucla-library-monorepo/ucla-library-website-components-v1.75.0) (2026-04-28)
 
 
