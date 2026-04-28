@@ -12,7 +12,7 @@
     aspect-ratio: var(--image-aspect-ratio);
     margin-right: var(--space-xl);
   }
-  
+
   .meta {
     display: flex;
     flex-direction: column;
@@ -44,10 +44,10 @@
   .description-summary-only {
     @include ftva-body;
     color: $body-grey;
-    @include truncate(2);
     margin-top: 8px;
   }
-/* TODO Remove .date css rules for ftva as we are using ftva-date class where this component is used on the different templates*/
+
+  /* TODO Remove .date css rules for ftva as we are using ftva-date class where this component is used on the different templates*/
   .date {
     position: absolute;
     bottom: var(--space-s);
@@ -61,13 +61,15 @@
     height: 70px;
     overflow: hidden;
   }
+
   /* TODO end */
+
   .ftva-description {
     @include ftva-body;
     color: $body-grey;
-    @include truncate(2);
   }
-  .ftva-date{
+
+  .ftva-date {
     @include ftva-emphasized-subtitle;
     color: $accent-blue;
     line-height: 1;
