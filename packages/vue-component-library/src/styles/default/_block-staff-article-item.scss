@@ -35,7 +35,6 @@
 
   .meta {
     width: calc(50% - var(--space-xl));
-    min-height: 272px;
   }
 
   .category {
@@ -107,11 +106,8 @@
 
       >*:last-child {
         padding-bottom: 0;
+        margin-bottom: 0;
       }
-    }
-
-    .meta>*:first-child {
-      margin-top: 0;
     }
   }
 }
