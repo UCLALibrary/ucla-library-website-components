@@ -198,16 +198,16 @@ function TemplateFTVACustomTitleAndDescription(args) {
     `,
   }
 }
-        // ON THE PAGE USE IT THIS WAY
+// ON THE PAGE USE IT THIS WAY
 
-        // <template #customTitle>
-        //   <NuxtLink :to="article.to" class="custom-title">
-        //     <RichText :rich-text-content="article.title" />
-        //   </NuxtLink>
+// <template #customTitle>
+//   <NuxtLink :to="article.to" class="custom-title">
+//     <RichText :rich-text-content="article.title" />
+//   </NuxtLink>
 
-        // <template #customDescription>
-        //   <RichText class="custom-description" :rich-text-content="page.hearstDescription" />
-        // </template>
+// <template #customDescription>
+//   <RichText class="custom-description" :rich-text-content="page.hearstDescription" />
+// </template>
 
 export const FTVACustomTitleAndDescription = TemplateFTVACustomTitleAndDescription.bind({})
 
@@ -244,17 +244,17 @@ function TemplateFTVACustomDescriptionOnlyInternalLink(args) {
     `,
   }
 }
-        // ON THE PAGE USE IT THIS WAY
+// ON THE PAGE USE IT THIS WAY
 
-        // <template #customDescription>
-        //   <RichText class="custom-description" v-html="ftvaHomepageDescription" />
-        // </template>
+// <template #customDescription>
+//   <RichText class="custom-description" v-html="ftvaHomepageDescription" />
+// </template>
 
-        // // DON't do this:
-        // <smart-link :to="uri">
-        // <template #customDescription>
-        //   <rich-text v-html="ftvaHomepageDescription" />
-        // </template>
+// // DON't do this:
+// <smart-link :to="uri">
+// <template #customDescription>
+//   <rich-text v-html="ftvaHomepageDescription" />
+// </template>
 
 export const FTVACustomDescriptionOnlyInternalLink = TemplateFTVACustomDescriptionOnlyInternalLink.bind({})
 
@@ -265,7 +265,7 @@ function TemplateFTVACustomDescriptionOnlyExternalLink(args) {
       return {
         ...mockCustomTitleAndDesription,
         ...args,
-        uri: "https://newsreels.net/",
+        uri: 'https://newsreels.net/',
       }
     },
     provide() {
