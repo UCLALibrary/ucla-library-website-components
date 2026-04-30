@@ -38,6 +38,12 @@
             padding: 0;
             margin: 0;
         }
+
+        :deep(.excerpt-pod-wrapper) {
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
     }
 
     // Hovers
