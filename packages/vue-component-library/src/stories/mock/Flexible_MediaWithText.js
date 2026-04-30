@@ -185,6 +185,27 @@ export const mock = {
       typeMedia: 'other',
     },
     {
+      id: '13670',
+      titleLink: 'Download this pdf',
+      description: 'Citation Integration PDF',
+      coverImage: [
+        {
+          id: '5115',
+          src: 'https://static.library.ucla.edu/craftassetstest/Screen-Shot-2022-02-17-at-11.42.39-AM.png',
+          height: 2151,
+          width: 2560,
+          srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 2560w',
+          alt: 'Screen Shot 2022 02 17 at 11 42 39 AM',
+          focalPoint: [0.5, 0.5],
+        },
+      ],
+      buttonText: null,
+      buttonUrl: null,
+      linkToMedia:
+          'https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf',
+      typeMedia: 'other',
+    },
+    {
       id: '13800',
       titleUpload: 'Type: Other - Media upload - Internal Link',
       description: 'This is something I uploaded',
