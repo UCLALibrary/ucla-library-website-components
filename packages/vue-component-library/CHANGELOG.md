@@ -1,3 +1,38 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.75.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.1...@ucla-library-monorepo/ucla-library-website-components-v1.75.2) (2026-05-05)
+
+
+### Bug Fixes
+
+* LADI-5176 Explicitly assign item alignment for each theme for BlockStaffArticleItem ([#939](https://github.com/UCLALibrary/ucla-library-website-components/issues/939)) ([7c3ca6b](https://github.com/UCLALibrary/ucla-library-website-components/commit/7c3ca6be6420965150fdebfc5d5c5ec78e1124b9))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.75.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.0...@ucla-library-monorepo/ucla-library-website-components-v1.75.1) (2026-04-28)
+
+
+### Bug Fixes
+
+* LADI-3776 Block Staff Article Item - Text is clipped when resized ([#932](https://github.com/UCLALibrary/ucla-library-website-components/issues/932)) ([1a13dc5](https://github.com/UCLALibrary/ucla-library-website-components/commit/1a13dc5f00780129fdb98b5fe480e1e36c5efdc0))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.75.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.74.2...@ucla-library-monorepo/ucla-library-website-components-v1.75.0) (2026-04-28)
+
+
+### Features
+
+* PageCollectionsDetail ([#899](https://github.com/UCLALibrary/ucla-library-website-components/issues/899)) ([6d22ba1](https://github.com/UCLALibrary/ucla-library-website-components/commit/6d22ba184375765bbd1fab3b29cfdca101d6be61))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.74.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.74.1...@ucla-library-monorepo/ucla-library-website-components-v1.74.2) (2026-04-23)
+
+
+### Bug Fixes
+
+* LADI-5143 Add a placeholder to item ([#937](https://github.com/UCLALibrary/ucla-library-website-components/issues/937)) ([96a9d04](https://github.com/UCLALibrary/ucla-library-website-components/commit/96a9d04a0c65dd09a8d9243bd25837b3b790952c))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.74.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.74.0...@ucla-library-monorepo/ucla-library-website-components-v1.74.1) (2026-04-22)
+
+
+### Bug Fixes
+
+* Flexible Media with Text fallback to buttonURL if item is empty ([#938](https://github.com/UCLALibrary/ucla-library-website-components/issues/938)) ([ef2603c](https://github.com/UCLALibrary/ucla-library-website-components/commit/ef2603c9ecec99c3347c698e604bc7280fc435d3))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.74.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.73.6...@ucla-library-monorepo/ucla-library-website-components-v1.74.0) (2026-04-21)
 
 

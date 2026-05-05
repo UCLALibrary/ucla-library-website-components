@@ -26,6 +26,12 @@ defineProps<GridMetadataProps>()
     <div v-for="item in items" :key="item.title" class="grid-metadata-item">
       <MetadataTable :title="item.title" :items="item.items" />
     </div>
+    <div
+      v-if="$slots.after"
+      class="grid-metadata-item grid-metadata-item--slot"
+    >
+      <slot name="after" />
+    </div>
   </section>
 </template>
 

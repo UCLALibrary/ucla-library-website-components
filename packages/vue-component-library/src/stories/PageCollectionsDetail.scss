@@ -1,0 +1,52 @@
+.collections-detail-page {
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
+
+            .primary {
+                position: relative;
+            }
+        }
+    }
+
+    .main-content {
+        padding-bottom: 48px;
+    }
+
+    .collection-overview {
+        margin-bottom: 48px;
+    }
+
+    .grid-metadata {
+        margin-bottom: 48px;
+    }
+
+    .section-wrapper.top-level:first-child {
+        margin-top: 0;
+    }
+
+    .excerpt-pod-wrapper {
+        width: 100%;
+        margin: 24px 0 0;
+        padding: 24px 0;
+        border-top: 2px dotted var(--color-secondary-grey-03);
+        border-bottom: 2px dotted var(--color-secondary-grey-03);
+    }
+
+    .button-more {
+        margin: 0 auto 48px;
+        max-width: unset;
+    }
+
+    .subtitle-grid-assets {
+        font-size: 22px;
+        font-weight: 500;
+        margin: 0 0 8px;
+    }
+    .title-grid-assets {
+        @include step-4;
+        margin: 0 0 var(--space-xl);
+        color: var(--color-primary-blue-03);
+    }
+}

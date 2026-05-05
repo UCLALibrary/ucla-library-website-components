@@ -129,8 +129,8 @@ export function FtvaCurrentEntriesWithDates() {
             }
           }
           @media screen and (max-width: 750px) {
-      .stories-ftva-current-entries.ftva.section-staff-article-list { 
-        background-color: #e7edf2; 
+      .stories-ftva-current-entries.ftva.section-staff-article-list {
+        background-color: #e7edf2;
         padding: 0 16px;
 
         .ftva.block-staff-article-item {
@@ -142,12 +142,12 @@ export function FtvaCurrentEntriesWithDates() {
           aspect-ratio: 16/9;
           height: auto;
           margin-bottom: 0;
-          
+
           .sizer {
             padding-bottom: 0 !important;
           }
         }
-        
+
         .meta {
           margin: 0;
           padding: 20px;
@@ -159,7 +159,7 @@ export function FtvaCurrentEntriesWithDates() {
           .ftva-description {
             display: none;
           }
-          
+
           .ftva-date {
             font-size: 20px;
           }
@@ -202,8 +202,8 @@ export function FtvaNoSectionTitle() {
             }
     }
     @media screen and (max-width: 750px) {
-      .stories-ftva-event-series.ftva.section-staff-article-list { 
-        background-color: #e7edf2; 
+      .stories-ftva-event-series.ftva.section-staff-article-list {
+        background-color: #e7edf2;
         padding: 0 16px;
 
         .ftva.block-staff-article-item {
@@ -215,12 +215,12 @@ export function FtvaNoSectionTitle() {
           aspect-ratio: 16/9;
           height: auto;
           margin-bottom: 0;
-          
+
           .sizer {
             padding-bottom: 0 !important;
           }
         }
-        
+
         .meta {
           margin: 0;
           padding: 20px;
@@ -232,7 +232,7 @@ export function FtvaNoSectionTitle() {
           .ftva-description {
             display: none;
           }
-          
+
           .ftva-date {
             font-size: 20px;
           }
@@ -275,7 +275,7 @@ export function FtvaSearchResultsArticle() {
       }
     }
       @media screen and (max-width: 834px) {
-      
+
         .stories-ftva-search-articles .ftva.block-staff-article-item .title {
             -webkit-line-clamp: 2;
             }
@@ -319,15 +319,15 @@ export function FtvaSearchResultsArticle() {
           }
       }
         .stories-ftva-search-articles .ftva.block-staff-article-item {
-        
-        
+
+
           figure,
           .molecule-no-image {
             display: none;
           }
         }
       }
-        
+
         </component>
       <section-staff-article-list class="stories-ftva-search-articles"
         :items="items"
@@ -389,7 +389,7 @@ export function FtvaSearchResultsCollections() {
           }
       }
         .stories-ftva-search-collections .ftva.block-staff-article-item {
-        
+
           figure,
           .molecule-no-image {
             display: none;
@@ -457,7 +457,7 @@ export function FtvaSearchResultsGC() {
       }
         .stories-ftva-general-content .ftva.block-staff-article-item {
           border-radius: 0;
-          
+
           figure,
           .molecule-no-image {
             display: none;
@@ -488,7 +488,7 @@ export function FtvaFilmMakers() {
          .stories-ftva-film-makers .ftva.block-staff-article-item {
            --image-min-width: 180px;
            --image-aspect-ratio: 1;
-           
+
            .image {
               height: var(--image-min-width);
            }
@@ -529,7 +529,7 @@ export function FtvaFilmMakers() {
                 padding: 0;
                 height: unset;
               }
-              
+
               .title {
                 font-size: 21px;
                 line-height: 1.2;
@@ -583,8 +583,8 @@ export function FtvaBlogList() {
           }
         }
         @media screen and (max-width: 750px) {
-        .stories-ftva-articles.ftva.section-staff-article-list { 
-          background-color: #e7edf2; 
+        .stories-ftva-articles.ftva.section-staff-article-list {
+          background-color: #e7edf2;
           padding: 0 16px;
         }
         .stories-ftva-articles.ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item {
@@ -623,8 +623,8 @@ export function FtvaBlogList() {
             display:none;
           }
         }
-        
-       
+
+
       </component>
       <section-staff-article-list class="stories-ftva-articles"
         :items="items" :section-title="'FTVA Blog Listing'"
