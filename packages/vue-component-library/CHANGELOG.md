@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.75.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.1...@ucla-library-monorepo/ucla-library-website-components-v1.75.2) (2026-05-05)
+
+
+### Bug Fixes
+
+* LADI-5176 Explicitly assign item alignment for each theme for BlockStaffArticleItem ([#939](https://github.com/UCLALibrary/ucla-library-website-components/issues/939)) ([7c3ca6b](https://github.com/UCLALibrary/ucla-library-website-components/commit/7c3ca6be6420965150fdebfc5d5c5ec78e1124b9))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.75.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.0...@ucla-library-monorepo/ucla-library-website-components-v1.75.1) (2026-04-28)
 
 
