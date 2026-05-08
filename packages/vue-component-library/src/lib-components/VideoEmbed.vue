@@ -45,6 +45,9 @@ const parsedTrailer = computed(() => {
       <img
         v-if="posterImage?.src"
         :src="posterImage.src"
+        :alt="posterImage.alt || ''"
+        :srcset="posterImage.srcset || ''"
+        :sizes="posterImage.sizes || ''"
         class="cover"
       >
       <SvgIconPlayFilled class="play-button" />
