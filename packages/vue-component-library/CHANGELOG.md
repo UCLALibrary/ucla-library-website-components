@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.75.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.2...@ucla-library-monorepo/ucla-library-website-components-v1.75.3) (2026-05-08)
+
+
+### Bug Fixes
+
+* LADI-3732 add alt, srcset, and sizes data to poster img ([#940](https://github.com/UCLALibrary/ucla-library-website-components/issues/940)) ([3449fef](https://github.com/UCLALibrary/ucla-library-website-components/commit/3449fef1465975d1dd3cbee394d9169f24fe41b7))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.75.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.1...@ucla-library-monorepo/ucla-library-website-components-v1.75.2) (2026-05-05)
 
 
