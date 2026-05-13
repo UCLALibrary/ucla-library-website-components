@@ -73,8 +73,8 @@ function handleSliderInput(event: Event) {
 
 <style lang="scss" scoped>
 /* Add your styles here */
-@use "ucla-library-design-tokens/scss/abstracts" as *;
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+// @use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 *,
 *::after,
 *::before {

@@ -1,5 +1,5 @@
 // DLC theme for SectionWrapper (e.g. Page Main Landing)
-@use "ucla-library-design-tokens/scss/abstracts" as *; // provides step-2, step-4 mixins
+@use "ucla-library-design-tokens/scss/app.scss" as *;
 .dlc.section-wrapper {
     --gutters: 48px;
 

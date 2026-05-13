@@ -1,5 +1,5 @@
-@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-subtitle-1 mixin, ftva-h3 mixin, ftva-h4 mixin
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+@use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .ftva.block-screening-detail {
   .count {
     @include ftva-subtitle-1;

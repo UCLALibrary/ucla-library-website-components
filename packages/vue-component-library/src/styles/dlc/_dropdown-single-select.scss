@@ -1,4 +1,4 @@
-@use "ucla-library-design-tokens/scss/abstracts" as *; // provides animate-normal mixin
+@use "ucla-library-design-tokens/scss/app.scss" as *; // provides animate-normal mixin
 
 .dropdown-single-select.dlc {
     .pill-radio {

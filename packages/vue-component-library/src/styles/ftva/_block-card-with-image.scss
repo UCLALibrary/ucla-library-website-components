@@ -1,6 +1,6 @@
 // TODO refactor this component to get rid of position absolute for the date/byline
-@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-card-title-2 mixin
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+@use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .ftva.block-highlight {
     position: relative;
 

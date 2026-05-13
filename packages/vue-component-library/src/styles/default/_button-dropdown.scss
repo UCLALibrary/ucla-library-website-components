@@ -1,5 +1,5 @@
-@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $primary-blue-03
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+@use "ucla-library-design-tokens/scss/app.scss" as *; // provides $primary-blue-03
+@use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .button-dropdown {
     position: relative;
     z-index: 100;

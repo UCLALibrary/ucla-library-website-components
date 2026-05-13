@@ -89,7 +89,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+// @use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 
 .two-column {
   position: relative;

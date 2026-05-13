@@ -1,5 +1,5 @@
-@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $has-hover
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+@use "ucla-library-design-tokens/scss/app.scss" as *; // provides $has-hover
+@use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .dlc.block-remove-search-filter {
     padding: 0px;
     user-select: none;

@@ -1,5 +1,5 @@
-@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $small breakpoint, ftva-subtitle-2 mixin
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+@use "ucla-library-design-tokens/scss/app.scss" as *; // provides $small breakpoint, ftva-subtitle-2 mixin
+@use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .ftva.table-row {
     align-items: center;
     td {

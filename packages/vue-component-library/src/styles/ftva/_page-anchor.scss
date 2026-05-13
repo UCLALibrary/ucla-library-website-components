@@ -1,5 +1,5 @@
-@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-subtitle-2 mixin
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+@use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .ftva.page-anchor {
 
     .page-anchor-content {

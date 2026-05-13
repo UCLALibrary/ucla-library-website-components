@@ -1,5 +1,5 @@
-@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-h5 mixin, ftva-subtitle-1 mixin, ftva-body-2 mixin
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+@use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .ftva.media-gallery {
 
   .gallery-header {

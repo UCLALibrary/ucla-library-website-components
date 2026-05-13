@@ -1,5 +1,5 @@
-@use "ucla-library-design-tokens/scss/abstracts" as *; // provides ftva-button mixin
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+@use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .dropdown-single-select {
     width: 380px;
 

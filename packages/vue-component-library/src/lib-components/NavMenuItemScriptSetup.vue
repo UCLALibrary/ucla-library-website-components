@@ -53,7 +53,7 @@ const parsedChildren = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/app.scss" as *;
 
 .nav-menu-item {
   padding: 0;

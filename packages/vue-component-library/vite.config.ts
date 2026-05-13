@@ -76,9 +76,10 @@ export default defineConfig({
         api: 'modern-compiler',
         additionalData: `
                   @use "ucla-library-design-tokens/scss/fonts.scss" as *;
-                  @use "ucla-library-design-tokens/scss/abstracts" as *;
+                  @use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
+                  @use "ucla-library-design-tokens/scss/_tokens-dlc.scss" as dlctokens;
+                  @use "ucla-library-design-tokens/scss/_tokens-css-dlc.scss" as cssdlctokens;
                   @use "ucla-library-design-tokens/scss/app.scss" as *;
-                  @use "ucla-library-design-tokens/scss/abstracts/_tokens.scss" as *;
                 `,
       },
       postcss: {

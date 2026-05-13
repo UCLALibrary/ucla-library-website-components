@@ -1,6 +1,5 @@
-@use "ucla-library-design-tokens/scss/abstracts" as *;
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
-
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+@use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .ftva.nav-breadcrumb {
     .breadcrumb-wrapper:not(:last-of-type)::after {
         background-image: url('ucla-library-design-tokens/assets/svgs/icon-right-carat.svg');

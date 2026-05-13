@@ -149,7 +149,7 @@ const parsedDateFormat = computed(() => {
   scoped
 >
 // Since block-card-three-column is newer it only has FTVA styles
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+// @use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .block-card-three-column {
   display: flex;
   flex-direction: row;

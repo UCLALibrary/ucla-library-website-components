@@ -1,5 +1,5 @@
-@use "ucla-library-design-tokens/scss/abstracts" as *;
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+@use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .ftva.block-staff-article-item {
   --image-min-width: 384px;
   --image-aspect-ratio: 4/3;

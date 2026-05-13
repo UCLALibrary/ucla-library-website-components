@@ -1,4 +1,4 @@
-@use "ucla-library-design-tokens/scss/abstracts" as *; // provides has-hover mixin
+@use "ucla-library-design-tokens/scss/app.scss" as *; // provides has-hover mixin
 
 .section-teaser-card.dlc {
     :deep(.card) {

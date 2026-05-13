@@ -1,5 +1,6 @@
 // CardMeta THEME
-@use "ucla-library-design-tokens/scss/abstracts" as *;
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+@use "ucla-library-design-tokens/scss/_helpers.scss" as *;
 .card-meta {
     .meta {
         z-index: 10;

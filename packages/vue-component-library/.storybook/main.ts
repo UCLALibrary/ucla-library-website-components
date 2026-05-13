@@ -30,9 +30,10 @@ const config: StorybookConfig = {
                         api: 'modern-compiler',
                         additionalData: `
                             @use "ucla-library-design-tokens/scss/fonts.scss" as *;
-                            @use "ucla-library-design-tokens/scss/abstracts" as *;
+                            @use "ucla-library-design-tokens/scss/_tokens-ftva" as ftvatokens;
+                            @use "ucla-library-design-tokens/scss/_tokens-dlc" as dlctokens;
+                            @use "ucla-library-design-tokens/scss/_tokens-css-dlc" as cssdlctokens;
                             @use "ucla-library-design-tokens/scss/app.scss" as *;
-                            @use "ucla-library-design-tokens/scss/abstracts/_tokens.scss" as *;
                         `,
                     },
                 },

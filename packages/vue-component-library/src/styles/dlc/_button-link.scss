@@ -1,5 +1,5 @@
-@use "ucla-library-design-tokens/scss/abstracts" as *; // provides $accent-blue
-@use "ucla-library-design-tokens/scss/abstracts/tokens-ftva.scss" as ftvatokens;
+@use "ucla-library-design-tokens/scss/app.scss" as *; // provides $accent-blue
+@use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .dlc.button-link {
     --transition-duration: 0.3s;
 
