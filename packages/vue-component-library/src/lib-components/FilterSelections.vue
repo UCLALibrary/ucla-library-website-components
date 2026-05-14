@@ -325,6 +325,6 @@ async function toggleOption(filterName: string, option: FilterOption) {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 @use "@/styles/dlc/_filter-selections.scss" as *;
 </style>

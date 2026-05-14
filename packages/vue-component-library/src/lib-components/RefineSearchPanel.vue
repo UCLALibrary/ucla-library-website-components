@@ -89,6 +89,6 @@ const classes = computed(() => ['refine-search-panel', theme?.value || ''])
   </EffectSlideToggle>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 @use "@/styles/dlc/_refine-search-panel.scss" as *;
 </style>
