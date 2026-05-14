@@ -1,4 +1,5 @@
 // Styles for BlockAssetPod
+@use "ucla-library-design-tokens/scss/app.scss" as *; // provides $has-hover
 .dlc.grid-asset-pod {
     .block-asset-pod {
         display: flex;
