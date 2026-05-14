@@ -6,7 +6,7 @@
     max-width: 928px;
     border-radius: 8px;
     &.paleblue {
-        --color-theme: ftvatokens.$page-blue;
+        --color-theme: #{ftvatokens.$page-blue};
         background-color: var(--color-theme);
         max-width: 100%;
     }
@@ -65,7 +65,7 @@
     }
 
     &.paleblue {
-        --color-theme: ftvatokens.$page-blue;
+        --color-theme: #{ftvatokens.$page-blue};
         background-color: var(--color-theme);
         max-width: 100%;
     }

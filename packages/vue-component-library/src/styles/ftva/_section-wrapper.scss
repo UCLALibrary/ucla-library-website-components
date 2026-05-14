@@ -60,7 +60,7 @@
         }
 
         &.theme-paleblue {
-            --color-theme: ftvatokens.$page-blue;
+            --color-theme: #{ftvatokens.$page-blue};
             --color-children-theme: var(--color-white);
 
             background-color: var(--color-theme);
@@ -99,7 +99,7 @@
         }
 
         &.theme-paleblue {
-            --color-theme: ftvatokens.$page-blue;
+            --color-theme: #{ftvatokens.$page-blue};
             --color-children-theme: var(--color-white);
 
             :deep(*) {
@@ -125,7 +125,7 @@
 
     @media #{$small} {
         &.theme-paleblue {
-            --color-theme: ftvatokens.$page-blue;
+            --color-theme: #{ftvatokens.$page-blue};
             --color-children-theme: var(--color-white);
 
             :deep(*) {
