@@ -51,7 +51,7 @@
             }
 
             :deep(.section-teaser-card) {
-                --color-children-theme: ftvatokens.$page-blue;
+                --color-children-theme: #{ftvatokens.$page-blue};
 
                 .block-highlight.card {
                     background-color: var(--color-children-theme);

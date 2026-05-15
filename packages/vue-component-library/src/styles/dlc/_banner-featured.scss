@@ -292,9 +292,9 @@
     }
 
     .secondary-buttons {
-        --button-background-color: ftvatokens.$pure-white;
-        --button-text-color: ftvatokens.$accent-blue;
-        --button-border-color: ftvatokens.$accent-blue;
+        --button-background-color: #{ftvatokens.$pure-white};
+        --button-text-color: #{ftvatokens.$accent-blue};
+        --button-border-color: #{ftvatokens.$accent-blue};
 
         display: flex;
         flex-direction: column;
@@ -324,8 +324,8 @@
     // Hover
     @media #{$has-hover} {
         .secondary-button:hover {
-            --button-background-color: ftvatokens.$accent-blue;
-            --button-text-color: ftvatokens.$pure-white;
+            --button-background-color: #{ftvatokens.$accent-blue};
+            --button-text-color: #{ftvatokens.$pure-white};
         }
     }
 
