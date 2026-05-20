@@ -79,7 +79,7 @@ const getId = computed(() => {
       />
 
       <!-- section-link will not display if slot does not have content -->
-      <div class="section-link">
+      <div v-if="$slots['top-right']" class="section-link">
         <slot name="top-right" class="" />
       </div>
 
