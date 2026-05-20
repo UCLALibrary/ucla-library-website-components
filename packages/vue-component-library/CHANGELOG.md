@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.75.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.3...@ucla-library-monorepo/ucla-library-website-components-v1.75.4) (2026-05-19)
+
+
+### Bug Fixes
+
+* LADI-5183 Component blockStaffArticleList: Remove the margin bottom from byline in the meta ([#941](https://github.com/UCLALibrary/ucla-library-website-components/issues/941)) ([78c7b98](https://github.com/UCLALibrary/ucla-library-website-components/commit/78c7b9855cb24a7d71df3cb4a9e2889e05c25ee6))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.75.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.2...@ucla-library-monorepo/ucla-library-website-components-v1.75.3) (2026-05-08)
 
 
