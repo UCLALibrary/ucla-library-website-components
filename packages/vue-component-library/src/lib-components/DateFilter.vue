@@ -443,7 +443,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-// @use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .date-filter {
   .dp__calendar_header_separator {
     display: none;
