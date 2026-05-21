@@ -109,7 +109,7 @@ const parsedLabel = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_block-tag.scss";
-@import "@/styles/ftva/_block-tag.scss";
-@import "@/styles/dlc/_block-tag.scss";
+@use "@/styles/default/_block-tag.scss" as *;
+@use "@/styles/ftva/_block-tag.scss" as *;
+@use "@/styles/dlc/_block-tag.scss" as *;
 </style>

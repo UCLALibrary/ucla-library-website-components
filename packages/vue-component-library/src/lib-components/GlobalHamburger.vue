@@ -46,5 +46,5 @@ function onClick() {
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/dlc/_global-hamburger.scss";
+@use "@/styles/dlc/_global-hamburger.scss" as *;
 </style>

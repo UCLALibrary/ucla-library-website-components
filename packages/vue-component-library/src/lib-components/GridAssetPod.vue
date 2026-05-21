@@ -82,5 +82,5 @@ const sortedColumns = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_grid-asset-pod.scss";
+@use "@/styles/dlc/_grid-asset-pod.scss" as *;
 </style>

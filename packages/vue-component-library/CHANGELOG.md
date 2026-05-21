@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.76.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.4...@ucla-library-monorepo/ucla-library-website-components-v1.76.0) (2026-05-21)
+
+
+### Features
+
+* BREAKING APPS-3070 migrate sass [@import](https://github.com/import) statements to [@use](https://github.com/use) / [@forward](https://github.com/forward) ([#930](https://github.com/UCLALibrary/ucla-library-website-components/issues/930)) ([9c82fca](https://github.com/UCLALibrary/ucla-library-website-components/commit/9c82fcafbce24b7d58d0dc93fd398680a84ea578))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.75.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.3...@ucla-library-monorepo/ucla-library-website-components-v1.75.4) (2026-05-19)
 
 

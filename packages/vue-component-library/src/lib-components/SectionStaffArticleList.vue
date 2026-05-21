@@ -106,6 +106,6 @@ function getNonFTVADate(date: string) {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_section-staff-article-list.scss";
-@import "@/styles/ftva/_section-staff-article-list.scss";
+@use "@/styles/default/_section-staff-article-list.scss" as *;
+@use "@/styles/ftva/_section-staff-article-list.scss" as *;
 </style>
