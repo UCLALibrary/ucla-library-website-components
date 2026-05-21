@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+
 .grid-metadata,
 .grid-metadata.dlc {
     --gap: 24px;

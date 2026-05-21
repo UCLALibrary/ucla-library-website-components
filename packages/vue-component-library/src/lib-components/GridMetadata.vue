@@ -35,6 +35,6 @@ defineProps<GridMetadataProps>()
   </section>
 </template>
 
-<style lang="scss" scoped>
-@import "@/styles/dlc/_grid-metadata.scss";
-</style>
+  <style lang="scss" scoped>
+  @use "@/styles/dlc/_grid-metadata.scss" as *;
+  </style>

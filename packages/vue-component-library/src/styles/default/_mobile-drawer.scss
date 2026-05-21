@@ -1,3 +1,6 @@
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+@use "ucla-library-design-tokens/scss/_tokens-css.scss" as *;
+
 .mobile-drawer {
     display: flex;
     position: relative;

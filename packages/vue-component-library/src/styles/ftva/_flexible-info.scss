@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+@use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .ftva.flexible-info {
 
   .block-call-to-action {
@@ -24,7 +26,7 @@
   }
 
   :deep(.icon-with-link .text) {
-    color: $accent-blue;
+    color: ftvatokens.$accent-blue;
     @media #{$small} {
       word-break: break-all;
     }
@@ -37,7 +39,7 @@
         }
 
       p {
-        color: $body-grey;
+        color: ftvatokens.$body-grey;
         font-weight: 600;
         font-size: 20px;
       }

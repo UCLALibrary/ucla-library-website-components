@@ -133,5 +133,5 @@ function handleButtonClick(button: any) {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_metadata-table.scss";
+@use "@/styles/dlc/_metadata-table.scss" as *;
 </style>
