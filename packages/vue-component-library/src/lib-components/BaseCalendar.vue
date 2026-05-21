@@ -280,6 +280,6 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss">
-@import "@/styles/default/_base-calendar.scss";
-@import "@/styles/ftva/_base-calendar.scss";
+@use "@/styles/default/_base-calendar.scss" as *;
+@use "@/styles/ftva/_base-calendar.scss" as *;
 </style>

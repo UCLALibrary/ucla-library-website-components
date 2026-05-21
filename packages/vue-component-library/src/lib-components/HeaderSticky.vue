@@ -61,6 +61,6 @@ const themeSettings = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_header-sticky.scss";
-@import "@/styles/ftva/_header-sticky.scss";
+@use "@/styles/default/_header-sticky.scss" as *;
+@use "@/styles/ftva/_header-sticky.scss" as *;
 </style>

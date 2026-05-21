@@ -85,5 +85,5 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_bento-box-block.scss";
+@use "@/styles/dlc/_bento-box-block.scss" as *;
 </style>

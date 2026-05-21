@@ -92,7 +92,7 @@ function closeBlockFilter() {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_block-remove-search-filter.scss";
-@import "@/styles/ftva/_block-remove-search-filter.scss";
-@import "@/styles/dlc/_block-remove-search-filter.scss";
+@use "@/styles/default/_block-remove-search-filter.scss" as *;
+@use "@/styles/ftva/_block-remove-search-filter.scss" as *;
+@use "@/styles/dlc/_block-remove-search-filter.scss" as *;
 </style>

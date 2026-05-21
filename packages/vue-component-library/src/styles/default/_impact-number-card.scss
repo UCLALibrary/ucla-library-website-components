@@ -1,3 +1,4 @@
+@use "ucla-library-design-tokens/scss/app.scss" as *;
 .impact-number-card {
     width: calc((100% - 32px) / 3);
 

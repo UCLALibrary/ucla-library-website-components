@@ -395,6 +395,6 @@ function submitSearch() {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_header-main-responsive.scss";
-@import "@/styles/dlc/_header-main-responsive.scss";
+@use "@/styles/default/_header-main-responsive.scss" as *;
+@use "@/styles/dlc/_header-main-responsive.scss" as *;
 </style>

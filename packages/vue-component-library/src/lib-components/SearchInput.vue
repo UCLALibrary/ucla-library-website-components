@@ -123,6 +123,6 @@ useEventListener<KeyboardEvent>(() => document, 'keydown', onDocumentKeydown)
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_search-input.scss";
-@import "@/styles/dlc/_search-input.scss";
+@use "@/styles/default/_search-input.scss" as *;
+@use "@/styles/dlc/_search-input.scss" as *;
 </style>

@@ -100,7 +100,7 @@ const currentTheme = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_section-teaser-card.scss";
-@import "@/styles/dlc/_section-teaser-card.scss";
-@import "@/styles/ftva/_section-teaser-card.scss";
+@use "@/styles/default/_section-teaser-card.scss" as *;
+@use "@/styles/dlc/_section-teaser-card.scss" as *;
+@use "@/styles/ftva/_section-teaser-card.scss" as *;
 </style>

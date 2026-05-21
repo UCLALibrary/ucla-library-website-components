@@ -100,6 +100,6 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_definition-list.scss";
-@import "@/styles/dlc/_definition-list.scss";
+@use "@/styles/default/_definition-list.scss" as *;
+@use "@/styles/dlc/_definition-list.scss" as *;
 </style>
