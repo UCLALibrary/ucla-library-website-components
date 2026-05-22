@@ -304,6 +304,6 @@ const parsedClasses = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_nav-breadcrumb.scss";
-@import "@/styles/ftva/_nav-breadcrumb.scss";
+@use "@/styles/default/_nav-breadcrumb.scss" as *;
+@use "@/styles/ftva/_nav-breadcrumb.scss" as *;
 </style>

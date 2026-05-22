@@ -136,7 +136,7 @@ function handleListClick() {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_page-anchor.scss";
-@import "@/styles/ftva/_page-anchor.scss";
-@import "@/styles/dlc/_page-anchor.scss";
+@use "@/styles/default/_page-anchor.scss" as *;
+@use "@/styles/ftva/_page-anchor.scss" as *;
+@use "@/styles/dlc/_page-anchor.scss" as *;
 </style>

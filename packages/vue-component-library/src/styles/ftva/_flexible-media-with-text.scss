@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+@use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
 .ftva.section-media-with-text{
   padding-top: 0;
 
@@ -9,7 +11,7 @@
     }
     .section-title {
       @include ftva-h3;
-      color: $body-grey;
+      color: ftvatokens.$body-grey;
       margin-bottom: 0;
     }
 

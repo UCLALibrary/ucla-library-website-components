@@ -60,5 +60,5 @@ function handleClick(event: MouseEvent) {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_button.scss";
+@use "@/styles/default/_button.scss" as *;
 </style>

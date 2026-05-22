@@ -1,10 +1,11 @@
+@use "ucla-library-design-tokens/scss/app.scss" as *; // provides $container-m-text, small breakpoint
 .pull-quote {
     background-color: var(--color-white);
     max-width: var(--container-width);
     text-align: left;
     font-family: var(--font-primary);
     font-size: 24px;
-    font-style: italic;
+    font-style: normal;
     font-weight: 600;
     line-height: 150%;
     letter-spacing: 0.01em;
@@ -25,7 +26,7 @@
     :deep(p) {
         color: var(--color-primary-blue-03);
         font-size: 24px;
-        font-style: italic;
+        font-style: normal;
         font-weight: 600;
         line-height: 150%;
     }

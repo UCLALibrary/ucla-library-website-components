@@ -1,3 +1,6 @@
+// Breakpoints ($small, etc.): required here so mixins defined in this file see them
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+
 // Global page styles shared across all story pages
 // These styles define the common layout structure: header, main content, footer
 

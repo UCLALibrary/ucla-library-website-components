@@ -33,8 +33,11 @@ const parsedContent = computed(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
-@import "@/styles/default/_rich-text.scss";
-@import "@/styles/ftva/_rich-text.scss";
-@import "@/styles/dlc/_rich-text.scss";
+<style
+    lang="scss"
+    scoped
+>
+@use "@/styles/default/_rich-text.scss" as *;
+@use "@/styles/ftva/_rich-text.scss" as *;
+@use "@/styles/dlc/_rich-text.scss" as *;
 </style>

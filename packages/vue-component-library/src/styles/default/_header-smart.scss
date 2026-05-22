@@ -1,3 +1,5 @@
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+
 .header-smart {
     @media #{$medium} {
         .brand-bar {

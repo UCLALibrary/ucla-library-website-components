@@ -215,5 +215,5 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_bento-pod.scss";
+@use "@/styles/dlc/_bento-pod.scss" as *;
 </style>

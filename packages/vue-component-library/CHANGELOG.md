@@ -1,3 +1,45 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.76.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.76.1...@ucla-library-monorepo/ucla-library-website-components-v1.76.2) (2026-05-22)
+
+
+### Bug Fixes
+
+* LADI-5186 Overuse of italics - remove italic style from pull quote ([#943](https://github.com/UCLALibrary/ucla-library-website-components/issues/943)) ([a22c37c](https://github.com/UCLALibrary/ucla-library-website-components/commit/a22c37ce6c246a701857960aff36497f0e12c09e))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.76.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.76.0...@ucla-library-monorepo/ucla-library-website-components-v1.76.1) (2026-05-22)
+
+
+### Bug Fixes
+
+* LADI-5185 do not render unless slot has content ([#942](https://github.com/UCLALibrary/ucla-library-website-components/issues/942)) ([8546cb0](https://github.com/UCLALibrary/ucla-library-website-components/commit/8546cb0cade36786333b4bcf343a46b7c8279014))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.76.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.4...@ucla-library-monorepo/ucla-library-website-components-v1.76.0) (2026-05-21)
+
+
+### Features
+
+* BREAKING APPS-3070 migrate sass [@import](https://github.com/import) statements to [@use](https://github.com/use) / [@forward](https://github.com/forward) ([#930](https://github.com/UCLALibrary/ucla-library-website-components/issues/930)) ([9c82fca](https://github.com/UCLALibrary/ucla-library-website-components/commit/9c82fcafbce24b7d58d0dc93fd398680a84ea578))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.75.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.3...@ucla-library-monorepo/ucla-library-website-components-v1.75.4) (2026-05-19)
+
+
+### Bug Fixes
+
+* LADI-5183 Component blockStaffArticleList: Remove the margin bottom from byline in the meta ([#941](https://github.com/UCLALibrary/ucla-library-website-components/issues/941)) ([78c7b98](https://github.com/UCLALibrary/ucla-library-website-components/commit/78c7b9855cb24a7d71df3cb4a9e2889e05c25ee6))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.75.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.2...@ucla-library-monorepo/ucla-library-website-components-v1.75.3) (2026-05-08)
+
+
+### Bug Fixes
+
+* LADI-3732 add alt, srcset, and sizes data to poster img ([#940](https://github.com/UCLALibrary/ucla-library-website-components/issues/940)) ([3449fef](https://github.com/UCLALibrary/ucla-library-website-components/commit/3449fef1465975d1dd3cbee394d9169f24fe41b7))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.75.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.1...@ucla-library-monorepo/ucla-library-website-components-v1.75.2) (2026-05-05)
+
+
+### Bug Fixes
+
+* LADI-5176 Explicitly assign item alignment for each theme for BlockStaffArticleItem ([#939](https://github.com/UCLALibrary/ucla-library-website-components/issues/939)) ([7c3ca6b](https://github.com/UCLALibrary/ucla-library-website-components/commit/7c3ca6be6420965150fdebfc5d5c5ec78e1124b9))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.75.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.0...@ucla-library-monorepo/ucla-library-website-components-v1.75.1) (2026-04-28)
 
 

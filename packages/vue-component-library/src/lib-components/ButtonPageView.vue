@@ -77,5 +77,5 @@ function makeTo(view: 'list' | 'gallery') {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_button-page-view.scss";
+@use "@/styles/dlc/_button-page-view.scss" as *;
 </style>

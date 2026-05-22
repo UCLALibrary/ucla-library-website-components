@@ -31,6 +31,6 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_table-row.scss";
-@import "@/styles/ftva/_table-row.scss";
+@use "@/styles/default/_table-row.scss" as *;
+@use "@/styles/ftva/_table-row.scss" as *;
 </style>
