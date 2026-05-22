@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.76.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.76.0...@ucla-library-monorepo/ucla-library-website-components-v1.76.1) (2026-05-22)
+
+
+### Bug Fixes
+
+* LADI-5185 do not render unless slot has content ([#942](https://github.com/UCLALibrary/ucla-library-website-components/issues/942)) ([8546cb0](https://github.com/UCLALibrary/ucla-library-website-components/commit/8546cb0cade36786333b4bcf343a46b7c8279014))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.76.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.75.4...@ucla-library-monorepo/ucla-library-website-components-v1.76.0) (2026-05-21)
 
 
