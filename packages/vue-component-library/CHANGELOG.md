@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.76.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.76.1...@ucla-library-monorepo/ucla-library-website-components-v1.76.2) (2026-05-22)
+
+
+### Bug Fixes
+
+* LADI-5186 Overuse of italics - remove italic style from pull quote ([#943](https://github.com/UCLALibrary/ucla-library-website-components/issues/943)) ([a22c37c](https://github.com/UCLALibrary/ucla-library-website-components/commit/a22c37ce6c246a701857960aff36497f0e12c09e))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.76.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.76.0...@ucla-library-monorepo/ucla-library-website-components-v1.76.1) (2026-05-22)
 
 
