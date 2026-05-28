@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.77.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.76.2...@ucla-library-monorepo/ucla-library-website-components-v1.77.0) (2026-05-28)
+
+
+### Features
+
+* LADI-5187 v-bind image attributes ([#944](https://github.com/UCLALibrary/ucla-library-website-components/issues/944)) ([1331656](https://github.com/UCLALibrary/ucla-library-website-components/commit/13316567521e517a95807e0ca4b95171af684174))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.76.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.76.1...@ucla-library-monorepo/ucla-library-website-components-v1.76.2) (2026-05-22)
 
 
