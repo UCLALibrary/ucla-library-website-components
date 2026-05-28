@@ -73,6 +73,8 @@ onMounted(() => {
   // set the widths of cards that appear within scrollwrapper
   --card-max-width: 328px;
   --card-min-width: 322px;
+  // move arrows on top of content
+  position: relative;
   // START styles to emulate section-teaser-card for BlockCardWithImage inside Scrollwrapper
  :deep(.v-slide-group__content) {
      &:has(.block-highlight) {
@@ -98,8 +100,6 @@ onMounted(() => {
     // max-width: 327px !important;
     min-height: 350px;
     // END styles to emulate section-teaser-card for BlockCardWithImage inside Scrollwrapper
-    // move arrows on top of content
-    position: relative;
     // ensure links are clickable
     .card-meta {
       a.title {
