@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.77.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.77.0...@ucla-library-monorepo/ucla-library-website-components-v1.77.1) (2026-05-29)
+
+
+### Bug Fixes
+
+* LADI-5195 move position:relative back to top level ([#945](https://github.com/UCLALibrary/ucla-library-website-components/issues/945)) ([760d385](https://github.com/UCLALibrary/ucla-library-website-components/commit/760d385e755f65b7da01f37b17668ad69a95a0ca))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.77.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.76.2...@ucla-library-monorepo/ucla-library-website-components-v1.77.0) (2026-05-28)
 
 
