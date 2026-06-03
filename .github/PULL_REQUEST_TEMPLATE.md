@@ -7,6 +7,7 @@ Deployed on https://deploy-preview-xxx--test-ftva.netlify.app
 **Screenshot:**
 
 **Checklist:**
+- [ ] I added my updates to the storybook
 - [ ] I checked this PR in Chrome
     - [ ] I checked this PR in desktop view
     - [ ] I checked this PR in tablet view
@@ -35,10 +36,9 @@ Deployed on https://deploy-preview-xxx--test-ftva.netlify.app
     - [ ] I zoomed the site to 200%
     - [ ] I checked for keyboard traps
     - [ ] I double checked it looks like the designs
-- [ ] I included a working / updated spec file
 - [ ] I reviewed the Chromatic
-- [ ] UX has reviewed the deploy preview
+- [ ] UX has reviewed the storybook
 - [ ] UX has reviewed the Chromatic
 - [ ] Another Dev has reviewed the Chromatic
-- [ ] Another Dev has reviewed the deploy preview
+- [ ] Another Dev has reviewed the storybook
 - [ ] Another Dev has reviewed the code
