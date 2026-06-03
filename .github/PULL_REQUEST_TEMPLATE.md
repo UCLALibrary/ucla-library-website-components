@@ -1,23 +1,44 @@
-Connected to [APPS-](https://jira.library.ucla.edu/browse/APPS-)
+Connected to [LADI-](https://jira.library.ucla.edu/browse/LADI-)
 
-**Component Created:** {filename}.vue
-
-**Stories:** ~/stories/{filename}.stories.js
-
-**Spec:** ~/stories/{filename}.spec.js
+Deployed on https://deploy-preview-xxx--test-ftva.netlify.app
 
 **Notes:**
 
-{Any notes about what you built. How does it work? Anything missing?}
+**Screenshot:**
 
 **Checklist:**
-
--   [ ] I checked that it is working locally in the dev server
--   [ ] I checked that it is working locally in the storybook
--   [ ] I checked that it is working locally in the 
-library-website-nuxt dev server
--   [ ] I added a screenshot of it working
--   [ ] UX has reviewed and approved this
--   [ ] I assigned this PR to someone on the dev team to review
--   [ ] I used a conventional commit message
--   [ ] I assigned myself to this PR
+- [ ] I checked this PR in Chrome
+    - [ ] I checked this PR in desktop view
+    - [ ] I checked this PR in tablet view
+    - [ ] I checked this PR in mobile view
+    - [ ] I zoomed the site to 200%
+    - [ ] I checked for keyboard traps
+    - [ ] I double checked it looks like the designs
+- [ ] I checked this PR in Firefox
+    - [ ] I checked this PR in desktop view
+    - [ ] I checked this PR in tablet view
+    - [ ] I checked this PR in desktop view
+    - [ ] I zoomed the site to 200%
+    - [ ] I checked for keyboard traps
+    - [ ] I double checked it looks like the designs
+- [ ] I checked this PR in Safari
+    - [ ] I checked this PR in desktop view
+    - [ ] I checked this PR in tablet view
+    - [ ] I checked this PR in tablet view
+    - [ ] I zoomed the site to 200%
+    - [ ] I checked for keyboard traps
+    - [ ] I double checked it looks like the designs
+- [ ] I checked this PR in Edge
+    - [ ] I checked this PR in desktop view
+    - [ ] I checked this PR in tablet view
+    - [ ] I checked this PR in mobile view
+    - [ ] I zoomed the site to 200%
+    - [ ] I checked for keyboard traps
+    - [ ] I double checked it looks like the designs
+- [ ] I included a working / updated spec file
+- [ ] I reviewed the Chromatic
+- [ ] UX has reviewed the deploy preview
+- [ ] UX has reviewed the Chromatic
+- [ ] Another Dev has reviewed the Chromatic
+- [ ] Another Dev has reviewed the deploy preview
+- [ ] Another Dev has reviewed the code
