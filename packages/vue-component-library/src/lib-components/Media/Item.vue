@@ -4,6 +4,7 @@ import type { PropType } from 'vue'
 import VideoJs from './VideoJs.vue'
 import type { MediaItemType } from '@/types/types'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const props = defineProps({
   // the image / video / audio / embed
@@ -80,11 +81,18 @@ const hasImage = computed(() => {
 const hasCoverImage = computed(() => {
   return props.coverOnly && (props.coverImage && props.coverImage.length > 0)
 })
+
+const sanitizedEmbedCode = computed(() => {
+  return sanitizeHtml(props.embedCode, {
+    ADD_TAGS: ['iframe'],
+    ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'loading', 'referrerpolicy', 'scrolling'],
+  })
+})
 </script>
 
 <template>
   <div class="media-item">
-    <div v-if="isEmbed" class="media media-embed" v-html="embedCode" />
+    <div v-if="isEmbed" class="media media-embed" v-html="sanitizedEmbedCode" />
     <img v-else-if="hasImage" class="media media-image" :style="mediaStyles" v-bind="item[0]">
     <img v-else-if="hasCoverImage" class="media media-image coveronly" :style="mediaStyles" v-bind="props.coverImage[0]">
     <VideoJs
