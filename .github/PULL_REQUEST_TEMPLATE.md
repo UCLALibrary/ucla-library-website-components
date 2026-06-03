@@ -1,6 +1,6 @@
 Connected to [LADI-](https://jira.library.ucla.edu/browse/LADI-)
 
-Deployed on https://deploy-preview-946--ucla-library-storybook.netlify.app
+Deployed on https://deploy-preview-xxx--ucla-library-storybook.netlify.app
 
 **Notes:**
 
