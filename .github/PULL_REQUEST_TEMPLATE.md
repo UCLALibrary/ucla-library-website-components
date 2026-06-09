@@ -25,7 +25,7 @@
     - [ ] Check for keyboard traps
 - [ ] Design & Code
     - [ ] Add updates to Storybook
-    - [ ] Check that looks like the designs
+    - [ ] Check that it looks like the design(s)
     - [ ] Review the Chromatic
 
 ### UX Review
