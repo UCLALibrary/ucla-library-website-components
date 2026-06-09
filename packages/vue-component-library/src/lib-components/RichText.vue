@@ -28,7 +28,9 @@ const parsedContent = computed(() => {
 
 <template>
   <div :class="classes">
-    <div class="parsed-content" v-html="parsedContent" />
+    <!-- <client-only> -->
+      <div class="parsed-content" v-dompurify-html="parsedContent" />
+    <!-- </client-only> -->
     <slot />
   </div>
 </template>
