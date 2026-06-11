@@ -78,7 +78,7 @@ export default {
 
     <div class="text row">
       <span class="category">{{ category }}</span>
-      <h2 class="title" :id="titleId" v-text="title" />
+      <h2 :id="titleId" class="title" v-text="title" />
       <div class="date-time">
         <time v-if="startDate" class="dates" v-text="parsedDate" />
         <time v-if="parsedTime" class="time" v-text="parsedTime" />
