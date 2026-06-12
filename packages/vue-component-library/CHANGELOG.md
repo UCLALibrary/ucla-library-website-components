@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.78.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.77.2...@ucla-library-monorepo/ucla-library-website-components-v1.78.0) (2026-06-12)
+
+
+### Features
+
+* LADI-5226 ensure all children of ul are li ([#948](https://github.com/UCLALibrary/ucla-library-website-components/issues/948)) ([1b3b835](https://github.com/UCLALibrary/ucla-library-website-components/commit/1b3b835bd38584ace06a468927b3745124e4673a))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.77.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.77.1...@ucla-library-monorepo/ucla-library-website-components-v1.77.2) (2026-06-11)
 
 
