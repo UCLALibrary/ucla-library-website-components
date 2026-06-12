@@ -1,23 +1,37 @@
-Connected to [APPS-](https://jira.library.ucla.edu/browse/APPS-)
+#### Connected to [LADI-](https://jira.library.ucla.edu/browse/LADI-)
 
-**Component Created:** {filename}.vue
+#### Deployed on https://deploy-preview-xxx--ucla-library-storybook.netlify.app/
 
-**Stories:** ~/stories/{filename}.stories.js
+---
 
-**Spec:** ~/stories/{filename}.spec.js
+### Notes
 
-**Notes:**
+{add notes about your PR}
 
-{Any notes about what you built. How does it work? Anything missing?}
+### Screenshot
 
-**Checklist:**
+{add a screenshot if applicable}
 
--   [ ] I checked that it is working locally in the dev server
--   [ ] I checked that it is working locally in the storybook
--   [ ] I checked that it is working locally in the 
-library-website-nuxt dev server
--   [ ] I added a screenshot of it working
--   [ ] UX has reviewed and approved this
--   [ ] I assigned this PR to someone on the dev team to review
--   [ ] I used a conventional commit message
--   [ ] I assigned myself to this PR
+---
+
+## Checklist
+
+### Author
+- [ ] Browsers
+    - [ ] Review PR in Chrome, Firefox, Safari, Edge
+    - [ ] Review PR in desktop view, tablet view, mobile view
+- [ ] A11Y
+    - [ ] Zoom the site to 200%
+    - [ ] Check for keyboard traps
+- [ ] Design & Code
+    - [ ] Add updates to Storybook
+    - [ ] Check that it looks like the design(s)
+    - [ ] Review the Chromatic _(if the PR is large and requires it)_
+
+### UX Review
+- [ ] UX has reviewed and approved
+
+### Dev Review
+  - [ ] Review Chromatic
+  - [ ] Review the Storybook preview
+  - [ ] Review the code
