@@ -3,6 +3,7 @@
 import { computed } from 'vue'
 import stripCraftURLFromText from '@/utils/stripCraftURLFromText'
 import accessibleExternalLinks from '@/utils/accessibleExternalLinks'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 import { useTheme } from '@/composables/useTheme'
 
@@ -21,8 +22,9 @@ const classes = computed(() => {
 
 const parsedContent = computed(() => {
   const content = stripCraftURLFromText(props.richTextContent)
+  const contentWithAccessibleLinks = accessibleExternalLinks(content)
 
-  return accessibleExternalLinks(content)
+  return sanitizeHtml(contentWithAccessibleLinks)
 })
 </script>
 
