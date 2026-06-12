@@ -1,6 +1,6 @@
 #### Connected to [LADI-](https://jira.library.ucla.edu/browse/LADI-)
 
-#### Deployed on https://deploy-preview-xxx--test-ftva.netlify.app
+#### Deployed on https://deploy-preview-xxx--ucla-library-storybook.netlify.app/
 
 ---
 
@@ -26,7 +26,7 @@
 - [ ] Design & Code
     - [ ] Add updates to Storybook
     - [ ] Check that it looks like the design(s)
-    - [ ] Review the Chromatic
+    - [ ] Review the Chromatic _(if the PR is large and requires it)_
 
 ### UX Review
 - [ ] UX has reviewed and approved
