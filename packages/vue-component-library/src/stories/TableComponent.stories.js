@@ -274,9 +274,6 @@ const mockFTVAfilmdata = [
 // This story mocks an async data call for the Filmography data
 const FTVAPaleBlueThemeTemplate = (args) => {
   return {
-    setup() {
-      return { args }
-    },
     data() {
       return { tableHeaders: mockFTVAtableHeaders, tableCaption: 'Filmography', colorScheme: 'paleblue' }
     },
@@ -298,7 +295,7 @@ const FTVAPaleBlueThemeTemplate = (args) => {
       }
       fetchFilmData()
       // return the filmData to be used in the template
-      return { filmData }
+      return { filmData, args }
     },
     components: { TableComponent, TableRow, ResponsiveImage, SmartLink, RichText },
     template: `
@@ -336,9 +333,6 @@ FTVAPaleBlueTheme.args = {
 
 const FTVAFilmographyTemplate = (args) => {
   return {
-    setup() {
-      return { args }
-    },
     data() {
       return { tableHeaders: mockFTVAtableHeaders, tableCaption: 'Filmography', colorScheme: 'paleblue' }
     },
@@ -360,7 +354,7 @@ const FTVAFilmographyTemplate = (args) => {
       }
       fetchFilmData()
       // return the filmData to be used in the template
-      return { filmData }
+      return { filmData, args }
     },
     components: { TableComponent, TableRow, ResponsiveImage, SmartLink, RichText },
     template: `
