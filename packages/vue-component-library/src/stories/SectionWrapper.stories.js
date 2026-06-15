@@ -46,7 +46,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -67,7 +66,6 @@ const DefaultTemplate = (args) => {
 
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
-
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -107,7 +105,6 @@ const mockDefaultHome = [{
   postDate: '2022-06-21T12:39:00-07:00'
 }]
 const DefaultHomeTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -131,9 +128,7 @@ const DefaultHomeTemplate = (args) => {
 export const DefaultHome = DefaultHomeTemplate.bind({})
 DefaultHome.args = {}
 
-
 const NoMetaTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -152,9 +147,7 @@ const NoMetaTemplate = (args) => {
 export const NoMeta = NoMetaTemplate.bind({})
 NoMeta.args = {}
 
-
 const GrayThemeTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -176,9 +169,7 @@ const GrayThemeTemplate = (args) => {
 export const GrayTheme = GrayThemeTemplate.bind({})
 GrayTheme.args = {}
 
-
 const NestedTemplate = (args) => {
-  void args
   return {
     components: { SectionWrapper },
     template: `
@@ -200,9 +191,7 @@ const NestedTemplate = (args) => {
 export const Nested = NestedTemplate.bind({})
 Nested.args = {}
 
-
 const DividerTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -280,7 +269,6 @@ const mockFtva = [
 ]
 
 const FtvaUpcomingEventsTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -310,7 +298,6 @@ const FtvaUpcomingEventsTemplate = (args) => {
 export const FtvaUpcomingEvents = FtvaUpcomingEventsTemplate.bind({})
 FtvaUpcomingEvents.args = {}
 
-
 const mockBeforeImage = [
   {
     id: '3280520',
@@ -334,7 +321,6 @@ const mockBeforeAfterImageCarousel = [{
 }]
 
 const FtvaHomepagePartialTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -395,7 +381,6 @@ const FtvaHomepagePartialTemplate = (args) => {
 export const FtvaHomepagePartial = FtvaHomepagePartialTemplate.bind({})
 FtvaHomepagePartial.args = {}
 
-
 const mockFtvaSeries = [
   {
     to: 'series/todd-solondz-series',
@@ -451,7 +436,6 @@ const mockFtvaSeries = [
 ]
 
 const FtvaSeries3CardsTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -489,9 +473,7 @@ const FtvaSeries3CardsTemplate = (args) => {
 export const FtvaSeries3Cards = FtvaSeries3CardsTemplate.bind({})
 FtvaSeries3Cards.args = {}
 
-
 const FtvaSeries2CardsTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -528,7 +510,6 @@ const FtvaSeries2CardsTemplate = (args) => {
 
 export const FtvaSeries2Cards = FtvaSeries2CardsTemplate.bind({})
 FtvaSeries2Cards.args = {}
-
 
 const mockUpcomingEvents = [
   {
@@ -606,7 +587,6 @@ const mockPastEvents = [
 ]
 
 const FtvaTabListSectionTeaserListPastUpcomingTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -669,7 +649,6 @@ const FtvaTabListSectionTeaserListPastUpcomingTemplate = (args) => {
 
 export const FtvaTabListSectionTeaserListPastUpcoming = FtvaTabListSectionTeaserListPastUpcomingTemplate.bind({})
 FtvaTabListSectionTeaserListPastUpcoming.args = {}
-
 
 const mockSeries = [
   {
@@ -882,7 +861,6 @@ const mockSeries = [
 ]
 
 const FtvaSeriesListingTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -932,7 +910,6 @@ const FtvaSeriesListingTemplate = (args) => {
 
 export const FtvaSeriesListing = FtvaSeriesListingTemplate.bind({})
 FtvaSeriesListing.args = {}
-
 
 const mockFTVAtableHeaders = ['', 'Film', 'Role', 'Year']
 const mockFTVAfilmdata = [
@@ -989,7 +966,6 @@ const mockFTVAfilmdata = [
     ]
   }]
 const FTVAFilmographySectionTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -1039,4 +1015,3 @@ const FTVAFilmographySectionTemplate = (args) => {
 
 export const FTVAFilmographySection = FTVAFilmographySectionTemplate.bind({})
 FTVAFilmographySection.args = {}
-

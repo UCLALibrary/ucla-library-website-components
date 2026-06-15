@@ -6,7 +6,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {}
@@ -21,13 +20,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const NoInternalLocationsTemplate = (args) => {
-  void args
   return {
     data() {
       return {}
@@ -42,9 +39,7 @@ const NoInternalLocationsTemplate = (args) => {
 export const NoInternalLocations = NoInternalLocationsTemplate.bind({})
 NoInternalLocations.args = {}
 
-
 const MoreInternalLocationsTemplate = (args) => {
-  void args
   return {
     data() {
       return {}
@@ -59,9 +54,7 @@ const MoreInternalLocationsTemplate = (args) => {
 export const MoreInternalLocations = MoreInternalLocationsTemplate.bind({})
 MoreInternalLocations.args = {}
 
-
 const WithZeroLidTemplate = (args) => {
-  void args
   return {
     data() {
       return {}
@@ -78,4 +71,3 @@ const WithZeroLidTemplate = (args) => {
 
 export const WithZeroLid = WithZeroLidTemplate.bind({})
 WithZeroLid.args = {}
-

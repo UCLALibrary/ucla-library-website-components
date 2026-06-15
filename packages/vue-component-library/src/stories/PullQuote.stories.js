@@ -12,7 +12,6 @@ const mock = {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -32,7 +31,6 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -42,7 +40,6 @@ const mockNoAttribution = {
 }
 
 const NoAttributionTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -61,9 +58,7 @@ const NoAttributionTemplate = (args) => {
 export const NoAttribution = NoAttributionTemplate.bind({})
 NoAttribution.args = {}
 
-
 const FTVADefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -89,7 +84,6 @@ export const FTVADefault = FTVADefaultTemplate.bind({})
 FTVADefault.args = {}
 
 const FTVADefaultNoAttributionTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -112,4 +106,3 @@ const FTVADefaultNoAttributionTemplate = (args) => {
 
 export const FTVADefaultNoAttribution = FTVADefaultNoAttributionTemplate.bind({})
 FTVADefaultNoAttribution.args = {}
-

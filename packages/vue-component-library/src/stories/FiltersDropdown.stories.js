@@ -28,7 +28,6 @@ const mockSelectedFilters = ref({
 })
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: { FiltersDropdown },
     data() {
@@ -41,14 +40,12 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 // uses async data
 const InitialSelectedFiltersTemplate = (args) => {
-  void args
   return {
     components: { FiltersDropdown },
     setup() {
@@ -78,10 +75,8 @@ const InitialSelectedFiltersTemplate = (args) => {
 export const InitialSelectedFilters = InitialSelectedFiltersTemplate.bind({})
 InitialSelectedFilters.args = {}
 
-
 // FTVA Theme
 const FTVATemplate = (args) => {
-  void args
   return {
     components: { FiltersDropdown },
     data() {
@@ -99,7 +94,6 @@ const FTVATemplate = (args) => {
 export const FTVA = FTVATemplate.bind({})
 FTVA.args = {}
 
-
 // FTVA Theme W Selected Filters updating on 'done' click only
 // This is the current planned implmentation on the FTVA site
 const mockSelectedFiltersEmitted = ref({
@@ -107,7 +101,6 @@ const mockSelectedFiltersEmitted = ref({
   'ftvaScreeningFormatFilters.title.keyword': ['Online'],
 })
 const FTVAFiltersUpdateDoneClickTemplate = (args) => {
-  void args
   return {
     components: { FiltersDropdown },
     setup() {
@@ -137,4 +130,3 @@ const FTVAFiltersUpdateDoneClickTemplate = (args) => {
 
 export const FTVAFiltersUpdateDoneClick = FTVAFiltersUpdateDoneClickTemplate.bind({})
 FTVAFiltersUpdateDoneClick.args = {}
-

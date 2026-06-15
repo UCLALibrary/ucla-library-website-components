@@ -62,7 +62,6 @@ const ongoing = {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mock }
@@ -90,13 +89,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const SingleDigitDateTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockSingleDigitDate }
@@ -124,9 +121,7 @@ const SingleDigitDateTemplate = (args) => {
 export const SingleDigitDate = SingleDigitDateTemplate.bind({})
 SingleDigitDate.args = {}
 
-
 const OngoingEventTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...ongoing }
@@ -152,4 +147,3 @@ const OngoingEventTemplate = (args) => {
 
 export const OngoingEvent = OngoingEventTemplate.bind({})
 OngoingEvent.args = {}
-

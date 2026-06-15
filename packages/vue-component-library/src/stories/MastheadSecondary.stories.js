@@ -13,7 +13,6 @@ const mock = {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mock }
@@ -31,7 +30,6 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -43,7 +41,6 @@ const mock2 = {
 }
 
 const LongTextTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mock2 }
@@ -61,9 +58,7 @@ const LongTextTemplate = (args) => {
 export const LongText = LongTextTemplate.bind({})
 LongText.args = {}
 
-
 const NoMoleculeTemplate = (args) => {
-  void args
   return {
     components: { MastheadSecondary },
     template: `
@@ -79,9 +74,7 @@ const NoMoleculeTemplate = (args) => {
 export const NoMolecule = NoMoleculeTemplate.bind({})
 NoMolecule.args = {}
 
-
 const MeapThemeTemplate = (args) => {
-  void args
   return {
     components: { MastheadSecondary },
     data: () => ({
@@ -111,4 +104,3 @@ const MeapThemeTemplate = (args) => {
 
 export const MeapTheme = MeapThemeTemplate.bind({})
 MeapTheme.args = {}
-

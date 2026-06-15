@@ -1,6 +1,6 @@
 import { computed } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import BlockSimpleCard from '@/lib-components/BlockSimpleCard'
-import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
 
 export default {
   title: 'BLOCK / Simple Card',
@@ -112,4 +112,3 @@ FTVADefault.args = {
   ...Default.args,
   theme: 'ftva',
 }
-

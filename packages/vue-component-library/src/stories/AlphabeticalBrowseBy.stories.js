@@ -7,7 +7,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     provide() {
       return {
@@ -22,13 +21,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const CIsSelectedTemplate = (args) => {
-  void args
   return {
     provide() {
       return {
@@ -43,9 +40,7 @@ const CIsSelectedTemplate = (args) => {
 export const CIsSelected = CIsSelectedTemplate.bind({})
 CIsSelected.args = {}
 
-
 const NoAllTemplate = (args) => {
-  void args
   return {
     provide() {
       return {
@@ -60,9 +55,7 @@ const NoAllTemplate = (args) => {
 export const NoAll = NoAllTemplate.bind({})
 NoAll.args = {}
 
-
 const FTVATemplate = (args) => {
-  void args
   return {
     provide() {
       return {
@@ -78,7 +71,6 @@ export const FTVA = FTVATemplate.bind({})
 FTVA.args = {}
 
 const FTVAAisSelectedTemplate = (args) => {
-  void args
   return {
     provide() {
       return {
@@ -93,9 +85,7 @@ const FTVAAisSelectedTemplate = (args) => {
 export const FTVAAisSelected = FTVAAisSelectedTemplate.bind({})
 FTVAAisSelected.args = {}
 
-
 const DLCTemplate = (args) => {
-  void args
   return {
     provide() {
       return {
@@ -110,9 +100,7 @@ const DLCTemplate = (args) => {
 export const DLC = DLCTemplate.bind({})
 DLC.args = {}
 
-
 const DLCAisSelectedTemplate = (args) => {
-  void args
   return {
     provide() {
       return {
@@ -126,4 +114,3 @@ const DLCAisSelectedTemplate = (args) => {
 
 export const DLCAisSelected = DLCAisSelectedTemplate.bind({})
 DLCAisSelected.args = {}
-

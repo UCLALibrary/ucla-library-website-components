@@ -116,7 +116,6 @@ const mockNoTrailer = [
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockDefault }
@@ -140,13 +139,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const MultipleScreeningsTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockMultiple }
@@ -170,9 +167,7 @@ const MultipleScreeningsTemplate = (args) => {
 export const MultipleScreenings = MultipleScreeningsTemplate.bind({})
 MultipleScreenings.args = {}
 
-
 const NoTrailerTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockNoTrailer }
@@ -195,4 +190,3 @@ const NoTrailerTemplate = (args) => {
 
 export const NoTrailer = NoTrailerTemplate.bind({})
 NoTrailer.args = {}
-

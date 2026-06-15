@@ -87,7 +87,6 @@ const mockMixedOngoingEvents = [
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockDefault }
@@ -104,13 +103,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const ExpandableTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockDefault }
@@ -127,9 +124,7 @@ const ExpandableTemplate = (args) => {
 export const Expandable = ExpandableTemplate.bind({})
 Expandable.args = {}
 
-
 const MixedOngoingEventsTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockMixedOngoingEvents }
@@ -145,7 +140,6 @@ const MixedOngoingEventsTemplate = (args) => {
 
 export const MixedOngoingEvents = MixedOngoingEventsTemplate.bind({})
 MixedOngoingEvents.args = {}
-
 
 const mockDynamicComponent = [
   {
@@ -179,7 +173,6 @@ const mockDynamicComponent = [
 ]
 
 const DynamicComponentTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockDynamicComponent }
@@ -201,4 +194,3 @@ const DynamicComponentTemplate = (args) => {
 
 export const DynamicComponent = DynamicComponentTemplate.bind({})
 DynamicComponent.args = {}
-

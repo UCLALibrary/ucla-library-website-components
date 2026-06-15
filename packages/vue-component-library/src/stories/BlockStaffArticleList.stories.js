@@ -27,7 +27,6 @@ const mock = {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mock }
@@ -50,13 +49,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const MultipleAuthorsTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -85,9 +82,7 @@ const MultipleAuthorsTemplate = (args) => {
 export const MultipleAuthors = MultipleAuthorsTemplate.bind({})
 MultipleAuthors.args = {}
 
-
 const LongTitleTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -116,9 +111,7 @@ const LongTitleTemplate = (args) => {
 export const LongTitle = LongTitleTemplate.bind({})
 LongTitle.args = {}
 
-
 const LongDescriptionTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -155,9 +148,7 @@ const LongDescriptionTemplate = (args) => {
 export const LongDescription = LongDescriptionTemplate.bind({})
 LongDescription.args = {}
 
-
 const NoImageTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mock, image: {} }
@@ -180,9 +171,7 @@ const NoImageTemplate = (args) => {
 export const NoImage = NoImageTemplate.bind({})
 NoImage.args = {}
 
-
 const NoAuthorOrDateTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mock }
@@ -217,7 +206,6 @@ const mockDateRange2 = {
 }
 
 const FtvaDateRangeTemplate = (args) => {
-  void args
   return {
 
     data() {
@@ -273,9 +261,7 @@ const FtvaDateRangeTemplate = (args) => {
 export const FtvaDateRange = FtvaDateRangeTemplate.bind({})
 FtvaDateRange.args = {}
 
-
 const FtvaCategoryTemplate = (args) => {
-  void args
   return {
 
     data() {
@@ -331,9 +317,7 @@ const FtvaCategoryTemplate = (args) => {
 export const FtvaCategory = FtvaCategoryTemplate.bind({})
 FtvaCategory.args = {}
 
-
 const FtvaSameStartEndDateTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockDateRange2 }
@@ -403,7 +387,6 @@ const mockOngoing = {
   sectionHandle: 'ftvaEventSeries',
 }
 const FtvaOngoingTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockOngoing }
@@ -458,9 +441,7 @@ const FtvaOngoingTemplate = (args) => {
 export const FtvaOngoing = FtvaOngoingTemplate.bind({})
 FtvaOngoing.args = {}
 
-
 const FtvaArticlesListingTemplate = (args) => {
-  void args
   return {
 
     data() {
@@ -531,7 +512,6 @@ export const FtvaArticlesListing = FtvaArticlesListingTemplate.bind({})
 FtvaArticlesListing.args = {}
 
 const FtvaEventSeriesListingTemplate = (args) => {
-  void args
   return {
 
     data() {
@@ -596,7 +576,6 @@ export const FtvaEventSeriesListing = FtvaEventSeriesListingTemplate.bind({})
 FtvaEventSeriesListing.args = {}
 
 const FtvaFilmmakersListingTemplate = (args) => {
-  void args
   return {
 
     data() {
@@ -659,7 +638,6 @@ export const FtvaFilmmakersListing = FtvaFilmmakersListingTemplate.bind({})
 FtvaFilmmakersListing.args = {}
 
 const FtvaSearchResultsTemplate = (args) => {
-  void args
   return {
 
     data() {
@@ -734,4 +712,3 @@ const FtvaSearchResultsTemplate = (args) => {
 
 export const FtvaSearchResults = FtvaSearchResultsTemplate.bind({})
 FtvaSearchResults.args = {}
-

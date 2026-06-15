@@ -1,10 +1,10 @@
 import { computed, onBeforeUnmount, onMounted } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import CardMeta from '@/lib-components/CardMeta'
 import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
 import RichText from '@/lib-components/RichText.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
-import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
 
 function normalizeDateControlValue(value) {
   if (typeof value === 'number') {
@@ -96,7 +96,6 @@ Default.args = {
   ongoing: false,
 }
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -107,11 +106,9 @@ Ongoing.args = {
   ongoing: true,
 }
 
-
 // FTVA STORIES
 
 const FtvaWithBlockTagsAndIntroTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -149,7 +146,6 @@ const FtvaWithBlockTagsAndIntroTemplate = (args) => {
 export const FtvaWithBlockTagsAndIntro = FtvaWithBlockTagsAndIntroTemplate.bind({})
 FtvaWithBlockTagsAndIntro.args = {}
 
-
 const FtvaOnlyCategoryAndTitleTemplate = (args) => {
   return {
     setup() {
@@ -184,7 +180,6 @@ FTVAOngoing.args = {
   theme: 'ftva',
   ongoing: true,
 }
-
 
 const mockFTVAArticleData = {
   title: 'TEST - Tom Reed’s “For Members Only”: Black Perspectives on Local L.A. TV',
@@ -237,7 +232,6 @@ const mockSocialList = {
 }
 
 const FTVAArticleDetailWShareButtonTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -287,9 +281,7 @@ const FTVAArticleDetailWShareButtonTemplate = (args) => {
 export const FTVAArticleDetailWShareButton = FTVAArticleDetailWShareButtonTemplate.bind({})
 FTVAArticleDetailWShareButton.args = {}
 
-
 const FtvaLinkedCategoryAndTitleTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -324,9 +316,7 @@ const FtvaLinkedCategoryAndTitleTemplate = (args) => {
 export const FtvaLinkedCategoryAndTitle = FtvaLinkedCategoryAndTitleTemplate.bind({})
 FtvaLinkedCategoryAndTitle.args = {}
 
-
 const FtvaCustomTitleAndDesriptionTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -371,9 +361,7 @@ const FtvaCustomTitleAndDesriptionTemplate = (args) => {
 export const FtvaCustomTitleAndDesription = FtvaCustomTitleAndDesriptionTemplate.bind({})
 FtvaCustomTitleAndDesription.args = {}
 
-
 const FtvaH1TitleTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -407,9 +395,7 @@ const FtvaH1TitleTemplate = (args) => {
 export const FtvaH1Title = FtvaH1TitleTemplate.bind({})
 FtvaH1Title.args = {}
 
-
 const FtvaCustomDateTimeSlotTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -443,4 +429,3 @@ const FtvaCustomDateTimeSlotTemplate = (args) => {
 
 export const FtvaCustomDateTimeSlot = FtvaCustomDateTimeSlotTemplate.bind({})
 FtvaCustomDateTimeSlot.args = {}
-

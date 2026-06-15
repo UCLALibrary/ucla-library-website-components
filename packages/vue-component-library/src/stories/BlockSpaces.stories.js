@@ -28,7 +28,6 @@ const mock3 = {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -50,13 +49,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const ExternalLinkTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -77,9 +74,7 @@ const ExternalLinkTemplate = (args) => {
 export const ExternalLink = ExternalLinkTemplate.bind({})
 ExternalLink.args = {}
 
-
 const NoLinkTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -99,4 +94,3 @@ const NoLinkTemplate = (args) => {
 
 export const NoLink = NoLinkTemplate.bind({})
 NoLink.args = {}
-

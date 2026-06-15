@@ -59,7 +59,6 @@ const mock = [
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mock }
@@ -77,13 +76,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const DefaultFullWidthTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mock }
@@ -101,7 +98,6 @@ const DefaultFullWidthTemplate = (args) => {
 
 export const DefaultFullWidth = DefaultFullWidthTemplate.bind({})
 DefaultFullWidth.args = {}
-
 
 const mockFtva = [
   {
@@ -122,7 +118,6 @@ const mockFtva = [
 ]
 
 const FTVADefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockFtva }
@@ -146,9 +141,7 @@ const FTVADefaultTemplate = (args) => {
 export const FTVADefault = FTVADefaultTemplate.bind({})
 FTVADefault.args = {}
 
-
 const FTVANoSummaryTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockFtva }
@@ -171,7 +164,6 @@ const FTVANoSummaryTemplate = (args) => {
 export const FTVANoSummary = FTVANoSummaryTemplate.bind({})
 FTVANoSummary.args = {}
 
-
 const mockFtva2 = [
   {
     image: API.image,
@@ -181,7 +173,6 @@ const mockFtva2 = [
 ]
 
 const FTVAOneItemTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockFtva2 }
@@ -205,9 +196,7 @@ const FTVAOneItemTemplate = (args) => {
 export const FTVAOneItem = FTVAOneItemTemplate.bind({})
 FTVAOneItem.args = {}
 
-
 const FTVAOneItemFullWidthTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockFtva2 }
@@ -232,9 +221,7 @@ const FTVAOneItemFullWidthTemplate = (args) => {
 export const FTVAOneItemFullWidth = FTVAOneItemFullWidthTemplate.bind({})
 FTVAOneItemFullWidth.args = {}
 
-
 const FTVAMultipleFullWidthTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockFtva }
@@ -258,4 +245,3 @@ const FTVAMultipleFullWidthTemplate = (args) => {
 
 export const FTVAMultipleFullWidth = FTVAMultipleFullWidthTemplate.bind({})
 FTVAMultipleFullWidth.args = {}
-

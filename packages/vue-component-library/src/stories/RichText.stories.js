@@ -2,7 +2,7 @@ import { computed } from 'vue'
 
 // Mock Data
 import { mockRichText } from './mock/RichText'
-import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 
 // Component
 import RichText from '@/lib-components/RichText.vue'

@@ -9,7 +9,6 @@ export default {
 }
 // TODO update message text as rich text
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -25,14 +24,12 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 // Variations of stories below
 const LongMessageTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -47,4 +44,3 @@ const LongMessageTemplate = (args) => {
 
 export const LongMessage = LongMessageTemplate.bind({})
 LongMessage.args = {}
-

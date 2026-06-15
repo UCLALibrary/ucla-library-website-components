@@ -14,7 +14,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: { ElasticsearchDataViewer },
     template: '<elasticsearch-data-viewer />',

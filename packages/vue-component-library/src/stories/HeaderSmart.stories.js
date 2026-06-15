@@ -1,8 +1,8 @@
 // Storybook default settings
 import { computed } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import HeaderSmart from '@/lib-components/HeaderSmart'
-import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
 
 export default {
   title: 'GLOBAL / Header Smart',
@@ -362,7 +362,6 @@ Default.args = {
   title: '',
 }
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -380,4 +379,3 @@ DLC.args = {
   preset: 'dlc',
   theme: 'dlc',
 }
-

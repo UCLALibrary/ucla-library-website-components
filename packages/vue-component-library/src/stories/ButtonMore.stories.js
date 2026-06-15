@@ -7,7 +7,6 @@ export default {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: { ButtonMore },
     template: '<button-more/>',
@@ -17,13 +16,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const WithAlternateTextTemplate = (args) => {
-  void args
   return {
     components: { ButtonMore },
     template: '<button-more text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>',
@@ -33,9 +30,7 @@ const WithAlternateTextTemplate = (args) => {
 export const WithAlternateText = WithAlternateTextTemplate.bind({})
 WithAlternateText.args = {}
 
-
 const WithLinkTemplate = (args) => {
-  void args
   return {
     components: { ButtonMore },
     template: '<button-more text="See More" to="visit/events-exhibits"/>',
@@ -44,4 +39,3 @@ const WithLinkTemplate = (args) => {
 
 export const WithLink = WithLinkTemplate.bind({})
 WithLink.args = {}
-

@@ -6,7 +6,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: { IconWithLink },
     template: `
@@ -22,13 +21,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const WithExternalLinkTemplate = (args) => {
-  void args
   return {
     components: { IconWithLink },
     template: `
@@ -44,9 +41,7 @@ const WithExternalLinkTemplate = (args) => {
 export const WithExternalLink = WithExternalLinkTemplate.bind({})
 WithExternalLink.args = {}
 
-
 const InternalLinkTemplate = (args) => {
-  void args
   return {
     components: { IconWithLink },
     template: `
@@ -62,9 +57,7 @@ const InternalLinkTemplate = (args) => {
 export const InternalLink = InternalLinkTemplate.bind({})
 InternalLink.args = {}
 
-
 const ConsultationIconLinkTemplate = (args) => {
-  void args
   return {
     components: { IconWithLink },
     template: `
@@ -80,9 +73,7 @@ const ConsultationIconLinkTemplate = (args) => {
 export const ConsultationIconLink = ConsultationIconLinkTemplate.bind({})
 ConsultationIconLink.args = {}
 
-
 const LongTextTemplate = (args) => {
-  void args
   return {
     components: { IconWithLink },
     template: `
@@ -98,9 +89,7 @@ const LongTextTemplate = (args) => {
 export const LongText = LongTextTemplate.bind({})
 LongText.args = {}
 
-
 const GeneralIconsTemplate = (args) => {
-  void args
   return {
     components: { IconWithLink },
     template: `
@@ -256,9 +245,7 @@ const GeneralIconsTemplate = (args) => {
 export const GeneralIcons = GeneralIconsTemplate.bind({})
 GeneralIcons.args = {}
 
-
 const SocialIconsTemplate = (args) => {
-  void args
   return {
     components: { IconWithLink },
     template: `
@@ -306,9 +293,7 @@ const SocialIconsTemplate = (args) => {
 export const SocialIcons = SocialIconsTemplate.bind({})
 SocialIcons.args = {}
 
-
 const FTVACalendarIconsTemplate = (args) => {
-  void args
   return {
     components: { IconWithLink },
     template: `
@@ -344,9 +329,7 @@ const FTVACalendarIconsTemplate = (args) => {
 export const FTVACalendarIcons = FTVACalendarIconsTemplate.bind({})
 FTVACalendarIcons.args = {}
 
-
 const FTVASocialIconsTemplate = (args) => {
-  void args
   return {
     components: { IconWithLink },
     template: `
@@ -393,4 +376,3 @@ const FTVASocialIconsTemplate = (args) => {
 
 export const FTVASocialIcons = FTVASocialIconsTemplate.bind({})
 FTVASocialIcons.args = {}
-

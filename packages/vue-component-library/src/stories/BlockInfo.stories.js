@@ -33,7 +33,6 @@ const mockBlockInfo = {
 }
 
 const DefaultInfoTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockBlockInfo }
@@ -63,13 +62,11 @@ const DefaultInfoTemplate = (args) => {
 export const DefaultInfo = DefaultInfoTemplate.bind({})
 DefaultInfo.args = {}
 
-
 DefaultInfo.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const DefaultInfoListTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockBlockInfo }
@@ -106,9 +103,7 @@ const DefaultInfoListTemplate = (args) => {
 export const DefaultInfoList = DefaultInfoListTemplate.bind({})
 DefaultInfoList.args = {}
 
-
 const DefaultFTVAInfoTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockBlockInfo }
@@ -144,7 +139,6 @@ const DefaultFTVAInfoTemplate = (args) => {
 export const DefaultFTVAInfo = DefaultFTVAInfoTemplate.bind({})
 DefaultFTVAInfo.args = {}
 
-
 const mockFTVAInfo = {
   ftvaTicketInformation: [
     {
@@ -164,7 +158,6 @@ const mockParsedInfoList = computed(() => {
 })
 
 const ExampleFTVAInfoTemplate = (args) => {
-  void args
   return {
     data() {
       return { mockParsedInfoList }
@@ -238,4 +231,3 @@ const ExampleFTVAInfoTemplate = (args) => {
 
 export const ExampleFTVAInfo = ExampleFTVAInfoTemplate.bind({})
 ExampleFTVAInfo.args = {}
-

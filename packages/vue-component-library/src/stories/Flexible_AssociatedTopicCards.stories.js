@@ -43,7 +43,6 @@ const itemsVertical = {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { block: itemsVertical }
@@ -59,7 +58,6 @@ const DefaultTemplate = (args) => {
 
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
-
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },

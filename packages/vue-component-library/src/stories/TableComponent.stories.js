@@ -139,7 +139,6 @@ const tableH = ['Academic Departments', 'Name', 'Contact Information']
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockDefaultStaffSubjectLibrarian, tableHeaders: tableH, tableCaption: 'Subject Librarians' }
@@ -190,7 +189,6 @@ const DefaultTemplate = (args) => {
 
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
-
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -253,7 +251,6 @@ const mockFTVAfilmdata = [
 // This component is used to display Filmography data in the FTVA site
 // This story mocks an async data call for the Filmography data
 const FTVAPaleBlueThemeTemplate = (args) => {
-  void args
   return {
     data() {
       return { tableHeaders: mockFTVAtableHeaders, tableCaption: 'Filmography', colorScheme: 'paleblue' }
@@ -310,9 +307,7 @@ const FTVAPaleBlueThemeTemplate = (args) => {
 export const FTVAPaleBlueTheme = FTVAPaleBlueThemeTemplate.bind({})
 FTVAPaleBlueTheme.args = {}
 
-
 const FTVAFilmographyTemplate = (args) => {
-  void args
   return {
     data() {
       return { tableHeaders: mockFTVAtableHeaders, tableCaption: 'Filmography', colorScheme: 'paleblue' }
@@ -369,7 +364,6 @@ const FTVAFilmographyTemplate = (args) => {
 export const FTVAFilmography = FTVAFilmographyTemplate.bind({})
 FTVAFilmography.args = {}
 
-
 // TODO CHECK DATA MODEL IS CORRECT?
 const mockFTVACredits = [{
   name: 'FirstName LastName',
@@ -381,7 +375,6 @@ const mockFTVACredits = [{
 const mockFTVACreditstableHeaders = ['Name', 'Roles']
 // Display Film Credits data in the FTVA site
 const FTVAFilmCreditsTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockFTVACredits, tableHeaders: mockFTVACreditstableHeaders, tableCaption: 'Film Credits', colorScheme: 'paleblue' }
@@ -409,4 +402,3 @@ const FTVAFilmCreditsTemplate = (args) => {
 
 export const FTVAFilmCredits = FTVAFilmCreditsTemplate.bind({})
 FTVAFilmCredits.args = {}
-

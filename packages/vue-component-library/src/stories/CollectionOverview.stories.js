@@ -1,7 +1,7 @@
 import { computed } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import CollectionOverview from '@/lib-components/CollectionOverview'
 import { ButtonLinkIcons } from '@/types/components/buttonLink.types'
-import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
@@ -67,13 +67,11 @@ Default.args = {
   },
 }
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const WithoutButtonsTemplate = (args) => {
-  void args
   return {
     components: { CollectionOverview },
     data() {
@@ -99,9 +97,7 @@ const WithoutButtonsTemplate = (args) => {
 export const WithoutButtons = WithoutButtonsTemplate.bind({})
 WithoutButtons.args = {}
 
-
 const LongTextContentTemplate = (args) => {
-  void args
   return {
     components: { CollectionOverview },
     data() {
@@ -165,9 +161,7 @@ const LongTextContentTemplate = (args) => {
 export const LongTextContent = LongTextContentTemplate.bind({})
 LongTextContent.args = {}
 
-
 const MinimalContentTemplate = (args) => {
-  void args
   return {
     components: { CollectionOverview },
     data() {
@@ -190,9 +184,7 @@ const MinimalContentTemplate = (args) => {
 export const MinimalContent = MinimalContentTemplate.bind({})
 MinimalContent.args = {}
 
-
 const NoSubtitleTemplate = (args) => {
-  void args
   return {
     components: { CollectionOverview },
     data() {
@@ -227,9 +219,7 @@ const NoSubtitleTemplate = (args) => {
 export const NoSubtitle = NoSubtitleTemplate.bind({})
 NoSubtitle.args = {}
 
-
 const VeryLongTitleTemplate = (args) => {
-  void args
   return {
     components: { CollectionOverview },
     data() {
@@ -263,9 +253,7 @@ const VeryLongTitleTemplate = (args) => {
 export const VeryLongTitle = VeryLongTitleTemplate.bind({})
 VeryLongTitle.args = {}
 
-
 const EdgeCaseEmptyStringsTemplate = (args) => {
-  void args
   return {
     components: { CollectionOverview },
     data() {
@@ -293,4 +281,3 @@ const EdgeCaseEmptyStringsTemplate = (args) => {
 
 export const EdgeCaseEmptyStrings = EdgeCaseEmptyStringsTemplate.bind({})
 EdgeCaseEmptyStrings.args = {}
-

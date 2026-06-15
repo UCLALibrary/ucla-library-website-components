@@ -2,9 +2,9 @@ import { computed } from 'vue'
 
 // Import component
 import { parsedFTVABlogSeries } from './mock/FTVAMedia'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import SectionTeaserCard from '@/lib-components/SectionTeaserCard'
 import ScrollWrapper from '@/lib-components/ScrollWrapper'
-import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
@@ -264,7 +264,6 @@ Default.args = {
   gridLayout: true,
 }
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -450,7 +449,6 @@ DLCEdgeCases.args = {
   gridLayout: true,
 }
 
-
 export const DLCEdgeCasesWithDate = Template.bind({})
 DLCEdgeCasesWithDate.args = {
   theme: 'dlc',
@@ -458,7 +456,6 @@ DLCEdgeCasesWithDate.args = {
   sectionTitle: 'DLC Collections - Edge Cases with Date',
   gridLayout: true,
 }
-
 
 export const FTVAEventDetail = Template.bind({})
 FTVAEventDetail.args = {
@@ -468,7 +465,6 @@ FTVAEventDetail.args = {
   gridLayout: false,
 }
 
-
 export const FTVAEventSeries = Template.bind({})
 FTVAEventSeries.args = {
   theme: 'ftva',
@@ -477,7 +473,6 @@ FTVAEventSeries.args = {
   gridLayout: false,
 }
 
-
 export const FTVABlogSeries = Template.bind({})
 FTVABlogSeries.args = {
   theme: 'ftva',
@@ -485,7 +480,6 @@ FTVABlogSeries.args = {
   sectionTitle: '',
   gridLayout: false,
 }
-
 
 const mockCollectionItems = [
   {
@@ -566,9 +560,7 @@ FTVACollectionItems.args = {
   gridLayout: false,
 }
 
-
 const FTVAHorizontalScrollCardWithImageTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: parsedFTVACollectionItems }
@@ -591,7 +583,6 @@ const FTVAHorizontalScrollCardWithImageTemplate = (args) => {
 
 export const FTVAHorizontalScrollCardWithImage = FTVAHorizontalScrollCardWithImageTemplate.bind({})
 FTVAHorizontalScrollCardWithImage.args = {}
-
 
 const mockCollectionListings = [
   {
@@ -720,7 +711,6 @@ const parsedFTVACollectionListings = mockCollectionListings.map((item) => {
 })
 
 const FTVACollectionListingsTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: parsedFTVACollectionListings }
@@ -758,7 +748,6 @@ const FTVACollectionListingsTemplate = (args) => {
 export const FTVACollectionListings = FTVACollectionListingsTemplate.bind({})
 FTVACollectionListings.args = {}
 
-
 const parsedFTVACollectionListingsCustomDate = mockCollectionListings.map((item) => {
   return {
     title: item.title,
@@ -769,7 +758,6 @@ const parsedFTVACollectionListingsCustomDate = mockCollectionListings.map((item)
 })
 
 const FTVACollectionListingsCustomDateTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: parsedFTVACollectionListingsCustomDate }
@@ -790,4 +778,3 @@ const FTVACollectionListingsCustomDateTemplate = (args) => {
 
 export const FTVACollectionListingsCustomDate = FTVACollectionListingsCustomDateTemplate.bind({})
 FTVACollectionListingsCustomDate.args = {}
-

@@ -7,7 +7,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: { FooterLinks },
     template: `
@@ -18,13 +17,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const FTVAStyleLinksTemplate = (args) => {
-  void args
   return {
     components: { FooterLinks },
     provide() {
@@ -39,4 +36,3 @@ const FTVAStyleLinksTemplate = (args) => {
 
 export const FTVAStyleLinks = FTVAStyleLinksTemplate.bind({})
 FTVAStyleLinks.args = {}
-

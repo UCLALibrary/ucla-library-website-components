@@ -14,7 +14,6 @@ const mock = {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -35,13 +34,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const FTVACardsTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -66,4 +63,3 @@ const FTVACardsTemplate = (args) => {
 
 export const FTVACards = FTVACardsTemplate.bind({})
 FTVACards.args = {}
-

@@ -25,7 +25,6 @@ export default {
 }
 
 const FTVAInfoBlockTemplate = (args) => {
-  void args
   return {
     data() {
       return { block: mockInfoBlock }
@@ -47,7 +46,6 @@ const FTVAInfoBlockTemplate = (args) => {
 export const FTVAInfoBlock = FTVAInfoBlockTemplate.bind({})
 FTVAInfoBlock.args = {}
 
-
 FTVAInfoBlock.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -66,7 +64,6 @@ const mockInfoBlockClock = {
 }
 
 const FTVAInfoBlockClockTemplate = (args) => {
-  void args
   return {
     data() {
       return { block: mockInfoBlockClock }
@@ -88,7 +85,6 @@ const FTVAInfoBlockClockTemplate = (args) => {
 export const FTVAInfoBlockClock = FTVAInfoBlockClockTemplate.bind({})
 FTVAInfoBlockClock.args = {}
 
-
 const mockContactInfoBlock = {
   id: '3726206',
   typeHandle: 'infoBlock',
@@ -104,7 +100,6 @@ const mockContactInfoBlock = {
 }
 
 const FTVAContactInfoBlockTemplate = (args) => {
-  void args
   return {
     data() {
       return { block: mockContactInfoBlock }
@@ -125,4 +120,3 @@ const FTVAContactInfoBlockTemplate = (args) => {
 
 export const FTVAContactInfoBlock = FTVAContactInfoBlockTemplate.bind({})
 FTVAContactInfoBlock.args = {}
-

@@ -14,7 +14,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -29,13 +28,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const SingleItemTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -49,7 +46,6 @@ const SingleItemTemplate = (args) => {
 
 export const SingleItem = SingleItemTemplate.bind({})
 SingleItem.args = {}
-
 
 // FTVA style data mock for carousel
 // as it comes from craft CMS
@@ -79,7 +75,6 @@ const mockFTVAGalleryComputedData = computed(() => {
 })
 
 const FTVA_DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -99,9 +94,7 @@ const FTVA_DefaultTemplate = (args) => {
 export const FTVA_Default = FTVA_DefaultTemplate.bind({})
 FTVA_Default.args = {}
 
-
 const FTVA_InlineCarouselTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -120,7 +113,6 @@ const FTVA_InlineCarouselTemplate = (args) => {
 
 export const FTVA_InlineCarousel = FTVA_InlineCarouselTemplate.bind({})
 FTVA_InlineCarousel.args = {}
-
 
 // Helper functions to parse data for FTVA Homepage Carousel
 function parseFTVACarouselImage(imgObj) {
@@ -175,7 +167,6 @@ const parsedMockHomepagCarousel = computed(() => {
 })
 
 const FTVA_HomepageCarouselTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -195,7 +186,6 @@ const FTVA_HomepageCarouselTemplate = (args) => {
 export const FTVA_HomepageCarousel = FTVA_HomepageCarouselTemplate.bind({})
 FTVA_HomepageCarousel.args = {}
 
-
 const parsedMockHomepagCarouselURL = computed(() => {
   return FTVAMedia.mockFTVAHomepageCarousel.map((rawItem) => {
     return {
@@ -211,7 +201,6 @@ const parsedMockHomepagCarouselURL = computed(() => {
 })
 
 const FTVA_HomepageCarouselURLTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -238,9 +227,7 @@ const FTVA_HomepageCarouselURLTemplate = (args) => {
 export const FTVA_HomepageCarouselURL = FTVA_HomepageCarouselURLTemplate.bind({})
 FTVA_HomepageCarouselURL.args = {}
 
-
 const FTVA_HomepageCarousel_ScrollTestTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: parsedMockHomepagCarousel }
@@ -291,4 +278,3 @@ const FTVA_HomepageCarousel_ScrollTestTemplate = (args) => {
 
 export const FTVA_HomepageCarousel_ScrollTest = FTVA_HomepageCarousel_ScrollTestTemplate.bind({})
 FTVA_HomepageCarousel_ScrollTest.args = {}
-

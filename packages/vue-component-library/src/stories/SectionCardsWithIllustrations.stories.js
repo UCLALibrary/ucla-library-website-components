@@ -45,7 +45,6 @@ const itemsVertical = [
 ]
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -68,7 +67,6 @@ const DefaultTemplate = (args) => {
 
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
-
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -113,7 +111,6 @@ const itemsHorizontal = [
 ]
 
 const NoTextTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -135,9 +132,7 @@ const NoTextTemplate = (args) => {
 export const NoText = NoTextTemplate.bind({})
 NoText.args = {}
 
-
 const OneCardTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -164,9 +159,7 @@ const OneCardTemplate = (args) => {
 export const OneCard = OneCardTemplate.bind({})
 OneCard.args = {}
 
-
 const TwoCardsTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -193,9 +186,7 @@ const TwoCardsTemplate = (args) => {
 export const TwoCards = TwoCardsTemplate.bind({})
 TwoCards.args = {}
 
-
 const HorizontalTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -214,4 +205,3 @@ const HorizontalTemplate = (args) => {
 
 export const Horizontal = HorizontalTemplate.bind({})
 Horizontal.args = {}
-

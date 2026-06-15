@@ -322,7 +322,6 @@ const mockImageNull = {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -343,13 +342,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const AlternativeNameTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -370,9 +367,7 @@ const AlternativeNameTemplate = (args) => {
 export const AlternativeName = AlternativeNameTemplate.bind({})
 AlternativeName.args = {}
 
-
 const NoImageTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -393,9 +388,7 @@ const NoImageTemplate = (args) => {
 export const NoImage = NoImageTemplate.bind({})
 NoImage.args = {}
 
-
 const OneLocationTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -416,9 +409,7 @@ const OneLocationTemplate = (args) => {
 export const OneLocation = OneLocationTemplate.bind({})
 OneLocation.args = {}
 
-
 const NoPhoneNumberTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -440,9 +431,7 @@ const NoPhoneNumberTemplate = (args) => {
 export const NoPhoneNumber = NoPhoneNumberTemplate.bind({})
 NoPhoneNumber.args = {}
 
-
 const NoLocationTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -463,9 +452,7 @@ const NoLocationTemplate = (args) => {
 export const NoLocation = NoLocationTemplate.bind({})
 NoLocation.args = {}
 
-
 const ImageNullTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -485,4 +472,3 @@ const ImageNullTemplate = (args) => {
 
 export const ImageNull = ImageNullTemplate.bind({})
 ImageNull.args = {}
-

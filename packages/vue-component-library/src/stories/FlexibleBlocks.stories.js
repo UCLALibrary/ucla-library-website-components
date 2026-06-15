@@ -209,7 +209,6 @@ const mockData = [
 ]
 
 const DefaultTemplate = (args) => {
-  void args
   router.push('/abc/ccc')
   return {
     data() {
@@ -234,13 +233,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const GrayBackgroundsTemplate = (args) => {
-  void args
   router.push('/help/ddd')
   return {
     data() {
@@ -301,9 +298,7 @@ const GrayBackgroundsTemplate = (args) => {
 export const GrayBackgrounds = GrayBackgroundsTemplate.bind({})
 GrayBackgrounds.args = {}
 
-
 const DividerBetweenWhiteBlocksTemplate = (args) => {
-  void args
   router.push('/visit/eee')
   return {
     data() {
@@ -327,9 +322,7 @@ const DividerBetweenWhiteBlocksTemplate = (args) => {
 export const DividerBetweenWhiteBlocks = DividerBetweenWhiteBlocksTemplate.bind({})
 DividerBetweenWhiteBlocks.args = {}
 
-
 const LocationDetailBioMedTemplate = (args) => {
-  void args
   router.push('/about/fff')
   return {
     data() {
@@ -349,9 +342,7 @@ const LocationDetailBioMedTemplate = (args) => {
 export const LocationDetailBioMed = LocationDetailBioMedTemplate.bind({})
 LocationDetailBioMed.args = {}
 
-
 const FtvaBlogTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -375,9 +366,7 @@ const FtvaBlogTemplate = (args) => {
 export const FtvaBlog = FtvaBlogTemplate.bind({})
 FtvaBlog.args = {}
 
-
 const FtvaFlexibleBlocksTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -400,4 +389,3 @@ const FtvaFlexibleBlocksTemplate = (args) => {
 
 export const FtvaFlexibleBlocks = FtvaFlexibleBlocksTemplate.bind({})
 FtvaFlexibleBlocks.args = {}
-

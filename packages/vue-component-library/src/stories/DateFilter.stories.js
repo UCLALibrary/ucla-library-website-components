@@ -11,7 +11,6 @@ const mock = {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -35,13 +34,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const FilterOpenByDefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -77,7 +74,6 @@ const mockNoInput = {
   eventDates: ['2/29/2024', '2/29/2024', '2/29/2024', '2/29/2024', '3/1/2024', '3/2/2024', '3/2/2024', '3/4/2024', '3/6/2024', '3/8/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024',],
 }
 const NoInputTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -92,12 +88,10 @@ const NoInputTemplate = (args) => {
 export const NoInput = NoInputTemplate.bind({})
 NoInput.args = {}
 
-
 const mockInitialDates = {
   initialDates: { startDate: new Date('2024-03-19'), endDate: new Date('2024-03-29') },
 }
 const InitialDatesTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -112,9 +106,7 @@ const InitialDatesTemplate = (args) => {
 export const InitialDates = InitialDatesTemplate.bind({})
 InitialDates.args = {}
 
-
 const FTVATemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -133,4 +125,3 @@ const FTVATemplate = (args) => {
 
 export const FTVA = FTVATemplate.bind({})
 FTVA.args = {}
-

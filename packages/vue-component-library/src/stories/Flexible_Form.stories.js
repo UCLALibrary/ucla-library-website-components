@@ -11,7 +11,6 @@ const mock = {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -28,7 +27,6 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -40,7 +38,6 @@ const mock2 = {
 }
 
 const WithSectionTitleAndSummaryTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -57,9 +54,7 @@ const WithSectionTitleAndSummaryTemplate = (args) => {
 export const WithSectionTitleAndSummary = WithSectionTitleAndSummaryTemplate.bind({})
 WithSectionTitleAndSummary.args = {}
 
-
 const FTVAFormTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -80,4 +75,3 @@ const FTVAFormTemplate = (args) => {
 
 export const FTVAForm = FTVAFormTemplate.bind({})
 FTVAForm.args = {}
-

@@ -17,7 +17,6 @@ export default {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: { BlockButtons },
     data() {
@@ -51,13 +50,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const AlignCenterTemplate = (args) => {
-  void args
   return {
     components: { BlockButtons },
     data() {
@@ -91,9 +88,7 @@ const AlignCenterTemplate = (args) => {
 export const AlignCenter = AlignCenterTemplate.bind({})
 AlignCenter.args = {}
 
-
 const AlignRightTemplate = (args) => {
-  void args
   return {
     components: { BlockButtons },
     data() {
@@ -122,9 +117,7 @@ const AlignRightTemplate = (args) => {
 export const AlignRight = AlignRightTemplate.bind({})
 AlignRight.args = {}
 
-
 const DirectionHorizontalTemplate = (args) => {
-  void args
   return {
     components: { BlockButtons },
     data() {
@@ -158,9 +151,7 @@ const DirectionHorizontalTemplate = (args) => {
 export const DirectionHorizontal = DirectionHorizontalTemplate.bind({})
 DirectionHorizontal.args = {}
 
-
 const DirectionHorizontalAlignCenterTemplate = (args) => {
-  void args
   return {
     components: { BlockButtons },
     data() {
@@ -195,9 +186,7 @@ const DirectionHorizontalAlignCenterTemplate = (args) => {
 export const DirectionHorizontalAlignCenter = DirectionHorizontalAlignCenterTemplate.bind({})
 DirectionHorizontalAlignCenter.args = {}
 
-
 const DirectionHorizontalAlignRightTemplate = (args) => {
-  void args
   return {
     components: { BlockButtons },
     data() {
@@ -228,10 +217,8 @@ const DirectionHorizontalAlignRightTemplate = (args) => {
 export const DirectionHorizontalAlignRight = DirectionHorizontalAlignRightTemplate.bind({})
 DirectionHorizontalAlignRight.args = {}
 
-
 // Edge cases that could break the component
 const EmptyButtonsTemplate = (args) => {
-  void args
   return {
     components: { BlockButtons },
     data() {
@@ -253,9 +240,7 @@ const EmptyButtonsTemplate = (args) => {
 export const EmptyButtons = EmptyButtonsTemplate.bind({})
 EmptyButtons.args = {}
 
-
 const LongLabelsTemplate = (args) => {
-  void args
   return {
     components: { BlockButtons },
     data() {
@@ -288,9 +273,7 @@ const LongLabelsTemplate = (args) => {
 export const LongLabels = LongLabelsTemplate.bind({})
 LongLabels.args = {}
 
-
 const NoThemeProvidedTemplate = (args) => {
-  void args
   // Ensure component renders without injected theme
   return {
     components: { BlockButtons },
@@ -311,9 +294,7 @@ const NoThemeProvidedTemplate = (args) => {
 export const NoThemeProvided = NoThemeProvidedTemplate.bind({})
 NoThemeProvided.args = {}
 
-
 const InvalidEnumsTemplate = (args) => {
-  void args
   // Pass invalid enum values to check class generation robustness
   return {
     components: { BlockButtons },
@@ -350,4 +331,3 @@ const InvalidEnumsTemplate = (args) => {
 
 export const InvalidEnums = InvalidEnumsTemplate.bind({})
 InvalidEnums.args = {}
-

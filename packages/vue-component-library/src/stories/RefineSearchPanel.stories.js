@@ -164,7 +164,6 @@ const longFilters = [
 ]
 
 const DefaultTemplate = (args) => {
-  void args
   router.push({ query: { page: '2' } })
   return {
     components: { RefineSearchPanel, YearRangeFilter },
@@ -270,13 +269,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const LongTemplate = (args) => {
-  void args
   return {
     components: { RefineSearchPanel },
     data() {
@@ -298,7 +295,6 @@ const LongTemplate = (args) => {
 export const Long = LongTemplate.bind({})
 Long.args = {}
 
-
 // Sample filters including a date filter that will use the YearRangeFilter
 const filtersWithDateRange = [
   subjectFilter,
@@ -317,7 +313,6 @@ const filtersWithDateRange = [
 ]
 
 const WithYearRangeFilterTemplate = (args) => {
-  void args
   return {
     components: { RefineSearchPanel, YearRangeFilter },
     provide() {
@@ -388,9 +383,7 @@ const WithYearRangeFilterTemplate = (args) => {
 export const WithYearRangeFilter = WithYearRangeFilterTemplate.bind({})
 WithYearRangeFilter.args = {}
 
-
 const MultipleCustomSlotsTemplate = (args) => {
-  void args
   return {
     components: { RefineSearchPanel, YearRangeFilter },
     provide() {
@@ -478,4 +471,3 @@ const MultipleCustomSlotsTemplate = (args) => {
 
 export const MultipleCustomSlots = MultipleCustomSlotsTemplate.bind({})
 MultipleCustomSlots.args = {}
-

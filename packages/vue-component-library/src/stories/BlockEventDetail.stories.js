@@ -83,7 +83,6 @@ const mockFtvaSeriesDetailDataRange = {
 
 // STORIES
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -104,13 +103,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const MoreThanOneLocationTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -131,9 +128,7 @@ const MoreThanOneLocationTemplate = (args) => {
 export const MoreThanOneLocation = MoreThanOneLocationTemplate.bind({})
 MoreThanOneLocation.args = {}
 
-
 const FtvaOneLocationTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -159,9 +154,7 @@ const FtvaOneLocationTemplate = (args) => {
 export const FtvaOneLocation = FtvaOneLocationTemplate.bind({})
 FtvaOneLocation.args = {}
 
-
 const FtvaMultipleLocationsTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -187,9 +180,7 @@ const FtvaMultipleLocationsTemplate = (args) => {
 export const FtvaMultipleLocations = FtvaMultipleLocationsTemplate.bind({})
 FtvaMultipleLocations.args = {}
 
-
 const FtvaNoLocationTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -215,9 +206,7 @@ const FtvaNoLocationTemplate = (args) => {
 export const FtvaNoLocation = FtvaNoLocationTemplate.bind({})
 FtvaNoLocation.args = {}
 
-
 const FtvaDateRangeTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -244,9 +233,7 @@ const FtvaDateRangeTemplate = (args) => {
 export const FtvaDateRange = FtvaDateRangeTemplate.bind({})
 FtvaDateRange.args = {}
 
-
 const FtvaOngoingTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -272,4 +259,3 @@ const FtvaOngoingTemplate = (args) => {
 
 export const FtvaOngoing = FtvaOngoingTemplate.bind({})
 FtvaOngoing.args = {}
-

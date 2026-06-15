@@ -31,7 +31,6 @@ const mockBigger = {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { mock }
@@ -48,12 +47,10 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 const WithMoreFiltersTemplate = (args) => {
-  void args
   return {
     data() {
       return { mockBigger }
@@ -70,10 +67,8 @@ const WithMoreFiltersTemplate = (args) => {
 export const WithMoreFilters = WithMoreFiltersTemplate.bind({})
 WithMoreFilters.args = {}
 
-
 // Variations of stories below
 const FTVATemplate = (args) => {
-  void args
   return {
     data() {
       return { mock }
@@ -95,7 +90,6 @@ const FTVATemplate = (args) => {
 export const FTVA = FTVATemplate.bind({})
 FTVA.args = {}
 
-
 const mockDLC = {
   searchFilters: [
     ['Genre', 'Black and White Photographs'],
@@ -106,7 +100,6 @@ const mockDLC = {
   ],
 }
 const DLCTemplate = (args) => {
-  void args
   return {
     data() {
       return { mockDLC }
@@ -128,4 +121,3 @@ const DLCTemplate = (args) => {
 
 export const DLC = DLCTemplate.bind({})
 DLC.args = {}
-

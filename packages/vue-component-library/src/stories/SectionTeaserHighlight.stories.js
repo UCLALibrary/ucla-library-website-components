@@ -92,7 +92,6 @@ const mixedOngoingEvents = [
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mock }
@@ -109,13 +108,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const MixedOngoingEventsTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mixedOngoingEvents }
@@ -131,7 +128,6 @@ const MixedOngoingEventsTemplate = (args) => {
 
 export const MixedOngoingEvents = MixedOngoingEventsTemplate.bind({})
 MixedOngoingEvents.args = {}
-
 
 const homepage = [
   {
@@ -310,7 +306,6 @@ const homepage = [
   }
 ]
 const HomePageCollectionsTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: homepage }
@@ -326,4 +321,3 @@ const HomePageCollectionsTemplate = (args) => {
 
 export const HomePageCollections = HomePageCollectionsTemplate.bind({})
 HomePageCollections.args = {}
-

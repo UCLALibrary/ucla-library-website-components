@@ -143,7 +143,6 @@ const micrositeItems = [
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -163,12 +162,10 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 const ImpactReportTemplate = (args) => {
-  void args
   return {
     components: { NavPrimary },
     template: `
@@ -181,9 +178,7 @@ const ImpactReportTemplate = (args) => {
 export const ImpactReport = ImpactReportTemplate.bind({})
 ImpactReport.args = {}
 
-
 const ExtraSupportLinksTemplate = (args) => {
-  void args
   return {
     data() {
       const newItems = items
@@ -206,9 +201,7 @@ const ExtraSupportLinksTemplate = (args) => {
 export const ExtraSupportLinks = ExtraSupportLinksTemplate.bind({})
 ExtraSupportLinks.args = {}
 
-
 const WithMicrositeTitleTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -230,9 +223,7 @@ const WithMicrositeTitleTemplate = (args) => {
 export const WithMicrositeTitle = WithMicrositeTitleTemplate.bind({})
 WithMicrositeTitle.args = {}
 
-
 const FTVATemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -253,7 +244,6 @@ If the FTVA product ever uses NavPrimary outside of headersticky context, a stor
 
 export const FTVA = FTVATemplate.bind({})
 FTVA.args = {}
-
 
 /* Notes on FTVA version
 NavPrimary is used in the ftva site, however it's much more dependent on headersticky for positioning and styles, especially in mobile views.

@@ -37,7 +37,6 @@ const ftvamockwLinkLabel = {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -56,14 +55,12 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 // note: currently highlighted styles for default are placeholder styles / not yet implemented
 const DefaultHighlightedTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -83,9 +80,7 @@ const DefaultHighlightedTemplate = (args) => {
 export const DefaultHighlighted = DefaultHighlightedTemplate.bind({})
 DefaultHighlighted.args = {}
 
-
 const PrimaryFTVATemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -109,9 +104,7 @@ const PrimaryFTVATemplate = (args) => {
 export const PrimaryFTVA = PrimaryFTVATemplate.bind({})
 PrimaryFTVA.args = {}
 
-
 const SecondaryFTVATemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -137,9 +130,7 @@ const SecondaryFTVATemplate = (args) => {
 export const SecondaryFTVA = SecondaryFTVATemplate.bind({})
 SecondaryFTVA.args = {}
 
-
 const SecondaryFTVANoIconTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -164,9 +155,7 @@ const SecondaryFTVANoIconTemplate = (args) => {
 export const SecondaryFTVANoIcon = SecondaryFTVANoIconTemplate.bind({})
 SecondaryFTVANoIcon.args = {}
 
-
 const SecondaryFTVAHighlightedTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -192,9 +181,7 @@ const SecondaryFTVAHighlightedTemplate = (args) => {
 export const SecondaryFTVAHighlighted = SecondaryFTVAHighlightedTemplate.bind({})
 SecondaryFTVAHighlighted.args = {}
 
-
 const DLCTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -220,9 +207,7 @@ const DLCTemplate = (args) => {
 export const DLC = DLCTemplate.bind({})
 DLC.args = {}
 
-
 const DLCWithMultipleLabelsTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -247,4 +232,3 @@ const DLCWithMultipleLabelsTemplate = (args) => {
 
 export const DLCWithMultipleLabels = DLCWithMultipleLabelsTemplate.bind({})
 DLCWithMultipleLabels.args = {}
-

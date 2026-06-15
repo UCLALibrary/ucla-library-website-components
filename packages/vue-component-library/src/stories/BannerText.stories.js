@@ -36,7 +36,6 @@ const mock = {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -60,13 +59,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const WithSubjectAreasTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -89,9 +86,7 @@ const WithSubjectAreasTemplate = (args) => {
 export const WithSubjectAreas = WithSubjectAreasTemplate.bind({})
 WithSubjectAreas.args = {}
 
-
 const NoButtonTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -114,9 +109,7 @@ const NoButtonTemplate = (args) => {
 export const NoButton = NoButtonTemplate.bind({})
 NoButton.args = {}
 
-
 const NoTextTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -135,9 +128,7 @@ const NoTextTemplate = (args) => {
 export const NoText = NoTextTemplate.bind({})
 NoText.args = {}
 
-
 const DarkBlueBackgroundTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -161,9 +152,7 @@ const DarkBlueBackgroundTemplate = (args) => {
 export const DarkBlueBackground = DarkBlueBackgroundTemplate.bind({})
 DarkBlueBackground.args = {}
 
-
 const LocationInfoTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -190,9 +179,7 @@ const LocationInfoTemplate = (args) => {
 export const LocationInfo = LocationInfoTemplate.bind({})
 LocationInfo.args = {}
 
-
 const LocationInfoDarkBlueTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -220,9 +207,7 @@ const LocationInfoDarkBlueTemplate = (args) => {
 export const LocationInfoDarkBlue = LocationInfoDarkBlueTemplate.bind({})
 LocationInfoDarkBlue.args = {}
 
-
 const ExternalLinkTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -245,9 +230,7 @@ const ExternalLinkTemplate = (args) => {
 export const ExternalLink = ExternalLinkTemplate.bind({})
 ExternalLink.args = {}
 
-
 const WithBlockFormTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -277,7 +260,6 @@ const WithBlockFormTemplate = (args) => {
 export const WithBlockForm = WithBlockFormTemplate.bind({})
 WithBlockForm.args = {}
 
-
 // --------- ARTICLE --------------
 
 const article = {
@@ -304,7 +286,6 @@ const article = {
 }
 
 const ArticleDetailTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -328,4 +309,3 @@ const ArticleDetailTemplate = (args) => {
 
 export const ArticleDetail = ArticleDetailTemplate.bind({})
 ArticleDetail.args = {}
-

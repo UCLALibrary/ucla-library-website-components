@@ -8,7 +8,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: { BlockShowHide },
     template: `
@@ -27,13 +26,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const NoHideableContentTemplate = (args) => {
-  void args
   return {
     components: { BlockShowHide },
     template: `
@@ -48,4 +45,3 @@ const NoHideableContentTemplate = (args) => {
 
 export const NoHideableContent = NoHideableContentTemplate.bind({})
 NoHideableContent.args = {}
-

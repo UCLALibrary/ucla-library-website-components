@@ -10,7 +10,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mock }
@@ -32,13 +31,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const NoMediaLinkTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mock }
@@ -60,9 +57,7 @@ const NoMediaLinkTemplate = (args) => {
 export const NoMediaLink = NoMediaLinkTemplate.bind({})
 NoMediaLink.args = {}
 
-
 const VideoTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -89,9 +84,7 @@ const VideoTemplate = (args) => {
 export const Video = VideoTemplate.bind({})
 Video.args = {}
 
-
 const VideoWithNoButtonTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -118,9 +111,7 @@ const VideoWithNoButtonTemplate = (args) => {
 export const VideoWithNoButton = VideoWithNoButtonTemplate.bind({})
 VideoWithNoButton.args = {}
 
-
 const AudioTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -147,9 +138,7 @@ const AudioTemplate = (args) => {
 export const Audio = AudioTemplate.bind({})
 Audio.args = {}
 
-
 const EmbedTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -176,11 +165,9 @@ const EmbedTemplate = (args) => {
 export const Embed = EmbedTemplate.bind({})
 Embed.args = {}
 
-
 // Sometimes the type-media is an image but an image is not provided, so we need to display a placeholder image.
 
 const NoImageTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mock }
@@ -201,9 +188,7 @@ const NoImageTemplate = (args) => {
 export const NoImage = NoImageTemplate.bind({})
 NoImage.args = {}
 
-
 const FTVADefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockFTVA }
@@ -229,4 +214,3 @@ const FTVADefaultTemplate = (args) => {
 
 export const FTVADefault = FTVADefaultTemplate.bind({})
 FTVADefault.args = {}
-

@@ -100,7 +100,6 @@ EventItem.args = {
   ongoingText: 'Ongoing',
 }
 
-
 const mockEventSeriesOnGoing = {
   category: 'Event Series',
   to: '/visit/events-exhibitions/series1',
@@ -118,7 +117,6 @@ EventSeriesOngoing.args = {
   ongoingText: 'Ongoing',
 }
 
-
 const mockEventSeries = {
   category: 'Event Series',
   to: '/visit/events-exhibitions/series2',
@@ -135,4 +133,3 @@ EventSeries.args = {
   timeText: '',
   ongoingText: 'Ongoing',
 }
-

@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 import ButtonIiif from '../lib-components/ButtonIiif.vue'
-import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 
 export default {
   title: 'Funkhaus / ButtonIiif',

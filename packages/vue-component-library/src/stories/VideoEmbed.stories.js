@@ -11,7 +11,6 @@ const mockTrailerData = {
   posterImage: API.image
 }
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -26,13 +25,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const WithCustomImageandIconTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -46,4 +43,3 @@ const WithCustomImageandIconTemplate = (args) => {
 
 export const WithCustomImageandIcon = WithCustomImageandIconTemplate.bind({})
 WithCustomImageandIcon.args = {}
-

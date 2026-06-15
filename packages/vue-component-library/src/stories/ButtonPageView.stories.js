@@ -8,7 +8,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: { ButtonPageView },
     provide() {
@@ -27,13 +26,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const NoThemeTemplate = (args) => {
-  void args
   return {
     components: { ButtonPageView },
     provide() {
@@ -52,9 +49,7 @@ const NoThemeTemplate = (args) => {
 export const NoTheme = NoThemeTemplate.bind({})
 NoTheme.args = {}
 
-
 const MockedViewToggleTemplate = (args) => {
-  void args
   router.push({ path: '/search', query: { view: 'gallery' } })
   return {
     components: { ButtonPageView },
@@ -73,4 +68,3 @@ const MockedViewToggleTemplate = (args) => {
 
 export const MockedViewToggle = MockedViewToggleTemplate.bind({})
 MockedViewToggle.args = {}
-

@@ -13,7 +13,6 @@ export default {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: { ResponsiveImage },
     data() {
@@ -28,13 +27,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const SquareRatioTemplate = (args) => {
-  void args
   return {
     components: { ResponsiveImage },
     data() {
@@ -54,9 +51,7 @@ const SquareRatioTemplate = (args) => {
 export const SquareRatio = SquareRatioTemplate.bind({})
 SquareRatio.args = {}
 
-
 const ObjectFitContainTemplate = (args) => {
-  void args
   return {
     components: { ResponsiveImage },
     data() {
@@ -77,9 +72,7 @@ const ObjectFitContainTemplate = (args) => {
 export const ObjectFitContain = ObjectFitContainTemplate.bind({})
 ObjectFitContain.args = {}
 
-
 const WithCreditTextTemplate = (args) => {
-  void args
   return {
     components: { ResponsiveImage },
     data() {
@@ -102,9 +95,7 @@ const WithCreditTextTemplate = (args) => {
 export const WithCreditText = WithCreditTextTemplate.bind({})
 WithCreditText.args = {}
 
-
 const WithLongCreditTextTemplate = (args) => {
-  void args
   return {
     components: { ResponsiveImage },
     data() {
@@ -127,9 +118,7 @@ const WithLongCreditTextTemplate = (args) => {
 export const WithLongCreditText = WithLongCreditTextTemplate.bind({})
 WithLongCreditText.args = {}
 
-
 const WithBadgeAtTopTemplate = (args) => {
-  void args
   return {
     components: { ResponsiveImage, BlockTag },
     data() {
@@ -158,4 +147,3 @@ const WithBadgeAtTopTemplate = (args) => {
 
 export const WithBadgeAtTop = WithBadgeAtTopTemplate.bind({})
 WithBadgeAtTop.args = {}
-

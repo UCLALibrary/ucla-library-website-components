@@ -13,7 +13,6 @@ export default {
 // The blockform data is tied to eventid, we cannot change eventid and keep the same form, so if you are updating form , also update the eventid and other details
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { BlockFormData }
@@ -37,13 +36,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const AppsTeamFormTemplate = (args) => {
-  void args
   return {
     data() {
       return { BlockFormData }
@@ -67,9 +64,7 @@ const AppsTeamFormTemplate = (args) => {
 export const AppsTeamForm = AppsTeamFormTemplate.bind({})
 AppsTeamForm.args = {}
 
-
 const CLICCInstructionalUseFormTemplate = (args) => {
-  void args
   return {
     data() {
       return { BlockFormData }
@@ -93,9 +88,7 @@ const CLICCInstructionalUseFormTemplate = (args) => {
 export const CLICCInstructionalUseForm = CLICCInstructionalUseFormTemplate.bind({})
 CLICCInstructionalUseForm.args = {}
 
-
 const LibrarySpecialCollectionsTemplate = (args) => {
-  void args
   return {
     data() {
       return { BlockFormData }
@@ -119,9 +112,7 @@ const LibrarySpecialCollectionsTemplate = (args) => {
 export const LibrarySpecialCollections = LibrarySpecialCollectionsTemplate.bind({})
 LibrarySpecialCollections.args = {}
 
-
 const FTVATestTemplate = (args) => {
-  void args
   return {
     data() {
       return { BlockFormData }
@@ -145,9 +136,7 @@ const FTVATestTemplate = (args) => {
 export const FTVATest = FTVATestTemplate.bind({})
 FTVATest.args = {}
 
-
 const TerryAllenTemplate = (args) => {
-  void args
   return {
     data() {
       return { BlockFormData }
@@ -171,9 +160,7 @@ const TerryAllenTemplate = (args) => {
 export const TerryAllen = TerryAllenTemplate.bind({})
 TerryAllen.args = {}
 
-
 const TextBallotTemplate = (args) => {
-  void args
   return {
     data() {
       return { BlockFormData }
@@ -197,9 +184,7 @@ const TextBallotTemplate = (args) => {
 export const TextBallot = TextBallotTemplate.bind({})
 TextBallot.args = {}
 
-
 const UCLALibraryTemplate = (args) => {
-  void args
   return {
     data() {
       return { BlockFormData }
@@ -223,9 +208,7 @@ const UCLALibraryTemplate = (args) => {
 export const UCLALibrary = UCLALibraryTemplate.bind({})
 UCLALibrary.args = {}
 
-
 const FTVAFormTemplate = (args) => {
-  void args
   return {
     data() {
       return { BlockFormData }
@@ -249,4 +232,3 @@ const FTVAFormTemplate = (args) => {
 
 export const FTVAForm = FTVAFormTemplate.bind({})
 FTVAForm.args = {}
-

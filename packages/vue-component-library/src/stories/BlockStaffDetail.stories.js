@@ -305,7 +305,6 @@ const mockNoImageOrBio = {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -326,13 +325,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const AlternativeNameTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -353,9 +350,7 @@ const AlternativeNameTemplate = (args) => {
 export const AlternativeName = AlternativeNameTemplate.bind({})
 AlternativeName.args = {}
 
-
 const NoImageTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -376,9 +371,7 @@ const NoImageTemplate = (args) => {
 export const NoImage = NoImageTemplate.bind({})
 NoImage.args = {}
 
-
 const NoImageOrBioTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -400,9 +393,7 @@ const NoImageOrBioTemplate = (args) => {
 export const NoImageOrBio = NoImageOrBioTemplate.bind({})
 NoImageOrBio.args = {}
 
-
 const AskMeAboutAndAcademicDepartmentsTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -422,4 +413,3 @@ const AskMeAboutAndAcademicDepartmentsTemplate = (args) => {
 
 export const AskMeAboutAndAcademicDepartments = AskMeAboutAndAcademicDepartmentsTemplate.bind({})
 AskMeAboutAndAcademicDepartments.args = {}
-

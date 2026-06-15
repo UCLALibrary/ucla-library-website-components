@@ -51,7 +51,6 @@ const mockDefault = [
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockDefault }
@@ -68,7 +67,6 @@ const DefaultTemplate = (args) => {
 
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
-
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -108,7 +106,6 @@ const mockCurrentEntriesWithDates = [
 ]
 
 const FtvaCurrentEntriesWithDatesTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockCurrentEntriesWithDates }
@@ -184,9 +181,7 @@ const FtvaCurrentEntriesWithDatesTemplate = (args) => {
 export const FtvaCurrentEntriesWithDates = FtvaCurrentEntriesWithDatesTemplate.bind({})
 FtvaCurrentEntriesWithDates.args = {}
 
-
 const FtvaNoSectionTitleTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockCurrentEntriesWithDates }
@@ -260,9 +255,7 @@ const FtvaNoSectionTitleTemplate = (args) => {
 export const FtvaNoSectionTitle = FtvaNoSectionTitleTemplate.bind({})
 FtvaNoSectionTitle.args = {}
 
-
 const FtvaSearchResultsArticleTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockArticles }
@@ -336,7 +329,6 @@ const FtvaSearchResultsArticleTemplate = (args) => {
       }
         .stories-ftva-search-articles .ftva.block-staff-article-item {
 
-
           figure,
           .molecule-no-image {
             display: none;
@@ -355,9 +347,7 @@ const FtvaSearchResultsArticleTemplate = (args) => {
 export const FtvaSearchResultsArticle = FtvaSearchResultsArticleTemplate.bind({})
 FtvaSearchResultsArticle.args = {}
 
-
 const FtvaSearchResultsCollectionsTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockCollections }
@@ -428,9 +418,7 @@ const FtvaSearchResultsCollectionsTemplate = (args) => {
 export const FtvaSearchResultsCollections = FtvaSearchResultsCollectionsTemplate.bind({})
 FtvaSearchResultsCollections.args = {}
 
-
 const FtvaSearchResultsGCTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockGeneralContent }
@@ -501,9 +489,7 @@ const FtvaSearchResultsGCTemplate = (args) => {
 export const FtvaSearchResultsGC = FtvaSearchResultsGCTemplate.bind({})
 FtvaSearchResultsGC.args = {}
 
-
 const FtvaFilmMakersTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockFilmamkers }
@@ -584,7 +570,6 @@ export const FtvaFilmMakers = FtvaFilmMakersTemplate.bind({})
 FtvaFilmMakers.args = {}
 
 const FtvaBlogListTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockFTVABlogListing }
@@ -660,7 +645,6 @@ const FtvaBlogListTemplate = (args) => {
           }
         }
 
-
       </component>
       <section-staff-article-list class="stories-ftva-articles"
         :items="items" :section-title="'FTVA Blog Listing'"
@@ -671,4 +655,3 @@ const FtvaBlogListTemplate = (args) => {
 
 export const FtvaBlogList = FtvaBlogListTemplate.bind({})
 FtvaBlogList.args = {}
-

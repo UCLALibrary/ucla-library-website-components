@@ -19,7 +19,6 @@ const mock = {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { block: mock }
@@ -36,7 +35,6 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -50,7 +48,6 @@ const mockNoAttribution = {
 }
 
 const NoAttributionTemplate = (args) => {
-  void args
   return {
     data() {
       return { block: mockNoAttribution }
@@ -66,4 +63,3 @@ const NoAttributionTemplate = (args) => {
 
 export const NoAttribution = NoAttributionTemplate.bind({})
 NoAttribution.args = {}
-

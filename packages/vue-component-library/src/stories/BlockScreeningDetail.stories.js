@@ -33,7 +33,6 @@ const mockDefault = {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockDefault }
@@ -65,7 +64,6 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -85,7 +83,6 @@ const mockNoTrailer = {
 }
 
 const NoTrailerTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockNoTrailer }
@@ -116,4 +113,3 @@ const NoTrailerTemplate = (args) => {
 
 export const NoTrailer = NoTrailerTemplate.bind({})
 NoTrailer.args = {}
-

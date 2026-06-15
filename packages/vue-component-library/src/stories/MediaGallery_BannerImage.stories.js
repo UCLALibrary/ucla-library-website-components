@@ -11,7 +11,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -34,13 +33,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const FTVATemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -68,9 +65,7 @@ const FTVATemplate = (args) => {
 export const FTVA = FTVATemplate.bind({})
 FTVA.args = {}
 
-
 const ExpandedTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -92,9 +87,7 @@ const ExpandedTemplate = (args) => {
 export const Expanded = ExpandedTemplate.bind({})
 Expanded.args = {}
 
-
 const ExpandedFTVATemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -122,9 +115,7 @@ const ExpandedFTVATemplate = (args) => {
 export const ExpandedFTVA = ExpandedFTVATemplate.bind({})
 ExpandedFTVA.args = {}
 
-
 const SingleItemTemplate = (args) => {
-  void args
   return {
     data() {
       return { item: MEDIA.ImageFile }
@@ -142,4 +133,3 @@ const SingleItemTemplate = (args) => {
 
 export const SingleItem = SingleItemTemplate.bind({})
 SingleItem.args = {}
-

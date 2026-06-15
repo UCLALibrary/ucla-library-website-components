@@ -134,7 +134,6 @@ const mockImageNull = [
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockDefault }
@@ -151,13 +150,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const ImageNullTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: mockImageNull }
@@ -173,4 +170,3 @@ const ImageNullTemplate = (args) => {
 
 export const ImageNull = ImageNullTemplate.bind({})
 ImageNull.args = {}
-

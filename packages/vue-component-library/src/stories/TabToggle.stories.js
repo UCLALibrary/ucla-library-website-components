@@ -72,7 +72,6 @@ const mockComponentContent2 = [
 ]
 
 const DefaultTemplate = (args) => {
-  void args
   router.push({
     query: {},
   })
@@ -102,13 +101,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const SetInitialTabTemplate = (args) => {
-  void args
   router.push({
     query: {},
   })
@@ -138,9 +135,7 @@ const SetInitialTabTemplate = (args) => {
 export const SetInitialTab = SetInitialTabTemplate.bind({})
 SetInitialTab.args = {}
 
-
 const FTVACenteredTemplate = (args) => {
-  void args
   router.push({
     query: {},
   })
@@ -175,9 +170,7 @@ const FTVACenteredTemplate = (args) => {
 export const FTVACentered = FTVACenteredTemplate.bind({})
 FTVACentered.args = {}
 
-
 const ToggledComponentsRightTemplate = (args) => {
-  void args
   router.push({
     query: {},
   })
@@ -213,9 +206,7 @@ const ToggledComponentsRightTemplate = (args) => {
 export const ToggledComponentsRight = ToggledComponentsRightTemplate.bind({})
 ToggledComponentsRight.args = {}
 
-
 const DLCThemeTemplate = (args) => {
-  void args
   return {
     components: { TabItem, TabList },
     data() {
@@ -242,4 +233,3 @@ const DLCThemeTemplate = (args) => {
 
 export const DLCTheme = DLCThemeTemplate.bind({})
 DLCTheme.args = {}
-

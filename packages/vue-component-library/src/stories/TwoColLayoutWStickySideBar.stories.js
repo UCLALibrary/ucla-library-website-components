@@ -49,7 +49,6 @@ const mockSeriesPageData = {
 }
 
 const FTVAEventSeriesTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -96,7 +95,6 @@ const FTVAEventSeriesTemplate = (args) => {
 
 export const FTVAEventSeries = FTVAEventSeriesTemplate.bind({})
 FTVAEventSeries.args = {}
-
 
 FTVAEventSeries.parameters = {
   chromatic: { disableSnapshot: false },
@@ -169,7 +167,6 @@ const mockParsedInfoList = computed(() => {
 })
 
 const FTVAEventDetailTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -278,9 +275,7 @@ const FTVAEventDetailTemplate = (args) => {
 export const FTVAEventDetail = FTVAEventDetailTemplate.bind({})
 FTVAEventDetail.args = {}
 
-
 const FTVABlogDetailTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -531,7 +526,6 @@ const FTVABlogDetailTemplate = (args) => {
 export const FTVABlogDetail = FTVABlogDetailTemplate.bind({})
 FTVABlogDetail.args = {}
 
-
 const slimCTAData = {
   svgName: 'svg-call-to-action-ftva-pdf',
   title: 'View Information',
@@ -539,7 +533,6 @@ const slimCTAData = {
 }
 
 const FTVASlimCTATemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -590,7 +583,6 @@ const FTVASlimCTATemplate = (args) => {
 export const FTVASlimCTA = FTVASlimCTATemplate.bind({})
 FTVASlimCTA.args = {}
 
-
 const pageAnchorData = {
   sectionTitles: [
     'The story',
@@ -608,7 +600,6 @@ const pageAnchorData = {
 }
 
 const FTVAPageAnchorTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -654,4 +645,3 @@ const FTVAPageAnchorTemplate = (args) => {
 
 export const FTVAPageAnchor = FTVAPageAnchorTemplate.bind({})
 FTVAPageAnchor.args = {}
-

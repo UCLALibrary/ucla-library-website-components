@@ -36,7 +36,6 @@ const mock = {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -64,13 +63,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const LeftAlignedTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -98,9 +95,7 @@ const LeftAlignedTemplate = (args) => {
 export const LeftAligned = LeftAlignedTemplate.bind({})
 LeftAligned.args = {}
 
-
 const NoCategoryTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -127,9 +122,7 @@ const NoCategoryTemplate = (args) => {
 export const NoCategory = NoCategoryTemplate.bind({})
 NoCategory.args = {}
 
-
 const WithBylineAndSubjectAreasTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -157,9 +150,7 @@ const WithBylineAndSubjectAreasTemplate = (args) => {
 export const WithBylineAndSubjectAreas = WithBylineAndSubjectAreasTemplate.bind({})
 WithBylineAndSubjectAreas.args = {}
 
-
 const OnlyTitleTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -180,9 +171,7 @@ const OnlyTitleTemplate = (args) => {
 export const OnlyTitle = OnlyTitleTemplate.bind({})
 OnlyTitle.args = {}
 
-
 const VideoTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -204,9 +193,7 @@ const VideoTemplate = (args) => {
 export const Video = VideoTemplate.bind({})
 Video.args = {}
 
-
 const WithContactInfoTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -233,7 +220,6 @@ const WithContactInfoTemplate = (args) => {
 
 export const WithContactInfo = WithContactInfoTemplate.bind({})
 WithContactInfo.args = {}
-
 
 // --------- ARTICLE --------------
 
@@ -262,7 +248,6 @@ const article = {
 }
 
 const ArticleDetailTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -288,9 +273,7 @@ const ArticleDetailTemplate = (args) => {
 export const ArticleDetail = ArticleDetailTemplate.bind({})
 ArticleDetail.args = {}
 
-
 const ExternalLinkTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -319,9 +302,7 @@ const ExternalLinkTemplate = (args) => {
 export const ExternalLink = ExternalLinkTemplate.bind({})
 ExternalLink.args = {}
 
-
 const WithBlockFormTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -356,4 +337,3 @@ const WithBlockFormTemplate = (args) => {
 
 export const WithBlockForm = WithBlockFormTemplate.bind({})
 WithBlockForm.args = {}
-

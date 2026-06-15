@@ -1,6 +1,6 @@
 import { computed } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import DropdownSingleSelect from '@/lib-components/DropdownSingleSelect.vue'
-import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
 
 /**
  * This component is used in filter UIs to display a single-select dropdown for filtering content on the page.
@@ -104,7 +104,6 @@ DLCThemeSearch.args = {
   isSearch: true,
 }
 
-
 // MOCK DATA FILTER
 const FilterOptionsDefault = [
   { label: 'Current Events', value: 'current-events' },
@@ -121,13 +120,11 @@ FTVAFilterByTopic.args = {
   label: 'Filter by topic',
 }
 
-
 export const FTVAFilterByTopicIntialSelection = Template.bind({})
 FTVAFilterByTopicIntialSelection.args = {
   ...FTVAFilterByTopic.args,
   selectedValue: 'politics',
 }
-
 
 // MOCK DATA SORT
 const FilterOptionsSort = [
@@ -144,4 +141,3 @@ FTVASortBy.args = {
   selectedValue: 'asc',
   showViewAll: false,
 }
-

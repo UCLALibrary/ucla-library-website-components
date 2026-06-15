@@ -53,7 +53,6 @@ const mockFocalPoint = {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -72,13 +71,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const FTVATemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -102,9 +99,7 @@ const FTVATemplate = (args) => {
 export const FTVA = FTVATemplate.bind({})
 FTVA.args = {}
 
-
 const FocalPointTemplate = (args) => {
-  void args
   return {
     data() {
       return { mock: mockFocalPoint }
@@ -120,4 +115,3 @@ const FocalPointTemplate = (args) => {
 
 export const FocalPoint = FocalPointTemplate.bind({})
 FocalPoint.args = {}
-

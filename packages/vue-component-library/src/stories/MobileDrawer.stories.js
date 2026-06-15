@@ -14,7 +14,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: { MobileDrawer },
     template: `<mobile-drawer>
@@ -34,13 +33,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const FTVATemplate = (args) => {
-  void args
   return {
     components: { MobileDrawer },
     provide() {
@@ -64,4 +61,3 @@ const FTVATemplate = (args) => {
 
 export const FTVA = FTVATemplate.bind({})
 FTVA.args = {}
-

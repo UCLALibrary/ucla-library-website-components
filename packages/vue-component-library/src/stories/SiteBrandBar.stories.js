@@ -7,7 +7,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     template: '<site-brand-bar/>',
     components: { SiteBrandBar },
@@ -17,13 +16,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const FTVAVersionTemplate = (args) => {
-  void args
   return {
     template: '<site-brand-bar/>',
     provide() {
@@ -37,4 +34,3 @@ const FTVAVersionTemplate = (args) => {
 
 export const FTVAVersion = FTVAVersionTemplate.bind({})
 FTVAVersion.args = {}
-

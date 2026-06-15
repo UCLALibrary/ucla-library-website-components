@@ -1,7 +1,7 @@
 import { computed } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import NavSearch from '@/lib-components/NavSearch'
 import * as API from '@/stories/mock-api.json'
-import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
 
 export default {
   title: 'NAV / Search',
@@ -130,4 +130,3 @@ DLCWithBackgroundImageAndDropdown.args = {
   dropdownOptions: dlcDropdownOptions,
   dropdownDefaultValue: 'all-collections',
 }
-

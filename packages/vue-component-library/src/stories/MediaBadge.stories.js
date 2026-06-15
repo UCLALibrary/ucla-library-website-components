@@ -16,7 +16,6 @@ const mock = {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: {
       ResponsiveImage,
@@ -44,13 +43,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const FTVATemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -80,4 +77,3 @@ const FTVATemplate = (args) => {
 
 export const FTVA = FTVATemplate.bind({})
 FTVA.args = {}
-

@@ -1,6 +1,6 @@
 import { computed, ref, watch } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import SearchInput from '@/lib-components/SearchInput'
-import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
 
 export default {
   title: 'Funkhaus / Search Input',
@@ -132,4 +132,3 @@ FTVATheme.args = {
   ...Default.args,
   theme: 'ftva',
 }
-

@@ -1,8 +1,8 @@
 import { computed } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import BannerFeatured from '@/lib-components/BannerFeatured'
 import HeadingArrow from '@/lib-components/HeadingArrow'
 import BlockFormData from '@/stories/mock/BlockFormData.json'
-import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
@@ -112,7 +112,6 @@ const mock = {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -158,13 +157,11 @@ Default.args = {
   secondaryButtons: undefined,
 }
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const LeftAlignedTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -196,9 +193,7 @@ LeftAligned.args = {
   alignRight: false,
 }
 
-
 const NotOnlineTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -229,9 +224,7 @@ NotOnline.args = {
   locations: undefined,
 }
 
-
 const SlotTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -273,9 +266,7 @@ const SlotTemplate = (args) => {
 export const Slot = SlotTemplate.bind({})
 Slot.args = {}
 
-
 const LongHeadingTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -317,9 +308,7 @@ const LongHeadingTemplate = (args) => {
 export const LongHeading = LongHeadingTemplate.bind({})
 LongHeading.args = {}
 
-
 const WideImageTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -351,9 +340,7 @@ WideImage.args = {
   ratio: 42,
 }
 
-
 const WideImageLeftAlignedTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -386,9 +373,7 @@ WideImageLeftAligned.args = {
   alignRight: false,
 }
 
-
 const NoButtonTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -420,9 +405,7 @@ NoButton.args = {
   locations: undefined,
 }
 
-
 const WithDescriptionTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -448,9 +431,7 @@ WithDescription.args = {
   ...Default.args,
 }
 
-
 const VideoTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -478,9 +459,7 @@ Video.args = {
   media: API.video,
 }
 
-
 const WithBlockFormTemplate = (args) => {
-  void args
   return {
     provide() {
       return {
@@ -515,7 +494,6 @@ const WithBlockFormTemplate = (args) => {
 export const WithBlockForm = WithBlockFormTemplate.bind({})
 WithBlockForm.args = {}
 
-
 const mock2 = {
   image: API.image,
   to: '/help/foo/bar/',
@@ -548,7 +526,6 @@ const mockDLC = {
 }
 
 const LinkedTitleTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -587,9 +564,7 @@ LinkedTitle.args = {
   locations: mock2.locations,
 }
 
-
 const DLCTemplate = (args) => {
-  void args
   return {
     provide() {
       return {
@@ -629,9 +604,7 @@ DLC.args = {
   sectionHandle: '',
 }
 
-
 const DLCLeftAlignedTemplate = (args) => {
-  void args
   return {
     provide() {
       return {
@@ -661,7 +634,6 @@ DLCLeftAligned.args = {
   alignRight: false,
 }
 
-
 const mockHelpSection = {
   image: API.image,
   title: 'Have other Questions?',
@@ -681,7 +653,6 @@ const mockHelpSection = {
 }
 
 const HelpSectionTemplate = (args) => {
-  void args
   return {
     provide() {
       return {
@@ -717,4 +688,3 @@ HelpSection.args = {
   alignRight: mockHelpSection.alignRight,
   secondaryButtons: mockHelpSection.secondaryButtons,
 }
-

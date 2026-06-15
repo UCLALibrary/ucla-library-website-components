@@ -58,7 +58,6 @@ const mockFtva = {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -90,13 +89,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const VisitTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -128,9 +125,7 @@ const VisitTemplate = (args) => {
 export const Visit = VisitTemplate.bind({})
 Visit.args = {}
 
-
 const AboutTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -162,9 +157,7 @@ const AboutTemplate = (args) => {
 export const About = AboutTemplate.bind({})
 About.args = {}
 
-
 const HelpTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -196,9 +189,7 @@ const HelpTemplate = (args) => {
 export const Help = HelpTemplate.bind({})
 Help.args = {}
 
-
 const LongTextTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -230,9 +221,7 @@ const LongTextTemplate = (args) => {
 export const LongText = LongTextTemplate.bind({})
 LongText.args = {}
 
-
 const FtvaTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -262,4 +251,3 @@ const FtvaTemplate = (args) => {
 
 export const Ftva = FtvaTemplate.bind({})
 Ftva.args = {}
-

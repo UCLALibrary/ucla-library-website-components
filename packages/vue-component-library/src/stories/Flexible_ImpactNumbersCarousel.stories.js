@@ -18,7 +18,6 @@ function Template(args, { argTypes }) {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { block: mock }
@@ -34,7 +33,6 @@ const DefaultTemplate = (args) => {
 
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
-
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },

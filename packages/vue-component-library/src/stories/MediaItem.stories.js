@@ -27,7 +27,6 @@ Default.parameters = {
 }
 
 const ImageTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -42,9 +41,7 @@ const ImageTemplate = (args) => {
 export const Image = ImageTemplate.bind({})
 Image.args = {}
 
-
 const VideoTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -60,9 +57,7 @@ const VideoTemplate = (args) => {
 export const Video = VideoTemplate.bind({})
 Video.args = {}
 
-
 const VideoEmbedTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -77,9 +72,7 @@ const VideoEmbedTemplate = (args) => {
 export const VideoEmbed = VideoEmbedTemplate.bind({})
 VideoEmbed.args = {}
 
-
 const AudioTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -95,9 +88,7 @@ const AudioTemplate = (args) => {
 export const Audio = AudioTemplate.bind({})
 Audio.args = {}
 
-
 const AudioEmbedTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -111,4 +102,3 @@ const AudioEmbedTemplate = (args) => {
 
 export const AudioEmbed = AudioEmbedTemplate.bind({})
 AudioEmbed.args = {}
-

@@ -11,7 +11,6 @@ export default {
 }
 
 const ShortTextTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -36,13 +35,11 @@ const ShortTextTemplate = (args) => {
 export const ShortText = ShortTextTemplate.bind({})
 ShortText.args = {}
 
-
 ShortText.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const LongTextTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -65,9 +62,7 @@ const LongTextTemplate = (args) => {
 export const LongText = LongTextTemplate.bind({})
 LongText.args = {}
 
-
 const VisitTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -90,9 +85,7 @@ const VisitTemplate = (args) => {
 export const Visit = VisitTemplate.bind({})
 Visit.args = {}
 
-
 const AboutTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -115,9 +108,7 @@ const AboutTemplate = (args) => {
 export const About = AboutTemplate.bind({})
 About.args = {}
 
-
 const HelpTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -139,4 +130,3 @@ const HelpTemplate = (args) => {
 
 export const Help = HelpTemplate.bind({})
 Help.args = {}
-

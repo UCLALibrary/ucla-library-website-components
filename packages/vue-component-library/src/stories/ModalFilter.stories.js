@@ -211,7 +211,6 @@ export default {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: { ModalFilter },
     data() {
@@ -244,13 +243,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const FewItemsTemplate = (args) => {
-  void args
   return {
     components: { ModalFilter },
     data() {
@@ -283,9 +280,7 @@ const FewItemsTemplate = (args) => {
 export const FewItems = FewItemsTemplate.bind({})
 FewItems.args = {}
 
-
 const ManyItemsTemplate = (args) => {
-  void args
   return {
     components: { ModalFilter },
     data() {
@@ -318,9 +313,7 @@ const ManyItemsTemplate = (args) => {
 export const ManyItems = ManyItemsTemplate.bind({})
 ManyItems.args = {}
 
-
 const EmptyItemsTemplate = (args) => {
-  void args
   return {
     components: { ModalFilter },
     data() {
@@ -352,4 +345,3 @@ const EmptyItemsTemplate = (args) => {
 
 export const EmptyItems = EmptyItemsTemplate.bind({})
 EmptyItems.args = {}
-

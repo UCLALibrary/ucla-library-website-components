@@ -116,7 +116,6 @@ const mockAlternativeName = {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -173,13 +172,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const AlternativeNameTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -195,7 +192,6 @@ const AlternativeNameTemplate = (args) => {
 
 export const AlternativeName = AlternativeNameTemplate.bind({})
 AlternativeName.args = {}
-
 
 // mock raw data from FTVA graphQL LA rebellion filmography
 const mockFilm = {
@@ -226,7 +222,6 @@ const mockFilm = {
 }
 
 const FTVAFilmographyTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -272,7 +267,6 @@ const FTVAFilmographyTemplate = (args) => {
 export const FTVAFilmography = FTVAFilmographyTemplate.bind({})
 FTVAFilmography.args = {}
 
-
 // TODO CHECK DATA MODEL IS CORRECT?
 const mockCredit = {
   name: 'FirstName LastName',
@@ -280,7 +274,6 @@ const mockCredit = {
 }
 
 const FTVACreditsTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -312,4 +305,3 @@ const FTVACreditsTemplate = (args) => {
 
 export const FTVACredits = FTVACreditsTemplate.bind({})
 FTVACredits.args = {}
-

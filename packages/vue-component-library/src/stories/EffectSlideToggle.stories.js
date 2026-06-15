@@ -21,7 +21,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: { EffectSlideToggle },
     template: `
@@ -47,13 +46,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const InitiallyOpenedTemplate = (args) => {
-  void args
   return {
     components: { EffectSlideToggle },
     template: `
@@ -78,9 +75,7 @@ const InitiallyOpenedTemplate = (args) => {
 export const InitiallyOpened = InitiallyOpenedTemplate.bind({})
 InitiallyOpened.args = {}
 
-
 const CustomDurationTemplate = (args) => {
-  void args
   return {
     components: { EffectSlideToggle },
     template: `
@@ -105,9 +100,7 @@ const CustomDurationTemplate = (args) => {
 export const CustomDuration = CustomDurationTemplate.bind({})
 CustomDuration.args = {}
 
-
 const CustomEasingTemplate = (args) => {
-  void args
   return {
     components: { EffectSlideToggle },
     template: `
@@ -132,9 +125,7 @@ const CustomEasingTemplate = (args) => {
 export const CustomEasing = CustomEasingTemplate.bind({})
 CustomEasing.args = {}
 
-
 const WithFormContentTemplate = (args) => {
-  void args
   return {
     components: { EffectSlideToggle },
     setup() {
@@ -204,9 +195,7 @@ const WithFormContentTemplate = (args) => {
 export const WithFormContent = WithFormContentTemplate.bind({})
 WithFormContent.args = {}
 
-
 const WithLongContentTemplate = (args) => {
-  void args
   return {
     components: { EffectSlideToggle },
     template: `
@@ -241,9 +230,7 @@ const WithLongContentTemplate = (args) => {
 export const WithLongContent = WithLongContentTemplate.bind({})
 WithLongContent.args = {}
 
-
 const EventHandlersTemplate = (args) => {
-  void args
   return {
     components: { EffectSlideToggle },
     setup() {
@@ -297,4 +284,3 @@ const EventHandlersTemplate = (args) => {
 
 export const EventHandlers = EventHandlersTemplate.bind({})
 EventHandlers.args = {}
-

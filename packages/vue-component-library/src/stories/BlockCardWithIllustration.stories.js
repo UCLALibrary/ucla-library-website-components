@@ -19,7 +19,6 @@ const mock2 = {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -40,13 +39,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const VisitTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -68,9 +65,7 @@ const VisitTemplate = (args) => {
 export const Visit = VisitTemplate.bind({})
 Visit.args = {}
 
-
 const LongTextAboutTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -93,9 +88,7 @@ const LongTextAboutTemplate = (args) => {
 export const LongTextAbout = LongTextAboutTemplate.bind({})
 LongTextAbout.args = {}
 
-
 const DatabasesVisitTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -117,9 +110,7 @@ const DatabasesVisitTemplate = (args) => {
 export const DatabasesVisit = DatabasesVisitTemplate.bind({})
 DatabasesVisit.args = {}
 
-
 const RemoteAccessHelpTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -141,9 +132,7 @@ const RemoteAccessHelpTemplate = (args) => {
 export const RemoteAccessHelp = RemoteAccessHelpTemplate.bind({})
 RemoteAccessHelp.args = {}
 
-
 const ResearchVisitTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -165,9 +154,7 @@ const ResearchVisitTemplate = (args) => {
 export const ResearchVisit = ResearchVisitTemplate.bind({})
 ResearchVisit.args = {}
 
-
 const TeachingAboutTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -190,9 +177,7 @@ const TeachingAboutTemplate = (args) => {
 export const TeachingAbout = TeachingAboutTemplate.bind({})
 TeachingAbout.args = {}
 
-
 const ExternalLinkTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -215,9 +200,7 @@ const ExternalLinkTemplate = (args) => {
 export const ExternalLink = ExternalLinkTemplate.bind({})
 ExternalLink.args = {}
 
-
 const HorizontalCardRemoteAccessTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -241,9 +224,7 @@ const HorizontalCardRemoteAccessTemplate = (args) => {
 export const HorizontalCardRemoteAccess = HorizontalCardRemoteAccessTemplate.bind({})
 HorizontalCardRemoteAccess.args = {}
 
-
 const HorizontalCardTeachingTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -267,9 +248,7 @@ const HorizontalCardTeachingTemplate = (args) => {
 export const HorizontalCardTeaching = HorizontalCardTeachingTemplate.bind({})
 HorizontalCardTeaching.args = {}
 
-
 const HorizontalCardResearchTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -293,9 +272,7 @@ const HorizontalCardResearchTemplate = (args) => {
 export const HorizontalCardResearch = HorizontalCardResearchTemplate.bind({})
 HorizontalCardResearch.args = {}
 
-
 const HorizontalCardShortDigitizedResourcesTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -319,9 +296,7 @@ const HorizontalCardShortDigitizedResourcesTemplate = (args) => {
 export const HorizontalCardShortDigitizedResources = HorizontalCardShortDigitizedResourcesTemplate.bind({})
 HorizontalCardShortDigitizedResources.args = {}
 
-
 const NoTextTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -344,4 +319,3 @@ const NoTextTemplate = (args) => {
 
 export const NoText = NoTextTemplate.bind({})
 NoText.args = {}
-

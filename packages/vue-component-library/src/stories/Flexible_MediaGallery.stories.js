@@ -9,7 +9,6 @@ export default {
 }
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -28,13 +27,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const FTVATemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -57,9 +54,7 @@ const FTVATemplate = (args) => {
 export const FTVA = FTVATemplate.bind({})
 FTVA.args = {}
 
-
 const WithHalfWidthTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -80,9 +75,7 @@ const WithHalfWidthTemplate = (args) => {
 export const WithHalfWidth = WithHalfWidthTemplate.bind({})
 WithHalfWidth.args = {}
 
-
 const FTVAHalfWidthTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -107,4 +100,3 @@ const FTVAHalfWidthTemplate = (args) => {
 
 export const FTVAHalfWidth = FTVAHalfWidthTemplate.bind({})
 FTVAHalfWidth.args = {}
-

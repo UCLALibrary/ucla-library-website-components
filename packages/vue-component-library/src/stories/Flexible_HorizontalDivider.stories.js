@@ -13,7 +13,6 @@ const mockHorizontalDivider = {
 
 // Default
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -28,14 +27,12 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 // Hidden Divider
 const HiddenTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -49,4 +46,3 @@ const HiddenTemplate = (args) => {
 
 export const Hidden = HiddenTemplate.bind({})
 Hidden.args = {}
-

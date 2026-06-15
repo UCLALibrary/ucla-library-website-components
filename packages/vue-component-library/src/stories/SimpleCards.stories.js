@@ -34,7 +34,6 @@ const mockTwoCards = {
 // Variations of stories below
 // -------2----------------
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockTwoCards }
@@ -52,7 +51,6 @@ const DefaultTemplate = (args) => {
 
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
-
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -92,7 +90,6 @@ const mockThreeCards = {
 }
 
 const ThreeCardsTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockThreeCards }
@@ -109,7 +106,6 @@ const ThreeCardsTemplate = (args) => {
 
 export const ThreeCards = ThreeCardsTemplate.bind({})
 ThreeCards.args = {}
-
 
 // -------4----------------
 
@@ -155,7 +151,6 @@ const mockFourCards = {
 }
 
 const FourCardsTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockFourCards }
@@ -172,7 +167,6 @@ const FourCardsTemplate = (args) => {
 
 export const FourCards = FourCardsTemplate.bind({})
 FourCards.args = {}
-
 
 // -------5----------------
 
@@ -226,7 +220,6 @@ const mockFiveCards = {
 }
 
 const FiveCardsTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockFiveCards }
@@ -243,7 +236,6 @@ const FiveCardsTemplate = (args) => {
 
 export const FiveCards = FiveCardsTemplate.bind({})
 FiveCards.args = {}
-
 
 // -------6----------------
 
@@ -301,7 +293,6 @@ const mockSixCards = {
 }
 
 const SixCardsTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockSixCards }
@@ -319,10 +310,8 @@ const SixCardsTemplate = (args) => {
 export const SixCards = SixCardsTemplate.bind({})
 SixCards.args = {}
 
-
 // -------FTVA-------------
 const FTVADefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { ...mockTwoCards }
@@ -345,4 +334,3 @@ const FTVADefaultTemplate = (args) => {
 
 export const FTVADefault = FTVADefaultTemplate.bind({})
 FTVADefault.args = {}
-

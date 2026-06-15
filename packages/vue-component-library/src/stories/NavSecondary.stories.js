@@ -9,7 +9,6 @@ export default {
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -62,13 +61,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const MicrositeTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -123,9 +120,7 @@ const MicrositeTemplate = (args) => {
 export const Microsite = MicrositeTemplate.bind({})
 Microsite.args = {}
 
-
 const MeapNoSearchTemplate = (args) => {
-  void args
   return {
     data() {
       return {
@@ -176,4 +171,3 @@ const MeapNoSearchTemplate = (args) => {
 
 export const MeapNoSearch = MeapNoSearchTemplate.bind({})
 MeapNoSearch.args = {}
-

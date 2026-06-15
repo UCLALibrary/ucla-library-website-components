@@ -15,7 +15,6 @@ export default {
  */
 
 const DefaultTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: parsedFTVABlogSeries }
@@ -39,13 +38,11 @@ const DefaultTemplate = (args) => {
 export const Default = DefaultTemplate.bind({})
 Default.args = {}
 
-
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 const SixItemsTemplate = (args) => {
-  void args
   return {
     data() {
       return { items: parsedFTVABlogSeries.concat(parsedFTVABlogSeries) }
@@ -68,4 +65,3 @@ const SixItemsTemplate = (args) => {
 
 export const SixItems = SixItemsTemplate.bind({})
 SixItems.args = {}
-
