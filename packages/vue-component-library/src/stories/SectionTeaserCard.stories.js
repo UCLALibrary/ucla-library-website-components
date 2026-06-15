@@ -4,6 +4,7 @@ import { computed } from 'vue'
 import { parsedFTVABlogSeries } from './mock/FTVAMedia'
 import SectionTeaserCard from '@/lib-components/SectionTeaserCard'
 import ScrollWrapper from '@/lib-components/ScrollWrapper'
+import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
@@ -23,6 +24,36 @@ import * as API from '@/stories/mock-api.json'
 export default {
   title: 'SECTION / Teaser / Card',
   component: SectionTeaserCard,
+  argTypes: {
+    theme: {
+      control: { type: 'select' },
+      options: STORY_THEME_OPTIONS,
+    },
+    items: { control: 'object' },
+    sectionTitle: { control: 'text' },
+    gridLayout: { control: 'boolean' },
+  },
+}
+
+function Template(args) {
+  return {
+    setup() {
+      return { args }
+    },
+    provide() {
+      return {
+        theme: computed(() => normalizeStoryTheme(args.theme)),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <section-teaser-card
+        :items="args.items"
+        :section-title="args.sectionTitle"
+        :grid-layout="args.gridLayout"
+      />
+    `,
+  }
 }
 
 const mockDefault = [
@@ -225,23 +256,13 @@ const parsedFTVAEventSeries = mockFtvaSeries.map((item) => {
 })
 
 // Variations of stories below
-const DefaultTemplate = (args) => {
-  void args
-  return {
-    data() {
-      return { items: mockDefault }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-      />
-  `,
-  }
+export const Default = Template.bind({})
+Default.args = {
+  theme: 'default',
+  items: mockDefault,
+  sectionTitle: '',
+  gridLayout: true,
 }
-
-export const Default = DefaultTemplate.bind({})
-Default.args = {}
 
 
 Default.parameters = {
@@ -421,132 +442,49 @@ const mockDLCEdgeCases = [
   }
 ]
 
-const DLCEdgeCasesTemplate = (args) => {
-  void args
-  return {
-    data() {
-      return { items: mockDLCEdgeCases }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        section-title="DLC Collections - Edge Cases"
-        :grid-layout="true"
-      />
-  `,
-  }
+export const DLCEdgeCases = Template.bind({})
+DLCEdgeCases.args = {
+  theme: 'dlc',
+  items: mockDLCEdgeCases,
+  sectionTitle: 'DLC Collections - Edge Cases',
+  gridLayout: true,
 }
 
-export const DLCEdgeCases = DLCEdgeCasesTemplate.bind({})
-DLCEdgeCases.args = {}
 
-
-const DLCEdgeCasesWithDateTemplate = (args) => {
-  void args
-  return {
-    data() {
-      return { items: mockDLCEdgeCasesWithDate }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        section-title="DLC Collections - Edge Cases with Date"
-        :grid-layout="true"
-      />
-  `,
-  }
+export const DLCEdgeCasesWithDate = Template.bind({})
+DLCEdgeCasesWithDate.args = {
+  theme: 'dlc',
+  items: mockDLCEdgeCasesWithDate,
+  sectionTitle: 'DLC Collections - Edge Cases with Date',
+  gridLayout: true,
 }
 
-export const DLCEdgeCasesWithDate = DLCEdgeCasesWithDateTemplate.bind({})
-DLCEdgeCasesWithDate.args = {}
 
-
-const FTVAEventDetailTemplate = (args) => {
-  void args
-  return {
-    data() {
-      return { items: mockFtva }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        section-title="section title here"
-        :grid-layout="false"
-      />
-  `,
-  }
+export const FTVAEventDetail = Template.bind({})
+FTVAEventDetail.args = {
+  theme: 'ftva',
+  items: mockFtva,
+  sectionTitle: 'section title here',
+  gridLayout: false,
 }
 
-export const FTVAEventDetail = FTVAEventDetailTemplate.bind({})
-FTVAEventDetail.args = {}
 
-
-const FTVAEventSeriesTemplate = (args) => {
-  void args
-  return {
-    data() {
-      return { items: parsedFTVAEventSeries }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        :grid-layout="false"
-      />
-  `,
-  }
+export const FTVAEventSeries = Template.bind({})
+FTVAEventSeries.args = {
+  theme: 'ftva',
+  items: parsedFTVAEventSeries,
+  sectionTitle: '',
+  gridLayout: false,
 }
 
-export const FTVAEventSeries = FTVAEventSeriesTemplate.bind({})
-FTVAEventSeries.args = {}
 
-
-const FTVABlogSeriesTemplate = (args) => {
-  void args
-  return {
-    data() {
-      return { items: parsedFTVABlogSeries }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        :grid-layout="false"
-      />
-  `,
-  }
+export const FTVABlogSeries = Template.bind({})
+FTVABlogSeries.args = {
+  theme: 'ftva',
+  items: parsedFTVABlogSeries,
+  sectionTitle: '',
+  gridLayout: false,
 }
-
-export const FTVABlogSeries = FTVABlogSeriesTemplate.bind({})
-FTVABlogSeries.args = {}
 
 
 const mockCollectionItems = [
@@ -620,29 +558,13 @@ const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
   }
 })
 
-const FTVACollectionItemsTemplate = (args) => {
-  void args
-  return {
-    data() {
-      return { items: parsedFTVACollectionItems }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        :grid-layout="false"
-      />
-  `,
-  }
+export const FTVACollectionItems = Template.bind({})
+FTVACollectionItems.args = {
+  theme: 'ftva',
+  items: parsedFTVACollectionItems,
+  sectionTitle: '',
+  gridLayout: false,
 }
-
-export const FTVACollectionItems = FTVACollectionItemsTemplate.bind({})
-FTVACollectionItems.args = {}
 
 
 const FTVAHorizontalScrollCardWithImageTemplate = (args) => {

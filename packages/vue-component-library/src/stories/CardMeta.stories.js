@@ -4,11 +4,39 @@ import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
 import RichText from '@/lib-components/RichText.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
+import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
+
+function normalizeDateControlValue(value) {
+  if (typeof value === 'number') {
+    const date = new Date(value)
+    return Number.isNaN(date.getTime()) ? '' : date.toISOString()
+  }
+  return value || ''
+}
 
 // Storybook default settings
 export default {
   title: 'Card Meta',
-  component: CardMeta
+  component: CardMeta,
+  argTypes: {
+    theme: {
+      control: { type: 'select' },
+      options: STORY_THEME_OPTIONS,
+    },
+    to: { control: 'text' },
+    category: { control: 'text' },
+    title: { control: 'text' },
+    text: { control: 'text' },
+    startDate: { control: 'date' },
+    endDate: { control: 'date' },
+    ongoing: { control: 'boolean' },
+    bylineOne: { control: 'text' },
+    bylineTwo: { control: 'text' },
+    locations: { control: 'object' },
+    alternativeFullName: { control: 'text' },
+    language: { control: 'text' },
+    sectionHandle: { control: 'text' },
+  },
 }
 
 const mockDefault = {
@@ -29,66 +57,55 @@ const mockDefault = {
   bylineTwo: 'Byline 2'
 }
 
-// Variations of stories below
-const DefaultTemplate = (args) => {
-  void args
+function BaseTemplate(args) {
   return {
-    data() {
-      return { ...mockDefault }
+    setup() {
+      return { args, normalizeDateControlValue }
+    },
+    provide() {
+      return {
+        theme: computed(() => normalizeStoryTheme(args.theme)),
+      }
     },
     components: { CardMeta },
     template: `
       <card-meta
-          :to="to"
-          :category="category"
-          :title="title"
-          :start-date="startDate"
-          :end-date="endDate"
-          :text="text"
-          :bylineOne="bylineOne"
-          :bylineTwo="bylineTwo"
-          :locations="locations"
-          :alternativeFullName="alternativeFullName"
-          :language="language"
-          :section-handle="sectionHandle"
+          :to="args.to"
+          :category="args.category"
+          :title="args.title"
+          :start-date="normalizeDateControlValue(args.startDate)"
+          :end-date="normalizeDateControlValue(args.endDate)"
+          :text="args.text"
+          :ongoing="args.ongoing"
+          :bylineOne="args.bylineOne"
+          :bylineTwo="args.bylineTwo"
+          :locations="args.locations"
+          :alternativeFullName="args.alternativeFullName"
+          :language="args.language"
+          :section-handle="args.sectionHandle"
       />
   `,
   }
 }
 
-export const Default = DefaultTemplate.bind({})
-Default.args = {}
+// Variations of stories below
+export const Default = BaseTemplate.bind({})
+Default.args = {
+  ...mockDefault,
+  theme: 'default',
+  ongoing: false,
+}
 
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-const OngoingTemplate = (args) => {
-  void args
-  return {
-    data() {
-      return { ...mockDefault }
-    },
-    components: { CardMeta },
-    template: `
-      <card-meta
-          :to="to"
-          :category="category"
-          :title="title"
-          :ongoing=true
-          :text="text"
-          :locations="locations"
-          :alternativeFullName="alternativeFullName"
-          :language="language"
-          :section-handle="sectionHandle"
-      />
-  `,
-  }
+export const Ongoing = BaseTemplate.bind({})
+Ongoing.args = {
+  ...Default.args,
+  ongoing: true,
 }
-
-export const Ongoing = OngoingTemplate.bind({})
-Ongoing.args = {}
 
 
 // FTVA STORIES
@@ -134,65 +151,39 @@ FtvaWithBlockTagsAndIntro.args = {}
 
 
 const FtvaOnlyCategoryAndTitleTemplate = (args) => {
-  void args
   return {
-    data() {
-      return {
-        event: {
-          title: 'Step Up 2 - The Streets (2008)',
-        },
-        series: {
-          title: 'The Step Up Movie Series'
-        }
-      }
+    setup() {
+      return { args }
     },
     provide() {
       return {
-        theme: computed(() => 'ftva'),
+        theme: computed(() => normalizeStoryTheme(args.theme)),
       }
     },
     components: { CardMeta },
     template: `
       <card-meta
-        :category="series.title"
-        :title="event.title"
+        :category="args.category"
+        :title="args.title"
       />
   `,
   }
 }
 
 export const FtvaOnlyCategoryAndTitle = FtvaOnlyCategoryAndTitleTemplate.bind({})
-FtvaOnlyCategoryAndTitle.args = {}
-
-// used on FTVA Event Series Page
-const FTVAOngoingTemplate = (args) => {
-  void args
-  return {
-    data() {
-      return { ...mockDefault }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { CardMeta },
-    template: `
-      <card-meta
-          :to="to"
-          :category="category"
-          :title="title"
-          :ongoing=true
-          :text="text"
-          :locations="locations"
-          :language="language"
-      />
-  `,
-  }
+FtvaOnlyCategoryAndTitle.args = {
+  theme: 'ftva',
+  category: 'The Step Up Movie Series',
+  title: 'Step Up 2 - The Streets (2008)',
 }
 
-export const FTVAOngoing = FTVAOngoingTemplate.bind({})
-FTVAOngoing.args = {}
+// used on FTVA Event Series Page
+export const FTVAOngoing = BaseTemplate.bind({})
+FTVAOngoing.args = {
+  ...Default.args,
+  theme: 'ftva',
+  ongoing: true,
+}
 
 
 const mockFTVAArticleData = {

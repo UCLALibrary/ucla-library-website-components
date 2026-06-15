@@ -1,6 +1,7 @@
 import { computed } from 'vue'
 import CollectionOverview from '@/lib-components/CollectionOverview'
 import { ButtonLinkIcons } from '@/types/components/buttonLink.types'
+import { normalizeStoryTheme, STORY_THEME_OPTIONS } from './helpers/themeControls'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
@@ -9,6 +10,13 @@ import * as API from '@/stories/mock-api.json'
 export default {
   title: 'Funkhaus / Collection Overview',
   component: CollectionOverview,
+  argTypes: {
+    theme: {
+      control: { type: 'select' },
+      options: STORY_THEME_OPTIONS,
+    },
+    props: { control: 'object' },
+  },
 }
 
 const pageTemplate = `
@@ -22,35 +30,14 @@ const pageTemplate = `
 
 // Variations of stories below
 const DefaultTemplate = (args) => {
-  void args
   return {
     components: { CollectionOverview },
-    data() {
-      return {
-        props: {
-          title: 'Los Angeles Times Photographic Collection ',
-          subtitle: 'About this Collection',
-          itemsCount: 21963,
-
-          blockButtons: {
-            buttons: [
-              {
-                label: 'Click Here for UCLA Library Locations',
-                to: '/help/more',
-                iconName: ButtonLinkIcons.ARROW_RIGHT,
-              },
-              { label: 'Contact Us', to: 'https://google.com' },
-            ],
-          },
-          description:
-                        'Collection consists of photonegatives documenting events and people in So. CA and photographic prints documenting events and people in So. CA, the US, and the world. The material originates from the Los Angeles Times newspaper and includes glass negatives (ca. 1918-1932), nitrate negatives (ca. 1925-45), and safety negatives (ca. 1935-1990). Also includes prints and negatives from the Los Angeles Times Orange County and San Diego bureaus.',
-          image: API.image,
-        },
-      }
+    setup() {
+      return { props: args.props }
     },
     provide() {
       return {
-        theme: computed(() => 'dlc'),
+        theme: computed(() => normalizeStoryTheme(args.theme)),
       }
     },
     template: pageTemplate,
@@ -58,7 +45,27 @@ const DefaultTemplate = (args) => {
 }
 
 export const Default = DefaultTemplate.bind({})
-Default.args = {}
+Default.args = {
+  theme: 'dlc',
+  props: {
+    title: 'Los Angeles Times Photographic Collection ',
+    subtitle: 'About this Collection',
+    itemsCount: 21963,
+    blockButtons: {
+      buttons: [
+        {
+          label: 'Click Here for UCLA Library Locations',
+          to: '/help/more',
+          iconName: ButtonLinkIcons.ARROW_RIGHT,
+        },
+        { label: 'Contact Us', to: 'https://google.com' },
+      ],
+    },
+    description:
+      'Collection consists of photonegatives documenting events and people in So. CA and photographic prints documenting events and people in So. CA, the US, and the world. The material originates from the Los Angeles Times newspaper and includes glass negatives (ca. 1918-1932), nitrate negatives (ca. 1925-45), and safety negatives (ca. 1935-1990). Also includes prints and negatives from the Los Angeles Times Orange County and San Diego bureaus.',
+    image: API.image,
+  },
+}
 
 
 Default.parameters = {
