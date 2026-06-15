@@ -3,6 +3,7 @@ import type { PropType } from 'vue'
 import { defineAsyncComponent } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import type { PermittedIconStrings } from '@/types/components/iconWithLink.types'
+
 export default {
   name: 'IconWithLink',
   components: {
