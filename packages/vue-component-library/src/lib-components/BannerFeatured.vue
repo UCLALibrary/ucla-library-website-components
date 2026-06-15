@@ -19,6 +19,7 @@ import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
 import BlockForm from '@/lib-components/BlockForm.vue'
 
 import type { LocationItemType, MediaItemType, } from '@/types/types'
+import { getLocationIconName } from '@/types/components/iconWithLink.types'
 
 // Utility functions
 import formatEventTimes from '@/utils/formatEventTimes'
@@ -174,13 +175,10 @@ const parsedRatio = computed(() => {
 
 // Location
 const parsedLocations = computed(() => {
-  return props.locations.map((obj) => {
+  return props.locations.map((obj: LocationItemType) => {
     return {
       ...obj,
-      svg:
-        obj.title === 'Online'
-          ? 'svg-icon-virtual'
-          : 'svg-icon-location',
+      svg: getLocationIconName(obj.title),
       class:
         obj.title === 'Online'
           ? 'location-online'
