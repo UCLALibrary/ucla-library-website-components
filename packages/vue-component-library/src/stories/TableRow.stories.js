@@ -18,6 +18,16 @@ import RichText from '@/lib-components/RichText.vue'
 export default {
   title: 'TABLE / Table Row',
   component: TableRow,
+  argTypes: {
+    numCellsStaff: { control: 'number' },
+    numCellsFilmography: { control: 'number' },
+    numCellsCredits: { control: 'number' },
+    locationIconName: { control: 'text' },
+    emailIconName: { control: 'text' },
+    phoneIconName: { control: 'text' },
+    consultationIconName: { control: 'text' },
+    consultationText: { control: 'text' },
+  },
 }
 
 const mockDefault = {
@@ -117,6 +127,9 @@ const mockAlternativeName = {
 
 const DefaultTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return {
         item: {
@@ -127,7 +140,7 @@ const DefaultTemplate = (args) => {
     components: { TableRow, SmartLink, IconWithLink },
     template: `
       <TableRow
-        :num-cells="3"
+        :num-cells="args.numCellsStaff"
       >
       <template v-slot:column1>
         {{ item.subjectArea }}
@@ -148,20 +161,20 @@ const DefaultTemplate = (args) => {
         <div v-if="item.locations && item.locations.length !== 0">
           <IconWithLink
           v-for="location in item.locations " :key="'location-' + location.id" :text="location.title ?? ''"
-          icon-name="svg-icon-location" :to="'/' + location.to"
+          :icon-name="args.locationIconName" :to="'/' + location.to"
           />
         </div>
       </template>
       <template v-slot:column3>
         <div class="email">
-          <IconWithLink :text="item.email" icon-name="svg-icon-email" :to="'mailto:' + item.email" />
+          <IconWithLink :text="item.email" :icon-name="args.emailIconName" :to="'mailto:' + item.email" />
         </div>
 
         <div v-if="item.phone" class="phone">
-          <IconWithLink :text="item.phone" icon-name="svg-icon-phone" :to="'tel:' + item.phone" />
+          <IconWithLink :text="item.phone" :icon-name="args.phoneIconName" :to="'tel:' + item.phone" />
         </div>
         <div v-if="item.consultation" class="consultation">
-          <IconWithLink text="Book a consultation" icon-name="svg-icon-consultation" :to="item.consultation" />
+          <IconWithLink :text="args.consultationText" :icon-name="args.consultationIconName" :to="item.consultation" />
         </div>
       </template>
       </TableRow>
@@ -170,7 +183,16 @@ const DefaultTemplate = (args) => {
 }
 
 export const Default = DefaultTemplate.bind({})
-Default.args = {}
+Default.args = {
+  numCellsStaff: 3,
+  numCellsFilmography: 4,
+  numCellsCredits: 2,
+  locationIconName: 'svg-icon-location',
+  emailIconName: 'svg-icon-email',
+  phoneIconName: 'svg-icon-phone',
+  consultationIconName: 'svg-icon-consultation',
+  consultationText: 'Book a consultation',
+}
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -178,6 +200,9 @@ Default.parameters = {
 
 const AlternativeNameTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return {
         item: {
@@ -191,7 +216,9 @@ const AlternativeNameTemplate = (args) => {
 }
 
 export const AlternativeName = AlternativeNameTemplate.bind({})
-AlternativeName.args = {}
+AlternativeName.args = {
+  ...Default.args,
+}
 
 // mock raw data from FTVA graphQL LA rebellion filmography
 const mockFilm = {
@@ -223,6 +250,9 @@ const mockFilm = {
 
 const FTVAFilmographyTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return {
         item: {
@@ -238,7 +268,7 @@ const FTVAFilmographyTemplate = (args) => {
     components: { TableRow, SmartLink, ResponsiveImage, RichText },
     template: `
       <TableRow
-        :num-cells="4"
+        :num-cells="args.numCellsFilmography"
       >
       <template v-slot:column1>
       <div class="responsive-image">
@@ -265,7 +295,9 @@ const FTVAFilmographyTemplate = (args) => {
 }
 
 export const FTVAFilmography = FTVAFilmographyTemplate.bind({})
-FTVAFilmography.args = {}
+FTVAFilmography.args = {
+  ...Default.args,
+}
 
 // TODO CHECK DATA MODEL IS CORRECT?
 const mockCredit = {
@@ -275,6 +307,9 @@ const mockCredit = {
 
 const FTVACreditsTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return {
         item: {
@@ -290,7 +325,7 @@ const FTVACreditsTemplate = (args) => {
     components: { TableRow },
     template: `
       <TableRow
-        :num-cells="2"
+        :num-cells="args.numCellsCredits"
       >
       <template v-slot:column1>
         {{ item.name }}
@@ -304,4 +339,6 @@ const FTVACreditsTemplate = (args) => {
 }
 
 export const FTVACredits = FTVACreditsTemplate.bind({})
-FTVACredits.args = {}
+FTVACredits.args = {
+  ...Default.args,
+}

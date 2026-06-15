@@ -22,6 +22,16 @@ import RichText from '@/lib-components/RichText.vue'
 export default {
   title: 'TABLE / Table with Header',
   component: TableComponent,
+  argTypes: {
+    numCellsStaff: { control: 'number' },
+    numCellsFilmography: { control: 'number' },
+    numCellsCredits: { control: 'number' },
+    locationIconName: { control: 'text' },
+    emailIconName: { control: 'text' },
+    phoneIconName: { control: 'text' },
+    consultationIconName: { control: 'text' },
+    consultationText: { control: 'text' },
+  },
 }
 
 // Original data, represents Staff Subject Librarian data
@@ -140,12 +150,15 @@ const tableH = ['Academic Departments', 'Name', 'Contact Information']
 // Variations of stories below
 const DefaultTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return { items: mockDefaultStaffSubjectLibrarian, tableHeaders: tableH, tableCaption: 'Subject Librarians' }
     },
     components: { TableComponent, TableRow, SmartLink, IconWithLink },
     template: `<tableComponent :tableHeaders="tableHeaders" :tableCaption="tableCaption">
-      <TableRow v-for="item, index in items" :key="index" :num-cells="3" :class="subject-librarian-item">
+      <TableRow v-for="item, index in items" :key="index" :num-cells="args.numCellsStaff" :class="subject-librarian-item">
         <template v-slot:column1>
         {{ item.subjectArea }}
       </template>
@@ -165,20 +178,20 @@ const DefaultTemplate = (args) => {
         <div class="locations" v-if="item.locations && item.locations.length !== 0">
           <IconWithLink
           v-for="location in item.locations " :key="'location-' + location.id" :text="location.title ?? ''"
-          icon-name="svg-icon-location" :to="'/' + location.to"
+          :icon-name="args.locationIconName" :to="'/' + location.to"
           />
         </div>
       </template>
       <template v-slot:column3>
         <div class="email">
-          <IconWithLink :text="item.email" icon-name="svg-icon-email" :to="'mailto:' + item.email" />
+          <IconWithLink :text="item.email" :icon-name="args.emailIconName" :to="'mailto:' + item.email" />
         </div>
 
         <div v-if="item.phone" class="phone">
-          <IconWithLink :text="item.phone" icon-name="svg-icon-phone" :to="'tel:' + item.phone" />
+          <IconWithLink :text="item.phone" :icon-name="args.phoneIconName" :to="'tel:' + item.phone" />
         </div>
         <div v-if="item.consultation" class="consultation">
-          <IconWithLink text="Book a consultation" icon-name="svg-icon-consultation" :to="item.consultation" />
+          <IconWithLink :text="args.consultationText" :icon-name="args.consultationIconName" :to="item.consultation" />
         </div>
       </template>
     </TableRow>
@@ -188,7 +201,16 @@ const DefaultTemplate = (args) => {
 }
 
 export const Default = DefaultTemplate.bind({})
-Default.args = {}
+Default.args = {
+  numCellsStaff: 3,
+  numCellsFilmography: 4,
+  numCellsCredits: 4,
+  locationIconName: 'svg-icon-location',
+  emailIconName: 'svg-icon-email',
+  phoneIconName: 'svg-icon-phone',
+  consultationIconName: 'svg-icon-consultation',
+  consultationText: 'Book a consultation',
+}
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -252,6 +274,9 @@ const mockFTVAfilmdata = [
 // This story mocks an async data call for the Filmography data
 const FTVAPaleBlueThemeTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return { tableHeaders: mockFTVAtableHeaders, tableCaption: 'Filmography', colorScheme: 'paleblue' }
     },
@@ -278,7 +303,7 @@ const FTVAPaleBlueThemeTemplate = (args) => {
     components: { TableComponent, TableRow, ResponsiveImage, SmartLink, RichText },
     template: `
     <TableComponent :tableHeaders="tableHeaders" :tableCaption="tableCaption" :colorScheme="colorScheme">
-        <TableRow v-for="item, index in filmData" :key="index" :num-cells="4">
+        <TableRow v-for="item, index in filmData" :key="index" :num-cells="args.numCellsFilmography">
       <template v-slot:column1>
       <div class="responsive-image">
         <ResponsiveImage :media="item.image[0]"/>
@@ -305,10 +330,15 @@ const FTVAPaleBlueThemeTemplate = (args) => {
 }
 
 export const FTVAPaleBlueTheme = FTVAPaleBlueThemeTemplate.bind({})
-FTVAPaleBlueTheme.args = {}
+FTVAPaleBlueTheme.args = {
+  ...Default.args,
+}
 
 const FTVAFilmographyTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return { tableHeaders: mockFTVAtableHeaders, tableCaption: 'Filmography', colorScheme: 'paleblue' }
     },
@@ -335,7 +365,7 @@ const FTVAFilmographyTemplate = (args) => {
     components: { TableComponent, TableRow, ResponsiveImage, SmartLink, RichText },
     template: `
     <TableComponent :tableHeaders="tableHeaders" :tableCaption="tableCaption">
-        <TableRow v-for="item, index in filmData" :key="index" :num-cells="4">
+        <TableRow v-for="item, index in filmData" :key="index" :num-cells="args.numCellsFilmography">
       <template v-slot:column1>
       <div class="responsive-image">
         <ResponsiveImage :media="item.image[0]"/>
@@ -362,7 +392,9 @@ const FTVAFilmographyTemplate = (args) => {
 }
 
 export const FTVAFilmography = FTVAFilmographyTemplate.bind({})
-FTVAFilmography.args = {}
+FTVAFilmography.args = {
+  ...Default.args,
+}
 
 // TODO CHECK DATA MODEL IS CORRECT?
 const mockFTVACredits = [{
@@ -376,6 +408,9 @@ const mockFTVACreditstableHeaders = ['Name', 'Roles']
 // Display Film Credits data in the FTVA site
 const FTVAFilmCreditsTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return { items: mockFTVACredits, tableHeaders: mockFTVACreditstableHeaders, tableCaption: 'Film Credits', colorScheme: 'paleblue' }
     },
@@ -387,7 +422,7 @@ const FTVAFilmCreditsTemplate = (args) => {
     components: { TableComponent, TableRow },
     template: `
     <TableComponent :tableHeaders="tableHeaders" :tableCaption="tableCaption" :colorScheme="colorScheme">
-        <TableRow v-for="item, index in items" :key="index" :num-cells="4">
+        <TableRow v-for="item, index in items" :key="index" :num-cells="args.numCellsCredits">
       <template v-slot:column1>
         {{ item.name }}
       </template>
@@ -401,4 +436,6 @@ const FTVAFilmCreditsTemplate = (args) => {
 }
 
 export const FTVAFilmCredits = FTVAFilmCreditsTemplate.bind({})
-FTVAFilmCredits.args = {}
+FTVAFilmCredits.args = {
+  ...Default.args,
+}

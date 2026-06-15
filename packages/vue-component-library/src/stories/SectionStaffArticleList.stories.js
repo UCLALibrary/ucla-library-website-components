@@ -8,6 +8,9 @@ import { mockArticles, mockCollections, mockFTVABlogListing, mockFilmamkers, moc
 export default {
   title: 'SECTION / Staff / Article / List',
   component: SectionStaffArticleList,
+  argTypes: {
+    sectionTitle: { control: 'text' },
+  },
 }
 
 const mockDefault = [
@@ -52,6 +55,9 @@ const mockDefault = [
 // Variations of stories below
 const DefaultTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return { items: mockDefault }
     },
@@ -59,14 +65,16 @@ const DefaultTemplate = (args) => {
     template: `
       <section-staff-article-list
         :items="items"
-        section-title="Articles"
+        :section-title="args.sectionTitle"
       />
   `,
   }
 }
 
 export const Default = DefaultTemplate.bind({})
-Default.args = {}
+Default.args = {
+  sectionTitle: 'Articles',
+}
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -107,6 +115,9 @@ const mockCurrentEntriesWithDates = [
 
 const FtvaCurrentEntriesWithDatesTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return { items: mockCurrentEntriesWithDates }
     },
@@ -171,7 +182,7 @@ const FtvaCurrentEntriesWithDatesTemplate = (args) => {
         </component>
       <section-staff-article-list
         :items="items"
-        section-title="Event Series"
+        :section-title="args.sectionTitle"
         class="stories-ftva-current-entries"
       />
   `,
@@ -179,7 +190,9 @@ const FtvaCurrentEntriesWithDatesTemplate = (args) => {
 }
 
 export const FtvaCurrentEntriesWithDates = FtvaCurrentEntriesWithDatesTemplate.bind({})
-FtvaCurrentEntriesWithDates.args = {}
+FtvaCurrentEntriesWithDates.args = {
+  sectionTitle: 'Event Series',
+}
 
 const FtvaNoSectionTitleTemplate = (args) => {
   return {
@@ -571,6 +584,9 @@ FtvaFilmMakers.args = {}
 
 const FtvaBlogListTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return { items: mockFTVABlogListing }
     },
@@ -647,11 +663,13 @@ const FtvaBlogListTemplate = (args) => {
 
       </component>
       <section-staff-article-list class="stories-ftva-articles"
-        :items="items" :section-title="'FTVA Blog Listing'"
+        :items="items" :section-title="args.sectionTitle"
       />
   `,
   }
 }
 
 export const FtvaBlogList = FtvaBlogListTemplate.bind({})
-FtvaBlogList.args = {}
+FtvaBlogList.args = {
+  sectionTitle: 'FTVA Blog Listing',
+}

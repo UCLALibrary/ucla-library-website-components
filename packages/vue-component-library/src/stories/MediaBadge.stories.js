@@ -8,6 +8,10 @@ import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 export default {
   title: 'Media Badge',
   component: MediaBadge,
+  argTypes: {
+    imageAspectRatio: { control: 'number' },
+    badgeText: { control: 'text' },
+  },
 }
 
 const mock = {
@@ -17,6 +21,9 @@ const mock = {
 // Variations of stories below
 const DefaultTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     components: {
       ResponsiveImage,
       MediaBadge,
@@ -28,9 +35,9 @@ const DefaultTemplate = (args) => {
       <responsive-image :media="image">
         <media-badge
             :image="image"
-            :image-aspect-ratio="60"
+            :image-aspect-ratio="args.imageAspectRatio"
         >
-            5 Images <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg__icon-expand">
+            {{ args.badgeText }} <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg__icon-expand">
   <path d="m16.0333 23.0381-.0652-14.07692" stroke="#0B6AB7" stroke-width="1.5" stroke-linejoin="round" class="svg__stroke--primary-blue-03" />
   <path d="m8.95828 16.0291 14.08422-.0579" stroke="#0B6AB7" stroke-width="1.5" stroke-linejoin="round" class="svg__stroke--primary-blue-03 "/>
 </svg>
@@ -41,7 +48,10 @@ const DefaultTemplate = (args) => {
 }
 
 export const Default = DefaultTemplate.bind({})
-Default.args = {}
+Default.args = {
+  imageAspectRatio: 60,
+  badgeText: '5 Images',
+}
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -49,6 +59,9 @@ Default.parameters = {
 
 const FTVATemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return {
         ...mock,
@@ -67,8 +80,8 @@ const FTVATemplate = (args) => {
     <responsive-image :media="image">
       <media-badge
           :image="image"
-          :image-aspect-ratio="60">
-        5 Images
+          :image-aspect-ratio="args.imageAspectRatio">
+        {{ args.badgeText }}
       </media-badge>
     </responsive-image>
   `,
@@ -76,4 +89,6 @@ const FTVATemplate = (args) => {
 }
 
 export const FTVA = FTVATemplate.bind({})
-FTVA.args = {}
+FTVA.args = {
+  ...Default.args,
+}

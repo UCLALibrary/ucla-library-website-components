@@ -1,7 +1,9 @@
-<script>
+<script lang="ts">
+import type { PropType } from 'vue'
 import { defineAsyncComponent } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
+type permittedIconStrings = "svg-icon-consultation" | "svg-icon-list" | "svg-icon-location" | "svg-icon-phone" | "svg-icon-search" | "svg-icon-virtual" | "svg-icon-headphones" | "svg-icon-video" | "svg-icon-image-stack" | "svg-icon-money" | "svg-icon-message" | "svg-icon-play" | "svg-icon-play-filled" | "svg-icon-eye" | "svg-icon-check" | "svg-icon-email" | "svg-icon-card" | "svg-icon-calendar" | "svg-icon-laptop" | "svg-icon-book" | "svg-icon-locker" | "svg-icon-person" | "svg-icon-accessible" | "svg-icon-clock" | "svg-icon-chair" | "svg-icon-light" | "svg-icon-location-filled" | "svg-icon-alert" | "svg-icon-share-email" | "svg-icon-share-printer" | "svg-icon-share-facebook" | "svg-icon-share-instagram" | "svg-icon-share-linkedin" | "svg-icon-share-twitter" | "svg-icon-share-whatsapp" | "svg-icon-ftva-appleinc" | "svg-icon-ftva-download" | "svg-icon-ftva-email" | "svg-icon-ftva-gcal" | "svg-icon-ftva-hours" | "svg-icon-ftva-location-outline" | "svg-icon-ftva-outlook" | "svg-icon-ftva-phone" | "svg-icon-ftva-share" | "svg-icon-ftva-social_confirm" | "svg-icon-ftva-social_email" | "svg-icon-ftva-social_facebook" | "svg-icon-ftva-social_link" | "svg-icon-ftva-social_x"
 export default {
   name: 'IconWithLink',
   components: {
@@ -219,7 +221,7 @@ export default {
       required: true,
     },
     iconName: {
-      type: String,
+      type: String as PropType<permittedIconStrings>,
       required: true,
     },
     to: {
