@@ -10,7 +10,8 @@ const mock = {
   form: '<div id="form_95580ed5e8d04c56e4afbf9e91781b28"></div><script type="text/javascript" src="https://ucla.libwizard.com/form_loader.php?id=95580ed5e8d04c56e4afbf9e91781b28&noheader=0"></script>'
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -24,6 +25,10 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -34,7 +39,8 @@ const mock2 = {
   sectionSummary: 'Section Summary',
 }
 
-export function WithSectionTitleAndSummary() {
+const WithSectionTitleAndSummaryTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -48,7 +54,12 @@ export function WithSectionTitleAndSummary() {
   }
 }
 
-export function FTVAForm() {
+export const WithSectionTitleAndSummary = WithSectionTitleAndSummaryTemplate.bind({})
+WithSectionTitleAndSummary.args = {}
+
+
+const FTVAFormTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -66,3 +77,7 @@ export function FTVAForm() {
     />`,
   }
 }
+
+export const FTVAForm = FTVAFormTemplate.bind({})
+FTVAForm.args = {}
+

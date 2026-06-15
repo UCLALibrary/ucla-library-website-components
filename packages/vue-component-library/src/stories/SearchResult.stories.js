@@ -13,7 +13,8 @@ const mock = {
         'Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.',
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -32,6 +33,10 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -44,7 +49,8 @@ const mockEvent = {
       'Nine animated pictures from Max and Dave Fleischer, who created Betty Boop and Koko the Clown, are among the pieces that have been restored. MacFarlane is a jazz music aficionado, so the Fleischer brothers’ noted use of jazz in their soundtracks, including collaborations with Cab Calloway, Louis Armstrong and Don Redman, are a big reason why the Fleischers’ work is represented in this restoration collection. Also restored were two stop-motion animation shorts directed by George Pal, known for his charming “Puppetoons,” and a Terrytoon, The Three Bears, produced by Paul Terry..',
 }
 
-export function EventItem() {
+const EventItemTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -83,6 +89,10 @@ export function EventItem() {
   }
 }
 
+export const EventItem = EventItemTemplate.bind({})
+EventItem.args = {}
+
+
 const mockEventSeriesOnGoing = {
   category: 'Event Series',
   to: '/visit/events-exhibitions/series1',
@@ -91,7 +101,8 @@ const mockEventSeriesOnGoing = {
       '<p>The <a href="https://cinema.ucla.edu/collections/outfest-ucla-legacy-project" target="_blank" rel="noreferrer noopener">Outfest UCLA Legacy Project<span class="visually-hidden">(opens in a new tab)</span></a> is a collaborative effort bringing together the UCLA Film &amp; Television Archive and Outfest to collect, restore and showcase queer film and video</p>'
 }
 
-export function EventSeriesOngoing() {
+const EventSeriesOngoingTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -129,6 +140,10 @@ export function EventSeriesOngoing() {
   }
 }
 
+export const EventSeriesOngoing = EventSeriesOngoingTemplate.bind({})
+EventSeriesOngoing.args = {}
+
+
 const mockEventSeries = {
   category: 'Event Series',
   to: '/visit/events-exhibitions/series2',
@@ -137,7 +152,8 @@ const mockEventSeries = {
       'Dinner and a movie. It’s a combination, a social custom, perhaps, almost as old as the movies themselves. But where the public fascination with how movies get made still drives an entire media industry, we’ve been less willing, by comparison, to learn as much about how a meal comes together, how the food on our plate gets there. Few people have been more instrumental in changing that than Alice Waters. The co-founder with film producer Paul Aratow of the award-winning Chez Panisse in 1971, the legendary Bay Area chef and restaurateur has been a central, passionate advocate of the farm-to-table movement which promotes seasonal, organic and locally sourced ingredients for restaurants, schools and in the home.'
 }
 
-export function EventSeries() {
+const EventSeriesTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -174,3 +190,7 @@ export function EventSeries() {
     `,
   }
 }
+
+export const EventSeries = EventSeriesTemplate.bind({})
+EventSeries.args = {}
+

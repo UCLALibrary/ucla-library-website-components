@@ -21,7 +21,8 @@ const pageTemplate = `
 `
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     components: { CollectionOverview },
     data() {
@@ -56,11 +57,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function WithoutButtons() {
+const WithoutButtonsTemplate = (args) => {
+  void args
   return {
     components: { CollectionOverview },
     data() {
@@ -83,7 +89,12 @@ export function WithoutButtons() {
   }
 }
 
-export function LongTextContent() {
+export const WithoutButtons = WithoutButtonsTemplate.bind({})
+WithoutButtons.args = {}
+
+
+const LongTextContentTemplate = (args) => {
+  void args
   return {
     components: { CollectionOverview },
     data() {
@@ -144,7 +155,12 @@ export function LongTextContent() {
   }
 }
 
-export function MinimalContent() {
+export const LongTextContent = LongTextContentTemplate.bind({})
+LongTextContent.args = {}
+
+
+const MinimalContentTemplate = (args) => {
+  void args
   return {
     components: { CollectionOverview },
     data() {
@@ -164,7 +180,12 @@ export function MinimalContent() {
   }
 }
 
-export function NoSubtitle() {
+export const MinimalContent = MinimalContentTemplate.bind({})
+MinimalContent.args = {}
+
+
+const NoSubtitleTemplate = (args) => {
+  void args
   return {
     components: { CollectionOverview },
     data() {
@@ -196,7 +217,12 @@ export function NoSubtitle() {
   }
 }
 
-export function VeryLongTitle() {
+export const NoSubtitle = NoSubtitleTemplate.bind({})
+NoSubtitle.args = {}
+
+
+const VeryLongTitleTemplate = (args) => {
+  void args
   return {
     components: { CollectionOverview },
     data() {
@@ -227,7 +253,12 @@ export function VeryLongTitle() {
   }
 }
 
-export function EdgeCaseEmptyStrings() {
+export const VeryLongTitle = VeryLongTitleTemplate.bind({})
+VeryLongTitle.args = {}
+
+
+const EdgeCaseEmptyStringsTemplate = (args) => {
+  void args
   return {
     components: { CollectionOverview },
     data() {
@@ -252,3 +283,7 @@ export function EdgeCaseEmptyStrings() {
     template: pageTemplate,
   }
 }
+
+export const EdgeCaseEmptyStrings = EdgeCaseEmptyStringsTemplate.bind({})
+EdgeCaseEmptyStrings.args = {}
+

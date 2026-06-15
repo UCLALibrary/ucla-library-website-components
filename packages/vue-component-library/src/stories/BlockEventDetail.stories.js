@@ -82,7 +82,8 @@ const mockFtvaSeriesDetailDataRange = {
 }
 
 // STORIES
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -99,12 +100,17 @@ export function Default() {
     `,
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function MoreThanOneLocation() {
+const MoreThanOneLocationTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -122,7 +128,12 @@ export function MoreThanOneLocation() {
   }
 }
 
-export function FtvaOneLocation() {
+export const MoreThanOneLocation = MoreThanOneLocationTemplate.bind({})
+MoreThanOneLocation.args = {}
+
+
+const FtvaOneLocationTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -145,7 +156,12 @@ export function FtvaOneLocation() {
   }
 }
 
-export function FtvaMultipleLocations() {
+export const FtvaOneLocation = FtvaOneLocationTemplate.bind({})
+FtvaOneLocation.args = {}
+
+
+const FtvaMultipleLocationsTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -168,7 +184,12 @@ export function FtvaMultipleLocations() {
   }
 }
 
-export function FtvaNoLocation() {
+export const FtvaMultipleLocations = FtvaMultipleLocationsTemplate.bind({})
+FtvaMultipleLocations.args = {}
+
+
+const FtvaNoLocationTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -191,7 +212,12 @@ export function FtvaNoLocation() {
   }
 }
 
-export function FtvaDateRange() {
+export const FtvaNoLocation = FtvaNoLocationTemplate.bind({})
+FtvaNoLocation.args = {}
+
+
+const FtvaDateRangeTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -215,7 +241,12 @@ export function FtvaDateRange() {
   }
 }
 
-export function FtvaOngoing() {
+export const FtvaDateRange = FtvaDateRangeTemplate.bind({})
+FtvaDateRange.args = {}
+
+
+const FtvaOngoingTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -238,3 +269,7 @@ export function FtvaOngoing() {
     `,
   }
 }
+
+export const FtvaOngoing = FtvaOngoingTemplate.bind({})
+FtvaOngoing.args = {}
+

@@ -9,7 +9,8 @@ export default {
 }
 
 // External Content
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { block: mockExternal }
@@ -23,12 +24,17 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 // Internal Content - EVENT
-export function InternalContentEvent() {
+const InternalContentEventTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -44,8 +50,13 @@ export function InternalContentEvent() {
   }
 }
 
+export const InternalContentEvent = InternalContentEventTemplate.bind({})
+InternalContentEvent.args = {}
+
+
 // Internal Content - Exhibition
-export function InternalContentExhibiton() {
+const InternalContentExhibitonTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -61,8 +72,13 @@ export function InternalContentExhibiton() {
   }
 }
 
+export const InternalContentExhibiton = InternalContentExhibitonTemplate.bind({})
+InternalContentExhibiton.args = {}
+
+
 // Internal Content - WORKSHOP
-export function InternalWorkshop() {
+const InternalWorkshopTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -78,8 +94,13 @@ export function InternalWorkshop() {
   }
 }
 
+export const InternalWorkshop = InternalWorkshopTemplate.bind({})
+InternalWorkshop.args = {}
+
+
 // Internal Content - SERIES
-export function InternalSeries() {
+const InternalSeriesTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -95,8 +116,13 @@ export function InternalSeries() {
   }
 }
 
+export const InternalSeries = InternalSeriesTemplate.bind({})
+InternalSeries.args = {}
+
+
 // Internal Content - ARTICLE
-export function InternalArticle() {
+const InternalArticleTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -112,8 +138,13 @@ export function InternalArticle() {
   }
 }
 
+export const InternalArticle = InternalArticleTemplate.bind({})
+InternalArticle.args = {}
+
+
 // Internal Content - ENDOWMENT
-export function InternalEndowment() {
+const InternalEndowmentTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -129,8 +160,13 @@ export function InternalEndowment() {
   }
 }
 
+export const InternalEndowment = InternalEndowmentTemplate.bind({})
+InternalEndowment.args = {}
+
+
 // Internal Content - COLLECTION
-export function InternalCollection() {
+const InternalCollectionTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -145,6 +181,10 @@ export function InternalCollection() {
     `,
   }
 }
+
+export const InternalCollection = InternalCollectionTemplate.bind({})
+InternalCollection.args = {}
+
 
 // FTVA
 // INTERNAL CARDWITHIMAGE
@@ -461,7 +501,8 @@ const mockFtvaInternal = {
   ]
 }
 
-export function FtvaInternal() {
+const FtvaInternalTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -481,6 +522,10 @@ export function FtvaInternal() {
     `,
   }
 }
+
+export const FtvaInternal = FtvaInternalTemplate.bind({})
+FtvaInternal.args = {}
+
 
 // EXTERNAL CARDSWITHIMAGE
 const mockFtvaExternal = {
@@ -533,7 +578,8 @@ const mockFtvaExternal = {
   ]
 }
 
-export function FtvaExternal() {
+const FtvaExternalTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -553,3 +599,7 @@ export function FtvaExternal() {
     `,
   }
 }
+
+export const FtvaExternal = FtvaExternalTemplate.bind({})
+FtvaExternal.args = {}
+

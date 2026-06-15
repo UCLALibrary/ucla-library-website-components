@@ -21,7 +21,8 @@ export default {
   component: FlexibleCallToAction,
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { block: mock }
@@ -34,6 +35,10 @@ export function Default() {
     `,
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -55,7 +60,8 @@ const mockDark = {
   ],
 }
 
-export function CTADark() {
+const CTADarkTemplate = (args) => {
+  void args
   return {
     data() {
       return { block: mockDark }
@@ -68,6 +74,10 @@ export function CTADark() {
     `,
   }
 }
+
+export const CTADark = CTADarkTemplate.bind({})
+CTADark.args = {}
+
 
 const mockFTVALight = {
   id: '16983',
@@ -83,7 +93,8 @@ const mockFTVALight = {
   ],
 }
 
-export function FTVALight() {
+const FTVALightTemplate = (args) => {
+  void args
   return {
     data() {
       return { block: mockFTVALight }
@@ -102,6 +113,10 @@ export function FTVALight() {
   }
 }
 
+export const FTVALight = FTVALightTemplate.bind({})
+FTVALight.args = {}
+
+
 const mockFTVADark = {
   id: '16983',
   typeHandle: 'callToAction',
@@ -116,7 +131,8 @@ const mockFTVADark = {
   ],
 }
 
-export function FTVADark() {
+const FTVADarkTemplate = (args) => {
+  void args
   return {
     data() {
       return { block: mockFTVADark }
@@ -134,3 +150,7 @@ export function FTVADark() {
     `,
   }
 }
+
+export const FTVADark = FTVADarkTemplate.bind({})
+FTVADark.args = {}
+

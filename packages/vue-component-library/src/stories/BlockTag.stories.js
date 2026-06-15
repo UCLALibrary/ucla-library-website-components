@@ -36,7 +36,8 @@ const ftvamockwLinkLabel = {
   label: 'ghost tag',
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -52,12 +53,17 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 // note: currently highlighted styles for default are placeholder styles / not yet implemented
-export function DefaultHighlighted() {
+const DefaultHighlightedTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -74,7 +80,12 @@ export function DefaultHighlighted() {
   }
 }
 
-export function PrimaryFTVA() {
+export const DefaultHighlighted = DefaultHighlightedTemplate.bind({})
+DefaultHighlighted.args = {}
+
+
+const PrimaryFTVATemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -95,7 +106,12 @@ export function PrimaryFTVA() {
   }
 }
 
-export function SecondaryFTVA() {
+export const PrimaryFTVA = PrimaryFTVATemplate.bind({})
+PrimaryFTVA.args = {}
+
+
+const SecondaryFTVATemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -118,7 +134,12 @@ export function SecondaryFTVA() {
   }
 }
 
-export function SecondaryFTVANoIcon() {
+export const SecondaryFTVA = SecondaryFTVATemplate.bind({})
+SecondaryFTVA.args = {}
+
+
+const SecondaryFTVANoIconTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -140,7 +161,12 @@ export function SecondaryFTVANoIcon() {
   }
 }
 
-export function SecondaryFTVAHighlighted() {
+export const SecondaryFTVANoIcon = SecondaryFTVANoIconTemplate.bind({})
+SecondaryFTVANoIcon.args = {}
+
+
+const SecondaryFTVAHighlightedTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -163,7 +189,12 @@ export function SecondaryFTVAHighlighted() {
   }
 }
 
-export function DLC() {
+export const SecondaryFTVAHighlighted = SecondaryFTVAHighlightedTemplate.bind({})
+SecondaryFTVAHighlighted.args = {}
+
+
+const DLCTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -186,7 +217,12 @@ export function DLC() {
   }
 }
 
-export function DLCWithMultipleLabels() {
+export const DLC = DLCTemplate.bind({})
+DLC.args = {}
+
+
+const DLCWithMultipleLabelsTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -208,3 +244,7 @@ export function DLCWithMultipleLabels() {
   `,
   }
 }
+
+export const DLCWithMultipleLabels = DLCWithMultipleLabelsTemplate.bind({})
+DLCWithMultipleLabels.args = {}
+

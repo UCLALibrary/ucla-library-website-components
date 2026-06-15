@@ -8,7 +8,8 @@ export default {
   component: FlexibleMediaGallery,
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -24,11 +25,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function FTVA() {
+const FTVATemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -48,7 +54,12 @@ export function FTVA() {
   }
 }
 
-export function WithHalfWidth() {
+export const FTVA = FTVATemplate.bind({})
+FTVA.args = {}
+
+
+const WithHalfWidthTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -66,7 +77,12 @@ export function WithHalfWidth() {
   }
 }
 
-export function FTVAHalfWidth() {
+export const WithHalfWidth = WithHalfWidthTemplate.bind({})
+WithHalfWidth.args = {}
+
+
+const FTVAHalfWidthTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -88,3 +104,7 @@ export function FTVAHalfWidth() {
     template: '<flexible-media-gallery :block="block"/>',
   }
 }
+
+export const FTVAHalfWidth = FTVAHalfWidthTemplate.bind({})
+FTVAHalfWidth.args = {}
+

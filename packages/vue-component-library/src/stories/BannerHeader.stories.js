@@ -35,7 +35,8 @@ const mock = {
   sectionHandle: 'event',
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -60,11 +61,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function LeftAligned() {
+const LeftAlignedTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -89,7 +95,12 @@ export function LeftAligned() {
   }
 }
 
-export function NoCategory() {
+export const LeftAligned = LeftAlignedTemplate.bind({})
+LeftAligned.args = {}
+
+
+const NoCategoryTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -113,7 +124,12 @@ export function NoCategory() {
   }
 }
 
-export function WithBylineAndSubjectAreas() {
+export const NoCategory = NoCategoryTemplate.bind({})
+NoCategory.args = {}
+
+
+const WithBylineAndSubjectAreasTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -138,7 +154,12 @@ export function WithBylineAndSubjectAreas() {
   }
 }
 
-export function OnlyTitle() {
+export const WithBylineAndSubjectAreas = WithBylineAndSubjectAreasTemplate.bind({})
+WithBylineAndSubjectAreas.args = {}
+
+
+const OnlyTitleTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -156,7 +177,12 @@ export function OnlyTitle() {
   }
 }
 
-export function Video() {
+export const OnlyTitle = OnlyTitleTemplate.bind({})
+OnlyTitle.args = {}
+
+
+const VideoTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -175,7 +201,12 @@ export function Video() {
   }
 }
 
-export function WithContactInfo() {
+export const Video = VideoTemplate.bind({})
+Video.args = {}
+
+
+const WithContactInfoTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -199,6 +230,10 @@ export function WithContactInfo() {
     `,
   }
 }
+
+export const WithContactInfo = WithContactInfoTemplate.bind({})
+WithContactInfo.args = {}
+
 
 // --------- ARTICLE --------------
 
@@ -226,7 +261,8 @@ const article = {
   text: 'Turtles are an order of reptiles known as Testudines, characterized by a shell developed mainly from their ribs. Turtles are groups, big ones and small ones.',
 }
 
-export function ArticleDetail() {
+const ArticleDetailTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -249,7 +285,12 @@ export function ArticleDetail() {
   }
 }
 
-export function ExternalLink() {
+export const ArticleDetail = ArticleDetailTemplate.bind({})
+ArticleDetail.args = {}
+
+
+const ExternalLinkTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -275,7 +316,12 @@ export function ExternalLink() {
   }
 }
 
-export function WithBlockForm() {
+export const ExternalLink = ExternalLinkTemplate.bind({})
+ExternalLink.args = {}
+
+
+const WithBlockFormTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -307,3 +353,7 @@ export function WithBlockForm() {
     `,
   }
 }
+
+export const WithBlockForm = WithBlockFormTemplate.bind({})
+WithBlockForm.args = {}
+

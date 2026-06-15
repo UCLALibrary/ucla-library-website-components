@@ -30,7 +30,8 @@ export default {
   component: BaseCalendar,
 }
 
-export function DefaultVuetify() {
+const DefaultVuetifyTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockCalendarEvents }
@@ -40,11 +41,16 @@ export function DefaultVuetify() {
   }
 }
 
+export const DefaultVuetify = DefaultVuetifyTemplate.bind({})
+DefaultVuetify.args = {}
+
+
 DefaultVuetify.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function DefaultEvent() {
+const DefaultEventTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockCalendarEvents }
@@ -54,7 +60,12 @@ export function DefaultEvent() {
   }
 }
 
-export function DefaultFTVAEvent() {
+export const DefaultEvent = DefaultEventTemplate.bind({})
+DefaultEvent.args = {}
+
+
+const DefaultFTVAEventTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockCalendarEvents }
@@ -69,7 +80,12 @@ export function DefaultFTVAEvent() {
   }
 }
 
-export function SetStartMonth() {
+export const DefaultFTVAEvent = DefaultFTVAEventTemplate.bind({})
+DefaultFTVAEvent.args = {}
+
+
+const SetStartMonthTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -92,7 +108,12 @@ export function SetStartMonth() {
   }
 }
 
-export function SameDayEvents() {
+export const SetStartMonth = SetStartMonthTemplate.bind({})
+SetStartMonth.args = {}
+
+
+const SameDayEventsTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -114,3 +135,7 @@ export function SameDayEvents() {
       </div>`
   }
 }
+
+export const SameDayEvents = SameDayEventsTemplate.bind({})
+SameDayEvents.args = {}
+

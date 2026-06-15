@@ -30,7 +30,8 @@ const mockBigger = {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { mock }
@@ -44,10 +45,15 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
-export function WithMoreFilters() {
+const WithMoreFiltersTemplate = (args) => {
+  void args
   return {
     data() {
       return { mockBigger }
@@ -61,8 +67,13 @@ export function WithMoreFilters() {
   }
 }
 
+export const WithMoreFilters = WithMoreFiltersTemplate.bind({})
+WithMoreFilters.args = {}
+
+
 // Variations of stories below
-export function FTVA() {
+const FTVATemplate = (args) => {
+  void args
   return {
     data() {
       return { mock }
@@ -81,6 +92,10 @@ export function FTVA() {
   }
 }
 
+export const FTVA = FTVATemplate.bind({})
+FTVA.args = {}
+
+
 const mockDLC = {
   searchFilters: [
     ['Genre', 'Black and White Photographs'],
@@ -90,7 +105,8 @@ const mockDLC = {
     ['Collection', 'Los Angeles Times Photographic Collection'],
   ],
 }
-export function DLC() {
+const DLCTemplate = (args) => {
+  void args
   return {
     data() {
       return { mockDLC }
@@ -109,3 +125,7 @@ export function DLC() {
     template: '<section-remove-search-filter :filters="mockDLC" />',
   }
 }
+
+export const DLC = DLCTemplate.bind({})
+DLC.args = {}
+

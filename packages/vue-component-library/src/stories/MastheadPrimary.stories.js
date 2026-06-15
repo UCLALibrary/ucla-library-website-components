@@ -25,7 +25,8 @@ const mock = {
     url: 'https://www.library.ucla.edu/search',
   },
 }
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -36,6 +37,10 @@ export function Default() {
     components: { MastheadPrimary },
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },

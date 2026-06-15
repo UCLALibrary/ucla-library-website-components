@@ -115,7 +115,8 @@ const mockAlternativeName = {
   consultation: 'https://calendar.library.ucla.edu/appointments/aogarcia',
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -169,11 +170,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function AlternativeName() {
+const AlternativeNameTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -186,6 +192,10 @@ export function AlternativeName() {
     template: Default().template,
   }
 }
+
+export const AlternativeName = AlternativeNameTemplate.bind({})
+AlternativeName.args = {}
+
 
 // mock raw data from FTVA graphQL LA rebellion filmography
 const mockFilm = {
@@ -215,7 +225,8 @@ const mockFilm = {
   ]
 }
 
-export function FTVAFilmography() {
+const FTVAFilmographyTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -258,13 +269,18 @@ export function FTVAFilmography() {
   }
 }
 
+export const FTVAFilmography = FTVAFilmographyTemplate.bind({})
+FTVAFilmography.args = {}
+
+
 // TODO CHECK DATA MODEL IS CORRECT?
 const mockCredit = {
   name: 'FirstName LastName',
   roles: 'Role 1, role 2, role 3, etc'
 }
 
-export function FTVACredits() {
+const FTVACreditsTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -293,3 +309,7 @@ export function FTVACredits() {
   `,
   }
 }
+
+export const FTVACredits = FTVACreditsTemplate.bind({})
+FTVACredits.args = {}
+

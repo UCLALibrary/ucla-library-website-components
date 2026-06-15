@@ -30,7 +30,8 @@ const mockDefault = {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockDefault }
@@ -55,11 +56,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function Ongoing() {
+const OngoingTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockDefault }
@@ -81,9 +87,14 @@ export function Ongoing() {
   }
 }
 
+export const Ongoing = OngoingTemplate.bind({})
+Ongoing.args = {}
+
+
 // FTVA STORIES
 
-export function FtvaWithBlockTagsAndIntro() {
+const FtvaWithBlockTagsAndIntroTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -118,7 +129,12 @@ export function FtvaWithBlockTagsAndIntro() {
   }
 }
 
-export function FtvaOnlyCategoryAndTitle() {
+export const FtvaWithBlockTagsAndIntro = FtvaWithBlockTagsAndIntroTemplate.bind({})
+FtvaWithBlockTagsAndIntro.args = {}
+
+
+const FtvaOnlyCategoryAndTitleTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -144,8 +160,13 @@ export function FtvaOnlyCategoryAndTitle() {
   `,
   }
 }
+
+export const FtvaOnlyCategoryAndTitle = FtvaOnlyCategoryAndTitleTemplate.bind({})
+FtvaOnlyCategoryAndTitle.args = {}
+
 // used on FTVA Event Series Page
-export function FTVAOngoing() {
+const FTVAOngoingTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockDefault }
@@ -169,6 +190,10 @@ export function FTVAOngoing() {
   `,
   }
 }
+
+export const FTVAOngoing = FTVAOngoingTemplate.bind({})
+FTVAOngoing.args = {}
+
 
 const mockFTVAArticleData = {
   title: 'TEST - Tom Reed’s “For Members Only”: Black Perspectives on Local L.A. TV',
@@ -220,7 +245,8 @@ const mockSocialList = {
   ],
 }
 
-export function FTVAArticleDetailWShareButton() {
+const FTVAArticleDetailWShareButtonTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -267,7 +293,12 @@ export function FTVAArticleDetailWShareButton() {
   }
 }
 
-export function FtvaLinkedCategoryAndTitle() {
+export const FTVAArticleDetailWShareButton = FTVAArticleDetailWShareButtonTemplate.bind({})
+FTVAArticleDetailWShareButton.args = {}
+
+
+const FtvaLinkedCategoryAndTitleTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -299,7 +330,12 @@ export function FtvaLinkedCategoryAndTitle() {
   }
 }
 
-export function FtvaCustomTitleAndDesription() {
+export const FtvaLinkedCategoryAndTitle = FtvaLinkedCategoryAndTitleTemplate.bind({})
+FtvaLinkedCategoryAndTitle.args = {}
+
+
+const FtvaCustomTitleAndDesriptionTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -341,7 +377,12 @@ export function FtvaCustomTitleAndDesription() {
   }
 }
 
-export function FtvaH1Title() {
+export const FtvaCustomTitleAndDesription = FtvaCustomTitleAndDesriptionTemplate.bind({})
+FtvaCustomTitleAndDesription.args = {}
+
+
+const FtvaH1TitleTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -372,7 +413,12 @@ export function FtvaH1Title() {
   }
 }
 
-export function FtvaCustomDateTimeSlot() {
+export const FtvaH1Title = FtvaH1TitleTemplate.bind({})
+FtvaH1Title.args = {}
+
+
+const FtvaCustomDateTimeSlotTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -403,3 +449,7 @@ export function FtvaCustomDateTimeSlot() {
     `,
   }
 }
+
+export const FtvaCustomDateTimeSlot = FtvaCustomDateTimeSlotTemplate.bind({})
+FtvaCustomDateTimeSlot.args = {}
+

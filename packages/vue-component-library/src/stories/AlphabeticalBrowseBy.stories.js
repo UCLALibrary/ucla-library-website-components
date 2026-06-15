@@ -6,7 +6,8 @@ export default {
   component: AlphabeticalBrowseBy,
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -18,11 +19,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function CIsSelected() {
+const CIsSelectedTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -34,7 +40,12 @@ export function CIsSelected() {
   }
 }
 
-export function NoAll() {
+export const CIsSelected = CIsSelectedTemplate.bind({})
+CIsSelected.args = {}
+
+
+const NoAllTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -46,7 +57,12 @@ export function NoAll() {
   }
 }
 
-export function FTVA() {
+export const NoAll = NoAllTemplate.bind({})
+NoAll.args = {}
+
+
+const FTVATemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -57,7 +73,12 @@ export function FTVA() {
     template: '<alphabetical-browse-by />',
   }
 }
-export function FTVAAisSelected() {
+
+export const FTVA = FTVATemplate.bind({})
+FTVA.args = {}
+
+const FTVAAisSelectedTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -69,7 +90,12 @@ export function FTVAAisSelected() {
   }
 }
 
-export function DLC() {
+export const FTVAAisSelected = FTVAAisSelectedTemplate.bind({})
+FTVAAisSelected.args = {}
+
+
+const DLCTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -81,7 +107,12 @@ export function DLC() {
   }
 }
 
-export function DLCAisSelected() {
+export const DLC = DLCTemplate.bind({})
+DLC.args = {}
+
+
+const DLCAisSelectedTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -92,3 +123,7 @@ export function DLCAisSelected() {
     template: '<alphabetical-browse-by selectedLetterProp="A"/>',
   }
 }
+
+export const DLCAisSelected = DLCAisSelectedTemplate.bind({})
+DLCAisSelected.args = {}
+

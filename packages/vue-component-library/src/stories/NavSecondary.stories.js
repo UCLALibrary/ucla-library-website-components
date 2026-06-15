@@ -8,7 +8,8 @@ export default {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -58,11 +59,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function Microsite() {
+const MicrositeTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -114,7 +120,12 @@ export function Microsite() {
   }
 }
 
-export function MeapNoSearch() {
+export const Microsite = MicrositeTemplate.bind({})
+Microsite.args = {}
+
+
+const MeapNoSearchTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -162,3 +173,7 @@ export function MeapNoSearch() {
     template: '<nav-secondary :items="parsedItems" :showSearch="false" />',
   }
 }
+
+export const MeapNoSearch = MeapNoSearchTemplate.bind({})
+MeapNoSearch.args = {}
+

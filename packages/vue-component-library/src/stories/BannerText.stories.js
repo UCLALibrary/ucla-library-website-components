@@ -35,7 +35,8 @@ const mock = {
   sectionHandle: 'event',
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -56,11 +57,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function WithSubjectAreas() {
+const WithSubjectAreasTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -80,7 +86,12 @@ export function WithSubjectAreas() {
   }
 }
 
-export function NoButton() {
+export const WithSubjectAreas = WithSubjectAreasTemplate.bind({})
+WithSubjectAreas.args = {}
+
+
+const NoButtonTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -100,7 +111,12 @@ export function NoButton() {
   }
 }
 
-export function NoText() {
+export const NoButton = NoButtonTemplate.bind({})
+NoButton.args = {}
+
+
+const NoTextTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -116,7 +132,12 @@ export function NoText() {
   }
 }
 
-export function DarkBlueBackground() {
+export const NoText = NoTextTemplate.bind({})
+NoText.args = {}
+
+
+const DarkBlueBackgroundTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -137,7 +158,12 @@ export function DarkBlueBackground() {
   }
 }
 
-export function LocationInfo() {
+export const DarkBlueBackground = DarkBlueBackgroundTemplate.bind({})
+DarkBlueBackground.args = {}
+
+
+const LocationInfoTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -161,7 +187,12 @@ export function LocationInfo() {
   }
 }
 
-export function LocationInfoDarkBlue() {
+export const LocationInfo = LocationInfoTemplate.bind({})
+LocationInfo.args = {}
+
+
+const LocationInfoDarkBlueTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -186,7 +217,12 @@ export function LocationInfoDarkBlue() {
   }
 }
 
-export function ExternalLink() {
+export const LocationInfoDarkBlue = LocationInfoDarkBlueTemplate.bind({})
+LocationInfoDarkBlue.args = {}
+
+
+const ExternalLinkTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -206,7 +242,12 @@ export function ExternalLink() {
   }
 }
 
-export function WithBlockForm() {
+export const ExternalLink = ExternalLinkTemplate.bind({})
+ExternalLink.args = {}
+
+
+const WithBlockFormTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -233,6 +274,10 @@ export function WithBlockForm() {
   }
 }
 
+export const WithBlockForm = WithBlockFormTemplate.bind({})
+WithBlockForm.args = {}
+
+
 // --------- ARTICLE --------------
 
 const article = {
@@ -258,7 +303,8 @@ const article = {
   text: 'Turtles are an order of reptiles known as Testudines, characterized by a shell developed mainly from their ribs. Turtles are groups, big ones and small ones.',
 }
 
-export function ArticleDetail() {
+const ArticleDetailTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -279,3 +325,7 @@ export function ArticleDetail() {
     `,
   }
 }
+
+export const ArticleDetail = ArticleDetailTemplate.bind({})
+ArticleDetail.args = {}
+

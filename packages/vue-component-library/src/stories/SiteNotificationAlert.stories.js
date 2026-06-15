@@ -8,7 +8,8 @@ export default {
   component: SiteNotificationAlert,
 }
 // TODO update message text as rich text
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -21,12 +22,17 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 // Variations of stories below
-export function LongMessage() {
+const LongMessageTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -38,3 +44,7 @@ export function LongMessage() {
     template: '<site-notification-alert :title="title" :text="text" />',
   }
 }
+
+export const LongMessage = LongMessageTemplate.bind({})
+LongMessage.args = {}
+

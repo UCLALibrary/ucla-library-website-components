@@ -26,7 +26,8 @@ Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function Image() {
+const ImageTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -38,7 +39,12 @@ export function Image() {
   }
 }
 
-export function Video() {
+export const Image = ImageTemplate.bind({})
+Image.args = {}
+
+
+const VideoTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -51,7 +57,12 @@ export function Video() {
   }
 }
 
-export function VideoEmbed() {
+export const Video = VideoTemplate.bind({})
+Video.args = {}
+
+
+const VideoEmbedTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -63,7 +74,12 @@ export function VideoEmbed() {
   }
 }
 
-export function Audio() {
+export const VideoEmbed = VideoEmbedTemplate.bind({})
+VideoEmbed.args = {}
+
+
+const AudioTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -76,7 +92,12 @@ export function Audio() {
   }
 }
 
-export function AudioEmbed() {
+export const Audio = AudioTemplate.bind({})
+Audio.args = {}
+
+
+const AudioEmbedTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -87,3 +108,7 @@ export function AudioEmbed() {
     template: '<media-item :embedCode="embedCode" />',
   }
 }
+
+export const AudioEmbed = AudioEmbedTemplate.bind({})
+AudioEmbed.args = {}
+

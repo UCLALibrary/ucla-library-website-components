@@ -8,7 +8,8 @@ export default {
 }
 
 // STORIES
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   router.push('/default')
   return {
     components: { DividerWayFinder },
@@ -16,11 +17,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function Visit() {
+const VisitTemplate = (args) => {
+  void args
   router.push('/visit/eee')
   return {
     components: { DividerWayFinder },
@@ -28,7 +34,12 @@ export function Visit() {
   }
 }
 
-export function About() {
+export const Visit = VisitTemplate.bind({})
+Visit.args = {}
+
+
+const AboutTemplate = (args) => {
+  void args
   router.push('/about/fff')
   return {
     components: { DividerWayFinder },
@@ -36,7 +47,12 @@ export function About() {
   }
 }
 
-export function Help() {
+export const About = AboutTemplate.bind({})
+About.args = {}
+
+
+const HelpTemplate = (args) => {
+  void args
   router.push('/help/ddd')
   return {
     components: { DividerWayFinder },
@@ -44,7 +60,12 @@ export function Help() {
   }
 }
 
-export function FTVA() {
+export const Help = HelpTemplate.bind({})
+Help.args = {}
+
+
+const FTVATemplate = (args) => {
+  void args
   router.push('/default')
   return {
     provide() {
@@ -56,3 +77,7 @@ export function FTVA() {
     template: '<divider-way-finder />',
   }
 }
+
+export const FTVA = FTVATemplate.bind({})
+FTVA.args = {}
+

@@ -27,7 +27,8 @@ const mock3 = {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -46,11 +47,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function ExternalLink() {
+const ExternalLinkTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -68,7 +74,12 @@ export function ExternalLink() {
   }
 }
 
-export function NoLink() {
+export const ExternalLink = ExternalLinkTemplate.bind({})
+ExternalLink.args = {}
+
+
+const NoLinkTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -85,3 +96,7 @@ export function NoLink() {
   `,
   }
 }
+
+export const NoLink = NoLinkTemplate.bind({})
+NoLink.args = {}
+

@@ -49,7 +49,8 @@ const mockSingleDigitDate = {
 }
 
 // Variations of stories below
-export function Default(args) {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockDefault }
@@ -73,11 +74,16 @@ export function Default(args) {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function SingleDigitDate(args) {
+const SingleDigitDateTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockSingleDigitDate }
@@ -101,7 +107,12 @@ export function SingleDigitDate(args) {
   }
 }
 
-export function LongTitle(args) {
+export const SingleDigitDate = SingleDigitDateTemplate.bind({})
+SingleDigitDate.args = {}
+
+
+const LongTitleTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockDefault }
@@ -124,7 +135,12 @@ export function LongTitle(args) {
   }
 }
 
-export function NoImage(args) {
+export const LongTitle = LongTitleTemplate.bind({})
+LongTitle.args = {}
+
+
+const NoImageTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockDefault }
@@ -147,7 +163,12 @@ export function NoImage(args) {
   }
 }
 
-export function Category(args) {
+export const NoImage = NoImageTemplate.bind({})
+NoImage.args = {}
+
+
+const CategoryTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockDefault }
@@ -170,3 +191,7 @@ export function Category(args) {
       />`,
   }
 }
+
+export const Category = CategoryTemplate.bind({})
+Category.args = {}
+

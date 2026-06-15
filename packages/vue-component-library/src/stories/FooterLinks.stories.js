@@ -6,7 +6,8 @@ export default {
   component: FooterLinks,
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     components: { FooterLinks },
     template: `
@@ -14,11 +15,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function FTVAStyleLinks() {
+const FTVAStyleLinksTemplate = (args) => {
+  void args
   return {
     components: { FooterLinks },
     provide() {
@@ -30,3 +36,7 @@ export function FTVAStyleLinks() {
         <footer-links />`,
   }
 }
+
+export const FTVAStyleLinks = FTVAStyleLinksTemplate.bind({})
+FTVAStyleLinks.args = {}
+

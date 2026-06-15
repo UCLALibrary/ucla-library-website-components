@@ -9,7 +9,8 @@ export default {
   component: BlockMediaWithText,
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mock }
@@ -27,12 +28,17 @@ export function Default() {
     `,
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function NoMediaLink() {
+const NoMediaLinkTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mock }
@@ -51,7 +57,12 @@ export function NoMediaLink() {
   }
 }
 
-export function Video() {
+export const NoMediaLink = NoMediaLinkTemplate.bind({})
+NoMediaLink.args = {}
+
+
+const VideoTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -75,7 +86,12 @@ export function Video() {
   }
 }
 
-export function VideoWithNoButton() {
+export const Video = VideoTemplate.bind({})
+Video.args = {}
+
+
+const VideoWithNoButtonTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -99,7 +115,12 @@ export function VideoWithNoButton() {
   }
 }
 
-export function Audio() {
+export const VideoWithNoButton = VideoWithNoButtonTemplate.bind({})
+VideoWithNoButton.args = {}
+
+
+const AudioTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -123,7 +144,12 @@ export function Audio() {
   }
 }
 
-export function Embed() {
+export const Audio = AudioTemplate.bind({})
+Audio.args = {}
+
+
+const EmbedTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -147,9 +173,14 @@ export function Embed() {
   }
 }
 
+export const Embed = EmbedTemplate.bind({})
+Embed.args = {}
+
+
 // Sometimes the type-media is an image but an image is not provided, so we need to display a placeholder image.
 
-export function NoImage() {
+const NoImageTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mock }
@@ -167,7 +198,12 @@ export function NoImage() {
   }
 }
 
-export function FTVADefault() {
+export const NoImage = NoImageTemplate.bind({})
+NoImage.args = {}
+
+
+const FTVADefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockFTVA }
@@ -190,3 +226,7 @@ export function FTVADefault() {
     `,
   }
 }
+
+export const FTVADefault = FTVADefaultTemplate.bind({})
+FTVADefault.args = {}
+

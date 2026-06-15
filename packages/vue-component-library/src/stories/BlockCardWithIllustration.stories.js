@@ -18,7 +18,8 @@ const mock2 = {
   text: '<p>Need help figuring out what topic you want to explore for your project? Having trouble turning a general idea into something more specific? Learn how to develop a research question through synchronous.</p>',
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -36,11 +37,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function Visit() {
+const VisitTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -59,7 +65,12 @@ export function Visit() {
   }
 }
 
-export function LongTextAbout() {
+export const Visit = VisitTemplate.bind({})
+Visit.args = {}
+
+
+const LongTextAboutTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -79,7 +90,12 @@ export function LongTextAbout() {
   }
 }
 
-export function DatabasesVisit() {
+export const LongTextAbout = LongTextAboutTemplate.bind({})
+LongTextAbout.args = {}
+
+
+const DatabasesVisitTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -98,7 +114,12 @@ export function DatabasesVisit() {
   }
 }
 
-export function RemoteAccessHelp() {
+export const DatabasesVisit = DatabasesVisitTemplate.bind({})
+DatabasesVisit.args = {}
+
+
+const RemoteAccessHelpTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -117,7 +138,12 @@ export function RemoteAccessHelp() {
   }
 }
 
-export function ResearchVisit() {
+export const RemoteAccessHelp = RemoteAccessHelpTemplate.bind({})
+RemoteAccessHelp.args = {}
+
+
+const ResearchVisitTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -136,7 +162,12 @@ export function ResearchVisit() {
   }
 }
 
-export function TeachingAbout() {
+export const ResearchVisit = ResearchVisitTemplate.bind({})
+ResearchVisit.args = {}
+
+
+const TeachingAboutTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -156,7 +187,12 @@ export function TeachingAbout() {
   }
 }
 
-export function ExternalLink() {
+export const TeachingAbout = TeachingAboutTemplate.bind({})
+TeachingAbout.args = {}
+
+
+const ExternalLinkTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -176,7 +212,12 @@ export function ExternalLink() {
   }
 }
 
-export function HorizontalCardRemoteAccess() {
+export const ExternalLink = ExternalLinkTemplate.bind({})
+ExternalLink.args = {}
+
+
+const HorizontalCardRemoteAccessTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -197,7 +238,12 @@ export function HorizontalCardRemoteAccess() {
   }
 }
 
-export function HorizontalCardTeaching() {
+export const HorizontalCardRemoteAccess = HorizontalCardRemoteAccessTemplate.bind({})
+HorizontalCardRemoteAccess.args = {}
+
+
+const HorizontalCardTeachingTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -218,7 +264,12 @@ export function HorizontalCardTeaching() {
   }
 }
 
-export function HorizontalCardResearch() {
+export const HorizontalCardTeaching = HorizontalCardTeachingTemplate.bind({})
+HorizontalCardTeaching.args = {}
+
+
+const HorizontalCardResearchTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -239,7 +290,12 @@ export function HorizontalCardResearch() {
   }
 }
 
-export function HorizontalCardShortDigitizedResources() {
+export const HorizontalCardResearch = HorizontalCardResearchTemplate.bind({})
+HorizontalCardResearch.args = {}
+
+
+const HorizontalCardShortDigitizedResourcesTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -260,7 +316,12 @@ export function HorizontalCardShortDigitizedResources() {
   }
 }
 
-export function NoText() {
+export const HorizontalCardShortDigitizedResources = HorizontalCardShortDigitizedResourcesTemplate.bind({})
+HorizontalCardShortDigitizedResources.args = {}
+
+
+const NoTextTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -280,3 +341,7 @@ export function NoText() {
     `,
   }
 }
+
+export const NoText = NoTextTemplate.bind({})
+NoText.args = {}
+

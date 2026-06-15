@@ -138,7 +138,8 @@ const mockDefaultStaffSubjectLibrarian = [
 const tableH = ['Academic Departments', 'Name', 'Contact Information']
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { items: mockDefaultStaffSubjectLibrarian, tableHeaders: tableH, tableCaption: 'Subject Librarians' }
@@ -186,6 +187,10 @@ export function Default() {
   `,
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -247,7 +252,8 @@ const mockFTVAfilmdata = [
   }]
 // This component is used to display Filmography data in the FTVA site
 // This story mocks an async data call for the Filmography data
-export function FTVAPaleBlueTheme() {
+const FTVAPaleBlueThemeTemplate = (args) => {
+  void args
   return {
     data() {
       return { tableHeaders: mockFTVAtableHeaders, tableCaption: 'Filmography', colorScheme: 'paleblue' }
@@ -301,7 +307,12 @@ export function FTVAPaleBlueTheme() {
   }
 }
 
-export function FTVAFilmography() {
+export const FTVAPaleBlueTheme = FTVAPaleBlueThemeTemplate.bind({})
+FTVAPaleBlueTheme.args = {}
+
+
+const FTVAFilmographyTemplate = (args) => {
+  void args
   return {
     data() {
       return { tableHeaders: mockFTVAtableHeaders, tableCaption: 'Filmography', colorScheme: 'paleblue' }
@@ -355,6 +366,10 @@ export function FTVAFilmography() {
   }
 }
 
+export const FTVAFilmography = FTVAFilmographyTemplate.bind({})
+FTVAFilmography.args = {}
+
+
 // TODO CHECK DATA MODEL IS CORRECT?
 const mockFTVACredits = [{
   name: 'FirstName LastName',
@@ -365,7 +380,8 @@ const mockFTVACredits = [{
 }]
 const mockFTVACreditstableHeaders = ['Name', 'Roles']
 // Display Film Credits data in the FTVA site
-export function FTVAFilmCredits() {
+const FTVAFilmCreditsTemplate = (args) => {
+  void args
   return {
     data() {
       return { items: mockFTVACredits, tableHeaders: mockFTVACreditstableHeaders, tableCaption: 'Film Credits', colorScheme: 'paleblue' }
@@ -390,3 +406,7 @@ export function FTVAFilmCredits() {
   `,
   }
 }
+
+export const FTVAFilmCredits = FTVAFilmCreditsTemplate.bind({})
+FTVAFilmCredits.args = {}
+

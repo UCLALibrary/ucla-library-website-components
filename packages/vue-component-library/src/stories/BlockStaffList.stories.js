@@ -321,7 +321,8 @@ const mockImageNull = {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -339,11 +340,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function AlternativeName() {
+const AlternativeNameTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -361,7 +367,12 @@ export function AlternativeName() {
   }
 }
 
-export function NoImage() {
+export const AlternativeName = AlternativeNameTemplate.bind({})
+AlternativeName.args = {}
+
+
+const NoImageTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -379,7 +390,12 @@ export function NoImage() {
   }
 }
 
-export function OneLocation() {
+export const NoImage = NoImageTemplate.bind({})
+NoImage.args = {}
+
+
+const OneLocationTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -397,7 +413,12 @@ export function OneLocation() {
   }
 }
 
-export function NoPhoneNumber() {
+export const OneLocation = OneLocationTemplate.bind({})
+OneLocation.args = {}
+
+
+const NoPhoneNumberTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -416,7 +437,12 @@ export function NoPhoneNumber() {
   }
 }
 
-export function NoLocation() {
+export const NoPhoneNumber = NoPhoneNumberTemplate.bind({})
+NoPhoneNumber.args = {}
+
+
+const NoLocationTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -434,7 +460,12 @@ export function NoLocation() {
   }
 }
 
-export function ImageNull() {
+export const NoLocation = NoLocationTemplate.bind({})
+NoLocation.args = {}
+
+
+const ImageNullTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -451,3 +482,7 @@ export function ImageNull() {
   `,
   }
 }
+
+export const ImageNull = ImageNullTemplate.bind({})
+ImageNull.args = {}
+

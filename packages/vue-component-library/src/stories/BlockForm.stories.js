@@ -12,7 +12,8 @@ export default {
 
 // The blockform data is tied to eventid, we cannot change eventid and keep the same form, so if you are updating form , also update the eventid and other details
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { BlockFormData }
@@ -33,11 +34,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function AppsTeamForm() {
+const AppsTeamFormTemplate = (args) => {
+  void args
   return {
     data() {
       return { BlockFormData }
@@ -58,7 +64,12 @@ export function AppsTeamForm() {
   }
 }
 
-export function CLICCInstructionalUseForm() {
+export const AppsTeamForm = AppsTeamFormTemplate.bind({})
+AppsTeamForm.args = {}
+
+
+const CLICCInstructionalUseFormTemplate = (args) => {
+  void args
   return {
     data() {
       return { BlockFormData }
@@ -79,7 +90,12 @@ export function CLICCInstructionalUseForm() {
   }
 }
 
-export function LibrarySpecialCollections() {
+export const CLICCInstructionalUseForm = CLICCInstructionalUseFormTemplate.bind({})
+CLICCInstructionalUseForm.args = {}
+
+
+const LibrarySpecialCollectionsTemplate = (args) => {
+  void args
   return {
     data() {
       return { BlockFormData }
@@ -100,7 +116,12 @@ export function LibrarySpecialCollections() {
   }
 }
 
-export function FTVATest() {
+export const LibrarySpecialCollections = LibrarySpecialCollectionsTemplate.bind({})
+LibrarySpecialCollections.args = {}
+
+
+const FTVATestTemplate = (args) => {
+  void args
   return {
     data() {
       return { BlockFormData }
@@ -121,7 +142,12 @@ export function FTVATest() {
   }
 }
 
-export function TerryAllen() {
+export const FTVATest = FTVATestTemplate.bind({})
+FTVATest.args = {}
+
+
+const TerryAllenTemplate = (args) => {
+  void args
   return {
     data() {
       return { BlockFormData }
@@ -142,7 +168,12 @@ export function TerryAllen() {
   }
 }
 
-export function TextBallot() {
+export const TerryAllen = TerryAllenTemplate.bind({})
+TerryAllen.args = {}
+
+
+const TextBallotTemplate = (args) => {
+  void args
   return {
     data() {
       return { BlockFormData }
@@ -163,7 +194,12 @@ export function TextBallot() {
   }
 }
 
-export function UCLALibrary() {
+export const TextBallot = TextBallotTemplate.bind({})
+TextBallot.args = {}
+
+
+const UCLALibraryTemplate = (args) => {
+  void args
   return {
     data() {
       return { BlockFormData }
@@ -184,7 +220,12 @@ export function UCLALibrary() {
   }
 }
 
-export function FTVAForm() {
+export const UCLALibrary = UCLALibraryTemplate.bind({})
+UCLALibrary.args = {}
+
+
+const FTVAFormTemplate = (args) => {
+  void args
   return {
     data() {
       return { BlockFormData }
@@ -205,3 +246,7 @@ export function FTVAForm() {
     `,
   }
 }
+
+export const FTVAForm = FTVAFormTemplate.bind({})
+FTVAForm.args = {}
+

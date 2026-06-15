@@ -317,7 +317,8 @@ const mockMicrosite = {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     setup() {
       const globalStore = useGlobalStore()
@@ -332,12 +333,17 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
 // Variations of stories below
-export function DefaultMicrosite() {
+const DefaultMicrositeTemplate = (args) => {
+  void args
   return {
     setup() {
       const globalStore = useGlobalStore()
@@ -352,7 +358,12 @@ export function DefaultMicrosite() {
   }
 }
 
-export function DLC() {
+export const DefaultMicrosite = DefaultMicrositeTemplate.bind({})
+DefaultMicrosite.args = {}
+
+
+const DLCTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -368,3 +379,7 @@ export function DLC() {
     template: '<header-smart />',
   }
 }
+
+export const DLC = DLCTemplate.bind({})
+DLC.args = {}
+

@@ -60,7 +60,8 @@ const mock = {
   typeHandle: 'gridGalleryCards',
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -75,6 +76,10 @@ export function Default() {
     `,
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },

@@ -10,7 +10,8 @@ export default {
   component: BlockEvent,
 }
 
-export function ShortText() {
+const ShortTextTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -32,11 +33,16 @@ export function ShortText() {
   }
 }
 
+export const ShortText = ShortTextTemplate.bind({})
+ShortText.args = {}
+
+
 ShortText.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function LongText() {
+const LongTextTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -56,7 +62,12 @@ export function LongText() {
   }
 }
 
-export function Visit() {
+export const LongText = LongTextTemplate.bind({})
+LongText.args = {}
+
+
+const VisitTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -76,7 +87,12 @@ export function Visit() {
   }
 }
 
-export function About() {
+export const Visit = VisitTemplate.bind({})
+Visit.args = {}
+
+
+const AboutTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -96,7 +112,12 @@ export function About() {
   }
 }
 
-export function Help() {
+export const About = AboutTemplate.bind({})
+About.args = {}
+
+
+const HelpTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -115,3 +136,7 @@ export function Help() {
     `,
   }
 }
+
+export const Help = HelpTemplate.bind({})
+Help.args = {}
+

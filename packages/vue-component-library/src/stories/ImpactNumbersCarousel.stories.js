@@ -4,6 +4,9 @@ import * as API from '@/stories/mock-api.json'
 export default {
   title: 'Impact Numbers Carousel',
   component: ImpactNumbersCarousel,
+  argTypes: {
+    blocks: { control: 'object' },
+  },
 }
 
 const mock = {
@@ -56,6 +59,9 @@ function Template(args) {
 }
 
 export const Default = Template.bind({})
+Default.args = {
+  blocks: mock.blocks,
+}
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }

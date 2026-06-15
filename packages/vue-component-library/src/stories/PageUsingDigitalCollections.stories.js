@@ -204,8 +204,6 @@ IIIFGuideFullContent.parameters = {
       story: 'Full IIIF guide content with figures, images, and detailed rich text across all sections.',
     },
   },
-}
-IIIFGuideFullContent.parameters = {
   chromatic: { disableSnapshot: false },
 }
 

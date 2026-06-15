@@ -33,7 +33,8 @@ const OptionsDefault = [
   { label: 'Energy Saving', value: 'energy-saving' },
 ]
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     components: { DropdownSingleSelect },
     data() {
@@ -65,11 +66,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function DLCTheme() {
+const DLCThemeTemplate = (args) => {
+  void args
   return {
     components: { DropdownSingleSelect },
     data() {
@@ -104,7 +110,12 @@ export function DLCTheme() {
   }
 }
 
-export function DLCThemeSearch() {
+export const DLCTheme = DLCThemeTemplate.bind({})
+DLCTheme.args = {}
+
+
+const DLCThemeSearchTemplate = (args) => {
+  void args
   return {
     components: { DropdownSingleSelect },
     data() {
@@ -139,6 +150,10 @@ export function DLCThemeSearch() {
   }
 }
 
+export const DLCThemeSearch = DLCThemeSearchTemplate.bind({})
+DLCThemeSearch.args = {}
+
+
 // MOCK DATA FILTER
 const FilterOptionsDefault = [
   { label: 'Current Events', value: 'current-events' },
@@ -147,7 +162,8 @@ const FilterOptionsDefault = [
   { label: 'Social Impact', value: 'social-impact' },
 ]
 
-export function FTVAFilterByTopic() {
+const FTVAFilterByTopicTemplate = (args) => {
+  void args
   return {
     components: { DropdownSingleSelect },
     data() {
@@ -179,7 +195,12 @@ export function FTVAFilterByTopic() {
   }
 }
 
-export function FTVAFilterByTopicIntialSelection() {
+export const FTVAFilterByTopic = FTVAFilterByTopicTemplate.bind({})
+FTVAFilterByTopic.args = {}
+
+
+const FTVAFilterByTopicIntialSelectionTemplate = (args) => {
+  void args
   return {
     components: { DropdownSingleSelect },
     data() {
@@ -211,13 +232,18 @@ export function FTVAFilterByTopicIntialSelection() {
   }
 }
 
+export const FTVAFilterByTopicIntialSelection = FTVAFilterByTopicIntialSelectionTemplate.bind({})
+FTVAFilterByTopicIntialSelection.args = {}
+
+
 // MOCK DATA SORT
 const FilterOptionsSort = [
   { label: 'Date (oldest)', value: 'asc' },
   { label: 'Date (newest)', value: 'desc' },
 ]
 
-export function FTVASortBy() {
+const FTVASortByTemplate = (args) => {
+  void args
   return {
     components: { DropdownSingleSelect },
     data() {
@@ -247,3 +273,7 @@ export function FTVASortBy() {
     `,
   }
 }
+
+export const FTVASortBy = FTVASortByTemplate.bind({})
+FTVASortBy.args = {}
+

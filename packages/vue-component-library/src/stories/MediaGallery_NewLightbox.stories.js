@@ -13,7 +13,8 @@ export default {
   component: FlexibleMediaGalleryNewLightbox,
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -25,11 +26,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function SingleItem() {
+const SingleItemTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -40,6 +46,10 @@ export function SingleItem() {
     template: '<flexible-media-gallery-new-lightbox :items="items" />',
   }
 }
+
+export const SingleItem = SingleItemTemplate.bind({})
+SingleItem.args = {}
+
 
 // FTVA style data mock for carousel
 // as it comes from craft CMS
@@ -68,7 +78,8 @@ const mockFTVAGalleryComputedData = computed(() => {
   })
 })
 
-export function FTVA_Default() {
+const FTVA_DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -85,7 +96,12 @@ export function FTVA_Default() {
   }
 }
 
-export function FTVA_InlineCarousel() {
+export const FTVA_Default = FTVA_DefaultTemplate.bind({})
+FTVA_Default.args = {}
+
+
+const FTVA_InlineCarouselTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -101,6 +117,10 @@ export function FTVA_InlineCarousel() {
     template: '<flexible-media-gallery-new-lightbox :items="items" :inline=true />',
   }
 }
+
+export const FTVA_InlineCarousel = FTVA_InlineCarouselTemplate.bind({})
+FTVA_InlineCarousel.args = {}
+
 
 // Helper functions to parse data for FTVA Homepage Carousel
 function parseFTVACarouselImage(imgObj) {
@@ -154,7 +174,8 @@ const parsedMockHomepagCarousel = computed(() => {
   })
 })
 
-export function FTVA_HomepageCarousel() {
+const FTVA_HomepageCarouselTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -171,6 +192,10 @@ export function FTVA_HomepageCarousel() {
   }
 }
 
+export const FTVA_HomepageCarousel = FTVA_HomepageCarouselTemplate.bind({})
+FTVA_HomepageCarousel.args = {}
+
+
 const parsedMockHomepagCarouselURL = computed(() => {
   return FTVAMedia.mockFTVAHomepageCarousel.map((rawItem) => {
     return {
@@ -185,7 +210,8 @@ const parsedMockHomepagCarouselURL = computed(() => {
   })
 })
 
-export function FTVA_HomepageCarouselURL() {
+const FTVA_HomepageCarouselURLTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -209,7 +235,12 @@ export function FTVA_HomepageCarouselURL() {
   }
 }
 
-export function FTVA_HomepageCarousel_ScrollTest() {
+export const FTVA_HomepageCarouselURL = FTVA_HomepageCarouselURLTemplate.bind({})
+FTVA_HomepageCarouselURL.args = {}
+
+
+const FTVA_HomepageCarousel_ScrollTestTemplate = (args) => {
+  void args
   return {
     data() {
       return { items: parsedMockHomepagCarousel }
@@ -257,3 +288,7 @@ export function FTVA_HomepageCarousel_ScrollTest() {
     `,
   }
 }
+
+export const FTVA_HomepageCarousel_ScrollTest = FTVA_HomepageCarousel_ScrollTestTemplate.bind({})
+FTVA_HomepageCarousel_ScrollTest.args = {}
+

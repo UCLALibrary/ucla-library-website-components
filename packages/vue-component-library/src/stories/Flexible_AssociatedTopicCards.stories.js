@@ -42,7 +42,8 @@ const itemsVertical = {
   ],
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { block: itemsVertical }
@@ -55,6 +56,10 @@ export function Default() {
   `,
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },

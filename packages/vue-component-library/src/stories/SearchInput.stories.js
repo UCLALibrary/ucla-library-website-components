@@ -7,7 +7,8 @@ export default {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     components: { SearchInput },
     provide() {
@@ -28,11 +29,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function WithoutClearIcon() {
+const WithoutClearIconTemplate = (args) => {
+  void args
   return {
     components: { SearchInput },
     provide() {
@@ -54,7 +60,12 @@ export function WithoutClearIcon() {
   }
 }
 
-export function WithoutClearOnEsc() {
+export const WithoutClearIcon = WithoutClearIconTemplate.bind({})
+WithoutClearIcon.args = {}
+
+
+const WithoutClearOnEscTemplate = (args) => {
+  void args
   return {
     components: { SearchInput },
     provide() {
@@ -76,7 +87,12 @@ export function WithoutClearOnEsc() {
   }
 }
 
-export function WithValue() {
+export const WithoutClearOnEsc = WithoutClearOnEscTemplate.bind({})
+WithoutClearOnEsc.args = {}
+
+
+const WithValueTemplate = (args) => {
+  void args
   return {
     components: { SearchInput },
     provide() {
@@ -97,7 +113,12 @@ export function WithValue() {
   }
 }
 
-export function Disabled() {
+export const WithValue = WithValueTemplate.bind({})
+WithValue.args = {}
+
+
+const DisabledTemplate = (args) => {
+  void args
   return {
     components: { SearchInput },
     provide() {
@@ -119,7 +140,12 @@ export function Disabled() {
   }
 }
 
-export function WithoutBlurOnEsc() {
+export const Disabled = DisabledTemplate.bind({})
+Disabled.args = {}
+
+
+const WithoutBlurOnEscTemplate = (args) => {
+  void args
   return {
     components: { SearchInput },
     provide() {
@@ -141,7 +167,12 @@ export function WithoutBlurOnEsc() {
   }
 }
 
-export function WithoutSelectOnFocus() {
+export const WithoutBlurOnEsc = WithoutBlurOnEscTemplate.bind({})
+WithoutBlurOnEsc.args = {}
+
+
+const WithoutSelectOnFocusTemplate = (args) => {
+  void args
   return {
     components: { SearchInput },
     provide() {
@@ -163,7 +194,12 @@ export function WithoutSelectOnFocus() {
   }
 }
 
-export function WithCustomShortcutKey() {
+export const WithoutSelectOnFocus = WithoutSelectOnFocusTemplate.bind({})
+WithoutSelectOnFocus.args = {}
+
+
+const WithCustomShortcutKeyTemplate = (args) => {
+  void args
   return {
     components: { SearchInput },
     provide() {
@@ -185,7 +221,12 @@ export function WithCustomShortcutKey() {
   }
 }
 
-export function DLCTheme() {
+export const WithCustomShortcutKey = WithCustomShortcutKeyTemplate.bind({})
+WithCustomShortcutKey.args = {}
+
+
+const DLCThemeTemplate = (args) => {
+  void args
   return {
     components: { SearchInput },
     provide() {
@@ -206,7 +247,12 @@ export function DLCTheme() {
   }
 }
 
-export function FTVATheme() {
+export const DLCTheme = DLCThemeTemplate.bind({})
+DLCTheme.args = {}
+
+
+const FTVAThemeTemplate = (args) => {
+  void args
   return {
     components: { SearchInput },
     provide() {
@@ -226,3 +272,7 @@ export function FTVATheme() {
     template: '<search-input v-model=\'value\' :placeholder=\'placeholder\' />',
   }
 }
+
+export const FTVATheme = FTVAThemeTemplate.bind({})
+FTVATheme.args = {}
+

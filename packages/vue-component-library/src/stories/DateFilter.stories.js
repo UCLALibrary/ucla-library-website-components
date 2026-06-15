@@ -10,7 +10,8 @@ const mock = {
   eventDates: ['2/29/2024', '2/29/2024', '2/29/2024', '2/29/2024', '3/1/2024', '3/2/2024', '3/2/2024', '3/4/2024', '3/6/2024', '3/8/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024',],
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -31,11 +32,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function FilterOpenByDefault() {
+const FilterOpenByDefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -60,13 +66,18 @@ export function FilterOpenByDefault() {
     template: '<div style="height:509px">Sample Selected Date: <span data-test="selected-date">{{ modelDate }}</span><date-filter ref="dateFilterRef" @input-selected="updateDate" :eventDates="eventDates" /></div>',
   }
 }
+
+export const FilterOpenByDefault = FilterOpenByDefaultTemplate.bind({})
+FilterOpenByDefault.args = {}
+
 /* hideInput prop is not currently used anywhere in the app,
 input is hidden automatically on mobile */
 const mockNoInput = {
   hideInput: true,
   eventDates: ['2/29/2024', '2/29/2024', '2/29/2024', '2/29/2024', '3/1/2024', '3/2/2024', '3/2/2024', '3/4/2024', '3/6/2024', '3/8/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024',],
 }
-export function NoInput() {
+const NoInputTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -78,10 +89,15 @@ export function NoInput() {
   }
 }
 
+export const NoInput = NoInputTemplate.bind({})
+NoInput.args = {}
+
+
 const mockInitialDates = {
   initialDates: { startDate: new Date('2024-03-19'), endDate: new Date('2024-03-29') },
 }
-export function InitialDates() {
+const InitialDatesTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -93,7 +109,12 @@ export function InitialDates() {
   }
 }
 
-export function FTVA() {
+export const InitialDates = InitialDatesTemplate.bind({})
+InitialDates.args = {}
+
+
+const FTVATemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -109,3 +130,7 @@ export function FTVA() {
     template: '<date-filter :eventDates="eventDates" :initialDates="initialDates"/>',
   }
 }
+
+export const FTVA = FTVATemplate.bind({})
+FTVA.args = {}
+

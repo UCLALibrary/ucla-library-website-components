@@ -13,12 +13,17 @@ export default {
   },
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     components: { ElasticsearchDataViewer },
     template: '<elasticsearch-data-viewer />',
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   docs: {
     description: {

@@ -51,7 +51,8 @@ const mock = {
   ],
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -66,12 +67,17 @@ export function Default() {
     />`,
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function NoPullQuote() {
+const NoPullQuoteTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -86,7 +92,12 @@ export function NoPullQuote() {
   }
 }
 
-export function NoImage() {
+export const NoPullQuote = NoPullQuoteTemplate.bind({})
+NoPullQuote.args = {}
+
+
+const NoImageTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -101,7 +112,12 @@ export function NoImage() {
   }
 }
 
-export function TextOnly() {
+export const NoImage = NoImageTemplate.bind({})
+NoImage.args = {}
+
+
+const TextOnlyTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -114,3 +130,7 @@ export function TextOnly() {
     />`,
   }
 }
+
+export const TextOnly = TextOnlyTemplate.bind({})
+TextOnly.args = {}
+

@@ -7,18 +7,24 @@ export default {
 
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     components: { FooterSock },
     template: '<footer-sock />',
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function FTVAFooter() {
+const FTVAFooterTemplate = (args) => {
+  void args
   return {
     components: { FooterSock },
     provide() {
@@ -29,3 +35,7 @@ export function FTVAFooter() {
     template: '<footer-sock />',
   }
 }
+
+export const FTVAFooter = FTVAFooterTemplate.bind({})
+FTVAFooter.args = {}
+

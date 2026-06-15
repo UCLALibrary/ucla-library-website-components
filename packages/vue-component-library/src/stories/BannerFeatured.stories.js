@@ -44,7 +44,8 @@ const mock = {
   sectionHandle: 'event',
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -68,11 +69,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function LeftAligned() {
+const LeftAlignedTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -98,7 +104,12 @@ export function LeftAligned() {
   }
 }
 
-export function NotOnline() {
+export const LeftAligned = LeftAlignedTemplate.bind({})
+LeftAligned.args = {}
+
+
+const NotOnlineTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -123,7 +134,12 @@ export function NotOnline() {
   }
 }
 
-export function Slot() {
+export const NotOnline = NotOnlineTemplate.bind({})
+NotOnline.args = {}
+
+
+const SlotTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -162,7 +178,12 @@ export function Slot() {
   }
 }
 
-export function LongHeading() {
+export const Slot = SlotTemplate.bind({})
+Slot.args = {}
+
+
+const LongHeadingTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -201,7 +222,12 @@ export function LongHeading() {
   }
 }
 
-export function WideImage() {
+export const LongHeading = LongHeadingTemplate.bind({})
+LongHeading.args = {}
+
+
+const WideImageTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -227,7 +253,12 @@ export function WideImage() {
   }
 }
 
-export function WideImageLeftAligned() {
+export const WideImage = WideImageTemplate.bind({})
+WideImage.args = {}
+
+
+const WideImageLeftAlignedTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -254,7 +285,12 @@ export function WideImageLeftAligned() {
   }
 }
 
-export function NoButton() {
+export const WideImageLeftAligned = WideImageLeftAlignedTemplate.bind({})
+WideImageLeftAligned.args = {}
+
+
+const NoButtonTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -278,7 +314,12 @@ export function NoButton() {
   }
 }
 
-export function WithDescription() {
+export const NoButton = NoButtonTemplate.bind({})
+NoButton.args = {}
+
+
+const WithDescriptionTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -299,7 +340,12 @@ export function WithDescription() {
   }
 }
 
-export function Video() {
+export const WithDescription = WithDescriptionTemplate.bind({})
+WithDescription.args = {}
+
+
+const VideoTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -321,7 +367,12 @@ export function Video() {
   }
 }
 
-export function WithBlockForm() {
+export const Video = VideoTemplate.bind({})
+Video.args = {}
+
+
+const WithBlockFormTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -352,6 +403,10 @@ export function WithBlockForm() {
     `,
   }
 }
+
+export const WithBlockForm = WithBlockFormTemplate.bind({})
+WithBlockForm.args = {}
+
 
 const mock2 = {
   image: API.image,
@@ -384,7 +439,8 @@ const mockDLC = {
         'The UCLA Digital Library Program works collaboratively within the UCLA Library, across campus, and with a broad range of partners to preserve and provide enhanced access to local and global cultural heritage materials in support of the University’s teaching, learning, research and service mission.UCLA Digital Library Collections follow ethical and inclusive approaches to descriptive practices as outlined in Toward Ethical and Inclusive Descriptive Practices in UCLA Library Special Collections.',
 }
 
-export function LinkedTitle() {
+const LinkedTitleTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -408,7 +464,12 @@ export function LinkedTitle() {
   }
 }
 
-export function DLC() {
+export const LinkedTitle = LinkedTitleTemplate.bind({})
+LinkedTitle.args = {}
+
+
+const DLCTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -432,7 +493,12 @@ export function DLC() {
   }
 }
 
-export function DLCLeftAligned() {
+export const DLC = DLCTemplate.bind({})
+DLC.args = {}
+
+
+const DLCLeftAlignedTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -456,6 +522,10 @@ export function DLCLeftAligned() {
   }
 }
 
+export const DLCLeftAligned = DLCLeftAlignedTemplate.bind({})
+DLCLeftAligned.args = {}
+
+
 const mockHelpSection = {
   image: API.image,
   title: 'Have other Questions?',
@@ -474,7 +544,8 @@ const mockHelpSection = {
   ],
 }
 
-export function HelpSection() {
+const HelpSectionTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -500,3 +571,7 @@ export function HelpSection() {
     `,
   }
 }
+
+export const HelpSection = HelpSectionTemplate.bind({})
+HelpSection.args = {}
+

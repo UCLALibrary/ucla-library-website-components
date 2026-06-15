@@ -30,7 +30,8 @@ const mockBeforeAfterImageCarousel = [{
   afterImage: mockBeforeImage[0]
 }]
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -58,11 +59,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function DefaultWithAltText() {
+const DefaultWithAltTextTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -97,6 +103,10 @@ export function DefaultWithAltText() {
     `,
   }
 }
+
+export const DefaultWithAltText = DefaultWithAltTextTemplate.bind({})
+DefaultWithAltText.args = {}
+
 
 const mockSquareImage = [
   {
@@ -142,7 +152,8 @@ const mockTallImageCarousel = [{
   afterImage: mockTallImage[0]
 }]
 
-export function TallImage() {
+const TallImageTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -170,7 +181,12 @@ export function TallImage() {
   }
 }
 
-export function WithCustomLabels() {
+export const TallImage = TallImageTemplate.bind({})
+TallImage.args = {}
+
+
+const WithCustomLabelsTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -201,7 +217,12 @@ export function WithCustomLabels() {
   }
 }
 
-export function WithScrollWrapperCarousel() {
+export const WithCustomLabels = WithCustomLabelsTemplate.bind({})
+WithCustomLabels.args = {}
+
+
+const WithScrollWrapperCarouselTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -249,3 +270,7 @@ export function WithScrollWrapperCarousel() {
     `,
   }
 }
+
+export const WithScrollWrapperCarousel = WithScrollWrapperCarouselTemplate.bind({})
+WithScrollWrapperCarousel.args = {}
+

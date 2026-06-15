@@ -12,7 +12,8 @@ const mockData = {
 }
 
 // Variations of stories below
-export function DefaultWithPlaceholderProp() {
+const DefaultWithPlaceholderPropTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -24,11 +25,16 @@ export function DefaultWithPlaceholderProp() {
   }
 }
 
+export const DefaultWithPlaceholderProp = DefaultWithPlaceholderPropTemplate.bind({})
+DefaultWithPlaceholderProp.args = {}
+
+
 DefaultWithPlaceholderProp.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function FTVA() {
+const FTVATemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -40,7 +46,12 @@ export function FTVA() {
   }
 }
 
-export function DLC() {
+export const FTVA = FTVATemplate.bind({})
+FTVA.args = {}
+
+
+const DLCTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -52,7 +63,12 @@ export function DLC() {
   }
 }
 
-export function DLCWithDropdown() {
+export const DLC = DLCTemplate.bind({})
+DLC.args = {}
+
+
+const DLCWithDropdownTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -86,7 +102,12 @@ export function DLCWithDropdown() {
   }
 }
 
-export function DLCWithDivider() {
+export const DLCWithDropdown = DLCWithDropdownTemplate.bind({})
+DLCWithDropdown.args = {}
+
+
+const DLCWithDividerTemplate = (args) => {
+  void args
   return {
     provide() {
       return {
@@ -99,7 +120,12 @@ export function DLCWithDivider() {
   }
 }
 
-export function DLCWithDividerAndDropdown() {
+export const DLCWithDivider = DLCWithDividerTemplate.bind({})
+DLCWithDivider.args = {}
+
+
+const DLCWithDividerAndDropdownTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -138,7 +164,12 @@ export function DLCWithDividerAndDropdown() {
   }
 }
 
-export function DLCWithBackgroundImage() {
+export const DLCWithDividerAndDropdown = DLCWithDividerAndDropdownTemplate.bind({})
+DLCWithDividerAndDropdown.args = {}
+
+
+const DLCWithBackgroundImageTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -168,7 +199,12 @@ export function DLCWithBackgroundImage() {
   }
 }
 
-export function DLCWithBackgroundImageAndDropdown() {
+export const DLCWithBackgroundImage = DLCWithBackgroundImageTemplate.bind({})
+DLCWithBackgroundImage.args = {}
+
+
+const DLCWithBackgroundImageAndDropdownTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -214,3 +250,7 @@ export function DLCWithBackgroundImageAndDropdown() {
         `,
   }
 }
+
+export const DLCWithBackgroundImageAndDropdown = DLCWithBackgroundImageAndDropdownTemplate.bind({})
+DLCWithBackgroundImageAndDropdown.args = {}
+

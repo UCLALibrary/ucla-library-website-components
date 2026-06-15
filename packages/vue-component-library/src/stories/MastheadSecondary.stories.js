@@ -12,7 +12,8 @@ const mock = {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mock }
@@ -27,6 +28,10 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -37,7 +42,8 @@ const mock2 = {
         '<p>Schedule a research consultation, chat with a librarian, email us, and find tutorials & workshops to support your research journey.</p> <h3>Learn how to</h3><ul><li>Find the Cafeteria</li><li>Create a Study Group</li><li>Navigate the Libraries</li></ul>',
 }
 
-export function LongText() {
+const LongTextTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mock2 }
@@ -52,7 +58,12 @@ export function LongText() {
   }
 }
 
-export function NoMolecule() {
+export const LongText = LongTextTemplate.bind({})
+LongText.args = {}
+
+
+const NoMoleculeTemplate = (args) => {
+  void args
   return {
     components: { MastheadSecondary },
     template: `
@@ -65,7 +76,12 @@ export function NoMolecule() {
   }
 }
 
-export function MeapTheme() {
+export const NoMolecule = NoMoleculeTemplate.bind({})
+NoMolecule.args = {}
+
+
+const MeapThemeTemplate = (args) => {
+  void args
   return {
     components: { MastheadSecondary },
     data: () => ({
@@ -92,3 +108,7 @@ export function MeapTheme() {
     `,
   }
 }
+
+export const MeapTheme = MeapThemeTemplate.bind({})
+MeapTheme.args = {}
+

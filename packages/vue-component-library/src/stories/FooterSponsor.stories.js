@@ -7,7 +7,8 @@ export default {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     components: { FooterSponsor },
     template: `
@@ -15,6 +16,10 @@ export function Default() {
     `,
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },

@@ -5,7 +5,8 @@ export default {
   component: SingleCheckbox,
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return {}
@@ -17,11 +18,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function Checked() {
+const CheckedTemplate = (args) => {
+  void args
   return {
     data() {
       return {}
@@ -32,3 +38,7 @@ export function Checked() {
     `,
   }
 }
+
+export const Checked = CheckedTemplate.bind({})
+Checked.args = {}
+

@@ -225,7 +225,8 @@ const parsedFTVAEventSeries = mockFtvaSeries.map((item) => {
 })
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { items: mockDefault }
@@ -238,6 +239,10 @@ export function Default() {
   `,
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -416,7 +421,8 @@ const mockDLCEdgeCases = [
   }
 ]
 
-export function DLCEdgeCases() {
+const DLCEdgeCasesTemplate = (args) => {
+  void args
   return {
     data() {
       return { items: mockDLCEdgeCases }
@@ -437,7 +443,12 @@ export function DLCEdgeCases() {
   }
 }
 
-export function DLCEdgeCasesWithDate() {
+export const DLCEdgeCases = DLCEdgeCasesTemplate.bind({})
+DLCEdgeCases.args = {}
+
+
+const DLCEdgeCasesWithDateTemplate = (args) => {
+  void args
   return {
     data() {
       return { items: mockDLCEdgeCasesWithDate }
@@ -458,7 +469,12 @@ export function DLCEdgeCasesWithDate() {
   }
 }
 
-export function FTVAEventDetail() {
+export const DLCEdgeCasesWithDate = DLCEdgeCasesWithDateTemplate.bind({})
+DLCEdgeCasesWithDate.args = {}
+
+
+const FTVAEventDetailTemplate = (args) => {
+  void args
   return {
     data() {
       return { items: mockFtva }
@@ -479,7 +495,12 @@ export function FTVAEventDetail() {
   }
 }
 
-export function FTVAEventSeries() {
+export const FTVAEventDetail = FTVAEventDetailTemplate.bind({})
+FTVAEventDetail.args = {}
+
+
+const FTVAEventSeriesTemplate = (args) => {
+  void args
   return {
     data() {
       return { items: parsedFTVAEventSeries }
@@ -499,7 +520,12 @@ export function FTVAEventSeries() {
   }
 }
 
-export function FTVABlogSeries() {
+export const FTVAEventSeries = FTVAEventSeriesTemplate.bind({})
+FTVAEventSeries.args = {}
+
+
+const FTVABlogSeriesTemplate = (args) => {
+  void args
   return {
     data() {
       return { items: parsedFTVABlogSeries }
@@ -518,6 +544,10 @@ export function FTVABlogSeries() {
   `,
   }
 }
+
+export const FTVABlogSeries = FTVABlogSeriesTemplate.bind({})
+FTVABlogSeries.args = {}
+
 
 const mockCollectionItems = [
   {
@@ -590,7 +620,8 @@ const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
   }
 })
 
-export function FTVACollectionItems() {
+const FTVACollectionItemsTemplate = (args) => {
+  void args
   return {
     data() {
       return { items: parsedFTVACollectionItems }
@@ -610,7 +641,12 @@ export function FTVACollectionItems() {
   }
 }
 
-export function FTVAHorizontalScrollCardWithImage() {
+export const FTVACollectionItems = FTVACollectionItemsTemplate.bind({})
+FTVACollectionItems.args = {}
+
+
+const FTVAHorizontalScrollCardWithImageTemplate = (args) => {
+  void args
   return {
     data() {
       return { items: parsedFTVACollectionItems }
@@ -630,6 +666,10 @@ export function FTVAHorizontalScrollCardWithImage() {
   `,
   }
 }
+
+export const FTVAHorizontalScrollCardWithImage = FTVAHorizontalScrollCardWithImageTemplate.bind({})
+FTVAHorizontalScrollCardWithImage.args = {}
+
 
 const mockCollectionListings = [
   {
@@ -757,7 +797,8 @@ const parsedFTVACollectionListings = mockCollectionListings.map((item) => {
   }
 })
 
-export function FTVACollectionListings() {
+const FTVACollectionListingsTemplate = (args) => {
+  void args
   return {
     data() {
       return { items: parsedFTVACollectionListings }
@@ -792,6 +833,10 @@ export function FTVACollectionListings() {
   }
 }
 
+export const FTVACollectionListings = FTVACollectionListingsTemplate.bind({})
+FTVACollectionListings.args = {}
+
+
 const parsedFTVACollectionListingsCustomDate = mockCollectionListings.map((item) => {
   return {
     title: item.title,
@@ -801,7 +846,8 @@ const parsedFTVACollectionListingsCustomDate = mockCollectionListings.map((item)
   }
 })
 
-export function FTVACollectionListingsCustomDate() {
+const FTVACollectionListingsCustomDateTemplate = (args) => {
+  void args
   return {
     data() {
       return { items: parsedFTVACollectionListingsCustomDate }
@@ -819,3 +865,7 @@ export function FTVACollectionListingsCustomDate() {
   `,
   }
 }
+
+export const FTVACollectionListingsCustomDate = FTVACollectionListingsCustomDateTemplate.bind({})
+FTVACollectionListingsCustomDate.args = {}
+

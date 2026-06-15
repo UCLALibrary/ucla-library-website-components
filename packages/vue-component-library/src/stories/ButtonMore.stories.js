@@ -6,27 +6,42 @@ export default {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     components: { ButtonMore },
     template: '<button-more/>',
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function WithAlternateText() {
+const WithAlternateTextTemplate = (args) => {
+  void args
   return {
     components: { ButtonMore },
     template: '<button-more text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>',
   }
 }
 
-export function WithLink() {
+export const WithAlternateText = WithAlternateTextTemplate.bind({})
+WithAlternateText.args = {}
+
+
+const WithLinkTemplate = (args) => {
+  void args
   return {
     components: { ButtonMore },
     template: '<button-more text="See More" to="visit/events-exhibits"/>',
   }
 }
+
+export const WithLink = WithLinkTemplate.bind({})
+WithLink.args = {}
+

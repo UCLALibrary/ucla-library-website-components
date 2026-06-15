@@ -61,7 +61,8 @@ const ongoing = {
   sectionHandle: 'event',
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mock }
@@ -86,11 +87,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function SingleDigitDate() {
+const SingleDigitDateTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockSingleDigitDate }
@@ -115,7 +121,12 @@ export function SingleDigitDate() {
   }
 }
 
-export function OngoingEvent() {
+export const SingleDigitDate = SingleDigitDateTemplate.bind({})
+SingleDigitDate.args = {}
+
+
+const OngoingEventTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...ongoing }
@@ -138,3 +149,7 @@ export function OngoingEvent() {
   `,
   }
 }
+
+export const OngoingEvent = OngoingEventTemplate.bind({})
+OngoingEvent.args = {}
+

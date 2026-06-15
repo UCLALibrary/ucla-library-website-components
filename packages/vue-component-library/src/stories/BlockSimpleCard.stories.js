@@ -40,7 +40,8 @@ const mockInternalGuide = {
 
 // Variations of stories below
 // ExternalLink
-export function Default() {
+const DefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockExternal }
@@ -56,11 +57,16 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function InternalLink() {
+const InternalLinkTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockInternal }
@@ -76,7 +82,12 @@ export function InternalLink() {
   }
 }
 
-export function InternalLinkGuide() {
+export const InternalLink = InternalLinkTemplate.bind({})
+InternalLink.args = {}
+
+
+const InternalLinkGuideTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockInternalGuide }
@@ -92,7 +103,12 @@ export function InternalLinkGuide() {
   }
 }
 
-export function LongText() {
+export const InternalLinkGuide = InternalLinkGuideTemplate.bind({})
+InternalLinkGuide.args = {}
+
+
+const LongTextTemplate = (args) => {
+  void args
   return {
     data() {
       return {
@@ -108,7 +124,12 @@ export function LongText() {
   }
 }
 
-export function FTVADefault() {
+export const LongText = LongTextTemplate.bind({})
+LongText.args = {}
+
+
+const FTVADefaultTemplate = (args) => {
+  void args
   return {
     data() {
       return { ...mockExternal }
@@ -128,3 +149,7 @@ export function FTVADefault() {
     `,
   }
 }
+
+export const FTVADefault = FTVADefaultTemplate.bind({})
+FTVADefault.args = {}
+
