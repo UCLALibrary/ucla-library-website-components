@@ -3,7 +3,7 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import SvgIconPlayFilled from 'ucla-library-design-tokens/assets/svgs/icon-ftva-playvideo.svg'
-import { computed, defineProps } from 'vue'
+import { computed, defineProps, ref, onMounted } from 'vue'
 import type { MediaItemType } from '@/types/types'
 
 const { trailer, posterImage } = defineProps({
@@ -14,7 +14,7 @@ const { trailer, posterImage } = defineProps({
   posterImage: {
     type: Object as PropType<MediaItemType>,
     required: false,
-  }
+  },
 })
 
 // this component doesn't have themes currently
@@ -30,6 +30,62 @@ const parsedTrailer = computed(() => {
 
   const match = trailer.match(/src="([^"]+)"/)
   return match ? match[1] : ''
+})
+
+/**
+ * Convert embed URL → watch URL (needed for oEmbed)
+ */
+const videoUrl = computed(() => {
+  if (!parsedTrailer.value) return ''
+
+  // YouTube
+  if (parsedTrailer.value.includes('youtube.com/embed/')) {
+    const id = parsedTrailer.value.split('/embed/')[1]?.split('?')[0]
+    return `https://www.youtube.com/watch?v=${id}`
+  }
+
+  // Vimeo
+  if (parsedTrailer.value.includes('vimeo.com/video/')) {
+    const id = parsedTrailer.value.split('/video/')[1]?.split('?')[0]
+    return `https://vimeo.com/${id}`
+  }
+
+  return ''
+})
+
+/**
+ * oEmbed title fetch
+ */
+const oembedTitle = ref('')
+
+onMounted(async () => {
+  if (!videoUrl.value) return
+
+  try {
+    let endpoint = ''
+
+    if (videoUrl.value.includes('youtube.com')) {
+      endpoint = `https://www.youtube.com/oembed?url=${encodeURIComponent(videoUrl.value)}&format=json`
+    } else if (videoUrl.value.includes('vimeo.com')) {
+      endpoint = `https://vimeo.com/api/oembed.json?url=${encodeURIComponent(videoUrl.value)}`
+    }
+
+    if (!endpoint) return
+
+    const res = await fetch(endpoint)
+    const data = await res.json()
+
+    oembedTitle.value = data.title || ''
+  } catch (e) {
+    // fail silently
+  }
+})
+
+/**
+ * Final safe title (fixes Chrome)
+ */
+const iframeTitle = computed(() => {
+  return oembedTitle.value || 'Embedded video player'
 })
 </script>
 
@@ -53,7 +109,7 @@ const parsedTrailer = computed(() => {
     <div v-if="parsedTrailer" class="video-container">
       <iframe
         :src="parsedTrailer"
-        :title="title"
+        :title="iframeTitle"
         class="responsive-iframe"
         frameborder="0"
         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
