@@ -14,10 +14,6 @@ const { trailer, posterImage } = defineProps({
   posterImage: {
     type: Object as PropType<MediaItemType>,
     required: false,
-  },
-  title: {
-    type: String,
-    required: true,
   }
 })
 
