@@ -8,7 +8,8 @@ export default {
 // Variations of stories below
 const mockTrailerData = {
   trailer: '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/uYr_SvIKKuI?si=ihenbmyE91KqyXK5" title="YouTube video player" frameborder="0"></iframe></figure>',
-  posterImage: API.image
+  posterImage: API.image,
+  title: 'Michael Snow - La Région Centrale (1971)',
 }
 export function Default() {
   return {
@@ -34,6 +35,6 @@ export function WithCustomImageandIcon() {
       }
     },
     components: { VideoEmbed },
-    template: '<video-embed :trailer="mockTrailerData.trailer" :posterImage="mockTrailerData.posterImage"/>',
+    template: '<video-embed :trailer="mockTrailerData.trailer" :posterImage="mockTrailerData.posterImage" title="mockTrailerData.title"/>',
   }
 }

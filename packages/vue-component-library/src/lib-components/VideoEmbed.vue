@@ -15,6 +15,10 @@ const { trailer, posterImage } = defineProps({
     type: Object as PropType<MediaItemType>,
     required: false,
   },
+  title: {
+    type: String,
+    required: true,
+  }
 })
 
 // this component doesn't have themes currently
@@ -53,6 +57,7 @@ const parsedTrailer = computed(() => {
     <div v-if="parsedTrailer" class="video-container">
       <iframe
         :src="parsedTrailer"
+        :title="title"
         class="responsive-iframe"
         frameborder="0"
         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
