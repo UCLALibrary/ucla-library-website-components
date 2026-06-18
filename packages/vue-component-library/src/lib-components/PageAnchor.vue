@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import { useRoute } from 'vue-router'
 import { useWindowSize } from '@vueuse/core'
@@ -38,8 +38,11 @@ const classes = computed(() => {
 // Use VueUse for reactive window width
 const { width } = useWindowSize()
 
-//  If DLC, default to open
-// If the screen is Desktop and FTVA have pageAnchor default to open
+// Default anchor to open if:
+// - DLC site
+// - FTVA site and screen is Small Desktop (1024+)
+// - Library site and screen is Large Desktop (1440+)
+
 const defaultDropdownOpen = computed(() => {
   if (theme?.value === 'dlc')
     return true
@@ -49,6 +52,18 @@ const defaultDropdownOpen = computed(() => {
 })
 
 const isDropdownOpen = ref(defaultDropdownOpen.value)
+
+watch(
+  width,
+  (newWidth) => {
+    if (newWidth > 1440)
+      isDropdownOpen.value = true
+
+    if (theme?.value !== 'dlc' && theme?.value !== 'ftva' && newWidth < 1024)
+      isDropdownOpen.value = false
+  },
+  { immediate: true }
+)
 
 // Computed
 const sectionName = computed(() => {
