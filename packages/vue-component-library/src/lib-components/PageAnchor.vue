@@ -38,11 +38,13 @@ const classes = computed(() => {
 // Use VueUse for reactive window width
 const { width } = useWindowSize()
 
-// Default anchor to open if:
-// - DLC site
-// - FTVA site and screen is Small Desktop (1024+)
-// - Library site and screen is Large Desktop (1440+)
+/* Expand PageAnchor by default for:
+- DLC site
+- FTVA site and when screen is Small Desktop (1024+)
+- Library site and screen is Large Desktop (1440+); use watcher to toggle component as screen resizes
+*/
 
+// DLC and FTVA default behavior
 const defaultDropdownOpen = computed(() => {
   if (theme?.value === 'dlc')
     return true
@@ -53,13 +55,14 @@ const defaultDropdownOpen = computed(() => {
 
 const isDropdownOpen = ref(defaultDropdownOpen.value)
 
+// Library site default behavior
 watch(
   width,
   (newWidth) => {
     if (newWidth > 1440)
       isDropdownOpen.value = true
 
-    if (theme?.value !== 'dlc' && theme?.value !== 'ftva' && newWidth < 1024)
+    if (!defaultDropdownOpen.value && newWidth < 1440)
       isDropdownOpen.value = false
   },
   { immediate: true }
