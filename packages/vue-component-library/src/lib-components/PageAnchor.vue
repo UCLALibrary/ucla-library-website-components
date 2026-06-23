@@ -62,7 +62,7 @@ watch(
     if (newWidth > 1440)
       isDropdownOpen.value = true
 
-    if (!defaultDropdownOpen.value && newWidth < 1440)
+    if (theme?.value !== 'dlc' && theme?.value !== 'ftva' && newWidth < 1440)
       isDropdownOpen.value = false
   },
   { immediate: true }
