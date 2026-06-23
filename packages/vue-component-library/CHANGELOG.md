@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.78.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.0...@ucla-library-monorepo/ucla-library-website-components-v1.78.1) (2026-06-23)
+
+
+### Bug Fixes
+
+* LADI-5244 Use oEmbed api to retrieve iframe video title for Chrome display ([#952](https://github.com/UCLALibrary/ucla-library-website-components/issues/952)) ([3006e7e](https://github.com/UCLALibrary/ucla-library-website-components/commit/3006e7ec7512b773af661e9b0d2a280cdccee676))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.78.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.77.2...@ucla-library-monorepo/ucla-library-website-components-v1.78.0) (2026-06-12)
 
 
