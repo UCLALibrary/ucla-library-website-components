@@ -24,8 +24,9 @@
     - [ ] Zoom the site to 200%
     - [ ] Check for keyboard traps
 - [ ] Design & Code
-    - [ ] Add updates to Storybook
+    - [ ] Add updates to Storybook and check them
     - [ ] Check that it looks like the design(s)
+    - [ ] Check that it is working locally in the library-website-nuxt dev server
     - [ ] Review the Chromatic _(if the PR is large and requires it)_
 
 ### UX Review
