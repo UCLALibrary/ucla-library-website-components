@@ -26,7 +26,7 @@
 - [ ] Design & Code
     - [ ] Add updates to Storybook and check them
     - [ ] Check that it looks like the design(s)
-    - [ ] Check that it is working locally in the library-website-nuxt dev server
+    - [ ] Check that it is working in the local website nuxt dev server
     - [ ] Review the Chromatic _(if the PR is large and requires it)_
 
 ### UX Review
