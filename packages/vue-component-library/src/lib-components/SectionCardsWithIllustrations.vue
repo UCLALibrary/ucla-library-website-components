@@ -5,6 +5,7 @@ import _kebabCase from 'lodash/kebabCase'
 
 import type { PropType } from 'vue'
 import type { CardItemType } from '@/types/types'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 import BlockCardWithIllustration from '@/lib-components/BlockCardWithIllustration.vue'
 import ButtonMore from '@/lib-components/ButtonMore.vue'
@@ -48,13 +49,21 @@ const cypressSelector = computed(() => {
   return `section-cards-with-illustrations-${_kebabCase(props.sectionTitle) || 'untitled'
     }`
 })
+
+const sanitizedSectionTitle = computed(() => sanitizeHtml(props.sectionTitle))
+const sanitizedSectionSummary = computed(() => sanitizeHtml(props.sectionSummary))
 </script>
 
 <template>
   <section :class="classes" :data-cy="cypressSelector">
     <div v-if="sectionTitle || sectionSummary" class="section-header">
-      <h2 v-if="sectionTitle" id="cards-with-illustration-title" class="section-title" v-html="sectionTitle" />
-      <div v-if="sectionSummary" class="section-summary" v-html="sectionSummary" />
+      <h2
+        v-if="sectionTitle"
+        id="cards-with-illustration-title"
+        class="section-title"
+        v-html="sanitizedSectionTitle"
+      />
+      <div v-if="sectionSummary" class="section-summary" v-html="sanitizedSectionSummary" />
     </div>
 
     <ul v-if="items && items.length > 0" class="cards">
