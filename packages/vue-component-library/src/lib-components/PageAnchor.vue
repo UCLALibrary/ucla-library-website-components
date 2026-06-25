@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref} from 'vue'
 import type { PropType } from 'vue'
 import { useRoute } from 'vue-router'
 import { useWindowSize } from '@vueuse/core'
@@ -41,32 +41,20 @@ const { width } = useWindowSize()
 /* Expand PageAnchor by default for:
 - DLC site
 - FTVA site and when screen is Small Desktop (1024+)
-- Library site and screen is Large Desktop (1440+); use watcher to toggle component as screen resizes
+- Library site and screen is Large Desktop (1440+)
 */
 
-// DLC and FTVA default behavior
 const defaultDropdownOpen = computed(() => {
   if (theme?.value === 'dlc')
     return true
   if (theme?.value === 'ftva' && width.value > 1024)
     return true
+  if(width.value > 1440)
+    return true
   return false
 })
 
 const isDropdownOpen = ref(defaultDropdownOpen.value)
-
-// Library site default behavior
-watch(
-  width,
-  (newWidth) => {
-    if (newWidth > 1440)
-      isDropdownOpen.value = true
-
-    if (theme?.value !== 'dlc' && theme?.value !== 'ftva' && newWidth < 1440)
-      isDropdownOpen.value = false
-  },
-  { immediate: true }
-)
 
 // Computed
 const sectionName = computed(() => {
