@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.78.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.2...@ucla-library-monorepo/ucla-library-website-components-v1.78.3) (2026-06-25)
+
+
+### Bug Fixes
+
+* LADI-5237 Expand PageAnchor by default on Library site ([#953](https://github.com/UCLALibrary/ucla-library-website-components/issues/953)) ([9a39284](https://github.com/UCLALibrary/ucla-library-website-components/commit/9a392841f4e801eff5d2aaf1df7dfbf96b28c12e))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.78.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.1...@ucla-library-monorepo/ucla-library-website-components-v1.78.2) (2026-06-23)
 
 
