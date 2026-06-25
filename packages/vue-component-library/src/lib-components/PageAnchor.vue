@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref} from 'vue'
+import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 import { useRoute } from 'vue-router'
 import { useWindowSize } from '@vueuse/core'
@@ -49,7 +49,7 @@ const defaultDropdownOpen = computed(() => {
     return true
   if (theme?.value === 'ftva' && width.value > 1024)
     return true
-  if(width.value > 1440)
+  if (width.value > 1440)
     return true
   return false
 })
