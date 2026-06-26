@@ -168,6 +168,9 @@ const { width } = useWindowSize()
 // Use computed to check if it's mobile based on window width
 const mobileBreakpoint = 850 // change scss breakpoints in ftva _header-sticky.scss, _nav-primary.scss, _site-brand-bar.scss
 const isMobile = computed(() => width.value <= mobileBreakpoint) // Use 850px for mobile breakpoint
+const isSearchSlotVisible = computed(() => {
+  return slotIsOpened.value || (mobileMenuIsOpened.value && isMobile.value)
+})
 
 // Parsed logo for the header
 const parsedLogo = computed(() => {
@@ -354,6 +357,8 @@ onMounted(() => {
       <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  -->
       <div
         class="slot-container"
+        :inert="!isSearchSlotVisible"
+        :aria-hidden="!isSearchSlotVisible"
         :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
       >
         <slot
