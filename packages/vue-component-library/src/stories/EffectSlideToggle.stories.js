@@ -20,7 +20,7 @@ export default {
   }
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     components: { EffectSlideToggle },
     template: `
@@ -43,11 +43,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function InitiallyOpened() {
+const InitiallyOpenedTemplate = (args) => {
   return {
     components: { EffectSlideToggle },
     template: `
@@ -69,7 +72,10 @@ export function InitiallyOpened() {
   }
 }
 
-export function CustomDuration() {
+export const InitiallyOpened = InitiallyOpenedTemplate.bind({})
+InitiallyOpened.args = {}
+
+const CustomDurationTemplate = (args) => {
   return {
     components: { EffectSlideToggle },
     template: `
@@ -91,7 +97,10 @@ export function CustomDuration() {
   }
 }
 
-export function CustomEasing() {
+export const CustomDuration = CustomDurationTemplate.bind({})
+CustomDuration.args = {}
+
+const CustomEasingTemplate = (args) => {
   return {
     components: { EffectSlideToggle },
     template: `
@@ -113,7 +122,10 @@ export function CustomEasing() {
   }
 }
 
-export function WithFormContent() {
+export const CustomEasing = CustomEasingTemplate.bind({})
+CustomEasing.args = {}
+
+const WithFormContentTemplate = (args) => {
   return {
     components: { EffectSlideToggle },
     setup() {
@@ -180,7 +192,10 @@ export function WithFormContent() {
   }
 }
 
-export function WithLongContent() {
+export const WithFormContent = WithFormContentTemplate.bind({})
+WithFormContent.args = {}
+
+const WithLongContentTemplate = (args) => {
   return {
     components: { EffectSlideToggle },
     template: `
@@ -212,7 +227,10 @@ export function WithLongContent() {
   }
 }
 
-export function EventHandlers() {
+export const WithLongContent = WithLongContentTemplate.bind({})
+WithLongContent.args = {}
+
+const EventHandlersTemplate = (args) => {
   return {
     components: { EffectSlideToggle },
     setup() {
@@ -263,3 +281,6 @@ export function EventHandlers() {
     `
   }
 }
+
+export const EventHandlers = EventHandlersTemplate.bind({})
+EventHandlers.args = {}

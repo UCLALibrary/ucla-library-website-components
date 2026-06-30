@@ -26,6 +26,7 @@ import {
   getMockGlobalNavSearch,
   setupGlobalStore,
 } from './helpers/storyHelpers'
+import { STORY_THEME_OPTIONS } from './helpers/themeControls'
 import router from '@/router'
 import {
   mockBentoBoxResult,
@@ -56,7 +57,7 @@ export default {
   argTypes: {
     theme: {
       control: { type: 'select' },
-      options: ['default', 'dlc'],
+      options: STORY_THEME_OPTIONS,
       description: 'Theme variant for the page',
     },
   },

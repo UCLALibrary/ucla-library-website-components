@@ -6,27 +6,36 @@ export default {
   components: BlockDate,
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     components: { BlockDate },
     template: '<block-date date="10" day="Digniss" />',
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function BigDate() {
+const BigDateTemplate = (args) => {
   return {
     components: { BlockDate },
     template: '<block-date date="30" day="Sodales" />',
   }
 }
 
-export function LongDayName() {
+export const BigDate = BigDateTemplate.bind({})
+BigDate.args = {}
+
+const LongDayNameTemplate = (args) => {
   return {
     components: { BlockDate },
     template: '<block-date date="30" day="Suspendise" />',
   }
 }
+
+export const LongDayName = LongDayNameTemplate.bind({})
+LongDayName.args = {}

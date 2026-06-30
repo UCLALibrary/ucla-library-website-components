@@ -33,7 +33,7 @@ const mockTwoCards = {
 
 // Variations of stories below
 // -------2----------------
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return { ...mockTwoCards }
@@ -48,6 +48,9 @@ export function Default() {
     `,
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -86,7 +89,7 @@ const mockThreeCards = {
   ],
 }
 
-export function ThreeCards() {
+const ThreeCardsTemplate = (args) => {
   return {
     data() {
       return { ...mockThreeCards }
@@ -100,6 +103,9 @@ export function ThreeCards() {
     `,
   }
 }
+
+export const ThreeCards = ThreeCardsTemplate.bind({})
+ThreeCards.args = {}
 
 // -------4----------------
 
@@ -144,7 +150,7 @@ const mockFourCards = {
   ],
 }
 
-export function FourCards() {
+const FourCardsTemplate = (args) => {
   return {
     data() {
       return { ...mockFourCards }
@@ -158,6 +164,9 @@ export function FourCards() {
     `,
   }
 }
+
+export const FourCards = FourCardsTemplate.bind({})
+FourCards.args = {}
 
 // -------5----------------
 
@@ -210,7 +219,7 @@ const mockFiveCards = {
   ],
 }
 
-export function FiveCards() {
+const FiveCardsTemplate = (args) => {
   return {
     data() {
       return { ...mockFiveCards }
@@ -224,6 +233,9 @@ export function FiveCards() {
     `,
   }
 }
+
+export const FiveCards = FiveCardsTemplate.bind({})
+FiveCards.args = {}
 
 // -------6----------------
 
@@ -280,7 +292,7 @@ const mockSixCards = {
   ],
 }
 
-export function SixCards() {
+const SixCardsTemplate = (args) => {
   return {
     data() {
       return { ...mockSixCards }
@@ -295,8 +307,11 @@ export function SixCards() {
   }
 }
 
+export const SixCards = SixCardsTemplate.bind({})
+SixCards.args = {}
+
 // -------FTVA-------------
-export function FTVADefault() {
+const FTVADefaultTemplate = (args) => {
   return {
     data() {
       return { ...mockTwoCards }
@@ -316,3 +331,6 @@ export function FTVADefault() {
     `,
   }
 }
+
+export const FTVADefault = FTVADefaultTemplate.bind({})
+FTVADefault.args = {}

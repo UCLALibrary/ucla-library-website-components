@@ -1,14 +1,42 @@
 import { computed, onBeforeUnmount, onMounted } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import CardMeta from '@/lib-components/CardMeta'
 import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
 import RichText from '@/lib-components/RichText.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
+function normalizeDateControlValue(value) {
+  if (typeof value === 'number') {
+    const date = new Date(value)
+    return Number.isNaN(date.getTime()) ? '' : date.toISOString()
+  }
+  return value || ''
+}
+
 // Storybook default settings
 export default {
   title: 'Card Meta',
-  component: CardMeta
+  component: CardMeta,
+  argTypes: {
+    theme: {
+      control: { type: 'select' },
+      options: STORY_THEME_OPTIONS,
+    },
+    to: { control: 'text' },
+    category: { control: 'text' },
+    title: { control: 'text' },
+    text: { control: 'text' },
+    startDate: { control: 'date' },
+    endDate: { control: 'date' },
+    ongoing: { control: 'boolean' },
+    bylineOne: { control: 'text' },
+    bylineTwo: { control: 'text' },
+    locations: { control: 'object' },
+    alternativeFullName: { control: 'text' },
+    language: { control: 'text' },
+    sectionHandle: { control: 'text' },
+  },
 }
 
 const mockDefault = {
@@ -29,61 +57,58 @@ const mockDefault = {
   bylineTwo: 'Byline 2'
 }
 
-// Variations of stories below
-export function Default() {
+function BaseTemplate(args) {
   return {
-    data() {
-      return { ...mockDefault }
+    setup() {
+      return { args, normalizeDateControlValue }
+    },
+    provide() {
+      return {
+        theme: computed(() => normalizeStoryTheme(args.theme)),
+      }
     },
     components: { CardMeta },
     template: `
       <card-meta
-          :to="to"
-          :category="category"
-          :title="title"
-          :start-date="startDate"
-          :end-date="endDate"
-          :text="text"
-          :bylineOne="bylineOne"
-          :bylineTwo="bylineTwo"
-          :locations="locations"
-          :alternativeFullName="alternativeFullName"
-          :language="language"
-          :section-handle="sectionHandle"
+          :to="args.to"
+          :category="args.category"
+          :title="args.title"
+          :start-date="normalizeDateControlValue(args.startDate)"
+          :end-date="normalizeDateControlValue(args.endDate)"
+          :text="args.text"
+          :ongoing="args.ongoing"
+          :bylineOne="args.bylineOne"
+          :bylineTwo="args.bylineTwo"
+          :locations="args.locations"
+          :alternativeFullName="args.alternativeFullName"
+          :language="args.language"
+          :section-handle="args.sectionHandle"
       />
   `,
   }
+}
+
+// Variations of stories below
+export const Default = BaseTemplate.bind({})
+Default.args = {
+  ...mockDefault,
+  theme: 'default',
+  ongoing: false,
 }
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function Ongoing() {
-  return {
-    data() {
-      return { ...mockDefault }
-    },
-    components: { CardMeta },
-    template: `
-      <card-meta
-          :to="to"
-          :category="category"
-          :title="title"
-          :ongoing=true
-          :text="text"
-          :locations="locations"
-          :alternativeFullName="alternativeFullName"
-          :language="language"
-          :section-handle="sectionHandle"
-      />
-  `,
-  }
+export const Ongoing = BaseTemplate.bind({})
+Ongoing.args = {
+  ...Default.args,
+  ongoing: true,
 }
 
 // FTVA STORIES
 
-export function FtvaWithBlockTagsAndIntro() {
+const FtvaWithBlockTagsAndIntroTemplate = (args) => {
   return {
     data() {
       return {
@@ -118,56 +143,42 @@ export function FtvaWithBlockTagsAndIntro() {
   }
 }
 
-export function FtvaOnlyCategoryAndTitle() {
+export const FtvaWithBlockTagsAndIntro = FtvaWithBlockTagsAndIntroTemplate.bind({})
+FtvaWithBlockTagsAndIntro.args = {}
+
+const FtvaOnlyCategoryAndTitleTemplate = (args) => {
   return {
-    data() {
-      return {
-        event: {
-          title: 'Step Up 2 - The Streets (2008)',
-        },
-        series: {
-          title: 'The Step Up Movie Series'
-        }
-      }
+    setup() {
+      return { args }
     },
     provide() {
       return {
-        theme: computed(() => 'ftva'),
+        theme: computed(() => normalizeStoryTheme(args.theme)),
       }
     },
     components: { CardMeta },
     template: `
       <card-meta
-        :category="series.title"
-        :title="event.title"
+        :category="args.category"
+        :title="args.title"
       />
   `,
   }
 }
+
+export const FtvaOnlyCategoryAndTitle = FtvaOnlyCategoryAndTitleTemplate.bind({})
+FtvaOnlyCategoryAndTitle.args = {
+  theme: 'ftva',
+  category: 'The Step Up Movie Series',
+  title: 'Step Up 2 - The Streets (2008)',
+}
+
 // used on FTVA Event Series Page
-export function FTVAOngoing() {
-  return {
-    data() {
-      return { ...mockDefault }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { CardMeta },
-    template: `
-      <card-meta
-          :to="to"
-          :category="category"
-          :title="title"
-          :ongoing=true
-          :text="text"
-          :locations="locations"
-          :language="language"
-      />
-  `,
-  }
+export const FTVAOngoing = BaseTemplate.bind({})
+FTVAOngoing.args = {
+  ...Default.args,
+  theme: 'ftva',
+  ongoing: true,
 }
 
 const mockFTVAArticleData = {
@@ -220,7 +231,7 @@ const mockSocialList = {
   ],
 }
 
-export function FTVAArticleDetailWShareButton() {
+const FTVAArticleDetailWShareButtonTemplate = (args) => {
   return {
     data() {
       return {
@@ -267,7 +278,10 @@ export function FTVAArticleDetailWShareButton() {
   }
 }
 
-export function FtvaLinkedCategoryAndTitle() {
+export const FTVAArticleDetailWShareButton = FTVAArticleDetailWShareButtonTemplate.bind({})
+FTVAArticleDetailWShareButton.args = {}
+
+const FtvaLinkedCategoryAndTitleTemplate = (args) => {
   return {
     data() {
       return {
@@ -299,7 +313,10 @@ export function FtvaLinkedCategoryAndTitle() {
   }
 }
 
-export function FtvaCustomTitleAndDesription() {
+export const FtvaLinkedCategoryAndTitle = FtvaLinkedCategoryAndTitleTemplate.bind({})
+FtvaLinkedCategoryAndTitle.args = {}
+
+const FtvaCustomTitleAndDesriptionTemplate = (args) => {
   return {
     data() {
       return {
@@ -341,7 +358,10 @@ export function FtvaCustomTitleAndDesription() {
   }
 }
 
-export function FtvaH1Title() {
+export const FtvaCustomTitleAndDesription = FtvaCustomTitleAndDesriptionTemplate.bind({})
+FtvaCustomTitleAndDesription.args = {}
+
+const FtvaH1TitleTemplate = (args) => {
   return {
     data() {
       return {
@@ -372,7 +392,10 @@ export function FtvaH1Title() {
   }
 }
 
-export function FtvaCustomDateTimeSlot() {
+export const FtvaH1Title = FtvaH1TitleTemplate.bind({})
+FtvaH1Title.args = {}
+
+const FtvaCustomDateTimeSlotTemplate = (args) => {
   return {
     data() {
       return {
@@ -403,3 +426,6 @@ export function FtvaCustomDateTimeSlot() {
     `,
   }
 }
+
+export const FtvaCustomDateTimeSlot = FtvaCustomDateTimeSlotTemplate.bind({})
+FtvaCustomDateTimeSlot.args = {}

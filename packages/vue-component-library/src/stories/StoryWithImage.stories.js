@@ -9,7 +9,7 @@ export default {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return {
@@ -29,6 +29,9 @@ export function Default() {
   `,
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },

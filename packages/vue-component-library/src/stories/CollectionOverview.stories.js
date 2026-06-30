@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import CollectionOverview from '@/lib-components/CollectionOverview'
 import { ButtonLinkIcons } from '@/types/components/buttonLink.types'
 
@@ -9,6 +10,13 @@ import * as API from '@/stories/mock-api.json'
 export default {
   title: 'Funkhaus / Collection Overview',
   component: CollectionOverview,
+  argTypes: {
+    theme: {
+      control: { type: 'select' },
+      options: STORY_THEME_OPTIONS,
+    },
+    props: { control: 'object' },
+  },
 }
 
 const pageTemplate = `
@@ -21,46 +29,49 @@ const pageTemplate = `
 `
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     components: { CollectionOverview },
-    data() {
-      return {
-        props: {
-          title: 'Los Angeles Times Photographic Collection ',
-          subtitle: 'About this Collection',
-          itemsCount: 21963,
-
-          blockButtons: {
-            buttons: [
-              {
-                label: 'Click Here for UCLA Library Locations',
-                to: '/help/more',
-                iconName: ButtonLinkIcons.ARROW_RIGHT,
-              },
-              { label: 'Contact Us', to: 'https://google.com' },
-            ],
-          },
-          description:
-                        'Collection consists of photonegatives documenting events and people in So. CA and photographic prints documenting events and people in So. CA, the US, and the world. The material originates from the Los Angeles Times newspaper and includes glass negatives (ca. 1918-1932), nitrate negatives (ca. 1925-45), and safety negatives (ca. 1935-1990). Also includes prints and negatives from the Los Angeles Times Orange County and San Diego bureaus.',
-          image: API.image,
-        },
-      }
+    setup() {
+      return { props: args.props }
     },
     provide() {
       return {
-        theme: computed(() => 'dlc'),
+        theme: computed(() => normalizeStoryTheme(args.theme)),
       }
     },
     template: pageTemplate,
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {
+  theme: 'dlc',
+  props: {
+    title: 'Los Angeles Times Photographic Collection ',
+    subtitle: 'About this Collection',
+    itemsCount: 21963,
+    blockButtons: {
+      buttons: [
+        {
+          label: 'Click Here for UCLA Library Locations',
+          to: '/help/more',
+          iconName: ButtonLinkIcons.ARROW_RIGHT,
+        },
+        { label: 'Contact Us', to: 'https://google.com' },
+      ],
+    },
+    description:
+      'Collection consists of photonegatives documenting events and people in So. CA and photographic prints documenting events and people in So. CA, the US, and the world. The material originates from the Los Angeles Times newspaper and includes glass negatives (ca. 1918-1932), nitrate negatives (ca. 1925-45), and safety negatives (ca. 1935-1990). Also includes prints and negatives from the Los Angeles Times Orange County and San Diego bureaus.',
+    image: API.image,
+  },
+}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function WithoutButtons() {
+const WithoutButtonsTemplate = (args) => {
   return {
     components: { CollectionOverview },
     data() {
@@ -83,7 +94,10 @@ export function WithoutButtons() {
   }
 }
 
-export function LongTextContent() {
+export const WithoutButtons = WithoutButtonsTemplate.bind({})
+WithoutButtons.args = {}
+
+const LongTextContentTemplate = (args) => {
   return {
     components: { CollectionOverview },
     data() {
@@ -144,7 +158,10 @@ export function LongTextContent() {
   }
 }
 
-export function MinimalContent() {
+export const LongTextContent = LongTextContentTemplate.bind({})
+LongTextContent.args = {}
+
+const MinimalContentTemplate = (args) => {
   return {
     components: { CollectionOverview },
     data() {
@@ -164,7 +181,10 @@ export function MinimalContent() {
   }
 }
 
-export function NoSubtitle() {
+export const MinimalContent = MinimalContentTemplate.bind({})
+MinimalContent.args = {}
+
+const NoSubtitleTemplate = (args) => {
   return {
     components: { CollectionOverview },
     data() {
@@ -196,7 +216,10 @@ export function NoSubtitle() {
   }
 }
 
-export function VeryLongTitle() {
+export const NoSubtitle = NoSubtitleTemplate.bind({})
+NoSubtitle.args = {}
+
+const VeryLongTitleTemplate = (args) => {
   return {
     components: { CollectionOverview },
     data() {
@@ -227,7 +250,10 @@ export function VeryLongTitle() {
   }
 }
 
-export function EdgeCaseEmptyStrings() {
+export const VeryLongTitle = VeryLongTitleTemplate.bind({})
+VeryLongTitle.args = {}
+
+const EdgeCaseEmptyStringsTemplate = (args) => {
   return {
     components: { CollectionOverview },
     data() {
@@ -252,3 +278,6 @@ export function EdgeCaseEmptyStrings() {
     template: pageTemplate,
   }
 }
+
+export const EdgeCaseEmptyStrings = EdgeCaseEmptyStringsTemplate.bind({})
+EdgeCaseEmptyStrings.args = {}

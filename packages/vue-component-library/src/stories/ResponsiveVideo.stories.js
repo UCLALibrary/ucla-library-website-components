@@ -7,53 +7,62 @@ import * as API from '@/stories/mock-api.json'
 export default {
   title: 'GLOBAL / Responsive Video',
   component: ResponsiveVideo,
+  argTypes: {
+    media: { control: 'object' },
+    controls: { control: 'boolean' },
+    aspectRatio: { control: 'number' },
+    useSlottedVideoEmbed: { control: 'boolean' },
+    trailer: { control: 'text' },
+  },
 }
 
-export function ImageWithVideo() {
+function Template(args) {
   return {
-    data() {
-      return {
-        video: API.video
-      }
+    components: { ResponsiveVideo, VideoEmbed },
+    setup() {
+      return { args }
     },
-    components: { ResponsiveVideo },
-    template: '<responsive-video :media="video" />',
+    template: `
+      <responsive-video
+        :media="args.media"
+        :controls="args.controls"
+        :aspect-ratio="args.aspectRatio"
+      >
+        <template v-if="args.useSlottedVideoEmbed" #default>
+          <video-embed :trailer="args.trailer" />
+        </template>
+      </responsive-video>
+    `,
   }
 }
 
+export const ImageWithVideo = Template.bind({})
+ImageWithVideo.args = {
+  media: API.video,
+  controls: false,
+  aspectRatio: undefined,
+  useSlottedVideoEmbed: false,
+  trailer: '',
+}
 ImageWithVideo.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function VideoWithControls() {
-  return {
-    data() {
-      return {
-        video: API.video,
-      }
-    },
-    components: { ResponsiveVideo },
-    template: '<responsive-video :media="video" :controls="true"/>',
-  }
+export const VideoWithControls = Template.bind({})
+VideoWithControls.args = {
+  ...ImageWithVideo.args,
+  controls: true,
 }
 
 // Example using a slot to put a VideoEmbed iframe inside ResponsiveVideo
 const mockFTVAData = {
   trailer: '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/uYr_SvIKKuI?si=ihenbmyE91KqyXK5" title="YouTube video player" frameborder="0"></iframe></figure>'
 }
-export function WithSlottedVideoEmbed() {
-  return {
-    setup() {
-      return {
-        mockFTVAData
-      }
-    },
-    data() {
-      return {
-        video: API.video,
-      }
-    },
-    components: { ResponsiveVideo, VideoEmbed },
-    template: '<responsive-video :aspect-ratio="56.9" :controls="true"><template v-slot><video-embed :trailer="mockFTVAData.trailer" /></template></responsive-video>',
-  }
+export const WithSlottedVideoEmbed = Template.bind({})
+WithSlottedVideoEmbed.args = {
+  ...ImageWithVideo.args,
+  controls: true,
+  aspectRatio: 56.9,
+  useSlottedVideoEmbed: true,
+  trailer: mockFTVAData.trailer,
 }

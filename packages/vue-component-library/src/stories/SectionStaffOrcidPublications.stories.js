@@ -6,7 +6,7 @@ export default {
   component: SectionStaffOrcidPublications,
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     components: { SectionStaffOrcidPublications },
     template: `
@@ -17,6 +17,9 @@ export function Default() {
         />`,
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },

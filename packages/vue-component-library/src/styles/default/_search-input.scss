@@ -54,6 +54,7 @@ $active-color: #1ea7fd;
         outline: none;
 
         // Not clickable by default
+        // TODO: still tabbable, need to fix this
         pointer-events: none;
         opacity: 0;
 

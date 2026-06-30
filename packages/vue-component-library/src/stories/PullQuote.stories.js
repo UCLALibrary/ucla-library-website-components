@@ -11,7 +11,7 @@ const mock = {
   attribution: 'Tony Morgan',
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return {
@@ -28,6 +28,9 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -36,7 +39,7 @@ const mockNoAttribution = {
   text: 'If I could reach up and hold a star for every time you have made me smile, <a href="https://earthsky.org/astronomy-essentials/visible-planets-tonight-mars-jupiter-venus-saturn-mercury/">the entire evening sky</a> would be in the palm of my hand.',
 }
 
-export function NoAttribution() {
+const NoAttributionTemplate = (args) => {
   return {
     data() {
       return {
@@ -52,7 +55,10 @@ export function NoAttribution() {
   }
 }
 
-export function FTVADefault() {
+export const NoAttribution = NoAttributionTemplate.bind({})
+NoAttribution.args = {}
+
+const FTVADefaultTemplate = (args) => {
   return {
     data() {
       return {
@@ -73,7 +79,11 @@ export function FTVADefault() {
     `,
   }
 }
-export function FTVADefaultNoAttribution() {
+
+export const FTVADefault = FTVADefaultTemplate.bind({})
+FTVADefault.args = {}
+
+const FTVADefaultNoAttributionTemplate = (args) => {
   return {
     data() {
       return {
@@ -93,3 +103,6 @@ export function FTVADefaultNoAttribution() {
     `,
   }
 }
+
+export const FTVADefaultNoAttribution = FTVADefaultNoAttributionTemplate.bind({})
+FTVADefaultNoAttribution.args = {}

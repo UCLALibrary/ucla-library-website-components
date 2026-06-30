@@ -4,6 +4,7 @@ import type { PropType } from 'vue'
 import format from 'date-fns/format'
 
 import type { LocationItemType, SubjectAreaItemType } from '@/types/types'
+import { getLocationIconName } from '@/types/components/iconWithLink.types'
 
 import BlockForm from '@/lib-components/BlockForm.vue'
 
@@ -152,13 +153,10 @@ const parsedTime = computed(() => {
 })
 
 const parsedLocations = computed(() => {
-  return props.locations.map((obj) => {
-    let input = 'svg-icon-location'
-    if (obj.title === 'Online')
-      input = 'svg-icon-virtual'
+  return props.locations.map((obj: LocationItemType) => {
     return {
       ...obj,
-      svg: input,
+      svg: getLocationIconName(obj.title),
       to: obj.to != null ? fixURI(obj.to) : '',
     }
   })

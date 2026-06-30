@@ -26,7 +26,7 @@ const mock = {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return { ...mock }
@@ -46,11 +46,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function MultipleAuthors() {
+const MultipleAuthorsTemplate = (args) => {
   return {
     data() {
       return {
@@ -76,7 +79,10 @@ export function MultipleAuthors() {
   }
 }
 
-export function LongTitle() {
+export const MultipleAuthors = MultipleAuthorsTemplate.bind({})
+MultipleAuthors.args = {}
+
+const LongTitleTemplate = (args) => {
   return {
     data() {
       return {
@@ -102,7 +108,10 @@ export function LongTitle() {
   }
 }
 
-export function LongDescription() {
+export const LongTitle = LongTitleTemplate.bind({})
+LongTitle.args = {}
+
+const LongDescriptionTemplate = (args) => {
   return {
     data() {
       return {
@@ -136,7 +145,10 @@ export function LongDescription() {
   }
 }
 
-export function NoImage() {
+export const LongDescription = LongDescriptionTemplate.bind({})
+LongDescription.args = {}
+
+const NoImageTemplate = (args) => {
   return {
     data() {
       return { ...mock, image: {} }
@@ -156,7 +168,10 @@ export function NoImage() {
   }
 }
 
-export function NoAuthorOrDate() {
+export const NoImage = NoImageTemplate.bind({})
+NoImage.args = {}
+
+const NoAuthorOrDateTemplate = (args) => {
   return {
     data() {
       return { ...mock }
@@ -174,6 +189,10 @@ export function NoAuthorOrDate() {
   `,
   }
 }
+
+export const NoAuthorOrDate = NoAuthorOrDateTemplate.bind({})
+NoAuthorOrDate.args = {}
+
 const mockDateRange2 = {
   to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
   title: 'Restored Animation Classics, but With a Title That Goes Into the Second Line',
@@ -186,7 +205,7 @@ const mockDateRange2 = {
   sectionHandle: 'ftvaEventSeries',
 }
 
-export function FtvaDateRange() {
+const FtvaDateRangeTemplate = (args) => {
   return {
 
     data() {
@@ -239,7 +258,10 @@ export function FtvaDateRange() {
   }
 }
 
-export function FtvaCategory() {
+export const FtvaDateRange = FtvaDateRangeTemplate.bind({})
+FtvaDateRange.args = {}
+
+const FtvaCategoryTemplate = (args) => {
   return {
 
     data() {
@@ -292,7 +314,10 @@ export function FtvaCategory() {
   }
 }
 
-export function FtvaSameStartEndDate() {
+export const FtvaCategory = FtvaCategoryTemplate.bind({})
+FtvaCategory.args = {}
+
+const FtvaSameStartEndDateTemplate = (args) => {
   return {
     data() {
       return { ...mockDateRange2 }
@@ -347,6 +372,10 @@ export function FtvaSameStartEndDate() {
   `,
   }
 }
+
+export const FtvaSameStartEndDate = FtvaSameStartEndDateTemplate.bind({})
+FtvaSameStartEndDate.args = {}
+
 const mockOngoing = {
   to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
   title: 'An Ongoing Film Series for You',
@@ -357,7 +386,7 @@ const mockOngoing = {
   ongoing: true,
   sectionHandle: 'ftvaEventSeries',
 }
-export function FtvaOngoing() {
+const FtvaOngoingTemplate = (args) => {
   return {
     data() {
       return { ...mockOngoing }
@@ -409,7 +438,10 @@ export function FtvaOngoing() {
   }
 }
 
-export function FtvaArticlesListing() {
+export const FtvaOngoing = FtvaOngoingTemplate.bind({})
+FtvaOngoing.args = {}
+
+const FtvaArticlesListingTemplate = (args) => {
   return {
 
     data() {
@@ -475,7 +507,11 @@ export function FtvaArticlesListing() {
   `,
   }
 }
-export function FtvaEventSeriesListing() {
+
+export const FtvaArticlesListing = FtvaArticlesListingTemplate.bind({})
+FtvaArticlesListing.args = {}
+
+const FtvaEventSeriesListingTemplate = (args) => {
   return {
 
     data() {
@@ -535,7 +571,11 @@ export function FtvaEventSeriesListing() {
   `,
   }
 }
-export function FtvaFilmmakersListing() {
+
+export const FtvaEventSeriesListing = FtvaEventSeriesListingTemplate.bind({})
+FtvaEventSeriesListing.args = {}
+
+const FtvaFilmmakersListingTemplate = (args) => {
   return {
 
     data() {
@@ -593,7 +633,11 @@ export function FtvaFilmmakersListing() {
   `,
   }
 }
-export function FtvaSearchResults() {
+
+export const FtvaFilmmakersListing = FtvaFilmmakersListingTemplate.bind({})
+FtvaFilmmakersListing.args = {}
+
+const FtvaSearchResultsTemplate = (args) => {
   return {
 
     data() {
@@ -665,3 +709,6 @@ export function FtvaSearchResults() {
   `,
   }
 }
+
+export const FtvaSearchResults = FtvaSearchResultsTemplate.bind({})
+FtvaSearchResults.args = {}

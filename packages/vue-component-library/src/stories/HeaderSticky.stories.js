@@ -32,7 +32,7 @@ const secondaryItems = [
 ]
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return {
@@ -61,6 +61,9 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
@@ -83,7 +86,7 @@ const FTVAprimaryItems = [
   },
 ]
 
-export function FTVAVersion() {
+const FTVAVersionTemplate = (args) => {
   return {
     setup() {
       onMounted(() => {
@@ -123,7 +126,10 @@ export function FTVAVersion() {
   }
 }
 
-export function FTVASticky() {
+export const FTVAVersion = FTVAVersionTemplate.bind({})
+FTVAVersion.args = {}
+
+const FTVAStickyTemplate = (args) => {
   return {
     setup() {
       const globalStore = useGlobalStore()
@@ -203,3 +209,6 @@ export function FTVASticky() {
     `,
   }
 }
+
+export const FTVASticky = FTVAStickyTemplate.bind({})
+FTVASticky.args = {}

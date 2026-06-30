@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import BannerFeatured from '@/lib-components/BannerFeatured'
 import HeadingArrow from '@/lib-components/HeadingArrow'
 import BlockFormData from '@/stories/mock/BlockFormData.json'
@@ -6,9 +7,75 @@ import BlockFormData from '@/stories/mock/BlockFormData.json'
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 
+function normalizeDateControlValue(value) {
+  if (typeof value === 'number') {
+    const date = new Date(value)
+    return Number.isNaN(date.getTime()) ? '' : date.toISOString()
+  }
+  return value || ''
+}
+
 export default {
   title: 'Banner Featured',
   component: BannerFeatured,
+  argTypes: {
+    theme: {
+      control: { type: 'select' },
+      options: STORY_THEME_OPTIONS,
+    },
+    media: { control: 'object' },
+    to: { control: 'text' },
+    title: { control: 'text' },
+    titleLink: { control: 'text' },
+    category: { control: 'text' },
+    description: { control: 'text' },
+    breadcrumb: { control: 'text' },
+    startDate: { control: 'date' },
+    endDate: { control: 'date' },
+    byline: { control: 'object' },
+    locations: { control: 'object' },
+    prompt: { control: 'text' },
+    alignRight: { control: 'boolean' },
+    ratio: { control: 'number' },
+    sectionHandle: { control: 'text' },
+    registerEvent: { control: 'boolean' },
+    secondaryButtons: { control: 'object' },
+  },
+}
+
+function Template(args) {
+  return {
+    setup() {
+      return { args, normalizeDateControlValue }
+    },
+    provide() {
+      return {
+        theme: computed(() => normalizeStoryTheme(args.theme)),
+      }
+    },
+    components: { BannerFeatured },
+    template: `
+      <banner-featured
+          :media="args.media"
+          :to="args.to"
+          :title="args.title"
+          :titleLink="args.titleLink"
+          :category="args.category"
+          :description="args.description"
+          :breadcrumb="args.breadcrumb"
+          :start-date="normalizeDateControlValue(args.startDate)"
+          :end-date="normalizeDateControlValue(args.endDate)"
+          :byline="args.byline"
+          :prompt="args.prompt"
+          :align-right="args.alignRight"
+          :ratio="args.ratio"
+          :locations="args.locations"
+          :section-handle="args.sectionHandle"
+          :register-event="args.registerEvent"
+          :secondary-buttons="args.secondaryButtons"
+      />
+    `,
+  }
 }
 
 const mock = {
@@ -44,7 +111,7 @@ const mock = {
   sectionHandle: 'event',
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return {
@@ -68,11 +135,33 @@ export function Default() {
   }
 }
 
+export const Default = Template.bind({})
+Default.args = {
+  theme: 'default',
+  media: mock.image,
+  to: mock.to,
+  title: mock.title,
+  titleLink: '',
+  category: mock.category,
+  description: mock.description,
+  breadcrumb: mock.breadcrumb,
+  startDate: mock.startDate,
+  endDate: mock.endDate,
+  byline: mock.byline,
+  locations: mock.locations,
+  prompt: mock.prompt,
+  alignRight: true,
+  ratio: undefined,
+  sectionHandle: mock.sectionHandle,
+  registerEvent: false,
+  secondaryButtons: undefined,
+}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function LeftAligned() {
+const LeftAlignedTemplate = (args) => {
   return {
     data() {
       return {
@@ -98,7 +187,13 @@ export function LeftAligned() {
   }
 }
 
-export function NotOnline() {
+export const LeftAligned = Template.bind({})
+LeftAligned.args = {
+  ...Default.args,
+  alignRight: false,
+}
+
+const NotOnlineTemplate = (args) => {
   return {
     data() {
       return {
@@ -123,7 +218,13 @@ export function NotOnline() {
   }
 }
 
-export function Slot() {
+export const NotOnline = Template.bind({})
+NotOnline.args = {
+  ...Default.args,
+  locations: undefined,
+}
+
+const SlotTemplate = (args) => {
   return {
     data() {
       return {
@@ -162,7 +263,10 @@ export function Slot() {
   }
 }
 
-export function LongHeading() {
+export const Slot = SlotTemplate.bind({})
+Slot.args = {}
+
+const LongHeadingTemplate = (args) => {
   return {
     data() {
       return {
@@ -201,7 +305,10 @@ export function LongHeading() {
   }
 }
 
-export function WideImage() {
+export const LongHeading = LongHeadingTemplate.bind({})
+LongHeading.args = {}
+
+const WideImageTemplate = (args) => {
   return {
     data() {
       return {
@@ -227,7 +334,13 @@ export function WideImage() {
   }
 }
 
-export function WideImageLeftAligned() {
+export const WideImage = Template.bind({})
+WideImage.args = {
+  ...Default.args,
+  ratio: 42,
+}
+
+const WideImageLeftAlignedTemplate = (args) => {
   return {
     data() {
       return {
@@ -254,7 +367,13 @@ export function WideImageLeftAligned() {
   }
 }
 
-export function NoButton() {
+export const WideImageLeftAligned = Template.bind({})
+WideImageLeftAligned.args = {
+  ...WideImage.args,
+  alignRight: false,
+}
+
+const NoButtonTemplate = (args) => {
   return {
     data() {
       return {
@@ -278,7 +397,15 @@ export function NoButton() {
   }
 }
 
-export function WithDescription() {
+export const NoButton = Template.bind({})
+NoButton.args = {
+  ...WideImageLeftAligned.args,
+  to: '',
+  prompt: '',
+  locations: undefined,
+}
+
+const WithDescriptionTemplate = (args) => {
   return {
     data() {
       return {
@@ -299,7 +426,12 @@ export function WithDescription() {
   }
 }
 
-export function Video() {
+export const WithDescription = Template.bind({})
+WithDescription.args = {
+  ...Default.args,
+}
+
+const VideoTemplate = (args) => {
   return {
     data() {
       return {
@@ -321,7 +453,13 @@ export function Video() {
   }
 }
 
-export function WithBlockForm() {
+export const Video = Template.bind({})
+Video.args = {
+  ...Default.args,
+  media: API.video,
+}
+
+const WithBlockFormTemplate = (args) => {
   return {
     provide() {
       return {
@@ -352,6 +490,9 @@ export function WithBlockForm() {
     `,
   }
 }
+
+export const WithBlockForm = WithBlockFormTemplate.bind({})
+WithBlockForm.args = {}
 
 const mock2 = {
   image: API.image,
@@ -384,7 +525,7 @@ const mockDLC = {
         'The UCLA Digital Library Program works collaboratively within the UCLA Library, across campus, and with a broad range of partners to preserve and provide enhanced access to local and global cultural heritage materials in support of the University’s teaching, learning, research and service mission.UCLA Digital Library Collections follow ethical and inclusive approaches to descriptive practices as outlined in Toward Ethical and Inclusive Descriptive Practices in UCLA Library Special Collections.',
 }
 
-export function LinkedTitle() {
+const LinkedTitleTemplate = (args) => {
   return {
     data() {
       return {
@@ -408,7 +549,22 @@ export function LinkedTitle() {
   }
 }
 
-export function DLC() {
+export const LinkedTitle = Template.bind({})
+LinkedTitle.args = {
+  ...Default.args,
+  to: mock2.to,
+  title: mock2.title,
+  titleLink: mock2.titleLink,
+  category: mock2.category,
+  description: mock2.description,
+  breadcrumb: mock2.breadcrumb,
+  startDate: mock2.startDate,
+  endDate: mock2.endDate,
+  byline: mock2.byline,
+  locations: mock2.locations,
+}
+
+const DLCTemplate = (args) => {
   return {
     provide() {
       return {
@@ -432,7 +588,23 @@ export function DLC() {
   }
 }
 
-export function DLCLeftAligned() {
+export const DLC = Template.bind({})
+DLC.args = {
+  ...Default.args,
+  theme: 'dlc',
+  title: mockDLC.title,
+  description: mockDLC.description,
+  category: '',
+  breadcrumb: '',
+  startDate: '',
+  endDate: '',
+  byline: [],
+  locations: undefined,
+  prompt: '',
+  sectionHandle: '',
+}
+
+const DLCLeftAlignedTemplate = (args) => {
   return {
     provide() {
       return {
@@ -456,6 +628,12 @@ export function DLCLeftAligned() {
   }
 }
 
+export const DLCLeftAligned = Template.bind({})
+DLCLeftAligned.args = {
+  ...DLC.args,
+  alignRight: false,
+}
+
 const mockHelpSection = {
   image: API.image,
   title: 'Have other Questions?',
@@ -474,7 +652,7 @@ const mockHelpSection = {
   ],
 }
 
-export function HelpSection() {
+const HelpSectionTemplate = (args) => {
   return {
     provide() {
       return {
@@ -499,4 +677,14 @@ export function HelpSection() {
         />
     `,
   }
+}
+
+export const HelpSection = Template.bind({})
+HelpSection.args = {
+  ...DLC.args,
+  title: mockHelpSection.title,
+  description: mockHelpSection.description,
+  prompt: mockHelpSection.prompt,
+  alignRight: mockHelpSection.alignRight,
+  secondaryButtons: mockHelpSection.secondaryButtons,
 }

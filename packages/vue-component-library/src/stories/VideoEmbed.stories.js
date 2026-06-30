@@ -10,7 +10,7 @@ const mockTrailerData = {
   trailer: '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/uYr_SvIKKuI?si=ihenbmyE91KqyXK5" title="YouTube video player" frameborder="0"></iframe></figure>',
   posterImage: API.image
 }
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return {
@@ -22,11 +22,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function WithCustomImageandIcon() {
+const WithCustomImageandIconTemplate = (args) => {
   return {
     data() {
       return {
@@ -37,3 +40,6 @@ export function WithCustomImageandIcon() {
     template: '<video-embed :trailer="mockTrailerData.trailer" :posterImage="mockTrailerData.posterImage"/>',
   }
 }
+
+export const WithCustomImageandIcon = WithCustomImageandIconTemplate.bind({})
+WithCustomImageandIcon.args = {}

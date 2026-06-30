@@ -6,7 +6,7 @@ export default {
   component: FlexibleHighlight,
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return {
@@ -22,11 +22,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function EventExhibitonArticle() {
+const EventExhibitonArticleTemplate = (args) => {
   return {
     data() {
       return {
@@ -41,3 +44,6 @@ export function EventExhibitonArticle() {
     `,
   }
 }
+
+export const EventExhibitonArticle = EventExhibitonArticleTemplate.bind({})
+EventExhibitonArticle.args = {}

@@ -1,11 +1,23 @@
 // Storybook default settings
 import { computed } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import HeaderSmart from '@/lib-components/HeaderSmart'
 
 export default {
   title: 'GLOBAL / Header Smart',
   component: HeaderSmart,
+  argTypes: {
+    preset: {
+      control: { type: 'select' },
+      options: ['default', 'microsite', 'dlc'],
+    },
+    theme: {
+      control: { type: 'select' },
+      options: STORY_THEME_OPTIONS,
+    },
+    title: { control: 'text' },
+  },
 }
 
 const mockDLC = {
@@ -316,55 +328,54 @@ const mockMicrosite = {
   ],
 }
 
-// Variations of stories below
-export function Default() {
+function Template(args) {
   return {
+    provide() {
+      return {
+        theme: computed(() => normalizeStoryTheme(args.theme)),
+      }
+    },
     setup() {
       const globalStore = useGlobalStore()
-      globalStore.header.primary = mock.primary
-      globalStore.header.secondary = mock.secondary
+      const presetMap = {
+        default: mock,
+        microsite: mockMicrosite,
+        dlc: mockDLC,
+      }
+      const preset = presetMap[args.preset] || mock
+      globalStore.header.primary = preset.primary
+      globalStore.header.secondary = preset.secondary
       // To simulate mobile header just resize the storybook window
+      return { args }
     },
 
     components: { HeaderSmart },
 
-    template: '<header-smart />',
+    template: '<header-smart :title="args.title" />',
   }
+}
+
+export const Default = Template.bind({})
+Default.args = {
+  preset: 'default',
+  theme: 'default',
+  title: '',
 }
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-// Variations of stories below
-export function DefaultMicrosite() {
-  return {
-    setup() {
-      const globalStore = useGlobalStore()
-      globalStore.header.primary = mockMicrosite.primary
-      globalStore.header.secondary = mockMicrosite.secondary
-      // To simulate mobile header just resize the storybook window
-    },
-
-    components: { HeaderSmart },
-
-    template: '<header-smart title="Modern Endangered Archives Program"/>',
-  }
+export const DefaultMicrosite = Template.bind({})
+DefaultMicrosite.args = {
+  ...Default.args,
+  preset: 'microsite',
+  title: 'Modern Endangered Archives Program',
 }
 
-export function DLC() {
-  return {
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    setup() {
-      const globalStore = useGlobalStore()
-      globalStore.header.primary = mockDLC.primary
-      globalStore.header.secondary = mockDLC.secondary
-    },
-    components: { HeaderSmart },
-    template: '<header-smart />',
-  }
+export const DLC = Template.bind({})
+DLC.args = {
+  ...Default.args,
+  preset: 'dlc',
+  theme: 'dlc',
 }

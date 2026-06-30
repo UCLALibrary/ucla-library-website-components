@@ -64,7 +64,7 @@ const mockFTVAFooterPrimary = {
   ],
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     components: { FooterMain },
     template: `
@@ -72,11 +72,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function FTVAFooter() {
+const FTVAFooterTemplate = (args) => {
   return {
     components: { FooterMain },
     provide() {
@@ -105,3 +108,6 @@ export function FTVAFooter() {
         <footer-main />`,
   }
 }
+
+export const FTVAFooter = FTVAFooterTemplate.bind({})
+FTVAFooter.args = {}

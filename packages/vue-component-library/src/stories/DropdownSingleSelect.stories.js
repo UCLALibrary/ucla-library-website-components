@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import DropdownSingleSelect from '@/lib-components/DropdownSingleSelect.vue'
 
 /**
@@ -24,6 +25,18 @@ import DropdownSingleSelect from '@/lib-components/DropdownSingleSelect.vue'
 export default {
   title: 'Dropdown Single Select',
   component: DropdownSingleSelect,
+  argTypes: {
+    theme: {
+      control: { type: 'select' },
+      options: STORY_THEME_OPTIONS,
+    },
+    options: { control: 'object' },
+    label: { control: 'text' },
+    fieldName: { control: 'text' },
+    selectedValue: { control: 'text' },
+    showViewAll: { control: 'boolean' },
+    isSearch: { control: 'boolean' },
+  },
 }
 
 // MOCK DATA DEFAULT
@@ -33,20 +46,18 @@ const OptionsDefault = [
   { label: 'Energy Saving', value: 'energy-saving' },
 ]
 
-export function Default() {
+function Template(args) {
   return {
     components: { DropdownSingleSelect },
-    data() {
+    setup() {
       return {
-        selectedFilters: { esFieldName: '' },
-        options: OptionsDefault,
-        label: 'Filter',
-        fieldName: 'esFieldName',
+        args,
+        selectedFilters: { [args.fieldName]: args.selectedValue || '' },
       }
     },
     provide() {
       return {
-        theme: computed(() => 'ftva'),
+        theme: computed(() => normalizeStoryTheme(args.theme)),
       }
     },
     template: `
@@ -55,88 +66,42 @@ export function Default() {
         <br><br>
         <DropdownSingleSelect
           v-model:selectedFilters='selectedFilters'
-          :label='label'
-          :options='options'
-          :field-name='fieldName'
-          :show-view-all='true'
+          :label='args.label'
+          :options='args.options'
+          :field-name='args.fieldName'
+          :show-view-all='args.showViewAll'
+          :is-search='args.isSearch'
         />
       </div>
     `,
   }
+}
+
+export const Default = Template.bind({})
+Default.args = {
+  theme: 'ftva',
+  options: OptionsDefault,
+  label: 'Filter',
+  fieldName: 'esFieldName',
+  selectedValue: '',
+  showViewAll: true,
+  isSearch: false,
 }
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function DLCTheme() {
-  return {
-    components: { DropdownSingleSelect },
-    data() {
-      return {
-        selectedFilters: { esFieldName: '' },
-        options: OptionsDefault,
-        label: 'Filter',
-        fieldName: 'esFieldName',
-        isSearch: false
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    template: `
-      <div>
-      <h1>Default</h1>
-        <span>Selected dropdown value display:{{selectedFilters}}</span>
-        <br><br>
-        <DropdownSingleSelect
-          v-model:selectedFilters='selectedFilters'
-          :label='label'
-          :options='options'
-          :field-name='fieldName'
-          :show-view-all='true'
-          :is-search='isSearch'
-        />
-      </div>
-    `,
-  }
+export const DLCTheme = Template.bind({})
+DLCTheme.args = {
+  ...Default.args,
+  theme: 'dlc',
 }
 
-export function DLCThemeSearch() {
-  return {
-    components: { DropdownSingleSelect },
-    data() {
-      return {
-        selectedFilters: { esFieldName: '' },
-        options: OptionsDefault,
-        label: 'Filter',
-        fieldName: 'esFieldName',
-        isSearch: true
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    template: `
-      <div>
-      <h1>Search</h1>
-        <span>Selected dropdown value display:{{selectedFilters}}</span>
-        <br><br>
-        <DropdownSingleSelect
-          v-model:selectedFilters='selectedFilters'
-          :label='label'
-          :options='options'
-          :field-name='fieldName'
-          :show-view-all='true'
-          :is-search='isSearch'
-        />
-      </div>
-    `,
-  }
+export const DLCThemeSearch = Template.bind({})
+DLCThemeSearch.args = {
+  ...DLCTheme.args,
+  isSearch: true,
 }
 
 // MOCK DATA FILTER
@@ -147,68 +112,18 @@ const FilterOptionsDefault = [
   { label: 'Social Impact', value: 'social-impact' },
 ]
 
-export function FTVAFilterByTopic() {
-  return {
-    components: { DropdownSingleSelect },
-    data() {
-      return {
-        selectedFilters: { esFieldName: '' },
-        options: FilterOptionsDefault,
-        label: 'Filter by topic',
-        fieldName: 'esFieldName',
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    template: `
-      <div>
-        <span>Selected dropdown value display:{{selectedFilters}}</span>
-        <br><br>
-        <DropdownSingleSelect
-          v-model:selectedFilters='selectedFilters'
-          :label='label'
-          :options='options'
-          :field-name='fieldName'
-          :show-view-all='true'
-        />
-      </div>
-    `,
-  }
+export const FTVAFilterByTopic = Template.bind({})
+FTVAFilterByTopic.args = {
+  ...Default.args,
+  theme: 'ftva',
+  options: FilterOptionsDefault,
+  label: 'Filter by topic',
 }
 
-export function FTVAFilterByTopicIntialSelection() {
-  return {
-    components: { DropdownSingleSelect },
-    data() {
-      return {
-        selectedFilters: { esFieldName: 'politics' },
-        options: FilterOptionsDefault,
-        label: 'Filter by topic',
-        fieldName: 'esFieldName',
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    template: `
-      <div>
-        <span>Selected dropdown value display:{{selectedFilters}}</span>
-        <br><br>
-        <DropdownSingleSelect
-          v-model:selectedFilters='selectedFilters'
-          :label='label'
-          :options='options'
-          :field-name='fieldName'
-          :show-view-all='true'
-        />
-      </div>
-    `,
-  }
+export const FTVAFilterByTopicIntialSelection = Template.bind({})
+FTVAFilterByTopicIntialSelection.args = {
+  ...FTVAFilterByTopic.args,
+  selectedValue: 'politics',
 }
 
 // MOCK DATA SORT
@@ -217,33 +132,12 @@ const FilterOptionsSort = [
   { label: 'Date (newest)', value: 'desc' },
 ]
 
-export function FTVASortBy() {
-  return {
-    components: { DropdownSingleSelect },
-    data() {
-      return {
-        selectedFilters: { esFieldName: 'asc' },
-        options: FilterOptionsSort,
-        label: 'Sort by',
-        fieldName: 'esFieldName',
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    template: `
-      <div>
-        <span>Selected dropdown value display:{{selectedFilters}}</span>
-        <br><br>
-        <DropdownSingleSelect
-          v-model:selectedFilters='selectedFilters'
-          :label='label'
-          :options='options'
-          :field-name='fieldName'
-        />
-      </div>
-    `,
-  }
+export const FTVASortBy = Template.bind({})
+FTVASortBy.args = {
+  ...Default.args,
+  theme: 'ftva',
+  options: FilterOptionsSort,
+  label: 'Sort by',
+  selectedValue: 'asc',
+  showViewAll: false,
 }

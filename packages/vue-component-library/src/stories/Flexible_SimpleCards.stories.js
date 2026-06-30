@@ -16,7 +16,7 @@ export default {
 
 // Variations of stories below
 // TwoCards
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return { block: mockTwoCards }
@@ -30,11 +30,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function ThreeCards() {
+const ThreeCardsTemplate = (args) => {
   return {
     data() {
       return { block: mockThreeCards }
@@ -46,7 +49,10 @@ export function ThreeCards() {
   }
 }
 
-export function FourCards() {
+export const ThreeCards = ThreeCardsTemplate.bind({})
+ThreeCards.args = {}
+
+const FourCardsTemplate = (args) => {
   return {
     data() {
       return { block: mockFourCards }
@@ -58,7 +64,10 @@ export function FourCards() {
   }
 }
 
-export function FiveCards() {
+export const FourCards = FourCardsTemplate.bind({})
+FourCards.args = {}
+
+const FiveCardsTemplate = (args) => {
   return {
     data() {
       return { block: mockFiveCards }
@@ -70,7 +79,10 @@ export function FiveCards() {
   }
 }
 
-export function SixCards() {
+export const FiveCards = FiveCardsTemplate.bind({})
+FiveCards.args = {}
+
+const SixCardsTemplate = (args) => {
   return {
     data() {
       return { block: mockSixCards }
@@ -82,8 +94,11 @@ export function SixCards() {
   }
 }
 
+export const SixCards = SixCardsTemplate.bind({})
+SixCards.args = {}
+
 // FTVA
-export function FTVADefault() {
+const FTVADefaultTemplate = (args) => {
   return {
     data() {
       return { block: mockTwoCards }
@@ -101,3 +116,6 @@ export function FTVADefault() {
   `,
   }
 }
+
+export const FTVADefault = FTVADefaultTemplate.bind({})
+FTVADefault.args = {}

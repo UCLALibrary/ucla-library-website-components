@@ -3,32 +3,48 @@ import SingleCheckbox from '@/lib-components/SingleCheckbox'
 export default {
   title: 'SEARCH / SingleCheckbox',
   component: SingleCheckbox,
+  argTypes: {
+    label: { control: 'text' },
+    selected: { control: 'boolean' },
+  },
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
-    data() {
-      return {}
+    setup() {
+      return { args }
     },
     components: { SingleCheckbox },
     template: `
-        <single-checkbox label="Subject Librarian"/>
+        <single-checkbox :label="args.label" :selected="args.selected" />
     `,
   }
+}
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {
+  label: 'Subject Librarian',
+  selected: false,
 }
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function Checked() {
+const CheckedTemplate = (args) => {
   return {
-    data() {
-      return {}
+    setup() {
+      return { args }
     },
     components: { SingleCheckbox },
     template: `
-        <single-checkbox label="Past Events" :selected="true"/>
+        <single-checkbox :label="args.label" :selected="args.selected" />
     `,
   }
+}
+
+export const Checked = CheckedTemplate.bind({})
+Checked.args = {
+  label: 'Past Events',
+  selected: true,
 }

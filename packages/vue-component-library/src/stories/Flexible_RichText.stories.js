@@ -13,7 +13,7 @@ export default {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return {
@@ -29,11 +29,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function Ftva() {
+const FtvaTemplate = (args) => {
   return {
     data() {
       return {
@@ -54,7 +57,10 @@ export function Ftva() {
   }
 }
 
-export function FtvaNewData() {
+export const Ftva = FtvaTemplate.bind({})
+Ftva.args = {}
+
+const FtvaNewDataTemplate = (args) => {
   return {
     data() {
       return {
@@ -77,3 +83,6 @@ export function FtvaNewData() {
     `,
   }
 }
+
+export const FtvaNewData = FtvaNewDataTemplate.bind({})
+FtvaNewData.args = {}

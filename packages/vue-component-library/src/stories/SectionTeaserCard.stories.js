@@ -2,6 +2,7 @@ import { computed } from 'vue'
 
 // Import component
 import { parsedFTVABlogSeries } from './mock/FTVAMedia'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import SectionTeaserCard from '@/lib-components/SectionTeaserCard'
 import ScrollWrapper from '@/lib-components/ScrollWrapper'
 
@@ -23,6 +24,36 @@ import * as API from '@/stories/mock-api.json'
 export default {
   title: 'SECTION / Teaser / Card',
   component: SectionTeaserCard,
+  argTypes: {
+    theme: {
+      control: { type: 'select' },
+      options: STORY_THEME_OPTIONS,
+    },
+    items: { control: 'object' },
+    sectionTitle: { control: 'text' },
+    gridLayout: { control: 'boolean' },
+  },
+}
+
+function Template(args) {
+  return {
+    setup() {
+      return { args }
+    },
+    provide() {
+      return {
+        theme: computed(() => normalizeStoryTheme(args.theme)),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <section-teaser-card
+        :items="args.items"
+        :section-title="args.sectionTitle"
+        :grid-layout="args.gridLayout"
+      />
+    `,
+  }
 }
 
 const mockDefault = [
@@ -225,18 +256,12 @@ const parsedFTVAEventSeries = mockFtvaSeries.map((item) => {
 })
 
 // Variations of stories below
-export function Default() {
-  return {
-    data() {
-      return { items: mockDefault }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-      />
-  `,
-  }
+export const Default = Template.bind({})
+Default.args = {
+  theme: 'default',
+  items: mockDefault,
+  sectionTitle: '',
+  gridLayout: true,
 }
 
 Default.parameters = {
@@ -416,107 +441,44 @@ const mockDLCEdgeCases = [
   }
 ]
 
-export function DLCEdgeCases() {
-  return {
-    data() {
-      return { items: mockDLCEdgeCases }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        section-title="DLC Collections - Edge Cases"
-        :grid-layout="true"
-      />
-  `,
-  }
+export const DLCEdgeCases = Template.bind({})
+DLCEdgeCases.args = {
+  theme: 'dlc',
+  items: mockDLCEdgeCases,
+  sectionTitle: 'DLC Collections - Edge Cases',
+  gridLayout: true,
 }
 
-export function DLCEdgeCasesWithDate() {
-  return {
-    data() {
-      return { items: mockDLCEdgeCasesWithDate }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        section-title="DLC Collections - Edge Cases with Date"
-        :grid-layout="true"
-      />
-  `,
-  }
+export const DLCEdgeCasesWithDate = Template.bind({})
+DLCEdgeCasesWithDate.args = {
+  theme: 'dlc',
+  items: mockDLCEdgeCasesWithDate,
+  sectionTitle: 'DLC Collections - Edge Cases with Date',
+  gridLayout: true,
 }
 
-export function FTVAEventDetail() {
-  return {
-    data() {
-      return { items: mockFtva }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        section-title="section title here"
-        :grid-layout="false"
-      />
-  `,
-  }
+export const FTVAEventDetail = Template.bind({})
+FTVAEventDetail.args = {
+  theme: 'ftva',
+  items: mockFtva,
+  sectionTitle: 'section title here',
+  gridLayout: false,
 }
 
-export function FTVAEventSeries() {
-  return {
-    data() {
-      return { items: parsedFTVAEventSeries }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        :grid-layout="false"
-      />
-  `,
-  }
+export const FTVAEventSeries = Template.bind({})
+FTVAEventSeries.args = {
+  theme: 'ftva',
+  items: parsedFTVAEventSeries,
+  sectionTitle: '',
+  gridLayout: false,
 }
 
-export function FTVABlogSeries() {
-  return {
-    data() {
-      return { items: parsedFTVABlogSeries }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        :grid-layout="false"
-      />
-  `,
-  }
+export const FTVABlogSeries = Template.bind({})
+FTVABlogSeries.args = {
+  theme: 'ftva',
+  items: parsedFTVABlogSeries,
+  sectionTitle: '',
+  gridLayout: false,
 }
 
 const mockCollectionItems = [
@@ -590,27 +552,15 @@ const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
   }
 })
 
-export function FTVACollectionItems() {
-  return {
-    data() {
-      return { items: parsedFTVACollectionItems }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        :grid-layout="false"
-      />
-  `,
-  }
+export const FTVACollectionItems = Template.bind({})
+FTVACollectionItems.args = {
+  theme: 'ftva',
+  items: parsedFTVACollectionItems,
+  sectionTitle: '',
+  gridLayout: false,
 }
 
-export function FTVAHorizontalScrollCardWithImage() {
+const FTVAHorizontalScrollCardWithImageTemplate = (args) => {
   return {
     data() {
       return { items: parsedFTVACollectionItems }
@@ -630,6 +580,9 @@ export function FTVAHorizontalScrollCardWithImage() {
   `,
   }
 }
+
+export const FTVAHorizontalScrollCardWithImage = FTVAHorizontalScrollCardWithImageTemplate.bind({})
+FTVAHorizontalScrollCardWithImage.args = {}
 
 const mockCollectionListings = [
   {
@@ -757,7 +710,7 @@ const parsedFTVACollectionListings = mockCollectionListings.map((item) => {
   }
 })
 
-export function FTVACollectionListings() {
+const FTVACollectionListingsTemplate = (args) => {
   return {
     data() {
       return { items: parsedFTVACollectionListings }
@@ -792,6 +745,9 @@ export function FTVACollectionListings() {
   }
 }
 
+export const FTVACollectionListings = FTVACollectionListingsTemplate.bind({})
+FTVACollectionListings.args = {}
+
 const parsedFTVACollectionListingsCustomDate = mockCollectionListings.map((item) => {
   return {
     title: item.title,
@@ -801,7 +757,7 @@ const parsedFTVACollectionListingsCustomDate = mockCollectionListings.map((item)
   }
 })
 
-export function FTVACollectionListingsCustomDate() {
+const FTVACollectionListingsCustomDateTemplate = (args) => {
   return {
     data() {
       return { items: parsedFTVACollectionListingsCustomDate }
@@ -819,3 +775,6 @@ export function FTVACollectionListingsCustomDate() {
   `,
   }
 }
+
+export const FTVACollectionListingsCustomDate = FTVACollectionListingsCustomDateTemplate.bind({})
+FTVACollectionListingsCustomDate.args = {}

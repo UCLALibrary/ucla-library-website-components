@@ -82,7 +82,7 @@ const mockDefinitions = {
   emptyArray: [], // should not render
   emptyObject: {}, // should not render
 }
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     components: { DefinitionList },
     data() {
@@ -92,11 +92,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function Horizontal() {
+const HorizontalTemplate = (args) => {
   return {
     components: { DefinitionList },
     data() {
@@ -107,6 +110,9 @@ export function Horizontal() {
   }
 }
 
+export const Horizontal = HorizontalTemplate.bind({})
+Horizontal.args = {}
+
 // Sample method to remove the 'ftva' prefix from the keys
 const newDefinitions = Object.entries(mockDefinitions).reduce(
   (acc, item) => ({
@@ -116,7 +122,7 @@ const newDefinitions = Object.entries(mockDefinitions).reduce(
   {}
 )
 
-export function FTVAWithCustomMetaDataAndButton() {
+const FTVAWithCustomMetaDataAndButtonTemplate = (args) => {
   return {
     components: { DefinitionList, SmartLink, BlockTag },
     data() {
@@ -165,7 +171,10 @@ export function FTVAWithCustomMetaDataAndButton() {
   }
 }
 
-export function DLC() {
+export const FTVAWithCustomMetaDataAndButton = FTVAWithCustomMetaDataAndButtonTemplate.bind({})
+FTVAWithCustomMetaDataAndButton.args = {}
+
+const DLCTemplate = (args) => {
   return {
     components: { DefinitionList },
     data() {
@@ -180,7 +189,10 @@ export function DLC() {
   }
 }
 
-export function DLCHorizontal() {
+export const DLC = DLCTemplate.bind({})
+DLC.args = {}
+
+const DLCHorizontalTemplate = (args) => {
   return {
     components: { DefinitionList },
     data() {
@@ -195,3 +207,6 @@ export function DLCHorizontal() {
             '<DefinitionList :metaDataObject="mockDefinitions" orientation="horizontal"/>',
   }
 }
+
+export const DLCHorizontal = DLCHorizontalTemplate.bind({})
+DLCHorizontal.args = {}

@@ -31,7 +31,7 @@ const mock = [
   },
 ]
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return { items: mock }
@@ -45,11 +45,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function Expandable() {
+const ExpandableTemplate = (args) => {
   return {
     data() {
       return { items: mock }
@@ -63,3 +66,6 @@ export function Expandable() {
   `,
   }
 }
+
+export const Expandable = ExpandableTemplate.bind({})
+Expandable.args = {}

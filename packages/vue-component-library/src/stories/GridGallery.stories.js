@@ -56,7 +56,7 @@ const mock = [
 ]
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return { items: mock }
@@ -70,11 +70,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function FeaturedWithSnippet() {
+const FeaturedWithSnippetTemplate = (args) => {
   return {
     data() {
       return { items: mock }
@@ -101,7 +104,10 @@ export function FeaturedWithSnippet() {
   }
 }
 
-export function FeaturedNoSnippet() {
+export const FeaturedWithSnippet = FeaturedWithSnippetTemplate.bind({})
+FeaturedWithSnippet.args = {}
+
+const FeaturedNoSnippetTemplate = (args) => {
   return {
     data() {
       return { items: mock }
@@ -130,3 +136,6 @@ export function FeaturedNoSnippet() {
   `,
   }
 }
+
+export const FeaturedNoSnippet = FeaturedNoSnippetTemplate.bind({})
+FeaturedNoSnippet.args = {}

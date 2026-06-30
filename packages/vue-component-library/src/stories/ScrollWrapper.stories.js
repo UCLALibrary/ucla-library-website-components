@@ -14,7 +14,7 @@ export default {
  * Can be used to wrap a group of components that needs to scroll horizontally with styled arrows.
  */
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return { items: parsedFTVABlogSeries }
@@ -35,11 +35,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function SixItems() {
+const SixItemsTemplate = (args) => {
   return {
     data() {
       return { items: parsedFTVABlogSeries.concat(parsedFTVABlogSeries) }
@@ -59,3 +62,6 @@ export function SixItems() {
   `,
   }
 }
+
+export const SixItems = SixItemsTemplate.bind({})
+SixItems.args = {}

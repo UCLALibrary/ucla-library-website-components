@@ -7,6 +7,18 @@ import router from '@/router'
 
 export default {
   title: 'Tab Toggle',
+  argTypes: {
+    initialTab: { control: 'number' },
+    alignment: {
+      control: { type: 'select' },
+      options: ['left', 'center', 'right'],
+    },
+    firstTabTitle: { control: 'text' },
+    secondTabTitle: { control: 'text' },
+    thirdTabTitle: { control: 'text' },
+    firstTabIcon: { control: 'text' },
+    secondTabIcon: { control: 'text' },
+  },
 }
 
 const mockContent = {
@@ -71,57 +83,74 @@ const mockComponentContent2 = [
   },
 ]
 
-export function Default() {
+const DefaultTemplate = (args) => {
   router.push({
     query: {},
   })
 
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return { ...mockContent }
     },
     components: { TabItem, TabList },
     template: `<div class="wrapper">
-      <tab-list>
+      <tab-list :initial-tab="args.initialTab" :alignment="args.alignment">
         
-        <tab-item title="Label1" icon="icon-calendar" :content="text1">
+        <tab-item :title="args.firstTabTitle" :icon="args.firstTabIcon" :content="text1">
         </tab-item>
 
-        <tab-item title="Label2" icon="icon-list" :content="text2">
+        <tab-item :title="args.secondTabTitle" :icon="args.secondTabIcon" :content="text2">
         </tab-item>
 
-        <tab-item title="Label3" :content="text3">
+        <tab-item :title="args.thirdTabTitle" :content="text3">
         </tab-item>
       
       </tab-list>
     </div>`,
   }
+}
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {
+  initialTab: 0,
+  alignment: 'left',
+  firstTabTitle: 'Label1',
+  secondTabTitle: 'Label2',
+  thirdTabTitle: 'Label3',
+  firstTabIcon: 'icon-calendar',
+  secondTabIcon: 'icon-list',
 }
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function SetInitialTab() {
+const SetInitialTabTemplate = (args) => {
   router.push({
     query: {},
   })
 
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return { ...mockContent }
     },
     components: { TabItem, TabList },
     template: `<div class="wrapper">
-      <tab-list :initial-tab="1">
+      <tab-list :initial-tab="args.initialTab" :alignment="args.alignment">
         
-        <tab-item title="Label1" icon="icon-calendar" :content="text1">
+        <tab-item :title="args.firstTabTitle" :icon="args.firstTabIcon" :content="text1">
         </tab-item>
 
-        <tab-item title="Label2" icon="icon-list" :content="text2">
+        <tab-item :title="args.secondTabTitle" :icon="args.secondTabIcon" :content="text2">
         </tab-item>
 
-        <tab-item title="Label3" :content="text3">
+        <tab-item :title="args.thirdTabTitle" :content="text3">
         </tab-item>
       
       </tab-list>
@@ -129,12 +158,21 @@ export function SetInitialTab() {
   }
 }
 
-export function FTVACentered() {
+export const SetInitialTab = SetInitialTabTemplate.bind({})
+SetInitialTab.args = {
+  ...Default.args,
+  initialTab: 1,
+}
+
+const FTVACenteredTemplate = (args) => {
   router.push({
     query: {},
   })
 
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return { ...mockContent }
     },
@@ -145,15 +183,15 @@ export function FTVACentered() {
     },
     components: { TabItem, TabList },
     template: `<div class="wrapper">
-      <tab-list alignment="center">
+      <tab-list :initial-tab="args.initialTab" :alignment="args.alignment">
         
-        <tab-item title="Label1" icon="icon-calendar" :content="text1">
+        <tab-item :title="args.firstTabTitle" :icon="args.firstTabIcon" :content="text1">
         </tab-item>
 
-        <tab-item title="Label2" icon="icon-list" :content="text2">
+        <tab-item :title="args.secondTabTitle" :icon="args.secondTabIcon" :content="text2">
         </tab-item>
 
-        <tab-item title="Label3" :content="text3">
+        <tab-item :title="args.thirdTabTitle" :content="text3">
         </tab-item>
       
       </tab-list>
@@ -161,12 +199,21 @@ export function FTVACentered() {
   }
 }
 
-export function ToggledComponentsRight() {
+export const FTVACentered = FTVACenteredTemplate.bind({})
+FTVACentered.args = {
+  ...Default.args,
+  alignment: 'center',
+}
+
+const ToggledComponentsRightTemplate = (args) => {
   router.push({
     query: {},
   })
 
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return {
         items1: mockComponentContent1,
@@ -175,15 +222,15 @@ export function ToggledComponentsRight() {
     },
     components: { SectionTeaserList, TabItem, TabList },
     template: `<div class="wrapper">
-      <tab-list alignment="right">
+      <tab-list :initial-tab="args.initialTab" :alignment="args.alignment">
         
-        <tab-item title="Upcoming Events">
+        <tab-item :title="args.firstTabTitle">
           <section-teaser-list
               :items="items1"
             />
         </tab-item>
 
-        <tab-item title="Past Events">
+        <tab-item :title="args.secondTabTitle">
           <section-teaser-list
             :items="items2"
           />
@@ -194,8 +241,19 @@ export function ToggledComponentsRight() {
   }
 }
 
-export function DLCTheme() {
+export const ToggledComponentsRight = ToggledComponentsRightTemplate.bind({})
+ToggledComponentsRight.args = {
+  initialTab: 0,
+  alignment: 'right',
+  firstTabTitle: 'Upcoming Events',
+  secondTabTitle: 'Past Events',
+}
+
+const DLCThemeTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     components: { TabItem, TabList },
     data() {
       return { ...mockContent }
@@ -207,14 +265,22 @@ export function DLCTheme() {
     },
     template: `
           <div class="wrapper">
-            <tab-list alignment="center">
-              <tab-item title="Alphabetical Sort" :content="text1">
+            <tab-list :initial-tab="args.initialTab" :alignment="args.alignment">
+              <tab-item :title="args.firstTabTitle" :content="text1">
               </tab-item>
 
-              <tab-item title="Numerical Sort" :content="text2">
+              <tab-item :title="args.secondTabTitle" :content="text2">
               </tab-item>
             </tab-list>
           </div>
         `,
   }
+}
+
+export const DLCTheme = DLCThemeTemplate.bind({})
+DLCTheme.args = {
+  initialTab: 0,
+  alignment: 'center',
+  firstTabTitle: 'Alphabetical Sort',
+  secondTabTitle: 'Numerical Sort',
 }

@@ -16,6 +16,7 @@ import formatTimes from '@/utils/formatEventTimes'
 import formatDates from '@/utils/formatEventDates'
 
 import type { EventFiltersItemType, LocationItemType } from '@/types/types'
+import { getLocationIconName } from '@/types/components/iconWithLink.types'
 
 const props = defineProps({
   to: {
@@ -145,13 +146,10 @@ const parsedTime = computed(() => {
 })
 
 const parsedLocations = computed(() => {
-  return props.locations.map((obj) => {
-    let input = 'svg-icon-location'
-    if (obj.title === 'Online')
-      input = 'svg-icon-virtual'
+  return props.locations.map((obj: LocationItemType) => {
     return {
       ...obj,
-      svg: input,
+      svg: getLocationIconName(obj.title),
       to: obj.to != null ? `/${obj.to}` : '',
     }
   })

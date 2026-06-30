@@ -5,7 +5,7 @@ export default {
   component: BlockHours,
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return {}
@@ -17,11 +17,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function NoInternalLocations() {
+const NoInternalLocationsTemplate = (args) => {
   return {
     data() {
       return {}
@@ -33,7 +36,10 @@ export function NoInternalLocations() {
   }
 }
 
-export function MoreInternalLocations() {
+export const NoInternalLocations = NoInternalLocationsTemplate.bind({})
+NoInternalLocations.args = {}
+
+const MoreInternalLocationsTemplate = (args) => {
   return {
     data() {
       return {}
@@ -45,7 +51,10 @@ export function MoreInternalLocations() {
   }
 }
 
-export function WithZeroLid() {
+export const MoreInternalLocations = MoreInternalLocationsTemplate.bind({})
+MoreInternalLocations.args = {}
+
+const WithZeroLidTemplate = (args) => {
   return {
     data() {
       return {}
@@ -59,3 +68,6 @@ export function WithZeroLid() {
     `,
   }
 }
+
+export const WithZeroLid = WithZeroLidTemplate.bind({})
+WithZeroLid.args = {}

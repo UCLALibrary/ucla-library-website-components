@@ -18,6 +18,7 @@ import SmartLink from '../lib-components/SmartLink.vue'
 // Import mock data
 import { mockPageMainLanding } from './mock/Funkhaus/MockPageMainLanding'
 import { getMockGlobalNavSearch } from './helpers/storyHelpers'
+import { STORY_THEME_OPTIONS } from './helpers/themeControls'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { mockGlobalHeaderNavigation } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 
@@ -39,7 +40,7 @@ export default {
   argTypes: {
     theme: {
       control: { type: 'select' },
-      options: ['default', 'dlc'],
+      options: STORY_THEME_OPTIONS,
       description: 'Theme variant for the page',
     },
   },
