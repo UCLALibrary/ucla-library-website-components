@@ -1,3 +1,24 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.78.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.2...@ucla-library-monorepo/ucla-library-website-components-v1.78.3) (2026-06-25)
+
+
+### Bug Fixes
+
+* LADI-5237 Expand PageAnchor by default on Library site ([#953](https://github.com/UCLALibrary/ucla-library-website-components/issues/953)) ([9a39284](https://github.com/UCLALibrary/ucla-library-website-components/commit/9a392841f4e801eff5d2aaf1df7dfbf96b28c12e))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.78.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.1...@ucla-library-monorepo/ucla-library-website-components-v1.78.2) (2026-06-23)
+
+
+### Bug Fixes
+
+* LADI-5247 only list items inside lists SectionCardsWithIllustration ([#954](https://github.com/UCLALibrary/ucla-library-website-components/issues/954)) ([9e3a849](https://github.com/UCLALibrary/ucla-library-website-components/commit/9e3a84935ee3d90201322faff3d69bb7db562b0c))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.78.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.0...@ucla-library-monorepo/ucla-library-website-components-v1.78.1) (2026-06-23)
+
+
+### Bug Fixes
+
+* LADI-5244 Use oEmbed api to retrieve iframe video title for Chrome display ([#952](https://github.com/UCLALibrary/ucla-library-website-components/issues/952)) ([3006e7e](https://github.com/UCLALibrary/ucla-library-website-components/commit/3006e7ec7512b773af661e9b0d2a280cdccee676))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.78.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.77.2...@ucla-library-monorepo/ucla-library-website-components-v1.78.0) (2026-06-12)
 
 
