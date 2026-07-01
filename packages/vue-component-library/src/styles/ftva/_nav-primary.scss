@@ -43,12 +43,13 @@
         width: 100%;
 
         button:focus, a:focus {
-            outline: none;
+            // outline: none; BAD
         }
 
         .slot-container {
             display: block;
             position: absolute;
+            margin-top: 64px; // offset height of the header
             width: 100%;
             background-color: ftvatokens.$navy-blue;
             transform: scaleY(0);

@@ -142,7 +142,7 @@ function toggleSlot() {
       slotIsOpened.value = !slotIsOpened.value
     }, 400)
   }
-  // otherwise, just open slot menu
+  // otherwise, just toggle slot menu
   else { slotIsOpened.value = !slotIsOpened.value }
 }
 
@@ -324,33 +324,37 @@ onMounted(() => {
       v-if="themeSettings.showSearch"
       class="more-menu"
     >
-      <ButtonLink
-        v-if="!mobileMenuIsOpened"
-        class="search-button"
-        icon-name="none"
-        aria-label="Search"
-        @click="searchClick"
-      >
-        <IconSearch class="icon-search" />
-      </ButtonLink>
-      <ButtonLink
-        v-if="!mobileMenuIsOpened || !isMobile"
-        class="more-menu-button mobile-only"
-        icon-name="none"
-        aria-label="open menu"
-        @click="toggleMobileMenu"
-      >
-        <IconMenu class="icon-menu" />
-      </ButtonLink>
-      <ButtonLink
-        v-if="mobileMenuIsOpened"
-        class="close-button mobile-only"
-        icon-name="none"
-        aria-label="close menu"
-        @click="toggleMobileMenu"
-      >
-        <IconMenuClose class="icon-menu-close" />
-      </ButtonLink>
+      <!-- only render these buttons on mobile -->
+      <template v-if="isMobile ">
+        <ButtonLink
+          v-if="!mobileMenuIsOpened"
+          class="search-button"
+          icon-name="none"
+          aria-label="Search"
+          @click="searchClick"
+        >
+          <IconSearch class="icon-search" />
+        </ButtonLink>
+        <ButtonLink
+          v-if="!mobileMenuIsOpened"
+          class="more-menu-button mobile-only"
+          icon-name="none"
+          aria-label="open menu"
+          @click="toggleMobileMenu"
+        >
+          <IconMenu class="icon-menu" />
+        </ButtonLink>
+        <ButtonLink
+          v-if="mobileMenuIsOpened"
+          class="close-button mobile-only"
+          icon-name="none"
+          aria-label="close menu"
+          @click="toggleMobileMenu"
+        >
+          <IconMenuClose class="icon-menu-close" />
+        </ButtonLink>
+      </template>
+      <!-- end mobile only buttons -->
       <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  -->
       <div
         class="slot-container"
