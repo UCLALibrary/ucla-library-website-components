@@ -32,9 +32,6 @@ runs:
       shell: bash
       run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
-    - name: Install Global Packages
-      shell: bash
-      run: pnpm add -g gulp prettier typescript
     - name: Install Cypress Binary
       shell: bash
       run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec cypress install
