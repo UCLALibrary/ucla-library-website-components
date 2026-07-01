@@ -142,7 +142,7 @@ function toggleSlot() {
       slotIsOpened.value = !slotIsOpened.value
     }, 400)
   }
-  // otherwise, just open slot menu
+  // otherwise, just toggle slot menu
   else { slotIsOpened.value = !slotIsOpened.value }
 }
 
@@ -168,9 +168,6 @@ const { width } = useWindowSize()
 // Use computed to check if it's mobile based on window width
 const mobileBreakpoint = 850 // change scss breakpoints in ftva _header-sticky.scss, _nav-primary.scss, _site-brand-bar.scss
 const isMobile = computed(() => width.value <= mobileBreakpoint) // Use 850px for mobile breakpoint
-const isSearchSlotVisible = computed(() => {
-  return slotIsOpened.value || (mobileMenuIsOpened.value && isMobile.value)
-})
 
 // Parsed logo for the header
 const parsedLogo = computed(() => {
@@ -327,33 +324,37 @@ onMounted(() => {
       v-if="themeSettings.showSearch"
       class="more-menu"
     >
-      <ButtonLink
-        v-if="!mobileMenuIsOpened"
-        class="search-button"
-        icon-name="none"
-        aria-label="Search"
-        @click="searchClick"
-      >
-        <IconSearch class="icon-search" />
-      </ButtonLink>
-      <ButtonLink
-        v-if="!mobileMenuIsOpened || !isMobile"
-        class="more-menu-button mobile-only"
-        icon-name="none"
-        aria-label="open menu"
-        @click="toggleMobileMenu"
-      >
-        <IconMenu class="icon-menu" />
-      </ButtonLink>
-      <ButtonLink
-        v-if="mobileMenuIsOpened"
-        class="close-button mobile-only"
-        icon-name="none"
-        aria-label="close menu"
-        @click="toggleMobileMenu"
-      >
-        <IconMenuClose class="icon-menu-close" />
-      </ButtonLink>
+      <!-- only render these buttons on mobile -->
+      <template v-if="isMobile ">
+        <ButtonLink
+          v-if="!mobileMenuIsOpened"
+          class="search-button"
+          icon-name="none"
+          aria-label="Search"
+          @click="searchClick"
+        >
+          <IconSearch class="icon-search" />
+        </ButtonLink>
+        <ButtonLink
+          v-if="!mobileMenuIsOpened"
+          class="more-menu-button mobile-only"
+          icon-name="none"
+          aria-label="open menu"
+          @click="toggleMobileMenu"
+        >
+          <IconMenu class="icon-menu" />
+        </ButtonLink>
+        <ButtonLink
+          v-if="mobileMenuIsOpened"
+          class="close-button mobile-only"
+          icon-name="none"
+          aria-label="close menu"
+          @click="toggleMobileMenu"
+        >
+          <IconMenuClose class="icon-menu-close" />
+        </ButtonLink>
+      </template>
+      <!-- end mobile only buttons -->
       <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  -->
       <div
         class="slot-container"
