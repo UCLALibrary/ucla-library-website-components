@@ -363,7 +363,6 @@ onMounted(() => {
         <slot
           name="additional-menu"
           :close-slot="closeSlot"
-          :is-search-slot-visible="isSearchSlotVisible"
         />
       </div>
     </div>
