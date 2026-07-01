@@ -43,8 +43,13 @@ const themeSettings = computed(() => {
 <template>
   <header :class="classes">
     <NavPrimary :items="primaryItems" class="primary">
-      <template #additional-menu="{ closeSlot }">
-        <NavSearch v-if="themeSettings.showSearch" @search-complete="closeSlot" />
+      <template #additional-menu="{ closeSlot, isSearchSlotVisible }">
+        <NavSearch
+          v-if="themeSettings.showSearch"
+          :inert="!isSearchSlotVisible"
+          :aria-hidden="!isSearchSlotVisible"
+          @search-complete="closeSlot"
+        />
       </template>
       <template v-if="themeSettings.showDonate" #additional-mobile-menu-items>
         <ButtonLink

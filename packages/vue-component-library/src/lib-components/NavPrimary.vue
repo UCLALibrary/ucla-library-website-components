@@ -357,13 +357,12 @@ onMounted(() => {
       <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  -->
       <div
         class="slot-container"
-        :inert="!isSearchSlotVisible"
-        :aria-hidden="!isSearchSlotVisible"
         :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
       >
         <slot
           name="additional-menu"
           :close-slot="closeSlot"
+          :is-search-slot-visible="isSearchSlotVisible"
         />
       </div>
     </div>
