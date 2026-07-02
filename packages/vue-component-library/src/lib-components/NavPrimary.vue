@@ -320,13 +320,12 @@ onMounted(() => {
 
     <div class="nav-background-fill" />
 
-    <!-- search button is placed before menu so that it can be easily kept at top when menu expands -->
+    <!-- place .more-menu first on mobile so search/buttons tab before menu items when menu expands -->
     <!-- more menu was added in later version of this component and is not rendered at all in default -->
     <div
-      v-if="themeSettings.showSearch"
+      v-if="themeSettings.showSearch && isMobile"
       class="more-menu"
     >
-      <!-- only render these buttons on mobile -->
       <template v-if="isMobile ">
         <ButtonLink
           v-if="!mobileMenuIsOpened"
@@ -356,8 +355,7 @@ onMounted(() => {
           <IconMenuClose class="icon-menu-close" />
         </ButtonLink>
       </template>
-      <!-- end mobile only buttons -->
-      <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  -->
+      <!-- navSearch is loaded into this a slot by HeaderSticky on mobile  -->
       <div
         class="slot-container"
         :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
@@ -370,7 +368,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- this is the primary menu and first in the tab index -->
+    <!-- primary menu should be first in tab order on desktop -->
     <ul
       v-if="parsedItems && parsedItems.length > 0"
       class="menu"
@@ -429,6 +427,24 @@ onMounted(() => {
         <slot name="additional-mobile-menu-items" />
       </li>
     </ul>
+
+    <!-- keep after .menu on desktop so menu items come first in keyboard tab order -->
+    <div
+      v-if="themeSettings.showSearch && !isMobile"
+      class="more-menu"
+    >
+      <!-- navSearch is loaded into this a slot by HeaderSticky on desktop -->
+      <div
+        class="slot-container"
+        :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
+      >
+        <slot
+          name="additional-menu"
+          :close-slot="closeSlot"
+          :is-slot-visible="isSlotVisible"
+        />
+      </div>
+    </div>
 
     <div
       v-if="!titleRef"
