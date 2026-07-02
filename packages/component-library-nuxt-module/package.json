@@ -27,7 +27,7 @@
     "package.json"
   ],
   "scripts": {
-    "prepack": "nuxt-module-build prepare && nuxt-module-build build",
+    "prepack": "nuxt build-module --build --prepare",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare && nuxi dev playground",
