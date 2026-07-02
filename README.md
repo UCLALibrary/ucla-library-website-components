@@ -89,7 +89,6 @@ pnpm -r lint:fix
 ## 📦 Packages
 
 - @ucla-library-monorepo/ucla-library-website-components
-
   - Vue 3 component library
 
   - Built with Vite and TypeScript
@@ -97,7 +96,6 @@ pnpm -r lint:fix
   - Exports components individually for optimal tree-shaking
 
 - @ucla-library/nuxt-module
-
   - Nuxt 3 module that auto-imports the above components
 
 ## 🔄 Release & Publishing Workflow
@@ -159,27 +157,241 @@ pnpm --filter @ucla-library-monorepo/ucla-library-website-components add lodash
 pnpm install semantic-release-monorepo -w
 ```
 
-2. Using pnpm link for Local Development
+## Local Development with `pnpm link`
 
-- To link your component library locally in a Nuxt project:
+Use `pnpm link` to test local changes to the Nuxt module in the `library-website-nuxt` application without publishing a new version to npm.
 
+> **Note:** These instructions are for **pnpm 11+**. Global linking (`pnpm link --global`) is no longer supported. Instead, link directly to the local package directory.
+
+### Prerequisites
+
+- Both repositories should use the pnpm version pinned in their respective `package.json` files.
+- Enable Corepack before working with the repositories:
+
+```bash
+corepack enable
 ```
-pnpm run lib:build
-cd packages/vue-component-library
-pnpm link --global
-cd ../your-nuxt-project
-pnpm link @ucla-library/ucla-library-website-components
+
+Verify the active pnpm version:
+
+```bash
+pnpm --version
+```
+
+If the version does not match the version pinned in the repository's `packageManager` field, run:
+
+```bash
+corepack use pnpm@<version>
+```
+
+Replace `<version>` with the version specified in the repository's `packageManager` field.
+
+---
+
+### 1. Build the Nuxt Module
+
+From the `ucla-library-website-components` repository:
+
+```bash
+cd ucla-library-website-components
+
+pnpm install
+pnpm run build
+```
+
+---
+
+### 2. Link the Nuxt Module into the Nuxt Application
+
+From the `library-website-nuxt` repository:
+
+```bash
+cd ../library-website-nuxt
+
+pnpm link ../ucla-library-website-components/packages/component-library-nuxt-module
+```
+
+This creates a symbolic link from the Nuxt application's `node_modules` to your local Nuxt module.
+
+The Nuxt application will now use your local module instead of the published package from npm.
+
+---
+
+### 3. Verify the Link
+
+Verify that the linked package is being used:
+
+```bash
+pnpm list @ucla-library/component-library-nuxt-module
+```
+
+Or verify that the package inside `node_modules` is a symbolic link:
+
+```bash
+ls -l node_modules/@ucla-library/component-library-nuxt-module
+```
+
+The output should point to your local package directory.
+
+---
+
+### 4. Make Changes and Test Them
+
+After the link has been created:
+
+1. Make changes to the Nuxt module or the component library.
+
+2. From the `ucla-library-website-components` repository, rebuild the Nuxt module:
+
+```bash
+pnpm --filter @ucla-library/component-library-nuxt-module build
+```
+
+3. Return to the `library-website-nuxt` repository.
+
+4. If the Nuxt development server does not automatically pick up the changes, restart it:
+
+```bash
+pnpm dev
+```
+
+Repeat these steps as you continue development.
+
+---
+
+### 5. Return to the Published npm Package
+
+When you are finished testing the local package:
+
+1. Stop the Nuxt development server (`Ctrl+C`).
+
+2. From the `library-website-nuxt` repository, unlink the local package:
+
+```bash
+pnpm unlink @ucla-library/component-library-nuxt-module
+```
+
+> **Tip:** Running `pnpm unlink` without specifying a package name removes **all** locally linked packages in the current project. If you have multiple linked packages, it is recommended to specify the package name so only the desired link is removed.
+
+3. Restore the published package from npm:
+
+```bash
+pnpm install
+```
+
+4. Restart the development server:
+
+```bash
+pnpm dev
+```
+
+The Nuxt application will now use the published version of `@ucla-library/component-library-nuxt-module` from npm.
+
+---
+
+### Troubleshooting
+
+#### Verify which package is being used
+
+Run these commands from the `library-website-nuxt` repository:
+
+```bash
+pnpm list @ucla-library/component-library-nuxt-module
 ```
 
 or
 
+```bash
+ls -l node_modules/@ucla-library/component-library-nuxt-module
 ```
-pnpm run lib:build
-cd ../your-nuxt-project
-code .
-open package.json
-"@ucla-library-monorepo/ucla-library-website-components": "file:/Users/[path to]/ucla-library-website-components/packages/vue-component-library"
+
+The output should indicate whether the package is a symbolic link to your local package or the published package installed from npm.
+
+---
+
+#### Verify the active pnpm version
+
+Run this command from either repository:
+
+```bash
+pnpm --version
 ```
+
+Both repositories should report the version pinned in their respective `package.json` files.
+
+---
+
+#### Verify which pnpm executable is being used
+
+Run this command from either repository:
+
+```bash
+which pnpm
+```
+
+This shows which `pnpm` executable is currently being used (for example, the Corepack-managed pnpm or a globally installed pnpm).
+
+---
+
+#### If the wrong pnpm version is active
+
+From either repository, enable Corepack:
+
+```bash
+corepack enable
+```
+
+If necessary, switch to the version pinned in the current repository's `package.json`:
+
+```bash
+corepack use pnpm@<version>
+```
+
+Then verify the version:
+
+```bash
+pnpm --version
+```
+
+---
+
+#### If changes to the linked package are not reflected
+
+From the `ucla-library-website-components` repository, rebuild the Nuxt module:
+
+```bash
+pnpm --filter @ucla-library/component-library-nuxt-module build
+```
+
+Then, from the `library-website-nuxt` repository, restart the development server:
+
+```bash
+pnpm dev
+```
+
+If the problem persists, verify that the package is still linked using:
+
+```bash
+pnpm list @ucla-library/component-library-nuxt-module
+```
+
+or
+
+```bash
+ls -l node_modules/@ucla-library/component-library-nuxt-module
+```
+
+---
+
+### Notes
+
+- These instructions apply to **pnpm 11 and later**.
+- `pnpm link` links a local package directory directly into your project's `node_modules`.
+- The linked package is a symbolic link to your local source, allowing you to test changes without publishing to npm.
+- After making changes to the Nuxt module, rebuild it before testing in the Nuxt application.
+- If changes are not reflected, restart the Nuxt development server.
+- When finished testing, always run `pnpm unlink` followed by `pnpm install` to restore the published package from npm.
+- If you are using Corepack, ensure both repositories are using the pnpm version pinned in their respective `packageManager` fields.
 
 ## 📚 Additional Resources
 
