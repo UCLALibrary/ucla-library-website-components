@@ -124,8 +124,8 @@ importers:
         specifier: ^0.3.1
         version: 0.3.4(vue@3.5.39(typescript@5.9.3))
       vuetify:
-        specifier: 3.12.8
-        version: 3.12.8(typescript@5.9.3)(vue@3.5.39(typescript@5.9.3))
+        specifier: 3.7.4
+        version: 3.7.4(typescript@5.9.3)(vue@3.5.39(typescript@5.9.3))
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^0.43.1
@@ -10767,13 +10767,14 @@ packages:
       typescript:
         optional: true
 
-  vuetify@3.12.8:
-    resolution: {integrity: sha512-gvmOWeLd6CG7LVh2Qonft5YrIb7MpbKZglRjg0ItEloSbu6hfUII2RZmRSVxGKYdiXTf7J1hI3BRSHr8J9LkxA==}
+  vuetify@3.7.4:
+    resolution: {integrity: sha512-Y8UU5wUDQXC3oz2uumPb8IOdvB4XMCxtxnmqdOc+LihNuPlkSgxIwf92ndRzbOtJFKHsggFUxpyLqpQp+A+5kg==}
+    engines: {node: ^12.20 || >=14.13}
     peerDependencies:
       typescript: '>=4.7'
-      vite-plugin-vuetify: '>=2.1.0'
-      vue: ^3.5.0
-      webpack-plugin-vuetify: '>=3.1.0'
+      vite-plugin-vuetify: '>=1.0.0'
+      vue: ^3.3.0
+      webpack-plugin-vuetify: '>=2.0.0'
     peerDependenciesMeta:
       typescript:
         optional: true
@@ -23372,7 +23373,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
-  vuetify@3.12.8(typescript@5.9.3)(vue@3.5.39(typescript@5.9.3)):
+  vuetify@3.7.4(typescript@5.9.3)(vue@3.5.39(typescript@5.9.3)):
     dependencies:
       vue: 3.5.39(typescript@5.9.3)
     optionalDependencies:

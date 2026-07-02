@@ -1,5 +1,6 @@
 import { createVuetify } from 'vuetify'
-import { VCalendar, VCard, VList, VListItem, VMenu, VSheet, VSlideGroup, VSlideGroupItem, VWindow, VWindowItem } from 'vuetify/lib/components/index.mjs'
+import { VCalendar } from 'vuetify/labs/VCalendar'
+import { VCard, VList, VListItem, VMenu, VSheet, VSlideGroup, VSlideGroupItem, VWindow, VWindowItem } from 'vuetify/lib/components/index.mjs'
 
 export const vuetify = createVuetify({
   components: {
