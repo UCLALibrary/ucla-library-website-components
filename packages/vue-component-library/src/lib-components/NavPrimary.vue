@@ -131,6 +131,15 @@ function toggleMenu() {
   }
 }
 
+// Replace globalStore logic for window width with useWindowSize
+const { width } = useWindowSize()
+
+// Use computed to check if it's mobile based on window width
+const mobileBreakpoint = 850 // change scss breakpoints in ftva _header-sticky.scss, _nav-primary.scss, _site-brand-bar.scss
+const isMobile = computed(() => width.value <= mobileBreakpoint) // Use 850px for mobile breakpoint
+const isSlotVisible = computed(() => {
+  return slotIsOpened.value || (mobileMenuIsOpened.value && isMobile.value)
+})
 // Toggle slot menu (used to render search bar)
 function toggleSlot() {
   // if menu is open, close it first & clear active
@@ -161,13 +170,6 @@ function closeSlot() {
 
 // expose if needed elsewhere too
 defineExpose({ closeSlot })
-
-// Replace globalStore logic for window width with useWindowSize
-const { width } = useWindowSize()
-
-// Use computed to check if it's mobile based on window width
-const mobileBreakpoint = 850 // change scss breakpoints in ftva _header-sticky.scss, _nav-primary.scss, _site-brand-bar.scss
-const isMobile = computed(() => width.value <= mobileBreakpoint) // Use 850px for mobile breakpoint
 
 // Parsed logo for the header
 const parsedLogo = computed(() => {
@@ -230,7 +232,7 @@ onMounted(() => {
   watch(
     [items, currentPath, title, acronym],
     ([newItems, newCurrentPath, newTitle, newAcronym]) => {
-      console.log('NavPrimary data updated from nuxt layout or app.vue when working with craft draft previews', newItems, newCurrentPath, newTitle, newAcronym)
+      // console.log('NavPrimary data updated from nuxt layout or app.vue when working with craft draft previews', newItems, newCurrentPath, newTitle, newAcronym)
       primaryItems.value = newItems || []
       currentPathRef.value = newCurrentPath
       titleRef.value = newTitle
@@ -363,6 +365,7 @@ onMounted(() => {
         <slot
           name="additional-menu"
           :close-slot="closeSlot"
+          :is-slot-visible="isSlotVisible"
         />
       </div>
     </div>
