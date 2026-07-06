@@ -27,7 +27,7 @@
     "package.json"
   ],
   "scripts": {
-    "prepack": "nuxt-module-build prepare && nuxt-module-build build",
+    "prepack": "nuxt build-module --build --prepare",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare && nuxi dev playground",
@@ -57,7 +57,9 @@
     "vitest": "^3.0.6",
     "vue-tsc": "catalog:"
   },
+  "packageManager": "pnpm@11.5.1+sha512.93f7b57422ea7068257235b4c16eb60762eb68e1dc23723199cc739043ea9be2c4143274a399d8c6defa2b1176226d9ca1c4b63482d6200c1a8fbaa78c1d1485",
   "engines": {
-    "pnpm": "^9.12.1"
+    "node": "^24.16.0",
+    "pnpm": "^11.5.1"
   }
 }
