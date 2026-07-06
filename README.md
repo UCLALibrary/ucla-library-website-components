@@ -68,13 +68,13 @@ pnpm lib:cypress
 pnpm lib:build
 ```
 
-#### Run Percy Checks (Visual Regression)
+#### Run Chromatic Checks (Visual Regression)
 
-- Percy runs automatically when merged into main.
-- For manual Percy checks:
+- Chromatic runs automatically when merged into main.
+- For manual Chromatic checks:
   1. Visit the GitHub Actions tab.
-  2. Run the "Percy" workflow manually.
-- Percy checks run in CI/CD after merging into main.
+  2. Run the "Chromatic" workflow manually.
+- Chromatic checks run in CI/CD after merging into main.
 
 ---
 
@@ -113,7 +113,7 @@ pnpm -r lint:fix
 3. Open a pull request.
 4. Upon merging into main, GitHub Actions will:
 
-- Run Percy checks.
+- Run Chromatic checks.
 - Perform a release using semantic-release.
 - Publish the package using pnpm publish.
 
@@ -122,7 +122,13 @@ pnpm -r lint:fix
 ### Installation
 
 ```
-pnpm add --save-dev @ucla-library-monorepo/ucla-library-website-components or pnpm install @ucla-library-monorepo/ucla-library-website-components --save-dev
+pnpm add --save-dev @ucla-library-monorepo/ucla-library-website-components
+```
+
+or
+
+```
+pnpm install @ucla-library-monorepo/ucla-library-website-components --save-dev
 ```
 
 ### Update nuxt.config.ts Adding Global CSS
@@ -217,7 +223,7 @@ The Nuxt application will now use your local module instead of the published pac
 
 ---
 
-### 3. Verify the Link
+### 3. Verify the Link on the Nuxt Repo
 
 Verify that the linked package is being used:
 
