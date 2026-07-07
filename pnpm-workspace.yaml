@@ -1,8 +1,19 @@
 packages:
   - "packages/*"
 
+allowBuilds:
+  "@parcel/watcher": true
+  "@percy/core": true
+  cypress: true
+  esbuild: true
+  protobufjs: true
+  unrs-resolver: true
+  vue-demi: true
+
 catalog:
   vue: "^3.5.13"
   typescript: "^5.6.3"
   vite: "^5.4.8"
   vue-tsc: "^2.1.6"
+
+engineStrict: true

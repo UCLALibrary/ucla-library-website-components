@@ -72,12 +72,14 @@ const sanitizedSectionSummary = computed(() => sanitizeHtml(props.sectionSummary
         :title="item.title" :text="item.text" :category="item.category" :is-horizontal="isHorizontal"
       />
 
-      <SmartLink v-if="to" class="card card-more" :to="to">
-        <ButtonMore
-          id="card-more-button" class="button" :text="buttonText"
-          aria-labelledby="card-more-button cards-with-illustration-title"
-        />
-      </SmartLink>
+      <li v-if="to" class="card card-more">
+        <SmartLink :to="to">
+          <ButtonMore
+            id="card-more-button" class="button" :text="buttonText"
+            aria-labelledby="card-more-button cards-with-illustration-title"
+          />
+        </SmartLink>
+      </li>
     </ul>
   </section>
 </template>
