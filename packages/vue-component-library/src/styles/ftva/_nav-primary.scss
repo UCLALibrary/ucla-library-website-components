@@ -42,10 +42,6 @@
         display: block;
         width: 100%;
 
-        button:focus, a:focus {
-            // outline: none; BAD
-        }
-
         .slot-container {
             display: block;
             position: absolute;
