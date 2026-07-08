@@ -61,11 +61,7 @@ const parsedLocations = computed(() => {
         break
 
       case contentType.includes('externalArticle'):
-        category = block.content[0].contentLink[0].articleCategory
-          .map((obj) => {
-            return obj.title
-          })
-          .toString()
+        locations = block.content[0].contentLink[0].articleLocations
         break
 
       case contentType.includes('project'):
