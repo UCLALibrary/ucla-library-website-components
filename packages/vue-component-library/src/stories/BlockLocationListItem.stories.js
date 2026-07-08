@@ -1,3 +1,4 @@
+import { onUnmounted } from 'vue'
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 import BlockLocationListItem from '@/lib-components/BlockLocationListItem'
@@ -22,6 +23,20 @@ const mock = {
     { title: 'Research Help', icon: 'IconBook' },
   ],
   to: 'http://google.com/title',
+}
+
+const mockHoursResponse = {
+  locations: [
+    {
+      status: 'open',
+      day: 'Monday',
+      times: {
+        hours: [{ from: '2pm', to: '5pm' }],
+        status: 'open',
+        text: '',
+      },
+    },
+  ],
 }
 
 export default {
@@ -69,37 +84,50 @@ export default {
 function Template(args) {
   return {
     setup() {
-      return { args }
+
+      // We want to prevent a fetch call from being made to the actual API 
+      // during visual regression testing, because Chromatic creates differences
+      // each time data changes. We're mocking a fetch call to return static hours
+      // data.
+
+      const originalFetch = globalThis.fetch
+
+      globalThis.fetch = async () => {
+        if (args.libcalLocationIdForHours === '2081') {
+          return {
+            ok: true,
+            json: async () => mockHoursResponse,
+          }
+        }
+      }
+
+      // Reset fetch to original state after unmounting the component
+      onUnmounted(() => {
+        globalThis.fetch = originalFetch
+      })
+
+      return { args}
     },
     components: { BlockLocationListItem },
-    template: '<block-location-list-item v-bind="args"/>',
+    template: '<block-location-list-item v-bind="args" />',
   }
 }
+
 export const Default = Template.bind({})
 Default.args = {
   ...mock,
-  libcalLocationIdForHours: '4690',
 }
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
+export const NoImage = Template.bind({})
+NoImage.args = { ...mock, image: '' }
+
 export const NoHours = Template.bind({})
 NoHours.args = {
   ...mock,
+  // Non-existent id that returns no hours data with actual Fetch call
   libcalLocationIdForHours: '4691',
 }
-export const TextHours = Template.bind({})
-TextHours.args = {
-  ...mock,
-  libcalLocationIdForHours: '2081',
-}
-
-export const WithControls = Template.bind({})
-WithControls.args = {
-  ...mock
-}
-
-export const WithControlsAndNoImage = Template.bind({})
-WithControlsAndNoImage.args = { ...mock, image: '' }
