@@ -16,7 +16,7 @@ export const mock = {
           text: '<p><strong>La Niña</strong> is an <em>oceanic and atmospheric phenomenon</em> that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
           articleCategory: [
             {
-              title: 'Featured Internal Content',
+              title: 'Internal Content Article',
             },
           ],
           articleByline1: [
@@ -76,7 +76,7 @@ export const mock = {
           text: '<p><strong>Shortbread</strong> or shortie is a traditional <a href="https://www.scotchandscones.com/shortbread-history/">Scottish biscuit</a> usually made from <em>one part white sugar</em>, two parts butter, and three to four parts plain wheat flour.</p>',
           articleCategory: [
             {
-              title: 'Featured External Content',
+              title: 'Internal Content Article',
             },
           ],
           articleByline1: [
@@ -136,26 +136,28 @@ export const mock = {
       to: 'https://www.cinema.ucla.edu/blogs/archive-blog/2022/01/31/pandemic-spurs-virtual-screening-room',
     },
     {
-      id: '27384',
+      id: '4987907',
       typeHandle: 'externalContent',
-      title: 'Mmmmm Shortbread',
+      title: 'Lady Liberty - External Content',
       image: [
         {
-          id: '26803',
-          src: 'https://static.library.ucla.edu/craftassetstest/shortbread-cookies.jpg',
-          height: 1421,
+          id: '4987902',
+          src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/statue_of_liberty_3_poster.jpg',
+          height: 3681,
           width: 2560,
-          srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/shortbread-cookies.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/shortbread-cookies.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/shortbread-cookies.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/shortbread-cookies.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/shortbread-cookies.jpg 2560w',
-          alt: 'Kids',
-          focalPoint: [0.5, 0.5],
-          altText: null,
-        },
+          srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/statue_of_liberty_3_poster.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/statue_of_liberty_3_poster.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/statue_of_liberty_3_poster.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/statue_of_liberty_3_poster.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/statue_of_liberty_3_poster.jpg 2560w',
+          alt: null,
+          focalPoint: [
+            0.5,
+            0.5
+          ]
+        }
       ],
-      byline1: 'Ashton Prigge',
-      byline2: null,
+      byline1: 'February 23, 2028',
+      byline2: '7:00 P.M.',
       category: 'External Content',
-      location: null,
-      text: null,
+      text: '<p>Give me your tired, your poor Your huddled masses yearning to breathe free The wretched refuse of your teeming shore. Send these, the homeless, tempest-tost to me I lift my lamp beside the golden door</p>',
+      to: 'https://www.nps.gov/stli/index.htm'
     },
     {
       id: '28621',
@@ -164,10 +166,10 @@ export const mock = {
         {
           id: '25318',
           contentType: 'meapProject',
-          to: 'meap/projects/argentinean-human-rights-digital-library-of-periodical-and-non-periodical-publications',
+          to: 'projects/argentinean-human-rights-digital-library-of-periodical-and-non-periodical-publications',
           title: 'Argentinean Human Rights Digital Library of Periodical and Non-periodical Publications',
           text: '<p><a href="https://www.cinema.ucla.edu/billy-wilder-theater">Memoria Abierta</a> is an <strong>alliance</strong> of nine Argentinean <em>human rights</em> organizations. Most of them were created during the last dictatorship (1976-1983) to denounce the violations committed during that period and to support relatives and victims. The Argentinean human rights movement, with its innovative strategies to fight oblivion and achieve justice, is known worldwide and referenced by other countries where human rights crimes have been or are being committed.</p>',
-          projectCategory: 'Publications',
+          projectCategory: 'Internal Content MEAP Projects',
           projectByline1: [
             {
               id: '25325',
@@ -200,6 +202,52 @@ export const mock = {
           ],
         },
       ],
+    },
+    {
+      id: '4986534',
+      typeHandle: 'internalContent',
+      contentLink: [
+        {
+          id: '4980208',
+          contentType: 'externalArticle',
+          to: 'https://www.hawaiimagazine.com/worlds-best-tandem-surfers-compete-at-waikiki-beach',
+          title: 'Gymnastics & Surfing',
+          text: '<p>New External Article field. Gymnasts possess core strength, balance, and aerial awareness, while surfers movements combine flexibility with cardiovascular endurance.</p>',
+          articleCategory: [
+            {
+              title: 'Internal Content External Article'
+            }
+          ],
+          articleByline2: '2026-06-23T15:48:00-07:00',
+          associatedLocations: [
+            {
+              id: '523',
+              title: 'Powell Library',
+              to: 'visit/locations/powell-library',
+              uri: 'visit/locations/powell-library'
+            }
+          ],
+          heroImage: [
+            {
+              id: '4980211',
+              image: [
+                {
+                  id: '4980210',
+                  src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Gymnastics-Surfing.jpeg',
+                  height: 1278,
+                  width: 2560,
+                  srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Gymnastics-Surfing.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Gymnastics-Surfing.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Gymnastics-Surfing.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Gymnastics-Surfing.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Gymnastics-Surfing.jpeg 2560w',
+                  alt: null,
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
   ],
 }

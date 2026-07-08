@@ -27,16 +27,34 @@ const parsedList = computed(() => {
   return items
 })
 
+// TODO: Once we stop using the External Article we should delete this
 const parsedItems = computed(() => {
   // Maps values based on content type and external or internal content
   // filter out null objects
   return parsedList.value
     .filter(e => e !== null)
     .map((obj) => {
+
+    // Internal Content External Article
+    if (obj.contentType?.toLowerCase().includes('externalarticle')
+    ) {
+      return {
+        ...obj,
+        to: obj.to, // DO NOT strip
+        parsedImage: _get(obj, 'heroImage[0].image[0]', undefined),
+        locations: _get(obj, 'articleLocations', undefined),
+        category: _get(obj, 'articleCategory[0].title', ''),
+        byline2:
+          obj.articleByline2 != null
+            ? formatDates(obj.articleByline2, obj.articleByline2)
+            : '',
+      }
+    }
+
       // Article
-      if (
+      else if (
         obj.typeHandle !== 'externalContent'
-        && obj.contentType.includes('article')
+        && obj.contentType?.includes('article')
       ) {
         return {
           ...obj,
@@ -85,6 +103,8 @@ const parsedItems = computed(() => {
           byline1: _get(obj, 'projectByline1[0].title', ''),
         }
       }
+
+      // Event
       else if (
         obj.typeHandle !== 'externalContent'
         && obj.contentType === 'event'
@@ -108,10 +128,14 @@ const parsedItems = computed(() => {
           text: _get(obj, 'eventDescription', ''),
         }
       }
+
+      // Exhibition / Workshop Series
       else if (
         obj.typeHandle !== 'externalContent'
-        && (obj.contentType === 'exhibition'
-          || 'workshopOrEventSeries')
+        && (
+          obj.contentType === 'exhibition'
+          || obj.contentType === 'workshopOrEventSeries'
+        )
       ) {
         return {
           ...obj,
@@ -130,6 +154,8 @@ const parsedItems = computed(() => {
           endDate: _get(obj, 'endDate', ''),
         }
       }
+
+      // External Content (true external block, not internalContent)
       else if (obj.typeHandle === 'externalContent') {
         return {
           ...obj,
@@ -138,6 +164,7 @@ const parsedItems = computed(() => {
           /* locations:
             obj.locations != null ? [obj.locations] : undefined, */
           category: _get(obj, 'category', ''),
+          to: obj.to,
         }
       }
       else {
