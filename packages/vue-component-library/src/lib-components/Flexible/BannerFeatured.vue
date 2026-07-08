@@ -273,7 +273,7 @@ const parsedLink = computed(() => {
       v-if="block && block.content && block.content[0].contentLink"
       class="flexible-banner-featured"
       :media="parseImage"
-      :to="stripMeapFromURI(block.content[0].contentLink[0].to)"
+      :to="parsedLink"
       :title="block.content[0].contentLink[0].title"
       :breadcrumb="parsedTypeHandle"
       :byline="parseByLine"
