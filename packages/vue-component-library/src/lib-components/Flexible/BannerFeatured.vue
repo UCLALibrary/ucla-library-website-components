@@ -254,15 +254,21 @@ const parsedDescription = computed(() => {
 })
 
 const parsedLink = computed(() => {
-  const content = block?.content?.[0]?.contentLink?.[0]
+  const content = block?.content?.[0]
 
-  if (!content)
-    return ''
+  // Internal Content → External Article
+  if (content?.contentLink?.[0]?.contentType === 'externalArticle')
+    return content.contentLink[0].to
 
-  if (content.contentType === 'externalArticle')
+  // Internal Content → Article and other internal entries
+  if (content?.contentLink?.[0]?.to)
+    return stripMeapFromURI(content.contentLink[0].to)
+
+  // Standalone External Article
+  if (content?.to)
     return content.to
 
-  return stripMeapFromURI(content.to)
+  return ''
 })
 </script>
 
