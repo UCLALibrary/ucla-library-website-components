@@ -1,4 +1,4 @@
-import { mockInternalContentEventAndExhibition, mockInternalContentWorshopSeriesAndEventSeries, mockInternalContentArticleAndExternalArticle, mockInternalContentEndowmentAndCollectionAndGeneralContentPage, mockInternalContentMeapArticleAndProject, mockExternalContent } from './mock/Flexible_Highlight'
+import { mockExternalContent, mockInternalContentArticleAndExternalArticle, mockInternalContentEndowmentAndCollectionAndGeneralContentPage, mockInternalContentEventAndExhibition, mockInternalContentMeapArticleAndProject, mockInternalContentWorshopSeriesAndEventSeries } from './mock/Flexible_Highlight'
 import FlexibleHighlight from '@/lib-components/Flexible/Highlight'
 
 export default {

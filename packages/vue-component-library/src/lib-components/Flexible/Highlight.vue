@@ -34,22 +34,21 @@ const parsedItems = computed(() => {
   return parsedList.value
     .filter(e => e !== null)
     .map((obj) => {
-
     // Internal Content External Article
-    if (obj.contentType?.toLowerCase().includes('externalarticle')
-    ) {
-      return {
-        ...obj,
-        to: obj.to, // DO NOT strip
-        parsedImage: _get(obj, 'heroImage[0].image[0]', undefined),
-        locations: _get(obj, 'articleLocations', undefined),
-        category: _get(obj, 'articleCategory[0].title', ''),
-        byline2:
+      if (obj.contentType?.toLowerCase().includes('externalarticle')
+      ) {
+        return {
+          ...obj,
+          to: obj.to, // DO NOT strip
+          parsedImage: _get(obj, 'heroImage[0].image[0]', undefined),
+          locations: _get(obj, 'articleLocations', undefined),
+          category: _get(obj, 'articleCategory[0].title', ''),
+          byline2:
           obj.articleByline2 != null
             ? formatDates(obj.articleByline2, obj.articleByline2)
             : '',
+        }
       }
-    }
 
       // Article
       else if (
