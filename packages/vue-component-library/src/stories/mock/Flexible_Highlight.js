@@ -1,242 +1,40 @@
-export const mock = {
-  id: '27359',
-  typeHandle: 'highlight',
-  sectionTitle: 'Section Title: BlockHighlight',
-  sectionSummary: '<p>Section Summary: BlockHighlight</p>',
+export const mockInternalContentEventAndExhibition = {
+  id: "4980101",
+  typeHandle: "highlight",
+  sectionTitle: "Highlight with Internal Content - Event  & Exhibition",
+  sectionSummary: null,
   highlight: [
     {
-      id: '27360',
-      typeHandle: 'internalContent',
+      id: "4980102",
+      typeHandle: "internalContent",
       contentLink: [
         {
-          id: '20628',
-          contentType: 'article',
-          to: 'about/news/la-niña',
-          title: 'La Niña',
-          text: '<p><strong>La Niña</strong> is an <em>oceanic and atmospheric phenomenon</em> that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
-          articleCategory: [
+          id: "4720385",
+          contentType: "event",
+          to: "visit/events-exhibitions/the-cultural-politics-of-eddie-murphy-coming-to-america-04-04-26",
+          title: "The Cultural Politics of Eddie Murphy: Coming to America 04-20-26",
+          text: null,
+          eventDescription: "<p>Eddie Murphy stands at the center of the Black Pack as Prince Akeem, heir to the throne of Zamunda, who leaves royal luxury for Queens, New York, in search of love on his own terms.</p>",
+          articleByline2: "2026-02-20T13:45:00-08:00",
+          startDateWithTime: "2026-04-20T19:30",
+          endDateWithTime: "2026-04-20T21:30",
+          eventType: [
             {
-              title: 'Internal Content Article',
-            },
-          ],
-          articleByline1: [
-            {
-              id: '11827',
-              to: 'about/staff/brigid-abreu',
-              title: 'Brigid Abreu',
-            },
-            {
-              id: '11910',
-              to: 'about/staff/sylvia-page',
-              title: 'Sylvia Page',
-            },
-          ],
-          articleByline2: '2022-06-21T12:39:00-07:00',
-          associatedLocations: [
-            {
-              id: '11709',
-              title: 'William Andrews Clark Memorial Library',
-              to: 'visit/locations/william-andrews-clark-memorial-library',
-            },
-            {
-              id: '11497',
-              title: 'Richard C. Rudolph East Asian Library',
-              to: 'visit/locations/east-asian-library',
-            },
-          ],
-          heroImage: [
-            {
-              id: '20639',
-              image: [
-                {
-                  id: '20637',
-                  src: 'https://static.library.ucla.edu/craftassetstest/LaNina-Jet-Wintertime-Pattern.jpg',
-                  height: 1997,
-                  width: 2560,
-                  srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 2560w',
-                  alt: 'La Nina Jet Wintertime Pattern',
-                  focalPoint: [0.5, 0.5],
-                  altText: 'La Niña',
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: '27361',
-      typeHandle: 'internalContent',
-      contentLink: [
-        {
-          id: '16484',
-          contentType: 'article',
-          to: 'about/news/this-is-the-newest-article',
-          title: 'Shortbread is delicious',
-          text: '<p><strong>Shortbread</strong> or shortie is a traditional <a href="https://www.scotchandscones.com/shortbread-history/">Scottish biscuit</a> usually made from <em>one part white sugar</em>, two parts butter, and three to four parts plain wheat flour.</p>',
-          articleCategory: [
-            {
-              title: 'Internal Content Article',
-            },
-          ],
-          articleByline1: [
-            {
-              id: '3522',
-              to: 'about/staff/dianne',
-              title: 'Dianne Weinthal',
-            },
-          ],
-          articleByline2: '2022-05-19T13:59:00-07:00',
-          associatedLocations: [
-            {
-              id: '4695',
-              title: 'Louise M. Darling Biomedical Library',
-              to: 'visit/locations/biomed',
-            },
-          ],
-          heroImage: [
-            {
-              id: '16537',
-              image: [
-                {
-                  id: '2442',
-                  src: 'https://static.library.ucla.edu/craftassetstest/shortbread-cookies.jpg',
-                  height: 1421,
-                  width: 2560,
-                  srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/shortbread-cookies.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/shortbread-cookies.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/shortbread-cookies.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/shortbread-cookies.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/shortbread-cookies.jpg 2560w',
-                  alt: 'Shortbread cookies',
-                  focalPoint: [0.5, 0.5],
-                  altText: null,
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: '39508',
-      typeHandle: 'externalContent',
-      title: 'Pandemic Spurs Virtual Screening Room, Bringing Moving Images to a Global Audience',
-      image: [
-        {
-          id: '36751',
-          src: 'https://static.library.ucla.edu/craftassetstest/images/virtual-screening-room-toll-sea.jpeg',
-          height: 1869,
-          width: 2560,
-          srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 2560w',
-          alt: 'Virtual screening room toll sea',
-          focalPoint: [0.5, 0.5],
-        },
-      ],
-      byline1: null,
-      byline2: null,
-      category: null,
-      text: 'When its <a href"https://www.nationaltheatre.org.uk/">theatrical home</a> closed its doors in <strong>March 2020</strong> due to <em>COVID-19</em> the UCLA Film & Television Archive shifted public programming to an ambitious new online screening',
-      to: 'https://www.cinema.ucla.edu/blogs/archive-blog/2022/01/31/pandemic-spurs-virtual-screening-room',
-    },
-    {
-      id: '4987907',
-      typeHandle: 'externalContent',
-      title: 'Lady Liberty - External Content',
-      image: [
-        {
-          id: '4987902',
-          src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/statue_of_liberty_3_poster.jpg',
-          height: 3681,
-          width: 2560,
-          srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/statue_of_liberty_3_poster.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/statue_of_liberty_3_poster.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/statue_of_liberty_3_poster.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/statue_of_liberty_3_poster.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/statue_of_liberty_3_poster.jpg 2560w',
-          alt: null,
-          focalPoint: [
-            0.5,
-            0.5
-          ]
-        }
-      ],
-      byline1: 'February 23, 2028',
-      byline2: '7:00 P.M.',
-      category: 'External Content',
-      text: '<p>Give me your tired, your poor Your huddled masses yearning to breathe free The wretched refuse of your teeming shore. Send these, the homeless, tempest-tost to me I lift my lamp beside the golden door</p>',
-      to: 'https://www.nps.gov/stli/index.htm'
-    },
-    {
-      id: '28621',
-      typeHandle: 'internalContent',
-      contentLink: [
-        {
-          id: '25318',
-          contentType: 'meapProject',
-          to: 'projects/argentinean-human-rights-digital-library-of-periodical-and-non-periodical-publications',
-          title: 'Argentinean Human Rights Digital Library of Periodical and Non-periodical Publications',
-          text: '<p><a href="https://www.cinema.ucla.edu/billy-wilder-theater">Memoria Abierta</a> is an <strong>alliance</strong> of nine Argentinean <em>human rights</em> organizations. Most of them were created during the last dictatorship (1976-1983) to denounce the violations committed during that period and to support relatives and victims. The Argentinean human rights movement, with its innovative strategies to fight oblivion and achieve justice, is known worldwide and referenced by other countries where human rights crimes have been or are being committed.</p>',
-          projectCategory: 'Internal Content MEAP Projects',
-          projectByline1: [
-            {
-              id: '25325',
-              title: 'Memoria Abierta',
-            },
-          ],
-          articleByline2: '2022-07-26T10:49:00-07:00',
-          projectLocations: [
-            {
-              id: '25324',
-              title: 'South America',
-            },
-          ],
-          heroImage: [
-            {
-              id: '25334',
-              image: [
-                {
-                  id: '24878',
-                  src: 'https://static.library.ucla.edu/craftassetstest/toni-g-rbregi1jeo-unsplash.jpg',
-                  height: 4552,
-                  width: 2560,
-                  srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 2560w',
-                  alt: 'Toni g rbregi1jeo unsplash',
-                  focalPoint: [0.5, 0.5],
-                  altText: null,
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: '4986534',
-      typeHandle: 'internalContent',
-      contentLink: [
-        {
-          id: '4980208',
-          contentType: 'externalArticle',
-          to: 'https://www.hawaiimagazine.com/worlds-best-tandem-surfers-compete-at-waikiki-beach',
-          title: 'Gymnastics & Surfing',
-          text: '<p>New External Article field. Gymnasts possess core strength, balance, and aerial awareness, while surfers movements combine flexibility with cardiovascular endurance.</p>',
-          articleCategory: [
-            {
-              title: 'Internal Content External Article'
+              id: "50396",
+              title: "Screening"
             }
           ],
-          articleByline2: '2026-06-23T15:48:00-07:00',
-          associatedLocations: [
-            {
-              id: '523',
-              title: 'Powell Library',
-              to: 'visit/locations/powell-library',
-              uri: 'visit/locations/powell-library'
-            }
-          ],
+          associatedLocations: [],
           heroImage: [
             {
-              id: '4980211',
+              id: "4989273",
               image: [
                 {
-                  id: '4980210',
-                  src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Gymnastics-Surfing.jpeg',
-                  height: 1278,
+                  id: "4989272",
+                  src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/coming2america.jpg",
+                  height: 2560,
                   width: 2560,
-                  srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Gymnastics-Surfing.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Gymnastics-Surfing.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Gymnastics-Surfing.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Gymnastics-Surfing.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Gymnastics-Surfing.jpeg 2560w',
+                  srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/coming2america.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/coming2america.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/coming2america.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/coming2america.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/coming2america.jpg 2560w",
                   alt: null,
                   focalPoint: [
                     0.5,
@@ -249,160 +47,490 @@ export const mock = {
         }
       ]
     },
-  ],
+    {
+      id: "4980103",
+      typeHandle: "internalContent",
+      contentLink: [
+        {
+          id: "4981311",
+          contentType: "exhibition",
+          to: "visit/events-exhibitions/ucla-library-special-collections",
+          title: "UCLA Library Special Collections",
+          text: "<p>Open to all, UCLA Library Special Collections (LSC) preserves, shares and promotes the Librarys unique primary sources.</p>",
+          articleByline2: "2026-06-25T16:22:00-07:00",
+          ongoing: false,
+          startDate: null,
+          endDate: null,
+          heroImage: [
+            {
+              id: "4981312",
+              image: [
+                {
+                  id: "4981310",
+                  src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/UCLA_LibraryLocations_LSC-1.jpg",
+                  height: 1124,
+                  width: 2560,
+                  srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/UCLA_LibraryLocations_LSC-1.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/UCLA_LibraryLocations_LSC-1.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/UCLA_LibraryLocations_LSC-1.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/UCLA_LibraryLocations_LSC-1.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/UCLA_LibraryLocations_LSC-1.jpg 2560w",
+                  alt: null,
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
 
-export const eventExhibitonArticle = {
-  id: '696267',
-  typeHandle: 'highlight',
-  sectionTitle: 'Flexible Highlight with events and exhibitions',
-  sectionSummary:
-      '<p>Flexible Highlight with events and exhibitions so that we can test</p>',
+export const mockInternalContentWorshopSeriesAndEventSeries = {
+  id: "4988975",
+  typeHandle: "highlight",
+  sectionTitle: "Highlight with Internal Content - Worshop Series & Event Series",
+  sectionSummary: null,
   highlight: [
     {
-      id: '696268',
-      typeHandle: 'internalContent',
+      id: "4988976",
+      typeHandle: "internalContent",
       contentLink: [
         {
-          id: '197177',
-          contentType: 'event',
-          to: 'visit/events-exhibitions/test-the-white-balloon',
-          title: 'TEST - The White Balloon',
-          text: null,
-          eventDescription:
-                      '<p><strong>All <em>Family Flicks</em> screenings are free admission. Seating is first come, first served. The Billy Wilder Theater opens 15 minutes before each <em>Family Flicks</em> program.</strong></p>\n\n<p>Director Jafar Panahi’s debut feature, <em>The White Balloon</em>, won the Camera d’Or at the Cannes Film Festival and announced the arrival of a major new voice on the international film scene. A simply presented but powerful moving fable of perseverance, it follows a young girl as she overcomes the obstacles of the big city on her way to buy a goldfish for Nowruz, the Iranian New Year. Among The Guardian newspaper’s top 50 family films of all time, <em>The White Balloon</em> is also on the British Film Institute’s list of 50 films you should see by the age of 14.</p>\n\n<p>35mm, color, in Persian with English subtitles, 85 min. Director: Jafar Panahi. Screenwriter: Abbas Kiarostami. With: Aida Mohammadkhani, Mohsen Kafili, Fereshteh Sadre Orafaiy.</p>\n\n<p>Part of: <a href="https://www.cinema.ucla.edu/events/family-flicks" target="_blank" rel="noreferrer noopener">Family Flicks</a><br /><a href="https://www.cinema.ucla.edu/events/2023/01/22/the-white-balloon" target="_blank" rel="noreferrer noopener">Learn more</a> </p>',
-          articleByline2: '2022-12-19T07:48:00-08:00',
-          startDateWithTime: '2022-12-19T11:00',
-          endDateWithTime: '2022-12-19T12:30',
-          eventType: [],
+          id: "197039",
+          contentType: "workshopOrEventSeries",
+          to: "help/services-resources/family-flicks",
+          title: "Test - Workshop - Family Flicks",
+          text: "<p>All <strong>Family Flicks</strong> screenings are <em>free admission</em>. An incorrigible squirrel helps his friends raid a nut store, a location that also happens to be a front for a human gangs bank robbery.</p>",
+          articleByline2: "2022-12-19T07:44:00-08:00",
+          ongoing: true,
+          startDate: "1967-10-09T00:00",
+          endDate: "2002-04-19T00:00",
           associatedLocations: [
             {
-              id: '11612',
-              title: 'UCLA Film & Television Archive',
-              to: 'visit/locations/film-television-archive',
-            },
+              id: "11612",
+              title: "UCLA Film & Television Archive",
+              to: "visit/locations/film-television-archive",
+              uri: "visit/locations/film-television-archive"
+            }
           ],
           heroImage: [
             {
-              id: '197178',
+              id: "2930538",
               image: [
                 {
-                  id: '86612',
-                  src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/1670615203.jpg',
-                  height: 1846,
+                  id: "2930537",
+                  src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Screenshot-2024-03-22-at-3.07.33-PM.png",
+                  height: 1391,
                   width: 2560,
-                  srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/1670615203.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/1670615203.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/1670615203.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/1670615203.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/1670615203.jpg 2560w',
-                  alt: 'placeholder',
-                  focalPoint: [0.5, 0.5],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: '696269',
-      typeHandle: 'internalContent',
-      contentLink: [
-        {
-          id: '8901',
-          contentType: 'exhibition',
-          to: 'visit/events-exhibitions/fante-asafo-flags',
-          title: 'Fante Asafo Flags',
-          text: '<p>Prior to the colonial era, asafo companies were charged with the safety and protection of the region. Surviving a century of violence and upheaval, they remain one of the core local institutions.</p>',
-          articleByline2: '2022-03-09T15:17:00-08:00',
-          startDate: '2023-01-04T00:00',
-          endDate: '2023-03-05T00:00',
-          heroImage: [
-            {
-              id: '9068',
-              image: [
-                {
-                  id: '63048',
-                  src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/flag_2022-11-23-012414_fjms.jpg',
-                  height: 1703,
-                  width: 2560,
-                  srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 2560w',
+                  srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Screenshot-2024-03-22-at-3.07.33-PM.png 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Screenshot-2024-03-22-at-3.07.33-PM.png 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Screenshot-2024-03-22-at-3.07.33-PM.png 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Screenshot-2024-03-22-at-3.07.33-PM.png 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Screenshot-2024-03-22-at-3.07.33-PM.png 2560w",
                   alt: null,
-                  focalPoint: [0.5, 0.5],
-                },
-              ],
-            },
-          ],
-        },
-      ],
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      id: '696270',
-      typeHandle: 'internalContent',
+      id: "4988977",
+      typeHandle: "internalContent",
       contentLink: [
         {
-          id: '36092',
-          contentType: 'article',
-          to: 'about/news/casper-the-ghost',
-          title: 'Casper the Ghost',
-          text: '<p>He is a pleasant, personable and translucent <a href="https://en.wikipedia.org/wiki/Ghost" title="Ghost" target="_blank" rel="noreferrer noopener">ghost</a>, but often criticized by his three wicked uncles, <a href="https://en.wikipedia.org/wiki/The_Ghostly_Trio" class="mw-redirect" title="The Ghostly Trio" target="_blank" rel="noreferrer noopener">the Ghostly Trio</a>.<br /></p>',
-          articleCategory: [],
-          articleByline2: '2022-09-13T15:06:00-07:00',
+          id: "50864",
+          contentType: "workshopOrEventSeries",
+          to: "visit/events-exhibitions/test-event-series",
+          title: "Test - Event Series - Side Pie",
+          text: "<p>Started in a Side Yard in a Pandemic. Our goals are simple: to bring the best pizza to the neighborhood and give back to the community. We love Altadena, we love pizza.</p>",
+          articleByline2: "2022-10-31T16:11:00-07:00",
+          ongoing: false,
+          startDate: "2022-11-17T00:00",
+          endDate: "2022-11-30T00:00",
+          associatedLocations: [
+            {
+              id: "801",
+              title: "Charles E. Young Research Library",
+              to: "visit/locations/research-library",
+              uri: "visit/locations/research-library"
+            }
+          ],
+          heroImage: [
+            {
+              id: "60178",
+              image: [
+                {
+                  id: "59935",
+                  src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/SidePie20220278_470x.webp",
+                  height: 1026,
+                  width: 2560,
+                  srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/SidePie20220278_470x.webp 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/SidePie20220278_470x.webp 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/SidePie20220278_470x.webp 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/SidePie20220278_470x.webp 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/SidePie20220278_470x.webp 2560w",
+                  alt: "color photograph of beige tshirt with side pie text",
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+export const mockInternalContentArticleAndExternalArticle = {
+  id: "4988978",
+  typeHandle: "highlight",
+  sectionTitle: "Highlight with Internal Content - Article & External Article",
+  sectionSummary: null,
+  highlight: [
+    {
+      id: "4988979",
+      typeHandle: "internalContent",
+      contentLink: [
+        {
+          id: "2930588",
+          contentType: "article",
+          to: "about/news/test-article-squirrel-guinea-pig-garden-in-japan",
+          title: "Test - Article - Squirrel & Guinea Pig Garden in Japan",
+          text: "<p><strong>Behold wild squirrel </strong>and guinea pig feeding frenzies at the Squirrel Garden petting zoo in Machida, Japan. These hunger-crazed rodents feverishly feasted on top-notch chow with buckwild enthusiasm.</p>",
+          articleCategory: [
+            {
+              title: "Featured"
+            }
+          ],
+          articleByline2: "2024-03-22T15:21:00-07:00",
+          associatedLocations: [
+            {
+              id: "11560",
+              title: "Eugene and Maxine Rosenfeld Management Library",
+              to: "visit/locations/management-library-eugene-maxine-rosenfeld",
+              uri: "visit/locations/management-library-eugene-maxine-rosenfeld"
+            }
+          ],
+          heroImage: [
+            {
+              id: "2930589",
+              image: [
+                {
+                  id: "2930586",
+                  src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg",
+                  height: 1953,
+                  width: 2560,
+                  srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 2560w",
+                  alt: null,
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "4988980",
+      typeHandle: "internalContent",
+      contentLink: [
+        {
+          id: "4981833",
+          contentType: "externalArticle",
+          to: "https://www.the562.org/2022/11/17/girls-water-polo-preview-long-beach-poly-jackrabbits-2",
+          title: "Water Polo",
+          text: "<p>New External Article field. A highly competitive, fast-paced aquatic sport that builds elite endurance, speed, and teamwork.</p>",
+          articleCategory: [
+            {
+              title: "Sports"
+            }
+          ],
+          articleByline2: "2026-06-26T14:32:00-07:00",
           associatedLocations: [],
           heroImage: [
             {
-              id: '49470',
+              id: "4981836",
               image: [
                 {
-                  id: '49469',
-                  src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Casper.png',
-                  height: 2225,
+                  id: "4981835",
+                  src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/water-polo-1.jpg",
+                  height: 1358,
                   width: 2560,
-                  srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Casper.png 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Casper.png 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Casper.png 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Casper.png 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Casper.png 2560w',
+                  srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/water-polo-1.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/water-polo-1.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/water-polo-1.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/water-polo-1.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/water-polo-1.jpg 2560w",
                   alt: null,
-                  focalPoint: [0.5, 0.5],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+export const mockInternalContentEndowmentAndCollectionAndGeneralContentPage = {
+  id: "4988566",
+  typeHandle: "highlight",
+  sectionTitle: "Highlight with Internal Content - Endowment, Collection, General Content Page",
+  sectionSummary: null,
+  highlight: [
     {
-      id: '707393',
-      typeHandle: 'internalContent',
+      id: "4988567",
+      typeHandle: "internalContent",
       contentLink: [
         {
-          id: '50864',
-          contentType: 'workshopOrEventSeries',
-          to: 'visit/events-exhibitions/test-event-series',
-          title: 'Test Event Series: Side Pie',
-          text: '<p>Started in a Side Yard in a Pandemic. Our goals are simple: to bring the best pizza to the neighborhood and give back to the community. We love Altadena, we love pizza. <br /></p>',
-          articleByline2: '2022-10-31T16:11:00-07:00',
-          startDate: '2022-11-17T00:00',
-          endDate: '2022-11-30T00:00',
+          id: "75052",
+          contentType: "endowment",
+          to: "give/endowments/the-jen-diane-living-memorial-endowment",
+          title: "Endowment The Jen & Diane Living Memorial",
+          text: "<p><strong>Jen and Diane want</strong> everyone to have as many stuffed animals as they need to make them happy. This fund will allow recipients to purchase as many stuff animals as they want in one fiscal year.</p>",
+          articleByline2: "2022-12-06T16:05:00-08:00",
           associatedLocations: [
             {
-              id: '801',
-              title: 'Charles E. Young Research Library',
-              to: 'visit/locations/young-research-library',
+              id: "801",
+              title: "Charles E. Young Research Library",
+              to: "visit/locations/research-library",
+              uri: "visit/locations/research-library"
             },
+            {
+              id: "11602",
+              title: "UCLA Library Special Collections",
+              to: "visit/locations/library-special-collections",
+              uri: "visit/locations/library-special-collections"
+            }
           ],
           heroImage: [
             {
-              id: '60178',
+              id: "75081",
               image: [
                 {
-                  id: '59935',
-                  src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/SidePie20220278_470x.webp',
-                  height: 1026,
+                  id: "75076",
+                  src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Animals-1-pick.jpg",
+                  height: 2560,
                   width: 2560,
-                  srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/SidePie20220278_470x.webp 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/SidePie20220278_470x.webp 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/SidePie20220278_470x.webp 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/SidePie20220278_470x.webp 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/SidePie20220278_470x.webp 2560w',
-                  alt: 'color photograph of beige tshirt with side pie text',
-                  focalPoint: [0.5, 0.5],
-                },
-              ],
-            },
-          ],
-        },
-      ],
+                  srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Animals-1-pick.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Animals-1-pick.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Animals-1-pick.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Animals-1-pick.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Animals-1-pick.jpg 2560w",
+                  alt: null,
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
-  ],
+    {
+      id: "4988568",
+      typeHandle: "internalContent",
+      contentLink: [
+        {
+          id: "796386",
+          contentType: "collection",
+          to: "collections/explore/spools",
+          title: "Spools are so interesting",
+          text: "<p>A cylindrical device on which film, magnetic tape, thread, or other flexible materials can be wound; a reel.</p>",
+          articleByline2: "2023-02-03T01:08:00-08:00",
+          heroImage: [
+            {
+              id: "796389",
+              image: [
+                {
+                  id: "796388",
+                  src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Screen-Shot-2023-02-03-at-1.10.27-AM.png",
+                  height: 1396,
+                  width: 2560,
+                  srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Screen-Shot-2023-02-03-at-1.10.27-AM.png 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Screen-Shot-2023-02-03-at-1.10.27-AM.png 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Screen-Shot-2023-02-03-at-1.10.27-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Screen-Shot-2023-02-03-at-1.10.27-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Screen-Shot-2023-02-03-at-1.10.27-AM.png 2560w",
+                  alt: null,
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "4988569",
+      typeHandle: "internalContent",
+      contentLink: [
+        {
+          id: "6333",
+          contentType: "generalContentPage",
+          to: "get-help",
+          title: "Get Help",
+          text: null,
+          articleByline2: "2022-03-01T09:56:00-08:00",
+          heroImage: []
+        }
+      ]
+    }
+  ]
+}
+
+export const mockInternalContentMeapArticleAndProject = {
+  id: "4988192",
+  typeHandle: "highlight",
+  sectionTitle: "Highlight with MEAP Internal Content - Article & Project",
+  sectionSummary: null,
+  highlight: [
+    {
+      id: "4988193",
+      typeHandle: "internalContent",
+      contentLink: [
+        {
+          id: "4848315",
+          contentType: "meapArticle",
+          to: "about/news/meap-collections-surpass-100-000-objects",
+          title: "MEAP Collections Surpass 100,000 Objects",
+          text: "<p>The MEAP Digital Collection now includes over 100,000 unique objects from 44 collections, including materials from 27 countries around the world.</p>",
+          articleCategory: [
+            {
+              title: "MEAP Internal Content MEAP Article"
+            }
+          ],
+          articleByline2: "2026-04-14T19:15:00-07:00",
+          heroImage: [
+            {
+              id: "4848316",
+              image: [
+                {
+                  id: "4848238",
+                  src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Bell_image.jpg",
+                  height: 2048,
+                  width: 2560,
+                  srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Bell_image.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Bell_image.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Bell_image.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Bell_image.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Bell_image.jpg 2560w",
+                  alt: null,
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "4988194",
+      typeHandle: "internalContent",
+      contentLink: [
+        {
+          id: "4848159",
+          contentType: "meapProject",
+          to: "projects/visual-histories-of-northeast-india",
+          title: "Visual Histories of Northeast India - MEAP Project",
+          text: "<p>Digitization of photographs from the archive of Ahmed Hossain, following a successful survey the collection. Photographs depict the socio-cultural life of Northeast Indias tribal communities (1960s - 2000s).</p>",
+          projectCategory: null,
+          projectByline1: [
+            {
+              id: "4848109",
+              title: "Indigenous Communities"
+            },
+            {
+              id: "4848158",
+              title: "Photography"
+            }
+          ],
+          articleByline2: "2026-04-14T18:37:00-07:00",
+          projectLocations: [
+            {
+              id: "4848157",
+              title: "South Asia"
+            }
+          ],
+          heroImage: [
+            {
+              id: "4848160",
+              image: [
+                {
+                  id: "4848156",
+                  src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/0015_1_edit_2026-04-15-013308_miyg.jpg",
+                  height: 1862,
+                  width: 2560,
+                  srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/0015_1_edit_2026-04-15-013308_miyg.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/0015_1_edit_2026-04-15-013308_miyg.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/0015_1_edit_2026-04-15-013308_miyg.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/0015_1_edit_2026-04-15-013308_miyg.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/0015_1_edit_2026-04-15-013308_miyg.jpg 2560w",
+                  alt: null,
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+export const mockExternalContent = {
+    id: "4988981",
+  typeHandle: "highlight",
+  sectionTitle: "Highlight with External Content",
+  sectionSummary: null,
+  highlight: [
+    {
+      id: "4988982",
+      typeHandle: "externalContent",
+      title: "Lady Liberty - External Content",
+      image: [
+        {
+          id: "4988815",
+          src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/statue_of_liberty_3_poster_2026-07-08-065430_fgvd.jpg",
+          height: 3681,
+          width: 2560,
+          srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/statue_of_liberty_3_poster_2026-07-08-065430_fgvd.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/statue_of_liberty_3_poster_2026-07-08-065430_fgvd.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/statue_of_liberty_3_poster_2026-07-08-065430_fgvd.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/statue_of_liberty_3_poster_2026-07-08-065430_fgvd.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/statue_of_liberty_3_poster_2026-07-08-065430_fgvd.jpg 2560w",
+          alt: null,
+          focalPoint: [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      byline1: "February 23, 2028",
+      byline2: "7:00 P.M.",
+      category: "External Content",
+      text: "<p>Give me your tired, your poor Your huddled masses yearning to breathe free The wretched refuse of your teeming shore. Send these, the homeless, tempest-tost to me I lift my lamp beside the golden door</p>",
+      to: "https://www.nps.gov/stli/index.htm"
+    },
+    {
+      id: "4988983",
+      typeHandle: "externalContent",
+      title: "Swizzle Sticks",
+      image: [
+        {
+          id: "4988918",
+          src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/twizzle.jpg",
+          height: 1920,
+          width: 2560,
+          srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/twizzle.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/twizzle.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/twizzle.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/twizzle.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/twizzle.jpg 2560w",
+          alt: null,
+          focalPoint: [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      byline1: null,
+      byline2: null,
+      category: "External Content",
+      text: "<p>A <strong>swizzle stick</strong> is a small utensil used to stir drinks.</p>",
+      to: "https://marisafinetti.com/blog/stirring-with-vintage-swizzle-sticks/"
+    }
+  ]
 }
