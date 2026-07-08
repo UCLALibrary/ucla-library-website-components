@@ -85,10 +85,12 @@ function Template(args) {
   return {
     setup() {
 
-      // We want to prevent a fetch call from being made to the actual API 
-      // during visual regression testing, because Chromatic creates differences
-      // each time data changes. We're mocking a fetch call to return static hours
-      // data.
+      /*
+      We want to prevent a fetch call from being made to the actual API 
+      during visual regression testing, because Chromatic creates 
+      differences each time data changes. Instead we're mocking a fetch 
+      call to return static [location hours] data.
+      */
 
       const originalFetch = globalThis.fetch
 
@@ -128,6 +130,6 @@ NoImage.args = { ...mock, image: '' }
 export const NoHours = Template.bind({})
 NoHours.args = {
   ...mock,
-  // Non-existent id that returns no hours data with actual Fetch call
+  // Non-existent id that returns empty data [no location hours] with actual Fetch call
   libcalLocationIdForHours: '4691',
 }
