@@ -15,6 +15,7 @@ const { block } = defineProps({
 })
 
 const parsedList = computed(() => {
+  // flattens internalContent vs externalContent
   const items = []
   for (const item in block.highlight) {
     if (
@@ -27,7 +28,6 @@ const parsedList = computed(() => {
   return items
 })
 
-// TODO: Once we stop using the External Article we should delete this
 const parsedItems = computed(() => {
   // Maps values based on content type and external or internal content
   // filter out null objects
