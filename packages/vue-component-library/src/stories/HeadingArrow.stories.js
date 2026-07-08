@@ -5,41 +5,56 @@ export default {
   component: HeadingArrow,
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     components: { HeadingArrow },
     template: '<heading-arrow />',
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function About() {
+const AboutTemplate = (args) => {
   return {
     components: { HeadingArrow },
     template: '<heading-arrow text="Staff Directory" to="/about/foo/bar/"/>',
   }
 }
 
-export function Visit() {
+export const About = AboutTemplate.bind({})
+About.args = {}
+
+const VisitTemplate = (args) => {
   return {
     components: { HeadingArrow },
     template: '<heading-arrow text="Visit the Library" to="/visit/foo/bar/" section="visit"/>',
   }
 }
 
-export function Help() {
+export const Visit = VisitTemplate.bind({})
+Visit.args = {}
+
+const HelpTemplate = (args) => {
   return {
     components: { HeadingArrow },
     template: '<heading-arrow text="Get Help With" to="/help/foo/bar/"/>',
   }
 }
 
-export function Section() {
+export const Help = HelpTemplate.bind({})
+Help.args = {}
+
+const SectionTemplate = (args) => {
   return {
     components: { HeadingArrow },
     template: '<heading-arrow text="Visit the Library" to="/visit/" section="visit"/>',
   }
 }
+
+export const Section = SectionTemplate.bind({})
+Section.args = {}

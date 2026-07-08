@@ -32,7 +32,7 @@ const mockBlockInfo = {
   list: ['SciFi', 'Thriller', 'Suspense', 'Drama']
 }
 
-export function DefaultInfo() {
+const DefaultInfoTemplate = (args) => {
   return {
     data() {
       return { ...mockBlockInfo }
@@ -59,11 +59,14 @@ export function DefaultInfo() {
   }
 }
 
+export const DefaultInfo = DefaultInfoTemplate.bind({})
+DefaultInfo.args = {}
+
 DefaultInfo.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function DefaultInfoList() {
+const DefaultInfoListTemplate = (args) => {
   return {
     data() {
       return { ...mockBlockInfo }
@@ -97,7 +100,10 @@ export function DefaultInfoList() {
   }
 }
 
-export function DefaultFTVAInfo() {
+export const DefaultInfoList = DefaultInfoListTemplate.bind({})
+DefaultInfoList.args = {}
+
+const DefaultFTVAInfoTemplate = (args) => {
   return {
     data() {
       return { ...mockBlockInfo }
@@ -130,6 +136,9 @@ export function DefaultFTVAInfo() {
   }
 }
 
+export const DefaultFTVAInfo = DefaultFTVAInfoTemplate.bind({})
+DefaultFTVAInfo.args = {}
+
 const mockFTVAInfo = {
   ftvaTicketInformation: [
     {
@@ -148,7 +157,7 @@ const mockParsedInfoList = computed(() => {
   return mockFTVAInfo.ftvaTicketInformation.map(obj => obj.title)
 })
 
-export function ExampleFTVAInfo() {
+const ExampleFTVAInfoTemplate = (args) => {
   return {
     data() {
       return { mockParsedInfoList }
@@ -219,3 +228,6 @@ export function ExampleFTVAInfo() {
       </BlockInfo>`
   }
 }
+
+export const ExampleFTVAInfo = ExampleFTVAInfoTemplate.bind({})
+ExampleFTVAInfo.args = {}

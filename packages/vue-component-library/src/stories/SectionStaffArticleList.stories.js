@@ -8,6 +8,9 @@ import { mockArticles, mockCollections, mockFTVABlogListing, mockFilmamkers, moc
 export default {
   title: 'SECTION / Staff / Article / List',
   component: SectionStaffArticleList,
+  argTypes: {
+    sectionTitle: { control: 'text' },
+  },
 }
 
 const mockDefault = [
@@ -50,8 +53,11 @@ const mockDefault = [
 ]
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return { items: mockDefault }
     },
@@ -59,10 +65,15 @@ export function Default() {
     template: `
       <section-staff-article-list
         :items="items"
-        section-title="Articles"
+        :section-title="args.sectionTitle"
       />
   `,
   }
+}
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {
+  sectionTitle: 'Articles',
 }
 
 Default.parameters = {
@@ -102,8 +113,11 @@ const mockCurrentEntriesWithDates = [
   }
 ]
 
-export function FtvaCurrentEntriesWithDates() {
+const FtvaCurrentEntriesWithDatesTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return { items: mockCurrentEntriesWithDates }
     },
@@ -168,14 +182,19 @@ export function FtvaCurrentEntriesWithDates() {
         </component>
       <section-staff-article-list
         :items="items"
-        section-title="Event Series"
+        :section-title="args.sectionTitle"
         class="stories-ftva-current-entries"
       />
   `,
   }
 }
 
-export function FtvaNoSectionTitle() {
+export const FtvaCurrentEntriesWithDates = FtvaCurrentEntriesWithDatesTemplate.bind({})
+FtvaCurrentEntriesWithDates.args = {
+  sectionTitle: 'Event Series',
+}
+
+const FtvaNoSectionTitleTemplate = (args) => {
   return {
     data() {
       return { items: mockCurrentEntriesWithDates }
@@ -246,7 +265,10 @@ export function FtvaNoSectionTitle() {
   }
 }
 
-export function FtvaSearchResultsArticle() {
+export const FtvaNoSectionTitle = FtvaNoSectionTitleTemplate.bind({})
+FtvaNoSectionTitle.args = {}
+
+const FtvaSearchResultsArticleTemplate = (args) => {
   return {
     data() {
       return { items: mockArticles }
@@ -320,7 +342,6 @@ export function FtvaSearchResultsArticle() {
       }
         .stories-ftva-search-articles .ftva.block-staff-article-item {
 
-
           figure,
           .molecule-no-image {
             display: none;
@@ -336,7 +357,10 @@ export function FtvaSearchResultsArticle() {
   }
 }
 
-export function FtvaSearchResultsCollections() {
+export const FtvaSearchResultsArticle = FtvaSearchResultsArticleTemplate.bind({})
+FtvaSearchResultsArticle.args = {}
+
+const FtvaSearchResultsCollectionsTemplate = (args) => {
   return {
     data() {
       return { items: mockCollections }
@@ -404,7 +428,10 @@ export function FtvaSearchResultsCollections() {
   }
 }
 
-export function FtvaSearchResultsGC() {
+export const FtvaSearchResultsCollections = FtvaSearchResultsCollectionsTemplate.bind({})
+FtvaSearchResultsCollections.args = {}
+
+const FtvaSearchResultsGCTemplate = (args) => {
   return {
     data() {
       return { items: mockGeneralContent }
@@ -472,7 +499,10 @@ export function FtvaSearchResultsGC() {
   }
 }
 
-export function FtvaFilmMakers() {
+export const FtvaSearchResultsGC = FtvaSearchResultsGCTemplate.bind({})
+FtvaSearchResultsGC.args = {}
+
+const FtvaFilmMakersTemplate = (args) => {
   return {
     data() {
       return { items: mockFilmamkers }
@@ -548,8 +578,15 @@ export function FtvaFilmMakers() {
   `,
   }
 }
-export function FtvaBlogList() {
+
+export const FtvaFilmMakers = FtvaFilmMakersTemplate.bind({})
+FtvaFilmMakers.args = {}
+
+const FtvaBlogListTemplate = (args) => {
   return {
+    setup() {
+      return { args }
+    },
     data() {
       return { items: mockFTVABlogListing }
     },
@@ -624,11 +661,15 @@ export function FtvaBlogList() {
           }
         }
 
-
       </component>
       <section-staff-article-list class="stories-ftva-articles"
-        :items="items" :section-title="'FTVA Blog Listing'"
+        :items="items" :section-title="args.sectionTitle"
       />
   `,
   }
+}
+
+export const FtvaBlogList = FtvaBlogListTemplate.bind({})
+FtvaBlogList.args = {
+  sectionTitle: 'FTVA Blog Listing',
 }

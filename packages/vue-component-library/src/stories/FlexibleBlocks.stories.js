@@ -208,7 +208,7 @@ const mockData = [
   },
 ]
 
-export function Default() {
+const DefaultTemplate = (args) => {
   router.push('/abc/ccc')
   return {
     data() {
@@ -230,11 +230,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function GrayBackgrounds() {
+const GrayBackgroundsTemplate = (args) => {
   router.push('/help/ddd')
   return {
     data() {
@@ -292,7 +295,10 @@ export function GrayBackgrounds() {
   }
 }
 
-export function DividerBetweenWhiteBlocks() {
+export const GrayBackgrounds = GrayBackgroundsTemplate.bind({})
+GrayBackgrounds.args = {}
+
+const DividerBetweenWhiteBlocksTemplate = (args) => {
   router.push('/visit/eee')
   return {
     data() {
@@ -313,7 +319,10 @@ export function DividerBetweenWhiteBlocks() {
   }
 }
 
-export function LocationDetailBioMed() {
+export const DividerBetweenWhiteBlocks = DividerBetweenWhiteBlocksTemplate.bind({})
+DividerBetweenWhiteBlocks.args = {}
+
+const LocationDetailBioMedTemplate = (args) => {
   router.push('/about/fff')
   return {
     data() {
@@ -330,7 +339,10 @@ export function LocationDetailBioMed() {
   }
 }
 
-export function FtvaBlog() {
+export const LocationDetailBioMed = LocationDetailBioMedTemplate.bind({})
+LocationDetailBioMed.args = {}
+
+const FtvaBlogTemplate = (args) => {
   return {
     data() {
       return {
@@ -351,7 +363,10 @@ export function FtvaBlog() {
   }
 }
 
-export function FtvaFlexibleBlocks() {
+export const FtvaBlog = FtvaBlogTemplate.bind({})
+FtvaBlog.args = {}
+
+const FtvaFlexibleBlocksTemplate = (args) => {
   return {
     data() {
       return {
@@ -371,3 +386,6 @@ export function FtvaFlexibleBlocks() {
     `,
   }
 }
+
+export const FtvaFlexibleBlocks = FtvaFlexibleBlocksTemplate.bind({})
+FtvaFlexibleBlocks.args = {}

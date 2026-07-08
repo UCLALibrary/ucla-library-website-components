@@ -44,7 +44,7 @@ const itemsVertical = [
   },
 ]
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return {
@@ -64,6 +64,9 @@ export function Default() {
     `,
   }
 }
+
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
@@ -107,7 +110,7 @@ const itemsHorizontal = [
   },
 ]
 
-export function NoText() {
+const NoTextTemplate = (args) => {
   return {
     data() {
       return {
@@ -126,7 +129,10 @@ export function NoText() {
   }
 }
 
-export function OneCard() {
+export const NoText = NoTextTemplate.bind({})
+NoText.args = {}
+
+const OneCardTemplate = (args) => {
   return {
     data() {
       return {
@@ -150,7 +156,10 @@ export function OneCard() {
   }
 }
 
-export function TwoCards() {
+export const OneCard = OneCardTemplate.bind({})
+OneCard.args = {}
+
+const TwoCardsTemplate = (args) => {
   return {
     data() {
       return {
@@ -174,7 +183,10 @@ export function TwoCards() {
   }
 }
 
-export function Horizontal() {
+export const TwoCards = TwoCardsTemplate.bind({})
+TwoCards.args = {}
+
+const HorizontalTemplate = (args) => {
   return {
     data() {
       return {
@@ -190,3 +202,6 @@ export function Horizontal() {
     `,
   }
 }
+
+export const Horizontal = HorizontalTemplate.bind({})
+Horizontal.args = {}

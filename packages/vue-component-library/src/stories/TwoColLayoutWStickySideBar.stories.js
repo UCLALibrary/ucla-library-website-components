@@ -48,7 +48,7 @@ const mockSeriesPageData = {
   ]
 }
 
-export function FTVAEventSeries() {
+const FTVAEventSeriesTemplate = (args) => {
   return {
     data() {
       return {
@@ -92,6 +92,9 @@ export function FTVAEventSeries() {
                 </div>`
   }
 }
+
+export const FTVAEventSeries = FTVAEventSeriesTemplate.bind({})
+FTVAEventSeries.args = {}
 
 FTVAEventSeries.parameters = {
   chromatic: { disableSnapshot: false },
@@ -163,7 +166,7 @@ const mockParsedInfoList = computed(() => {
   return ftvaTicketInformation.map(obj => obj.title)
 })
 
-export function FTVAEventDetail() {
+const FTVAEventDetailTemplate = (args) => {
   return {
     data() {
       return {
@@ -269,7 +272,10 @@ export function FTVAEventDetail() {
   }
 }
 
-export function FTVABlogDetail() {
+export const FTVAEventDetail = FTVAEventDetailTemplate.bind({})
+FTVAEventDetail.args = {}
+
+const FTVABlogDetailTemplate = (args) => {
   return {
     data() {
       return {
@@ -517,13 +523,16 @@ export function FTVABlogDetail() {
   }
 }
 
+export const FTVABlogDetail = FTVABlogDetailTemplate.bind({})
+FTVABlogDetail.args = {}
+
 const slimCTAData = {
   svgName: 'svg-call-to-action-ftva-pdf',
   title: 'View Information',
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 }
 
-export function FTVASlimCTA() {
+const FTVASlimCTATemplate = (args) => {
   return {
     data() {
       return {
@@ -571,6 +580,9 @@ export function FTVASlimCTA() {
   }
 }
 
+export const FTVASlimCTA = FTVASlimCTATemplate.bind({})
+FTVASlimCTA.args = {}
+
 const pageAnchorData = {
   sectionTitles: [
     'The story',
@@ -587,7 +599,7 @@ const pageAnchorData = {
   color: 'default'
 }
 
-export function FTVAPageAnchor() {
+const FTVAPageAnchorTemplate = (args) => {
   return {
     data() {
       return {
@@ -630,3 +642,6 @@ export function FTVAPageAnchor() {
                 </div>`
   }
 }
+
+export const FTVAPageAnchor = FTVAPageAnchorTemplate.bind({})
+FTVAPageAnchor.args = {}

@@ -17,6 +17,7 @@ import {
   getMockGlobalNavSearch,
   setupGlobalStore,
 } from './helpers/storyHelpers'
+import { STORY_THEME_OPTIONS } from './helpers/themeControls'
 import { mockPageCollectionsDetailVariants } from '@/stories/mock/Funkhaus/MockPageCollectionsDetail'
 
 // Import styles
@@ -37,7 +38,7 @@ export default {
   argTypes: {
     theme: {
       control: { type: 'select' },
-      options: ['default', 'dlc'],
+      options: STORY_THEME_OPTIONS,
       description: 'Theme variant for the page',
     },
     variant: {

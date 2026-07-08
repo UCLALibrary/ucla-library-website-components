@@ -58,7 +58,7 @@ const mock = [
 ]
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return { items: mock }
@@ -73,11 +73,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function DefaultFullWidth() {
+const DefaultFullWidthTemplate = (args) => {
   return {
     data() {
       return { items: mock }
@@ -92,6 +95,9 @@ export function DefaultFullWidth() {
   `,
   }
 }
+
+export const DefaultFullWidth = DefaultFullWidthTemplate.bind({})
+DefaultFullWidth.args = {}
 
 const mockFtva = [
   {
@@ -111,7 +117,7 @@ const mockFtva = [
   }
 ]
 
-export function FTVADefault() {
+const FTVADefaultTemplate = (args) => {
   return {
     data() {
       return { items: mockFtva }
@@ -132,7 +138,10 @@ export function FTVADefault() {
   }
 }
 
-export function FTVANoSummary() {
+export const FTVADefault = FTVADefaultTemplate.bind({})
+FTVADefault.args = {}
+
+const FTVANoSummaryTemplate = (args) => {
   return {
     data() {
       return { items: mockFtva }
@@ -151,6 +160,9 @@ export function FTVANoSummary() {
   `,
   }
 }
+
+export const FTVANoSummary = FTVANoSummaryTemplate.bind({})
+FTVANoSummary.args = {}
 
 const mockFtva2 = [
   {
@@ -160,7 +172,7 @@ const mockFtva2 = [
   }
 ]
 
-export function FTVAOneItem() {
+const FTVAOneItemTemplate = (args) => {
   return {
     data() {
       return { items: mockFtva2 }
@@ -181,7 +193,10 @@ export function FTVAOneItem() {
   }
 }
 
-export function FTVAOneItemFullWidth() {
+export const FTVAOneItem = FTVAOneItemTemplate.bind({})
+FTVAOneItem.args = {}
+
+const FTVAOneItemFullWidthTemplate = (args) => {
   return {
     data() {
       return { items: mockFtva2 }
@@ -203,7 +218,10 @@ export function FTVAOneItemFullWidth() {
   }
 }
 
-export function FTVAMultipleFullWidth() {
+export const FTVAOneItemFullWidth = FTVAOneItemFullWidthTemplate.bind({})
+FTVAOneItemFullWidth.args = {}
+
+const FTVAMultipleFullWidthTemplate = (args) => {
   return {
     data() {
       return { items: mockFtva }
@@ -224,3 +242,6 @@ export function FTVAMultipleFullWidth() {
   `,
   }
 }
+
+export const FTVAMultipleFullWidth = FTVAMultipleFullWidthTemplate.bind({})
+FTVAMultipleFullWidth.args = {}

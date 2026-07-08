@@ -10,7 +10,7 @@ export default {
   component: FlexibleMediaGalleryBannerImage,
 }
 
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return {
@@ -30,11 +30,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function FTVA() {
+const FTVATemplate = (args) => {
   return {
     data() {
       return {
@@ -59,7 +62,10 @@ export function FTVA() {
   }
 }
 
-export function Expanded() {
+export const FTVA = FTVATemplate.bind({})
+FTVA.args = {}
+
+const ExpandedTemplate = (args) => {
   return {
     data() {
       return {
@@ -78,7 +84,10 @@ export function Expanded() {
   }
 }
 
-export function ExpandedFTVA() {
+export const Expanded = ExpandedTemplate.bind({})
+Expanded.args = {}
+
+const ExpandedFTVATemplate = (args) => {
   return {
     data() {
       return {
@@ -103,7 +112,10 @@ export function ExpandedFTVA() {
   }
 }
 
-export function SingleItem() {
+export const ExpandedFTVA = ExpandedFTVATemplate.bind({})
+ExpandedFTVA.args = {}
+
+const SingleItemTemplate = (args) => {
   return {
     data() {
       return { item: MEDIA.ImageFile }
@@ -118,3 +130,6 @@ export function SingleItem() {
   `,
   }
 }
+
+export const SingleItem = SingleItemTemplate.bind({})
+SingleItem.args = {}

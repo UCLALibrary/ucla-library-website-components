@@ -11,6 +11,7 @@ import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
 import BlockForm from '@/lib-components/BlockForm.vue'
 
 import type { LocationItemType, MediaItemType, SubjectAreaItemType } from '@/types/types'
+import { getLocationIconName } from '@/types/components/iconWithLink.types'
 
 // Utility functions
 import formatEventTimes from '@/utils/formatEventTimes'
@@ -218,13 +219,10 @@ const gradientClasses = computed(() => {
 })
 
 const parsedLocations = computed(() => {
-  return props.locations.map((obj) => {
-    let input = 'svg-icon-location'
-    if (obj.title === 'Online')
-      input = 'svg-icon-virtual'
+  return props.locations.map((obj: LocationItemType) => {
     return {
       ...obj,
-      svg: input,
+      svg: getLocationIconName(obj.title),
       to: obj.to != null ? fixURI(obj.to) : '',
     }
   })

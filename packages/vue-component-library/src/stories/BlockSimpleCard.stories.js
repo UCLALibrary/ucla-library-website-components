@@ -1,9 +1,19 @@
 import { computed } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import BlockSimpleCard from '@/lib-components/BlockSimpleCard'
 
 export default {
   title: 'BLOCK / Simple Card',
   component: BlockSimpleCard,
+  argTypes: {
+    theme: {
+      control: { type: 'select' },
+      options: STORY_THEME_OPTIONS,
+    },
+    title: { control: 'text' },
+    text: { control: 'text' },
+    to: { control: 'text' },
+  },
 }
 
 const mockExternal = {
@@ -40,91 +50,65 @@ const mockInternalGuide = {
 
 // Variations of stories below
 // ExternalLink
-export function Default() {
+function Template(args) {
   return {
-    data() {
-      return { ...mockExternal }
+    setup() {
+      return { args }
+    },
+    provide() {
+      return {
+        theme: computed(() => normalizeStoryTheme(args.theme)),
+      }
     },
     components: { BlockSimpleCard },
     template: `
         <block-simple-card
-            :title="title"
-            :text="summary"
-            :to="externalLink"
+            :title="args.title"
+            :text="args.text"
+            :to="args.to"
         />
     `,
   }
+}
+
+export const Default = Template.bind({})
+Default.args = {
+  theme: 'default',
+  title: mockExternal.title,
+  text: mockExternal.summary,
+  to: mockExternal.externalLink,
 }
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function InternalLink() {
-  return {
-    data() {
-      return { ...mockInternal }
-    },
-    components: { BlockSimpleCard },
-    template: `
-        <block-simple-card
-            :title="contentLink[0].title"
-            :text="contentLink[0].summary"
-            :to="contentLink[0].slug"
-        />
-    `,
-  }
+export const InternalLink = Template.bind({})
+InternalLink.args = {
+  ...Default.args,
+  title: mockInternal.contentLink[0].title,
+  text: mockInternal.contentLink[0].summary,
+  to: mockInternal.contentLink[0].slug,
 }
 
-export function InternalLinkGuide() {
-  return {
-    data() {
-      return { ...mockInternalGuide }
-    },
-    components: { BlockSimpleCard },
-    template: `
-        <block-simple-card
-            :title="contentLink[0].title"
-            :text="contentLink[0].summary"
-            :to="contentLink[0].researchGuideUrl"
-        />
-    `,
-  }
+export const InternalLinkGuide = Template.bind({})
+InternalLinkGuide.args = {
+  ...Default.args,
+  title: mockInternalGuide.contentLink[0].title,
+  text: mockInternalGuide.contentLink[0].summary,
+  to: mockInternalGuide.contentLink[0].researchGuideUrl,
 }
 
-export function LongText() {
-  return {
-    data() {
-      return {
-        card: {
-          to: 'sink-hole',
-          title: 'Sink Hole',
-          text: 'Adipisicing do enim voluptate amet nisi eiusmod ex aliqua exercitation nulla sint magna proident proident. Exercitation in et enim est esse consectetur ex dolore labore ut laborum non minim ea. In ad excepteur cillum commodo veniam dolore labore cupidatat. Ea fugiat occaecat et fugiat consectetur do consectetur anim cillum. Ex nulla est ex cillum esse. Aliquip deserunt consequat pariatur sunt labore occaecat. Excepteur nostrud ex ex anim ut irure tempor eu quis id cupidatat consectetur. Mollit adipisicing cupidatat occaecat labore cupidatat culpa sit pariatur. Anim reprehenderit dolore est aliqua id pariatur quis exercitation incididunt do magna. Reprehenderit irure duis aliqua ullamco sint incididunt commodo exercitation reprehenderit. Non esse quis consectetur eiusmod. Labore dolore ex commodo culpa incididunt ipsum nulla elit tempor in officia eiusmod. Velit incididunt Lorem eiusmod eu anim dolore voluptate elit nisi aliquip est elit qui occaecat. Consequat cillum consectetur pariatur magna incididunt tempor eu do commodo laboris proident id dolor. Pariatur sint incididunt Lorem anim est nostrud qui excepteur eu fugiat exercitation exercitation. Lorem laboris reprehenderit ipsum aliquip ullamco sunt aute culpa occaecat in aliquip incididunt consequat nostrud.',
-        },
-      }
-    },
-    components: { BlockSimpleCard },
-    template: '<block-simple-card v-bind="card" style="max-width: 300px;"/>',
-  }
+export const LongText = Template.bind({})
+LongText.args = {
+  ...Default.args,
+  title: 'Sink Hole',
+  text: 'Adipisicing do enim voluptate amet nisi eiusmod ex aliqua exercitation nulla sint magna proident proident. Exercitation in et enim est esse consectetur ex dolore labore ut laborum non minim ea. In ad excepteur cillum commodo veniam dolore labore cupidatat. Ea fugiat occaecat et fugiat consectetur do consectetur anim cillum. Ex nulla est ex cillum esse. Aliquip deserunt consequat pariatur sunt labore occaecat. Excepteur nostrud ex ex anim ut irure tempor eu quis id cupidatat consectetur. Mollit adipisicing cupidatat occaecat labore cupidatat culpa sit pariatur. Anim reprehenderit dolore est aliqua id pariatur quis exercitation incididunt do magna. Reprehenderit irure duis aliqua ullamco sint incididunt commodo exercitation reprehenderit. Non esse quis consectetur eiusmod. Labore dolore ex commodo culpa incididunt ipsum nulla elit tempor in officia eiusmod. Velit incididunt Lorem eiusmod eu anim dolore voluptate elit nisi aliquip est elit qui occaecat. Consequat cillum consectetur pariatur magna incididunt tempor eu do commodo laboris proident id dolor. Pariatur sint incididunt Lorem anim est nostrud qui excepteur eu fugiat exercitation exercitation. Lorem laboris reprehenderit ipsum aliquip ullamco sunt aute culpa occaecat in aliquip incididunt consequat nostrud.',
+  to: 'sink-hole',
 }
 
-export function FTVADefault() {
-  return {
-    data() {
-      return { ...mockExternal }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { BlockSimpleCard },
-    template: `
-        <block-simple-card
-            :title="title"
-            :text="summary"
-            :to="externalLink"
-        />
-    `,
-  }
+export const FTVADefault = Template.bind({})
+FTVADefault.args = {
+  ...Default.args,
+  theme: 'ftva',
 }

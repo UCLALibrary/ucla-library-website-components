@@ -16,7 +16,7 @@ export default {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     components: { BlockButtons },
     data() {
@@ -47,11 +47,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function AlignCenter() {
+const AlignCenterTemplate = (args) => {
   return {
     components: { BlockButtons },
     data() {
@@ -82,7 +85,10 @@ export function AlignCenter() {
   }
 }
 
-export function AlignRight() {
+export const AlignCenter = AlignCenterTemplate.bind({})
+AlignCenter.args = {}
+
+const AlignRightTemplate = (args) => {
   return {
     components: { BlockButtons },
     data() {
@@ -108,7 +114,10 @@ export function AlignRight() {
   }
 }
 
-export function DirectionHorizontal() {
+export const AlignRight = AlignRightTemplate.bind({})
+AlignRight.args = {}
+
+const DirectionHorizontalTemplate = (args) => {
   return {
     components: { BlockButtons },
     data() {
@@ -139,7 +148,10 @@ export function DirectionHorizontal() {
   }
 }
 
-export function DirectionHorizontalAlignCenter() {
+export const DirectionHorizontal = DirectionHorizontalTemplate.bind({})
+DirectionHorizontal.args = {}
+
+const DirectionHorizontalAlignCenterTemplate = (args) => {
   return {
     components: { BlockButtons },
     data() {
@@ -171,7 +183,10 @@ export function DirectionHorizontalAlignCenter() {
   }
 }
 
-export function DirectionHorizontalAlignRight() {
+export const DirectionHorizontalAlignCenter = DirectionHorizontalAlignCenterTemplate.bind({})
+DirectionHorizontalAlignCenter.args = {}
+
+const DirectionHorizontalAlignRightTemplate = (args) => {
   return {
     components: { BlockButtons },
     data() {
@@ -198,9 +213,12 @@ export function DirectionHorizontalAlignRight() {
     template: '<block-buttons  v-bind="props" />',
   }
 }
+
+export const DirectionHorizontalAlignRight = DirectionHorizontalAlignRightTemplate.bind({})
+DirectionHorizontalAlignRight.args = {}
 
 // Edge cases that could break the component
-export function EmptyButtons() {
+const EmptyButtonsTemplate = (args) => {
   return {
     components: { BlockButtons },
     data() {
@@ -219,7 +237,10 @@ export function EmptyButtons() {
   }
 }
 
-export function LongLabels() {
+export const EmptyButtons = EmptyButtonsTemplate.bind({})
+EmptyButtons.args = {}
+
+const LongLabelsTemplate = (args) => {
   return {
     components: { BlockButtons },
     data() {
@@ -249,7 +270,10 @@ export function LongLabels() {
   }
 }
 
-export function NoThemeProvided() {
+export const LongLabels = LongLabelsTemplate.bind({})
+LongLabels.args = {}
+
+const NoThemeProvidedTemplate = (args) => {
   // Ensure component renders without injected theme
   return {
     components: { BlockButtons },
@@ -267,7 +291,10 @@ export function NoThemeProvided() {
   }
 }
 
-export function InvalidEnums() {
+export const NoThemeProvided = NoThemeProvidedTemplate.bind({})
+NoThemeProvided.args = {}
+
+const InvalidEnumsTemplate = (args) => {
   // Pass invalid enum values to check class generation robustness
   return {
     components: { BlockButtons },
@@ -301,3 +328,6 @@ export function InvalidEnums() {
     template: '<block-buttons v-bind="props" />',
   }
 }
+
+export const InvalidEnums = InvalidEnumsTemplate.bind({})
+InvalidEnums.args = {}

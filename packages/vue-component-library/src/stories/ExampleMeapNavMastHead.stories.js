@@ -155,7 +155,7 @@ export default {
 }
 
 // TODO: search-home was originally search-generic, but we haven't added it to this repo yet. I haven't added it here because the slot in MastheadSecondary doesn't even get used, so it never renders, but I think at some point we'll have to change back to search-generic and actually get it to render in the component?
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
 
     created() {
@@ -171,11 +171,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function WithSearch() {
+const WithSearchTemplate = (args) => {
   return {
 
     created() {
@@ -190,3 +193,6 @@ export function WithSearch() {
     `,
   }
 }
+
+export const WithSearch = WithSearchTemplate.bind({})
+WithSearch.args = {}

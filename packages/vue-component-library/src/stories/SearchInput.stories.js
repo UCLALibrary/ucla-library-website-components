@@ -1,228 +1,134 @@
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
+import { STORY_THEME_OPTIONS, normalizeStoryTheme } from './helpers/themeControls'
 import SearchInput from '@/lib-components/SearchInput'
 
 export default {
   title: 'Funkhaus / Search Input',
   component: SearchInput,
+  argTypes: {
+    theme: {
+      control: { type: 'select' },
+      options: STORY_THEME_OPTIONS,
+    },
+    placeholder: { control: 'text' },
+    modelValue: { control: 'text' },
+    clearIcon: { control: 'boolean' },
+    clearOnEsc: { control: 'boolean' },
+    blurOnEsc: { control: 'boolean' },
+    selectOnFocus: { control: 'boolean' },
+    shortcutKey: { control: 'text' },
+    disabled: { control: 'boolean' },
+  },
 }
 
-// Variations of stories below
-export function Default() {
+function Template(args) {
   return {
     components: { SearchInput },
     provide() {
       return {
-        theme: computed(() => ''),
+        theme: computed(() => normalizeStoryTheme(args.theme)),
       }
     },
-    data() {
-      const value = ref('')
-
-      return {
-        value,
-        placeholder: 'Search Library',
-      }
+    setup() {
+      const value = ref(args.modelValue || '')
+      watch(
+        () => args.modelValue,
+        (newValue) => {
+          value.value = newValue || ''
+        }
+      )
+      return { args, value }
     },
-
-    template: '<search-input v-model=\'value\' :placeholder=\'placeholder\' />',
+    template: `
+      <search-input
+        v-model="value"
+        :placeholder="args.placeholder"
+        :clear-icon="args.clearIcon"
+        :clear-on-esc="args.clearOnEsc"
+        :blur-on-esc="args.blurOnEsc"
+        :select-on-focus="args.selectOnFocus"
+        :shortcut-key="args.shortcutKey"
+        :disabled="args.disabled"
+      />
+    `,
   }
+}
+
+// Variations of stories below
+export const Default = Template.bind({})
+Default.args = {
+  theme: 'default',
+  placeholder: 'Search Library',
+  modelValue: '',
+  clearIcon: true,
+  clearOnEsc: true,
+  blurOnEsc: true,
+  selectOnFocus: true,
+  shortcutKey: '/',
+  disabled: false,
 }
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function WithoutClearIcon() {
-  return {
-    components: { SearchInput },
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
-    data() {
-      const value = ref('')
-
-      return {
-        value,
-        placeholder: 'Search Archives',
-      }
-    },
-
-    template:
-            '<search-input v-model=\'value\' :placeholder=\'placeholder\' :clear-icon=\'false\' />',
-  }
+export const WithoutClearIcon = Template.bind({})
+WithoutClearIcon.args = {
+  ...Default.args,
+  placeholder: 'Search Archives',
+  clearIcon: false,
 }
 
-export function WithoutClearOnEsc() {
-  return {
-    components: { SearchInput },
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
-    data() {
-      const value = ref('')
-
-      return {
-        value,
-        placeholder: 'Search Catalog',
-      }
-    },
-
-    template:
-            '<search-input v-model=\'value\' :placeholder=\'placeholder\' :clear-on-esc=\'false\' />',
-  }
+export const WithoutClearOnEsc = Template.bind({})
+WithoutClearOnEsc.args = {
+  ...Default.args,
+  placeholder: 'Search Catalog',
+  clearOnEsc: false,
 }
 
-export function WithValue() {
-  return {
-    components: { SearchInput },
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
-    data() {
-      const value = ref('Initial search text')
-
-      return {
-        value,
-        placeholder: 'Search Collections',
-      }
-    },
-
-    template: '<search-input v-model=\'value\' :placeholder=\'placeholder\' />',
-  }
+export const WithValue = Template.bind({})
+WithValue.args = {
+  ...Default.args,
+  placeholder: 'Search Collections',
+  modelValue: 'Initial search text',
 }
 
-export function Disabled() {
-  return {
-    components: { SearchInput },
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
-    data() {
-      const value = ref('')
-
-      return {
-        value,
-        placeholder: 'Search (disabled)',
-      }
-    },
-
-    template:
-            '<search-input v-model=\'value\' :placeholder=\'placeholder\' disabled />',
-  }
+export const Disabled = Template.bind({})
+Disabled.args = {
+  ...Default.args,
+  placeholder: 'Search (disabled)',
+  disabled: true,
 }
 
-export function WithoutBlurOnEsc() {
-  return {
-    components: { SearchInput },
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
-    data() {
-      const value = ref('')
-
-      return {
-        value,
-        placeholder: 'Search with focus retained on Esc',
-      }
-    },
-
-    template:
-            '<search-input v-model=\'value\' :placeholder=\'placeholder\' :blur-on-esc=\'false\' />',
-  }
+export const WithoutBlurOnEsc = Template.bind({})
+WithoutBlurOnEsc.args = {
+  ...Default.args,
+  placeholder: 'Search with focus retained on Esc',
+  blurOnEsc: false,
 }
 
-export function WithoutSelectOnFocus() {
-  return {
-    components: { SearchInput },
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
-    data() {
-      const value = ref('')
-
-      return {
-        value,
-        placeholder: 'Search without auto-select on focus',
-      }
-    },
-
-    template:
-            '<search-input v-model=\'value\' :placeholder=\'placeholder\' :select-on-focus=\'false\' />',
-  }
+export const WithoutSelectOnFocus = Template.bind({})
+WithoutSelectOnFocus.args = {
+  ...Default.args,
+  placeholder: 'Search without auto-select on focus',
+  selectOnFocus: false,
 }
 
-export function WithCustomShortcutKey() {
-  return {
-    components: { SearchInput },
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
-    data() {
-      const value = ref('')
-
-      return {
-        value,
-        placeholder: 'Press \'s\' to focus',
-      }
-    },
-
-    template:
-            '<search-input v-model=\'value\' :placeholder=\'placeholder\' shortcut-key=\'s\' />',
-  }
+export const WithCustomShortcutKey = Template.bind({})
+WithCustomShortcutKey.args = {
+  ...Default.args,
+  placeholder: 'Press \'s\' to focus',
+  shortcutKey: 's',
 }
 
-export function DLCTheme() {
-  return {
-    components: { SearchInput },
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    data() {
-      const value = ref('')
-
-      return {
-        value,
-        placeholder: 'Search Library',
-      }
-    },
-
-    template: '<search-input v-model=\'value\' :placeholder=\'placeholder\' />',
-  }
+export const DLCTheme = Template.bind({})
+DLCTheme.args = {
+  ...Default.args,
+  theme: 'dlc',
 }
 
-export function FTVATheme() {
-  return {
-    components: { SearchInput },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    data() {
-      const value = ref('')
-
-      return {
-        value,
-        placeholder: 'Search Library',
-      }
-    },
-
-    template: '<search-input v-model=\'value\' :placeholder=\'placeholder\' />',
-  }
+export const FTVATheme = Template.bind({})
+FTVATheme.args = {
+  ...Default.args,
+  theme: 'ftva',
 }

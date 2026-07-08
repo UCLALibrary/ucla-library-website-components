@@ -59,7 +59,7 @@ const mock2 = {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return { ...mock }
@@ -80,11 +80,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function PayRate() {
+const PayRateTemplate = (args) => {
   return {
     data() {
       return { ...mock2 }
@@ -104,9 +107,13 @@ export function PayRate() {
   `,
   }
 }
+
+export const PayRate = PayRateTemplate.bind({})
+PayRate.args = {}
+
 // Not all jobs have departments, example: Academic Librarian Jobs
 // https://www.library.ucla.edu/about/jobs/staff-academic-jobs/
-export function emptyDepartments() {
+const emptyDepartmentsTemplate = (args) => {
   return {
     data() {
       return { ...mock2, departments: [] }
@@ -126,3 +133,6 @@ export function emptyDepartments() {
   `,
   }
 }
+
+export const emptyDepartments = emptyDepartmentsTemplate.bind({})
+emptyDepartments.args = {}

@@ -240,7 +240,7 @@ const mockExternalMeapProject = {
 
 // STORIES
 // EXTERNAL
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return {
@@ -256,11 +256,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function ExternalArticle2() {
+const ExternalArticle2Template = (args) => {
   return {
     data() {
       return {
@@ -276,7 +279,10 @@ export function ExternalArticle2() {
   }
 }
 
-export function ExternalArticleWithVideo() {
+export const ExternalArticle2 = ExternalArticle2Template.bind({})
+ExternalArticle2.args = {}
+
+const ExternalArticleWithVideoTemplate = (args) => {
   return {
     data() {
       return {
@@ -292,7 +298,10 @@ export function ExternalArticleWithVideo() {
   }
 }
 
-export function ExternalCollection() {
+export const ExternalArticleWithVideo = ExternalArticleWithVideoTemplate.bind({})
+ExternalArticleWithVideo.args = {}
+
+const ExternalCollectionTemplate = (args) => {
   return {
     data() {
       return {
@@ -308,7 +317,10 @@ export function ExternalCollection() {
   }
 }
 
-export function ExternalEvent() {
+export const ExternalCollection = ExternalCollectionTemplate.bind({})
+ExternalCollection.args = {}
+
+const ExternalEventTemplate = (args) => {
   return {
     data() {
       return {
@@ -324,7 +336,10 @@ export function ExternalEvent() {
   }
 }
 
-export function ExternalExhibition() {
+export const ExternalEvent = ExternalEventTemplate.bind({})
+ExternalEvent.args = {}
+
+const ExternalExhibitionTemplate = (args) => {
   return {
     data() {
       return {
@@ -340,7 +355,10 @@ export function ExternalExhibition() {
   }
 }
 
-export function ExternalMeapProject() {
+export const ExternalExhibition = ExternalExhibitionTemplate.bind({})
+ExternalExhibition.args = {}
+
+const ExternalMeapProjectTemplate = (args) => {
   return {
     data() {
       return {
@@ -355,6 +373,9 @@ export function ExternalMeapProject() {
     `,
   }
 }
+
+export const ExternalMeapProject = ExternalMeapProjectTemplate.bind({})
+ExternalMeapProject.args = {}
 
 // INTERNAL MOCK DATA
 const mockInternalArticle = {
@@ -871,7 +892,7 @@ const mockInternalEndowment = {
 }
 
 // INTERNAL STORIES
-export function InternalArticle() {
+const InternalArticleTemplate = (args) => {
   return {
     data() {
       return {
@@ -887,7 +908,10 @@ export function InternalArticle() {
   }
 }
 
-export function InternalArticleWithVideo() {
+export const InternalArticle = InternalArticleTemplate.bind({})
+InternalArticle.args = {}
+
+const InternalArticleWithVideoTemplate = (args) => {
   return {
     data() {
       return {
@@ -903,7 +927,10 @@ export function InternalArticleWithVideo() {
   }
 }
 
-export function InternalImpactReportArticle() {
+export const InternalArticleWithVideo = InternalArticleWithVideoTemplate.bind({})
+InternalArticleWithVideo.args = {}
+
+const InternalImpactReportArticleTemplate = (args) => {
   return {
     data() {
       return {
@@ -919,7 +946,10 @@ export function InternalImpactReportArticle() {
   }
 }
 
-export function InternalCollection() {
+export const InternalImpactReportArticle = InternalImpactReportArticleTemplate.bind({})
+InternalImpactReportArticle.args = {}
+
+const InternalCollectionTemplate = (args) => {
   return {
     data() {
       return {
@@ -935,7 +965,10 @@ export function InternalCollection() {
   }
 }
 
-export function InternalEventLeftAlign() {
+export const InternalCollection = InternalCollectionTemplate.bind({})
+InternalCollection.args = {}
+
+const InternalEventLeftAlignTemplate = (args) => {
   return {
     data() {
       return {
@@ -951,7 +984,10 @@ export function InternalEventLeftAlign() {
   }
 }
 
-export function InternalExhibition() {
+export const InternalEventLeftAlign = InternalEventLeftAlignTemplate.bind({})
+InternalEventLeftAlign.args = {}
+
+const InternalExhibitionTemplate = (args) => {
   return {
     data() {
       return {
@@ -967,7 +1003,10 @@ export function InternalExhibition() {
   }
 }
 
-export function InternalMeapArticle() {
+export const InternalExhibition = InternalExhibitionTemplate.bind({})
+InternalExhibition.args = {}
+
+const InternalMeapArticleTemplate = (args) => {
   return {
     data() {
       return {
@@ -983,7 +1022,10 @@ export function InternalMeapArticle() {
   }
 }
 
-export function InternalMeapProject() {
+export const InternalMeapArticle = InternalMeapArticleTemplate.bind({})
+InternalMeapArticle.args = {}
+
+const InternalMeapProjectTemplate = (args) => {
   return {
     data() {
       return {
@@ -999,7 +1041,10 @@ export function InternalMeapProject() {
   }
 }
 
-export function InternalEventSeries() {
+export const InternalMeapProject = InternalMeapProjectTemplate.bind({})
+InternalMeapProject.args = {}
+
+const InternalEventSeriesTemplate = (args) => {
   return {
     data() {
       return {
@@ -1015,7 +1060,10 @@ export function InternalEventSeries() {
   }
 }
 
-export function InternalWorkshop() {
+export const InternalEventSeries = InternalEventSeriesTemplate.bind({})
+InternalEventSeries.args = {}
+
+const InternalWorkshopTemplate = (args) => {
   return {
     data() {
       return {
@@ -1031,7 +1079,10 @@ export function InternalWorkshop() {
   }
 }
 
-export function InternalEndowment() {
+export const InternalWorkshop = InternalWorkshopTemplate.bind({})
+InternalWorkshop.args = {}
+
+const InternalEndowmentTemplate = (args) => {
   return {
     data() {
       return {
@@ -1046,3 +1097,6 @@ export function InternalEndowment() {
     `,
   }
 }
+
+export const InternalEndowment = InternalEndowmentTemplate.bind({})
+InternalEndowment.args = {}

@@ -304,7 +304,7 @@ const mockNoImageOrBio = {
 }
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return {
@@ -322,11 +322,14 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export function AlternativeName() {
+const AlternativeNameTemplate = (args) => {
   return {
     data() {
       return {
@@ -344,7 +347,10 @@ export function AlternativeName() {
   }
 }
 
-export function NoImage() {
+export const AlternativeName = AlternativeNameTemplate.bind({})
+AlternativeName.args = {}
+
+const NoImageTemplate = (args) => {
   return {
     data() {
       return {
@@ -362,7 +368,10 @@ export function NoImage() {
   }
 }
 
-export function NoImageOrBio() {
+export const NoImage = NoImageTemplate.bind({})
+NoImage.args = {}
+
+const NoImageOrBioTemplate = (args) => {
   return {
     data() {
       return {
@@ -381,7 +390,10 @@ export function NoImageOrBio() {
   }
 }
 
-export function AskMeAboutAndAcademicDepartments() {
+export const NoImageOrBio = NoImageOrBioTemplate.bind({})
+NoImageOrBio.args = {}
+
+const AskMeAboutAndAcademicDepartmentsTemplate = (args) => {
   return {
     data() {
       return {
@@ -398,3 +410,6 @@ export function AskMeAboutAndAcademicDepartments() {
   `,
   }
 }
+
+export const AskMeAboutAndAcademicDepartments = AskMeAboutAndAcademicDepartmentsTemplate.bind({})
+AskMeAboutAndAcademicDepartments.args = {}

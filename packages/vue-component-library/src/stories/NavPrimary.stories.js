@@ -142,7 +142,7 @@ const micrositeItems = [
 // TODO Write seperate story for NavMenuItem
 
 // Variations of stories below
-export function Default() {
+const DefaultTemplate = (args) => {
   return {
     data() {
       return {
@@ -159,10 +159,13 @@ export function Default() {
   }
 }
 
+export const Default = DefaultTemplate.bind({})
+Default.args = {}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
-export function ImpactReport() {
+const ImpactReportTemplate = (args) => {
   return {
     components: { NavPrimary },
     template: `
@@ -172,7 +175,10 @@ export function ImpactReport() {
   }
 }
 
-export function ExtraSupportLinks() {
+export const ImpactReport = ImpactReportTemplate.bind({})
+ImpactReport.args = {}
+
+const ExtraSupportLinksTemplate = (args) => {
   return {
     data() {
       const newItems = items
@@ -192,7 +198,10 @@ export function ExtraSupportLinks() {
   }
 }
 
-export function WithMicrositeTitle() {
+export const ExtraSupportLinks = ExtraSupportLinksTemplate.bind({})
+ExtraSupportLinks.args = {}
+
+const WithMicrositeTitleTemplate = (args) => {
   return {
     data() {
       return {
@@ -211,7 +220,10 @@ export function WithMicrositeTitle() {
   }
 }
 
-export function FTVA() {
+export const WithMicrositeTitle = WithMicrositeTitleTemplate.bind({})
+WithMicrositeTitle.args = {}
+
+const FTVATemplate = (args) => {
   return {
     data() {
       return {
@@ -229,6 +241,9 @@ If the FTVA product ever uses NavPrimary outside of headersticky context, a stor
     `,
   }
 }
+
+export const FTVA = FTVATemplate.bind({})
+FTVA.args = {}
 
 /* Notes on FTVA version
 NavPrimary is used in the ftva site, however it's much more dependent on headersticky for positioning and styles, especially in mobile views.
