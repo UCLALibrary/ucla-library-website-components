@@ -7,7 +7,7 @@ const mock = {
   isUclaLibrary: true,
   title: 'Arts Library',
   image: API.image,
-  libcalLocationIdForHours: '2081',
+  libcalLocationIdForHours: '4690',
   reserveSeat: 'http://google.com/reserveSeat',
   address: '1400 Public Affairs Building Los Angeles, CA 90095-1392',
   addressLink: 'http://google.com/address',
@@ -93,7 +93,7 @@ function Template(args) {
       const originalFetch = globalThis.fetch
 
       globalThis.fetch = async () => {
-        if (args.libcalLocationIdForHours === '2081') {
+        if (args.libcalLocationIdForHours === '4690') {
           return {
             ok: true,
             json: async () => mockHoursResponse,
