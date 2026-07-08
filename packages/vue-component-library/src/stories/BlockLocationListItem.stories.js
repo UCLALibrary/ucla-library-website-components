@@ -1,4 +1,5 @@
 import { onUnmounted } from 'vue'
+
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 import BlockLocationListItem from '@/lib-components/BlockLocationListItem'
@@ -84,11 +85,10 @@ export default {
 function Template(args) {
   return {
     setup() {
-
       /*
-      We want to prevent a fetch call from being made to the actual API 
-      during visual regression testing, because Chromatic creates 
-      differences each time data changes. Instead we're mocking a fetch 
+      We want to prevent a fetch call from being made to the actual API
+      during visual regression testing, because Chromatic creates
+      differences each time data changes. Instead we're mocking a fetch
       call to return static [location hours] data.
       */
 
@@ -108,7 +108,7 @@ function Template(args) {
         globalThis.fetch = originalFetch
       })
 
-      return { args}
+      return { args }
     },
     components: { BlockLocationListItem },
     template: '<block-location-list-item v-bind="args" />',
