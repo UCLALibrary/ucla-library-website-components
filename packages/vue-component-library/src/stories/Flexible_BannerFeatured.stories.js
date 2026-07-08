@@ -35,7 +35,7 @@ const mockExternalArticle = {
       },
       byline1: 'Feburary 2022',
       byline2: 'Kiki Smith',
-      to: 'www.foxes.com',
+      to: 'https://www.animalspot.net/fox',
       category: 'foxes',
       contentType: 'project',
     },
