@@ -355,10 +355,10 @@ export const mockInternalArticle = {
               image: [
                 {
                   id: '4989566',
-                  src: 'https: //static.library.ucla.edu/craftassetstest/images/_fullscreen/twiggy.jpg',
+                  src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/twiggy.jpg',
                   height: 1440,
                   width: 2560,
-                  srcset: 'https: //static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/twiggy.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/twiggy.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/twiggy.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/twiggy.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/twiggy.jpg 2560w',
+                  srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/twiggy.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/twiggy.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/twiggy.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/twiggy.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/twiggy.jpg 2560w',
                   alt: null,
                   focalPoint: [
                     0.5,
