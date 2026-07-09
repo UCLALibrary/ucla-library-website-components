@@ -34,7 +34,10 @@ const classes = computed(() => {
 function parsedFtvaLink(obj: any) {
   if (obj.typeHandle === 'externalContent')
     return obj.to
-  else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage')
+  else if (
+    obj.contentType === 'article'
+    || obj.contentType === 'generalContentPage'
+  )
     return `https://www.library.ucla.edu/${obj.uri}`
   else if (obj.contentType === 'ftvaGeneralContentPage')
     return obj.slug
@@ -106,14 +109,16 @@ const parsedItems = computed(() => {
           byline2: parsedFtvaArticleAndEventDate(obj),
         }
       }
-
+      // InternalContent - External Article
       else if (
         obj.typeHandle !== 'externalContent'
         && obj.contentType.includes('article')
       ) {
         return {
           ...obj,
-          to: stripMeapFromURI(obj.to),
+          to: obj.contentType === 'externalArticle'
+            ? obj.to
+            : stripMeapFromURI(obj.to),
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
@@ -184,7 +189,7 @@ const parsedItems = computed(() => {
       else if (
         obj.typeHandle !== 'externalContent'
         && (obj.contentType === 'exhibition'
-          || 'workshopOrEventSeries')
+          || obj.contentType === 'workshopOrEventSeries')
       ) {
         return {
           ...obj,
