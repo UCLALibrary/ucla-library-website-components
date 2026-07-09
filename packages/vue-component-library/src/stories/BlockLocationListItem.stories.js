@@ -1,5 +1,3 @@
-import { onUnmounted } from 'vue'
-
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 import BlockLocationListItem from '@/lib-components/BlockLocationListItem'
@@ -94,19 +92,21 @@ function Template(args) {
 
       const originalFetch = globalThis.fetch
 
-      globalThis.fetch = async () => {
-        if (args.libcalLocationIdForHours === '4690') {
-          return {
-            ok: true,
-            json: async () => mockHoursResponse,
+      globalThis.fetch = async (...fetchArgs) => {
+        try {
+          if (args.libcalLocationIdForHours === '4690') {
+            return {
+              ok: true,
+              json: async () => mockHoursResponse,
+            }
           }
+
+          return originalFetch(...fetchArgs)
+        }
+        finally {
+          globalThis.fetch = originalFetch
         }
       }
-
-      // Reset fetch to original state after unmounting the component
-      onUnmounted(() => {
-        globalThis.fetch = originalFetch
-      })
 
       return { args }
     },
@@ -131,5 +131,5 @@ export const NoHours = Template.bind({})
 NoHours.args = {
   ...mock,
   // Non-existent id that returns empty data [no location hours] with actual Fetch call
-  libcalLocationIdForHours: '4691',
+  libcalLocationIdForHours: '208111',
 }
