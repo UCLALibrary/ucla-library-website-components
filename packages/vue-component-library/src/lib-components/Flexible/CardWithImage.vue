@@ -64,8 +64,12 @@ function parsedFtvaImage(obj: any) {
   )
     return (obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage[0] || undefined
 
-  else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage' || obj.contentType === 'collection')
-    return ((obj.heroImage.length > 0) && obj.heroImage[0].image[0]) || undefined
+  else if (obj.contentType === 'article'
+    || obj.contentType === 'externalArticle'
+    || obj.contentType === 'generalContentPage'
+    || obj.contentType === 'collection'
+  )
+    return ((obj.heroImage?.length > 0) && obj.heroImage[0].image[0]) || undefined
 
   else if (obj.typeHandle === 'externalContent')
     return obj.image[0] || undefined
@@ -104,15 +108,15 @@ const parsedItems = computed(() => {
           to: parsedFtvaLink(obj),
           title: obj.eventTitle || obj.title || obj.titleGeneral,
           parsedImage: parsedFtvaImage(obj),
-          postDate: (obj.contentType === 'ftvaArticle') ? 'obj.postDate' : null,
+          postDate: obj.contentType === 'ftvaArticle' ? obj.postDate : null,
           // byline2 Formats the date to April 3, 2025
           byline2: parsedFtvaArticleAndEventDate(obj),
         }
       }
-      // InternalContent - External Article
+      // InternalContent - Article OR External Article
       else if (
         obj.typeHandle !== 'externalContent'
-        && obj.contentType.includes('article')
+        && ['article', 'externalArticle'].includes(obj.contentType)
       ) {
         return {
           ...obj,
@@ -122,7 +126,6 @@ const parsedItems = computed(() => {
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
-            undefined
           ),
           parsedLocation: _get(
             obj,
