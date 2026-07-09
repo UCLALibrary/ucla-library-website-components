@@ -1,3 +1,5 @@
+import { onUnmounted } from 'vue'
+
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 
@@ -109,16 +111,18 @@ export function Default() {
       const originalFetch = globalThis.fetch
 
       // Use mock/fixed hours for UCLA Library locations only
-      if (mock.some(({ isUclaLibrary }) => isUclaLibrary)) {
-        globalThis.fetch = async () => {
-          globalThis.fetch = originalFetch // Restore original fetch
+      const useMock = mock.some(({ isUclaLibrary }) => isUclaLibrary)
 
-          return {
+      if (useMock) {
+          globalThis.fetch = async () => ({
             ok: true,
             json: async () => mockHoursResponse,
-          }
+          })
         }
-      }
+
+        onUnmounted(() => {
+          globalThis.fetch = originalFetch
+        })
     },
     data() {
       return { items: mock }
