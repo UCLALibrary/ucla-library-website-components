@@ -332,7 +332,7 @@ export const mockInternalArticle = {
         }
       ]
     },
-      {
+    {
       id: '4989629',
       typeHandle: 'internalContent',
       contentLink: [
