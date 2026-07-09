@@ -114,15 +114,15 @@ export function Default() {
       const useMock = mock.some(({ isUclaLibrary }) => isUclaLibrary)
 
       if (useMock) {
-          globalThis.fetch = async () => ({
-            ok: true,
-            json: async () => mockHoursResponse,
-          })
-        }
-
-        onUnmounted(() => {
-          globalThis.fetch = originalFetch
+        globalThis.fetch = async () => ({
+          ok: true,
+          json: async () => mockHoursResponse,
         })
+      }
+
+      onUnmounted(() => {
+        globalThis.fetch = originalFetch
+      })
     },
     data() {
       return { items: mock }
