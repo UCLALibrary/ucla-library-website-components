@@ -81,9 +81,45 @@ const mock = [
   },
 ]
 
+const mockHoursResponse = {
+  locations: [
+    {
+      status: 'open',
+      day: 'Monday',
+      times: {
+        hours: [{ from: '3am', to: '3pm' }],
+        status: 'open',
+        text: '',
+      },
+    },
+  ],
+}
+
 // Variations of stories below
 export function Default() {
   return {
+    setup() {
+      /*
+      Prevent a fetch call from being made to the actual API
+      during visual regression testing, because Chromatic creates
+      differences each time data changes. Instead mock a fetch
+      call to return static [location hours] data.
+      */
+
+      const originalFetch = globalThis.fetch
+
+      // Use mock/fixed hours for UCLA Library locations only
+      if (mock.some(({ isUclaLibrary }) => isUclaLibrary)) {
+        globalThis.fetch = async () => {
+          globalThis.fetch = originalFetch // Restore original fetch
+
+          return {
+            ok: true,
+            json: async () => mockHoursResponse,
+          }
+        }
+      }
+    },
     data() {
       return { items: mock }
     },

@@ -84,9 +84,9 @@ function Template(args) {
   return {
     setup() {
       /*
-      We want to prevent a fetch call from being made to the actual API
+      Prevent a fetch call from being made to the actual API
       during visual regression testing, because Chromatic creates
-      differences each time data changes. Instead we're mocking a fetch
+      differences each time data changes. Instead mock a fetch
       call to return static [location hours] data.
       */
 
@@ -104,7 +104,7 @@ function Template(args) {
           return originalFetch(...fetchArgs)
         }
         finally {
-          globalThis.fetch = originalFetch
+          globalThis.fetch = originalFetch // Restore original fetch
         }
       }
 
