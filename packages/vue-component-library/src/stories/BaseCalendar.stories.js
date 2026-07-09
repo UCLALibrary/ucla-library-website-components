@@ -22,7 +22,6 @@ import { mockCalendarEvents } from './mock/CalendarEvents'
  * 3. firstEventMonth: Array with a default `new Date()` object as its only item
  * - When used, sets the first month that the calendar displays on page load
  * - Example syntax: `[new Date('September 01, 2024 00:00:00')]`
- * - See __Set Start Month__ story
  */
 
 export default {
@@ -30,13 +29,15 @@ export default {
   component: BaseCalendar,
 }
 
+const mockCalendarStartMonth = [new Date('September 01, 2024 00:00:00')]
+
 export function DefaultVuetify() {
   return {
     data() {
-      return { ...mockCalendarEvents }
+      return { ...mockCalendarEvents, mockCalendarStartMonth }
     },
     components: { BaseCalendar },
-    template: '<div style="display: flex;justify-content: center;"><base-calendar :events="events" :defaultEventCalendar="false" /></div>'
+    template: '<div style="display: flex;justify-content: center;"><base-calendar :events="events" :defaultEventCalendar="false" :firstEventMonth="mockCalendarStartMonth" /></div>'
   }
 }
 
@@ -47,17 +48,17 @@ DefaultVuetify.parameters = {
 export function DefaultEvent() {
   return {
     data() {
-      return { ...mockCalendarEvents }
+      return { ...mockCalendarEvents, mockCalendarStartMonth }
     },
     components: { BaseCalendar },
-    template: '<div style="display: flex;justify-content: center;"><base-calendar :events="events" /></div>'
+    template: '<div style="display: flex;justify-content: center;"><base-calendar :events="events" :firstEventMonth="mockCalendarStartMonth" /></div>'
   }
 }
 
 export function DefaultFTVAEvent() {
   return {
     data() {
-      return { ...mockCalendarEvents }
+      return { ...mockCalendarEvents, mockCalendarStartMonth }
     },
     provide() {
       return {
@@ -65,30 +66,7 @@ export function DefaultFTVAEvent() {
       }
     },
     components: { BaseCalendar },
-    template: '<div style="display: flex;justify-content: center;"><base-calendar :events="events" /></div>'
-  }
-}
-
-export function SetStartMonth() {
-  return {
-    data() {
-      return {
-        ...mockCalendarEvents,
-        mockCalendarStart: [new Date('September 01, 2024 00:00:00')],
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { BaseCalendar },
-    template: `<div 
-        style="display: flex;justify-content: center;">
-        <base-calendar
-          :events="events"
-          :firstEventMonth="mockCalendarStart" />
-      </div>`
+    template: '<div style="display: flex;justify-content: center;"><base-calendar :events="events" :firstEventMonth="mockCalendarStartMonth" /></div>'
   }
 }
 
