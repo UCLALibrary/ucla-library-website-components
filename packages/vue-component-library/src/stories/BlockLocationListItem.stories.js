@@ -129,7 +129,7 @@ NoImage.args = {
   ...mock,
   image: '',
   // Real location id ignored by the mock Fetch call so actual Fetch call returns live data
-  libcalLocationIdForHours: '2081', 
+  libcalLocationIdForHours: '2081',
 }
 
 export const NoHours = Template.bind({})
