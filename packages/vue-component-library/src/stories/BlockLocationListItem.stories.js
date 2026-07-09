@@ -125,11 +125,16 @@ Default.parameters = {
 }
 
 export const NoImage = Template.bind({})
-NoImage.args = { ...mock, image: '' }
+NoImage.args = {
+  ...mock,
+  image: '',
+  // Real location id ignored by the mock Fetch call so actual Fetch call returns live data
+  libcalLocationIdForHours: '2081', 
+}
 
 export const NoHours = Template.bind({})
 NoHours.args = {
   ...mock,
-  // Non-existent id that returns empty data [no location hours] with actual Fetch call
+  // Fake location id that returns empty data [no location hours] with actual Fetch call
   libcalLocationIdForHours: '208111',
 }
