@@ -102,7 +102,7 @@ const mockInternalContentArticleExternalArticleAndExternalContent = {
           contentType: 'externalArticle',
           headlineText: 'Water Polo',
           snippet: '<p><strong>Internal Content - External Article</strong><br/> A highly competitive, fast-paced aquatic sport that builds elite endurance, speed, and teamwork.</p>',
-          to: 'https:/www.the562.org/2022/11/17/girls-water-polo-preview-long-beach-poly-jackrabbits-2',
+          to: 'https://www.the562.org/2022/11/17/girls-water-polo-preview-long-beach-poly-jackrabbits-2',
           heroImage: [
             {
               image: [
