@@ -32,27 +32,18 @@ function flattenTimeLineStructure(galleryData: FlexibleGridGallery) {
         : subitem.snippet
 
     obj.featured = subitem.featured === 'true'
-    obj.to
-      // Is it internalContent?
-      = subitem.contentLink && subitem.contentLink[0]
-        ? (
-            // Is it externalArticle?
-            subitem.contentLink[0].contentType === 'externalArticle'
-              // Yes → return raw external URL
-              ? subitem.contentLink[0].to
-              // No → strip + return internal URL
-              : stripMeapFromURI(subitem.contentLink[0].to)
-          )
-        : (
-            // Is it standalone externalContent?
-            subitem.contentType === 'externalArticle'
-              // Yes → return raw external URL
-              ? subitem.to
-              // Else → return empty string (or fallback behavior)
-              : subitem.to
-                ? stripMeapFromURI(subitem.to)
-                : ''
-          )
+    // Is it internalContent?
+    obj.to = subitem.contentLink?.[0]
+      ? (
+          // Is it externalArticle?
+          subitem.contentLink[0].contentType === 'externalArticle'
+            // Yes → return raw external URL
+            ? subitem.contentLink[0].to
+            // Else → return /local/version
+            : stripMeapFromURI(subitem.contentLink[0].to)
+        )
+      // Is it standalone externalContent? Yes → return raw external URL
+      : subitem.to || ''
     obj.image
       = subitem.contentLink
         && subitem.contentLink[0]
@@ -94,7 +85,7 @@ const parseGalleryCards = computed(() => {
         v-html="block.sectionSummary"
       />
     </div>
-
+<h3>BLOCK:<pre>{{block}}</pre></h3>
     <GridGallery
       v-if="block.gridGalleryCards && block.gridGalleryCards.length > 0"
       class="section-summary"
