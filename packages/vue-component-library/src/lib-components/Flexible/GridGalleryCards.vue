@@ -85,7 +85,7 @@ const parseGalleryCards = computed(() => {
         v-html="block.sectionSummary"
       />
     </div>
-<h3>BLOCK:<pre>{{block}}</pre></h3>
+
     <GridGallery
       v-if="block.gridGalleryCards && block.gridGalleryCards.length > 0"
       class="section-summary"
