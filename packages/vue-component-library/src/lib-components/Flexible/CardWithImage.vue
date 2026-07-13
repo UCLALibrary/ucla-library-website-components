@@ -108,7 +108,7 @@ const parsedItems = computed(() => {
           to: parsedFtvaLink(obj),
           title: obj.eventTitle || obj.title || obj.titleGeneral,
           parsedImage: parsedFtvaImage(obj),
-          postDate: obj.contentType === 'ftvaArticle' ? obj.postDate : null,
+          postDate: obj.contentType === 'ftvaArticle' ? 'obj.postDate' : null,
           // byline2 Formats the date to April 3, 2025
           byline2: parsedFtvaArticleAndEventDate(obj),
         }

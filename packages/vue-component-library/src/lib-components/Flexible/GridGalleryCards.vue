@@ -17,30 +17,51 @@ const { block } = defineProps ({
 
 function flattenTimeLineStructure(galleryData: FlexibleGridGallery) {
   const flattenedValues = []
+
   for (const subitem of galleryData.gridGalleryCards) {
     const obj: GridGalleryItemType = {}
+
     obj.headlineText
-                  = subitem.contentLink && subitem.contentLink[0]
+      = subitem.contentLink && subitem.contentLink[0]
         ? subitem.contentLink[0].headlineText
         : subitem.headlineText
+
     obj.snippet
-                  = subitem.contentLink && subitem.contentLink[0]
+      = subitem.contentLink && subitem.contentLink[0]
         ? subitem.contentLink[0].snippet
         : subitem.snippet
+
     obj.featured = subitem.featured === 'true'
-    obj.to = stripMeapFromURI(
+    obj.to =
+      // Is it internalContent?
       subitem.contentLink && subitem.contentLink[0]
-        ? subitem.contentLink[0].to
-        : subitem.to
-    )
+        ? (
+            // Is it externalArticle?
+            subitem.contentLink[0].contentType === 'externalArticle'
+              // Yes → return raw external URL
+              ? subitem.contentLink[0].to
+              // No → strip + return internal URL
+              : stripMeapFromURI(subitem.contentLink[0].to)
+          )
+        : (
+            // Is it standalone externalContent?
+            subitem.contentType === 'externalArticle'
+              // Yes → return raw external URL
+              ? subitem.to
+              // Else → return empty string (or fallback behavior)
+              : subitem.to
+                ? stripMeapFromURI(subitem.to)
+                : ''
+          )
     obj.image
-                  = subitem.contentLink
-                  && subitem.contentLink[0]
-                  && subitem.contentLink[0].heroImage
+      = subitem.contentLink
+        && subitem.contentLink[0]
+        && subitem.contentLink[0].heroImage
         ? subitem.contentLink[0].heroImage[0].image[0]
         : subitem.image
           ? subitem.image[0]
           : {}
+
     flattenedValues.push(obj)
   }
 
