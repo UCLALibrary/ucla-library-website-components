@@ -32,9 +32,9 @@ function flattenTimeLineStructure(galleryData: FlexibleGridGallery) {
         : subitem.snippet
 
     obj.featured = subitem.featured === 'true'
-    obj.to =
+    obj.to
       // Is it internalContent?
-      subitem.contentLink && subitem.contentLink[0]
+      = subitem.contentLink && subitem.contentLink[0]
         ? (
             // Is it externalArticle?
             subitem.contentLink[0].contentType === 'externalArticle'
