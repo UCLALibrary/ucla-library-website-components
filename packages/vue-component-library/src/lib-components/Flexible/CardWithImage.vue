@@ -34,10 +34,7 @@ const classes = computed(() => {
 function parsedFtvaLink(obj: any) {
   if (obj.typeHandle === 'externalContent')
     return obj.to
-  else if (
-    obj.contentType === 'article'
-    || obj.contentType === 'generalContentPage'
-  )
+  else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage')
     return `https://www.library.ucla.edu/${obj.uri}`
   else if (obj.contentType === 'ftvaGeneralContentPage')
     return obj.slug
@@ -64,12 +61,8 @@ function parsedFtvaImage(obj: any) {
   )
     return (obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage[0] || undefined
 
-  else if (obj.contentType === 'article'
-    || obj.contentType === 'externalArticle'
-    || obj.contentType === 'generalContentPage'
-    || obj.contentType === 'collection'
-  )
-    return ((obj.heroImage?.length > 0) && obj.heroImage[0].image[0]) || undefined
+  else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage' || obj.contentType === 'collection')
+    return ((obj.heroImage.length > 0) && obj.heroImage[0].image[0]) || undefined
 
   else if (obj.typeHandle === 'externalContent')
     return obj.image[0] || undefined
@@ -108,24 +101,23 @@ const parsedItems = computed(() => {
           to: parsedFtvaLink(obj),
           title: obj.eventTitle || obj.title || obj.titleGeneral,
           parsedImage: parsedFtvaImage(obj),
-          postDate: obj.contentType === 'ftvaArticle' ? 'obj.postDate' : null,
+          postDate: (obj.contentType === 'ftvaArticle') ? 'obj.postDate' : null,
           // byline2 Formats the date to April 3, 2025
           byline2: parsedFtvaArticleAndEventDate(obj),
         }
       }
-      // InternalContent - Article OR External Article
+
       else if (
         obj.typeHandle !== 'externalContent'
-        && ['article', 'externalArticle'].includes(obj.contentType)
+        && obj.contentType.includes('article')
       ) {
         return {
           ...obj,
-          to: obj.contentType === 'externalArticle'
-            ? obj.to
-            : stripMeapFromURI(obj.to),
+          to: stripMeapFromURI(obj.to),
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
+            undefined
           ),
           parsedLocation: _get(
             obj,
@@ -192,7 +184,7 @@ const parsedItems = computed(() => {
       else if (
         obj.typeHandle !== 'externalContent'
         && (obj.contentType === 'exhibition'
-          || obj.contentType === 'workshopOrEventSeries')
+          || 'workshopOrEventSeries')
       ) {
         return {
           ...obj,
