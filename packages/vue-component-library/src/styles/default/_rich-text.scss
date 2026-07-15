@@ -77,7 +77,7 @@
 
   :deep(figure) {
     width: 100%;
-    margin: var(--space-s);
+    margin: var(--space-s); // this is the default behavior but we will make an exception for videos below
     display: flex;
     flex-direction: column;
 
@@ -270,5 +270,13 @@
       --spacing-text-left: 24px;
       --container-width: 100%;
     }
+  }
+}
+
+// We only want this style for the library & meap sites, not as a base for all default themes
+.rich-text:not(.ftva, .dlc) {
+  :deep(figure):has(iframe) {
+    // only for iframes (used for video youtube embeds)
+    margin: 0;
   }
 }
