@@ -82,16 +82,16 @@ export const mockFourCards = {
       externalLink: 'https://www.metmuseum.org/about-the-met/collection-areas/drawings-and-prints/materials-and-techniques/printmaking/screenprint#:~:text=Screenprinting%20is%20a%20process%20where,through%20forms%20the%20printed%20image.'
     },
     {
-      id: "4986286",
-      typeHandle: "internalServiceOrResource",
+      id: '4986286',
+      typeHandle: 'internalServiceOrResource',
       contentLink: [
         {
-          id: "4981833",
-          uri: "https:/www.the562.org/2022/11/17/girls-water-polo-preview-long-beach-poly-jackrabbits-2",
-          slug: "water-polo",
-          title: "Water Polo - ( Internal Content External Article )",
-          summary: "<p><strong><strong><strong>Internal Content</strong> - External Article </strong></strong> A highly competitive, fast-paced aquatic sport that builds elite endurance, speed, and teamwork.</p>",
-          externalResourceUrl: "https://www.the562.org/2022/11/17/girls-water-polo-preview-long-beach-poly-jackrabbits-2/"
+          id: '4981833',
+          uri: 'https:/www.the562.org/2022/11/17/girls-water-polo-preview-long-beach-poly-jackrabbits-2',
+          slug: 'water-polo',
+          title: 'Water Polo - ( Internal Content External Article )',
+          summary: '<p><strong><strong><strong>Internal Content</strong> - External Article </strong></strong> A highly competitive, fast-paced aquatic sport that builds elite endurance, speed, and teamwork.</p>',
+          externalResourceUrl: 'https://www.the562.org/2022/11/17/girls-water-polo-preview-long-beach-poly-jackrabbits-2/'
         }
       ]
     },
