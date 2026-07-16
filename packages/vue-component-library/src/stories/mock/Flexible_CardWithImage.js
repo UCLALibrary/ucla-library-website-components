@@ -124,7 +124,7 @@ export const mockInternalEvent = {
           ]
         }
       ]
-    },
+    }
   ]
 }
 
@@ -280,11 +280,11 @@ export const mockInternalSeries = {
   ]
 }
 
-// Article
+// Internal Article & InternalContent - External Article
 export const mockInternalArticle = {
   id: '2900942',
   typeHandle: 'cardWithImage',
-  sectionTitle: 'FPB CARD WITH IMAGE - Dangerous Diseases from Squirrels',
+  sectionTitle: 'FPB CARD WITH IMAGE - InternalContent Article & ExternalArticle',
   sectionSummary: '<p><em><a href=\"https://www.critterguard.org/blogs/articles/dangerous-diseases-from-squirrels-in-the-home\" target=\"_blank\" rel=\"noreferrer noopener\">Be careful of these</a></em> <strong>diseases</strong> that can be transmitted from squirrels to humans: Leptospirosis, Lyme Disease, Salmonellosis, Tularemia, Rabies.</p>',
   cardWithImage: [
     {
@@ -331,7 +331,46 @@ export const mockInternalArticle = {
           ]
         }
       ]
-    }
+    },
+    {
+      id: '4989629',
+      typeHandle: 'internalContent',
+      contentLink: [
+        {
+          id: '4989564',
+          contentType: 'externalArticle',
+          to: 'https://twiggyshow.com',
+          title: 'Twiggy the Skiing Squirrel',
+          text: '<p><strong>New External Article field.</strong> Twiggy the squirrel has appeared in numerous books, magazines, newspapers, and television shows all over the world.</p>',
+          articleCategory: [
+            {
+              title: 'Animals'
+            }
+          ],
+          articleByline2: '2026-07-08T16: 51: 00-07: 00',
+          associatedLocations: [],
+          heroImage: [
+            {
+              id: '4989567',
+              image: [
+                {
+                  id: '4989566',
+                  src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/twiggy.jpg',
+                  height: 1440,
+                  width: 2560,
+                  srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/twiggy.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/twiggy.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/twiggy.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/twiggy.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/twiggy.jpg 2560w',
+                  alt: null,
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
   ]
 }
 

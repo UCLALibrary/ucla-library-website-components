@@ -35,7 +35,7 @@ const mockExternalArticle = {
       },
       byline1: 'Feburary 2022',
       byline2: 'Kiki Smith',
-      to: 'www.foxes.com',
+      to: 'https://www.animalspot.net/fox',
       category: 'foxes',
       contentType: 'project',
     },
@@ -422,6 +422,64 @@ const mockInternalArticle = {
     },
   ],
   typeHandle: 'bannerFeatured',
+}
+
+const mockInternalContentExternalArticle = {
+  id: '4984869',
+  typeHandle: 'bannerFeatured',
+  sectionTitle: 'Internal Content ExternalArticle',
+  content: [
+    {
+      id: '4987160',
+      contentLink: [
+        {
+          contentType: 'externalArticle',
+          title: 'Davenport California',
+          to: 'https://www.tripadvisor.com/Tourism-g32282-Davenport_California-Vacations.html',
+          summary: '<p>New External Article field. Davenport is notable for its scenery, with numerous bluffs and cliff faces stretching along its perimeter, as well as foothills and forests toward its east.</p>',
+          articleCategory: [
+            {
+              title: 'Preservation & Restoration'
+            }
+          ],
+          articleByline1: [
+            {
+              id: '11827',
+              to: 'about/staff/brigid-abreu',
+              title: 'Brigid Abreu',
+            },
+          ],
+          articleByline2: '2026-06-26T14:27:00-07:00',
+          articleLocations: [
+            {
+              id: '18347',
+              title: 'Arts library',
+              to: 'visit/locations/arts-library',
+              uri: 'visit/locations/arts-library'
+            }
+          ],
+          heroImage: [
+            {
+              image: [
+                {
+                  id: '4981817',
+                  src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/davenport-landing-beach.jpg',
+                  height: 1705,
+                  width: 2560,
+                  srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/davenport-landing-beach.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/davenport-landing-beach.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/davenport-landing-beach.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/davenport-landing-beach.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/davenport-landing-beach.jpg 2560w',
+                  alt: null,
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
 
 const mockInternalArticleWithVideo = {
@@ -876,6 +934,22 @@ export function InternalArticle() {
     data() {
       return {
         block: mockInternalArticle,
+      }
+    },
+    components: { FlexibleBannerFeatured },
+    template: `
+        <flexible-banner-featured
+            :block="block"
+       />
+    `,
+  }
+}
+
+export function InternalContentExternalArticle() {
+  return {
+    data() {
+      return {
+        block: mockInternalContentExternalArticle,
       }
     },
     components: { FlexibleBannerFeatured },

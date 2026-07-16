@@ -82,6 +82,20 @@ export const mockFourCards = {
       externalLink: 'https://www.metmuseum.org/about-the-met/collection-areas/drawings-and-prints/materials-and-techniques/printmaking/screenprint#:~:text=Screenprinting%20is%20a%20process%20where,through%20forms%20the%20printed%20image.'
     },
     {
+      id: "4986286",
+      typeHandle: "internalServiceOrResource",
+      contentLink: [
+        {
+          id: "4981833",
+          uri: "https:/www.the562.org/2022/11/17/girls-water-polo-preview-long-beach-poly-jackrabbits-2",
+          slug: "water-polo",
+          title: "Water Polo - ( Internal Content External Article )",
+          summary: "<p><strong><strong><strong>Internal Content</strong> - External Article </strong></strong> A highly competitive, fast-paced aquatic sport that builds elite endurance, speed, and teamwork.</p>",
+          externalResourceUrl: "https://www.the562.org/2022/11/17/girls-water-polo-preview-long-beach-poly-jackrabbits-2/"
+        }
+      ]
+    },
+    {
       id: '2870799',
       typeHandle: 'externalServiceOrResource',
       title: 'Flexography (External Content)',
@@ -101,19 +115,19 @@ export const mockFourCards = {
         }
       ]
     },
-    {
-      id: '2881043',
-      typeHandle: 'internalServiceOrResource',
-      contentLink: [
-        {
-          id: '9254',
-          uri: 'visit/events-exhibitions/three-dimensional-printing',
-          slug: 'three-dimensional-printing',
-          title: 'TEST - Three Dimensional Printing',
-          summary: '<p><b>3D printing</b><span> or </span><b>additive manufacturing</b><span> is the </span><a href=\"https://en.wikipedia.org/wiki/Manufacturing\" title=\"Manufacturing\">construction</a><span> of a </span><a href=\"https://en.wikipedia.org/wiki/Three-dimensional_object\" class=\"mw-redirect\" title=\"Three-dimensional object\">three-dimensional object</a><span> from a </span><a href=\"https://en.wikipedia.org/wiki/Computer-aided_design\" title=\"Computer-aided design\">CAD</a><span> model or a digital </span><a href=\"https://en.wikipedia.org/wiki/3D_modeling\" title=\"3D modeling\">3D model</a><span>.</span></p>'
-        }
-      ]
-    },
+    // {
+    //   id: '2881043',
+    //   typeHandle: 'internalServiceOrResource',
+    //   contentLink: [
+    //     {
+    //       id: '9254',
+    //       uri: 'visit/events-exhibitions/three-dimensional-printing',
+    //       slug: 'three-dimensional-printing',
+    //       title: 'TEST - Three Dimensional Printing',
+    //       summary: '<p><b>3D printing</b><span> or </span><b>additive manufacturing</b><span> is the </span><a href=\"https://en.wikipedia.org/wiki/Manufacturing\" title=\"Manufacturing\">construction</a><span> of a </span><a href=\"https://en.wikipedia.org/wiki/Three-dimensional_object\" class=\"mw-redirect\" title=\"Three-dimensional object\">three-dimensional object</a><span> from a </span><a href=\"https://en.wikipedia.org/wiki/Computer-aided_design\" title=\"Computer-aided design\">CAD</a><span> model or a digital </span><a href=\"https://en.wikipedia.org/wiki/3D_modeling\" title=\"3D modeling\">3D model</a><span>.</span></p>'
+    //     }
+    //   ]
+    // },
     // TODO Event - eventDetail == title & eventDescription == summary
     // {
     //   id: "2870995",
