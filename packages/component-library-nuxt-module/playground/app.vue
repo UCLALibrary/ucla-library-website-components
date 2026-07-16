@@ -21,9 +21,13 @@
     <hr>
     <br>
   </div>
+
   <div>
-    <h2> BannerFeatured component</h2>
-    <BannerFeatured
+    <h2> BannerHeader
+    </h2>
+    <BannerHeader
+      :start-date="MOCK.mockdata.startDate"
+      :end-date="MOCK.mockdata.endDate"
       :media="MOCK.mockdata.image"
       :to="MOCK.mockdata.toHelp"
       :title="MOCK.mockdata.title"
