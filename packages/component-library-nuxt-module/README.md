@@ -1,80 +1,203 @@
-<!--
-Get your module up and running quickly.
+# UCLA Library Component Library Nuxt Module
 
-Find and replace all on all files (CMD+SHIFT+F):
-- Name: My Module
-- Package name: my-module
-- Description: My new Nuxt module
--->
+This package exposes the UCLA Library Vue Component Library as a Nuxt module. It automatically registers all exported Vue components and injects the shared component library stylesheet into a Nuxt application.
 
-# Nuxt Module
+## Package Layout
 
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![License][license-src]][license-href]
-[![Nuxt][nuxt-src]][nuxt-href]
-
-My new Nuxt module for doing amazing things.
-
-- [✨ &nbsp;Release Notes](/CHANGELOG.md)
-  <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
-  <!-- - [📖 &nbsp;Documentation](https://example.com) -->
-
-## Features
-
-<!-- Highlight some of the features your module provide here -->
-
-- ⛰ Auto import vue component library
-
-## Quick Setup
-
-Install the module to your Nuxt application with one command:
-
-```bash
-npx nuxi module add @apps-monorepo-poc/nuxt-module
+```
+packages/
+├── vue-component-library/          # Vue component library
+└── component-library-nuxt-module/
+    ├── src/                        # Nuxt module source
+    ├── playground/                 # Manual development application
+    └── test/fixtures/              # Automated test applications
 ```
 
-That's it! You can now use Nuxt Module in your Nuxt app ✨
+---
 
-## Contribution
+# Prerequisites
 
-<details>
-  <summary>Local development</summary>
-  
-  ```bash
-  
-  # Install dependencies
-  pnpm install
-  
-  # Generate type stubs
-  pnpm run dev:prepare
-  
-  # Develop with the playground
-  pnpm run dev
-  
-  # Build the playground
-  pnpm run dev:build
-  
-  # Run ESLint
-  pnpm run lint
-  
-  # Run Vitest
-  pnpm run test
-  pnpm run test:watch
-  
-  # Release new version (Github action handles this)
-  pnpm relaase && pnpm publish
-  ```
+Install dependencies from the monorepo root.
 
-</details>
+```bash
+pnpm install
+```
 
-<!-- Badges -->
+---
 
-[npm-version-src]: https://img.shields.io/npm/v/my-module/latest.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-version-href]: https://npmjs.com/package/my-module
-[npm-downloads-src]: https://img.shields.io/npm/dm/my-module.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-downloads-href]: https://npm.chart.dev/my-module
-[license-src]: https://img.shields.io/npm/l/my-module.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/my-module
-[nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
-[nuxt-href]: https://nuxt.com
+# Development Workflow
+
+This package depends on the Vue component library package.
+
+Whenever you make changes to the Vue component library, rebuild the workspace first.
+
+From the **monorepo root**:
+
+```bash
+pnpm run build
+```
+
+This builds:
+
+- `packages/vue-component-library`
+- `packages/component-library-nuxt-module`
+
+and refreshes the workspace links between both packages.
+
+---
+
+# Running the Playground
+
+The playground is a real Nuxt application used for manual development.
+
+Start it from the **monorepo root**:
+
+```bash
+pnpm run nuxt-module:prepare
+pnpm run nuxt-module:dev
+```
+
+Normally you only need to run `nuxt-module:prepare` after:
+
+- installing dependencies
+- changing Nuxt configuration
+- deleting `.nuxt`
+
+During normal development you can usually just run:
+
+```bash
+pnpm run nuxt-module:dev
+```
+
+---
+
+# Building the Playground
+
+To verify that the playground builds successfully as a production Nuxt application:
+
+```bash
+pnpm --filter @ucla-library/component-library-nuxt-module run dev:build
+```
+
+Use this before opening a PR or when investigating production-only issues.
+
+This is **not** part of the normal development workflow.
+
+---
+
+# Building the Module
+
+To build the publishable Nuxt module:
+
+```bash
+pnpm run nuxt-module:build
+```
+
+This runs the module's `prepack` script and produces the distributable package in:
+
+```
+packages/component-library-nuxt-module/dist/
+```
+
+Normally you only run this when verifying the package before publishing.
+
+---
+
+# Testing
+
+There are two ways to test the module.
+
+## Playground
+
+The playground is intended for manual testing.
+
+Use it to verify:
+
+- components auto-import correctly
+- CSS is loaded
+- components render correctly
+- module configuration behaves correctly
+- browser behaviour
+
+The playground loads the module from source:
+
+```ts
+modules: ["@radya/nuxt-dompurify", "../src/module"];
+```
+
+---
+
+## Test Fixtures
+
+The fixtures are used by `@nuxt/test-utils`.
+
+Unlike the playground, they create a minimal Nuxt application specifically for automated tests.
+
+Example:
+
+```ts
+import MyModule from "../../../src/module";
+
+export default defineNuxtConfig({
+  modules: [MyModule],
+});
+```
+
+Use fixtures for:
+
+- integration tests
+- automated testing
+- module installation tests
+
+---
+
+# Common Commands
+
+Run all commands from the **monorepo root**.
+
+| Task                 | Command                                                                    |
+| -------------------- | -------------------------------------------------------------------------- |
+| Install dependencies | `pnpm install`                                                             |
+| Build workspace      | `pnpm run build`                                                           |
+| Prepare playground   | `pnpm run nuxt-module:prepare`                                             |
+| Start playground     | `pnpm run nuxt-module:dev`                                                 |
+| Build module         | `pnpm run nuxt-module:build`                                               |
+| Run tests            | `pnpm --filter @ucla-library/component-library-nuxt-module run test`       |
+| Type check           | `pnpm --filter @ucla-library/component-library-nuxt-module run test:types` |
+
+---
+
+# Gotchas
+
+## Always build the workspace first
+
+If you modify the Vue component library, run:
+
+```bash
+pnpm run build
+```
+
+before testing the Nuxt module.
+
+The module depends on the built output of the Vue component library.
+
+---
+
+## Playground vs Test Fixtures
+
+These are different environments.
+
+| Playground            | Test Fixtures            |
+| --------------------- | ------------------------ |
+| Manual development    | Automated tests          |
+| Browser testing       | Integration testing      |
+| Full Nuxt application | Minimal Nuxt application |
+| Interactive           | Non-interactive          |
+
+---
+
+## Publishing
+
+Publishing is handled by GitHub Actions.
+
+During publishing, `pnpm publish` automatically runs the module's `prepack` script to build the distributable package before it is published.

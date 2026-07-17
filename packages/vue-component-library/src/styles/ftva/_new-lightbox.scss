@@ -161,7 +161,11 @@
 
     max-height: 400px;
     height: 100%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, .75) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to top,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 0.6) 60%,
+          rgba(0, 0, 0, 0) 100%
+        );
 
     .caption-content {
       position: absolute;
