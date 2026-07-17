@@ -1,6 +1,6 @@
 {
   "name": "@ucla-library/component-library-nuxt-module",
-  "version": "1.3.51",
+  "version": "1.4.0",
   "publishConfig": {
     "access": "public"
   },
@@ -30,7 +30,7 @@
     "prepack": "nuxt build-module --build --prepare",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare && nuxi dev playground",
+    "dev:prepare": "nuxt prepare playground",
     "build": "pnpm run dev:prepare",
     "release": "semantic-release",
     "lint": "eslint .",

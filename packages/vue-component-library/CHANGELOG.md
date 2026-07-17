@@ -1,3 +1,21 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.79.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.3...@ucla-library-monorepo/ucla-library-website-components-v1.79.0) (2026-07-17)
+
+
+### Bug Fixes
+
+* LADI-5196 Update Calendar, ListLocation stories with static mock data ([#959](https://github.com/UCLALibrary/ucla-library-website-components/issues/959)) ([571f4b7](https://github.com/UCLALibrary/ucla-library-website-components/commit/571f4b71cd5bf7ab920cb501412e591cd4f36bdd))
+* LADI-5196b Update SectionLocationList mock API call ([#960](https://github.com/UCLALibrary/ucla-library-website-components/issues/960)) ([93807a2](https://github.com/UCLALibrary/ucla-library-website-components/commit/93807a2599250605b423f9ddedfa7ce37a15fcb0))
+* LADI-5235 prevent tabbing to search when tab is closed ([#955](https://github.com/UCLALibrary/ucla-library-website-components/issues/955)) ([39570c8](https://github.com/UCLALibrary/ucla-library-website-components/commit/39570c8b451a9c7e686c19e91ba2daa74d3bd6cd))
+* LADI-5261 add styles to prevent space on library site and meap ([#961](https://github.com/UCLALibrary/ucla-library-website-components/issues/961)) ([1a50430](https://github.com/UCLALibrary/ucla-library-website-components/commit/1a5043011b798addc17ba9dc4e1c311c3893cb4a))
+* LADI-5265 Darken FTVA homepage carousel gradient ([#957](https://github.com/UCLALibrary/ucla-library-website-components/issues/957)) ([2373813](https://github.com/UCLALibrary/ucla-library-website-components/commit/237381324be369efda3ca000f8ce30a31afab2e9))
+* LADI-5283 broken release and improve Nuxt module build and development workflow ([#962](https://github.com/UCLALibrary/ucla-library-website-components/issues/962)) ([4e32a93](https://github.com/UCLALibrary/ucla-library-website-components/commit/4e32a9356bc0a714b22cccc87172fe554e580926))
+
+
+### Features
+
+* LADI-5240 Add External Article Entry Type to Flexible Page Blocks ([#958](https://github.com/UCLALibrary/ucla-library-website-components/issues/958)) ([d785ae1](https://github.com/UCLALibrary/ucla-library-website-components/commit/d785ae1b3d486dc1eeb6a3f52d31c7cd7afe0bc1))
+* pnpm is 11.5.1 ([#956](https://github.com/UCLALibrary/ucla-library-website-components/issues/956)) ([76127a9](https://github.com/UCLALibrary/ucla-library-website-components/commit/76127a9dbf794068c271ddf21bdc11fe38da4b8d))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.78.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.2...@ucla-library-monorepo/ucla-library-website-components-v1.78.3) (2026-06-25)
 
 

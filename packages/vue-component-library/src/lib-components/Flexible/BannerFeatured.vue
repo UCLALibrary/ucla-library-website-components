@@ -60,6 +60,10 @@ const parsedLocations = computed(() => {
         locations = block.content[0].contentLink[0].articleLocations
         break
 
+      case contentType.includes('externalArticle'):
+        locations = block.content[0].contentLink[0].articleLocations
+        break
+
       case contentType.includes('project'):
         locations = block.content[0].contentLink[0].projectLocations
         break
@@ -91,6 +95,14 @@ const parsedCategory = computed(() => {
 
     switch (true) {
       case contentType.includes('article'):
+        category = block.content[0].contentLink[0].articleCategory
+          .map((obj) => {
+            return obj.title
+          })
+          .toString()
+        break
+
+      case contentType.includes('externalArticle'):
         category = block.content[0].contentLink[0].articleCategory
           .map((obj) => {
             return obj.title
@@ -202,6 +214,15 @@ const parseByLine = computed(() => {
           output.push(formatDate)
         }
         break
+      case entry_type.includes('externalArticle'):
+        if (articleByline1) {
+          articleByline1.forEach(obj => output.push(obj.title))
+          output.push(formatDate)
+        }
+        else {
+          output.push(formatDate)
+        }
+        break
       case entry_type.includes('project'):
         if (projectByline1)
           output.push(projectByline1[0].title)
@@ -231,6 +252,24 @@ const parsedDescription = computed(() => {
     return c.contentLink[0].summary ?? ''
   return c.summary ?? ''
 })
+
+const parsedLink = computed(() => {
+  const content = block?.content?.[0]
+
+  // Internal Content → External Article
+  if (content?.contentLink?.[0]?.contentType === 'externalArticle')
+    return content.contentLink[0].to
+
+  // Internal Content → Article and other internal entries
+  if (content?.contentLink?.[0]?.to)
+    return stripMeapFromURI(content.contentLink[0].to)
+
+  // Standalone External Article
+  if (content?.to)
+    return content.to
+
+  return ''
+})
 </script>
 
 <template>
@@ -240,7 +279,7 @@ const parsedDescription = computed(() => {
       v-if="block && block.content && block.content[0].contentLink"
       class="flexible-banner-featured"
       :media="parseImage"
-      :to="stripMeapFromURI(block.content[0].contentLink[0].to)"
+      :to="parsedLink"
       :title="block.content[0].contentLink[0].title"
       :breadcrumb="parsedTypeHandle"
       :byline="parseByLine"
@@ -258,7 +297,7 @@ const parsedDescription = computed(() => {
       v-if="block && block.content && !block.content[0].contentLink"
       class="flexible-banner-featured"
       :media="parseImage"
-      :to="stripMeapFromURI(block.content[0].to)"
+      :to="parsedLink"
       :title="block.content[0].title"
       :breadcrumb="parsedTypeHandle"
       :byline="parseByLine"

@@ -5,7 +5,7 @@ import SectionWrapper from '@/lib-components/SectionWrapper'
 import DividerGeneral from '@/lib-components/DividerGeneral'
 
 import { mock as mockCardWithImage } from '@/stories/mock/Flexible_CardWithImage.js'
-import { mock as mockHighlight } from '@/stories/mock/Flexible_Highlight.js'
+import { mockInternalContentEventAndExhibition as mockHighlight } from '@/stories/mock/Flexible_Highlight.js'
 import {
   Gallery as mockMediaGallery,
   GalleryHalfWidth as mockMediaGalleryHalfWidth,

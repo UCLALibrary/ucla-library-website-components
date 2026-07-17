@@ -1,3 +1,15 @@
+# [@ucla-library/component-library-nuxt-module-v1.4.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.3.51...@ucla-library/component-library-nuxt-module-v1.4.0) (2026-07-17)
+
+
+### Bug Fixes
+
+* LADI-5283 broken release and improve Nuxt module build and development workflow ([#962](https://github.com/UCLALibrary/ucla-library-website-components/issues/962)) ([4e32a93](https://github.com/UCLALibrary/ucla-library-website-components/commit/4e32a9356bc0a714b22cccc87172fe554e580926))
+
+
+### Features
+
+* pnpm is 11.5.1 ([#956](https://github.com/UCLALibrary/ucla-library-website-components/issues/956)) ([76127a9](https://github.com/UCLALibrary/ucla-library-website-components/commit/76127a9dbf794068c271ddf21bdc11fe38da4b8d))
+
 # [@ucla-library/component-library-nuxt-module-v1.3.51](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.3.50...@ucla-library/component-library-nuxt-module-v1.3.51) (2026-06-25)
 
 # [@ucla-library/component-library-nuxt-module-v1.3.50](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.3.49...@ucla-library/component-library-nuxt-module-v1.3.50) (2026-06-23)
