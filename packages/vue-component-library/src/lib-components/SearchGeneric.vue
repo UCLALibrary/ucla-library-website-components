@@ -4,7 +4,6 @@ import type { PropType } from 'vue'
 // components and SVG's
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-search.svg'
 import { onMounted, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
 import SearchGenericFilters from './SearchGenericFilters.vue'
 import SearchInput from './SearchInput.vue'
 
@@ -49,8 +48,8 @@ const { filters, searchGenericQuery, placeholder } = defineProps({
 })
 
 const emit = defineEmits(['search-ready'])
-const route = useRoute()
-const searchWords = ref<string>(Array.isArray(route.query.q) ? route.query.q[0] || '' : route.query.q || '') // this.$route.query.q
+
+const searchWords = ref<string>(searchGenericQuery.queryText || '')
 const selectedFilters = ref(searchGenericQuery ? searchGenericQuery.queryFilters : {})
 
 onMounted(() => {
@@ -65,11 +64,6 @@ watch(() => searchGenericQuery, (newQueryFilters) => {
   searchWords.value = newQueryFilters.queryText
 }, { deep: true, immediate: true })
 
-watch(() => route.query, (/* newRouteQuery */) => {
-  // console.log(' watcher route.query', newRouteQuery)
-  if (searchGenericQuery.queryText === route.query.q)
-    searchWords.value = route.query.q
-}, { deep: true, immediate: true })
 
 function updateQueryFilters(newVal: QueryFilters) {
   console.log('In updateQueryFilters', newVal)

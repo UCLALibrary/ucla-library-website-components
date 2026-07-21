@@ -210,11 +210,12 @@ pnpm run build
 ### 2. Link the Nuxt Module into the Nuxt Application
 
 From the `library-website-nuxt` repository:
+This path /../../ucla-library-website-components/packages/ should be absolute or relative path to your component librray repo, You need to try what works for you locally
 
 ```bash
 cd ../library-website-nuxt
 
-pnpm link ../ucla-library-website-components/packages/component-library-nuxt-module
+pnpm link /../../ucla-library-website-components/packages/component-library-nuxt-module
 ```
 
 This creates a symbolic link from the Nuxt application's `node_modules` to your local Nuxt module.
@@ -250,7 +251,7 @@ After the link has been created:
 2. From the `ucla-library-website-components` repository, rebuild the Nuxt module:
 
 ```bash
-pnpm --filter @ucla-library/component-library-nuxt-module build
+pnpm run build
 ```
 
 3. Return to the `library-website-nuxt` repository.
