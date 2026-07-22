@@ -45,7 +45,7 @@ interface ContentLink {
   typeHandle: string
   contentType: string
   to: string
-  externalResourceUrl: string
+  externalResourceUrl?: string
   title: string
   text: string
   eventDescription: string
@@ -78,6 +78,7 @@ interface FlexibleCardWithImageContentLink extends ContentLink {
   sectionHandle: string
   slug: string
   uri: string
+  externalResourceUrl: string
   eventTitle: string
   titleGeneral: string
 }

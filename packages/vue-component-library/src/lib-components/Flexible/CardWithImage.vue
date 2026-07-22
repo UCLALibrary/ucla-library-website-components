@@ -202,8 +202,8 @@ const parsedItems = computed(() => {
       }
       else if (
         obj.typeHandle !== 'externalContent'
-        && (obj.contentType === 'exhibition'
-          || 'workshopOrEventSeries')
+          && (obj.contentType === 'exhibition'
+          || obj.contentType === 'workshopOrEventSeries')
       ) {
         return {
           ...obj,
