@@ -49,20 +49,30 @@ function updateSelected(key: string, newValue: string[]) {
 }
 
 // single-checkbox
-const checkedState = ref(props.filters.some(obj => obj.inputType === 'single-checkbox' && props.queryFilters[obj.esFieldName]?.includes('yes')))
+const singleCheckboxKey = computed(() =>
+  props.filters.find(filter => filter.inputType === 'single-checkbox')?.esFieldName || ''
+)
 
+function isSingleCheckboxSelected(filters: QueryFilters) {
+  const key = singleCheckboxKey.value
+  return !!key && !!filters[key]?.includes('yes')
+}
+
+const checkedState = ref(isSingleCheckboxSelected(props.queryFilters))
+
+function syncCheckedState() {
+  checkedState.value = isSingleCheckboxSelected(queryFilterButtonDropDownStates.value)
+}
 const openItemIndex = ref(-1) // -1 indicates that no item is open
 
 watch(() => props.queryFilters, (newQueryFilters) => {
   // Assuming newQueryFilters is always an object as per your default prop definition.
   queryFilterButtonDropDownStates.value = { ...(newQueryFilters || {}) }
 }, { deep: true, immediate: true })
-watch(() => props.filters, (newFilters) => {
-  console.log('In watch function props.filters updated', JSON.stringify(props.filters), JSON.stringify(newFilters))
-  console.log('In watch funciton props.filters heello query filters props.queryFilters', props.queryFilters)
-  console.log('In watch fucntion props.filters queryFilterButtonDropDownStates', queryFilterButtonDropDownStates.value)
-  checkedState.value = newFilters?.some(obj => obj.inputType === 'single-checkbox' && queryFilterButtonDropDownStates.value[obj.esFieldName]?.includes('yes'))
-}, { deep: true, immediate: true })
+
+/*watch(() => props.filters, (newFilters) => {
+  syncCheckedState()
+}, { deep: true, immediate: true })*/
 
 // filter buttons
 const parsedFilters = computed(() => {
@@ -123,8 +133,7 @@ function doSearch() {
 }
 
 watch(queryFilterButtonDropDownStates, () => {
-  console.log('Update checked state')
-  checkedState.value = props.filters.some(obj => obj.inputType === 'single-checkbox' && queryFilterButtonDropDownStates.value[obj.esFieldName]?.includes('yes'))
+  syncCheckedState()
 })
 
 // click outside setup
