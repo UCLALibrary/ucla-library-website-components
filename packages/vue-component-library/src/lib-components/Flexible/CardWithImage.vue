@@ -107,9 +107,10 @@ const parsedItems = computed(() => {
         }
       }
 
+      // INTERNAL ARTICLE (internal link)
       else if (
         obj.typeHandle !== 'externalContent'
-        && obj.contentType.includes('article')
+        && obj.contentType === 'article'
       ) {
         return {
           ...obj,
@@ -136,6 +137,25 @@ const parsedItems = computed(() => {
                 obj.articleByline2,
                 obj.articleByline2
               )
+              : '',
+        }
+      }
+
+      // EXTERNAL ARTICLE (external link)
+      else if (
+        obj.typeHandle !== 'externalContent'
+        && obj.contentType === 'externalArticle'
+      ) {
+        return {
+          ...obj,
+          to: obj.to, // external link (DO NOT strip)
+          parsedImage: _get(obj, 'heroImage[0].image[0]', undefined),
+          parsedLocation: _get(obj, 'associatedLocations', []),
+          parsedCategory: _get(obj, 'articleCategory[0].title', ''),
+          byline1: _get(obj, 'articleByline1[0].title', ''),
+          byline2:
+            obj.articleByline2 !== null
+              ? formatDates(obj.articleByline2, obj.articleByline2)
               : '',
         }
       }
