@@ -25,12 +25,12 @@ const classes = computed(() => {
       <h3
         v-if="block.sectionTitle"
         class="section-title"
-        v-html="block.sectionTitle"
+        v-dompurify-html="block.sectionTitle"
       />
       <div
         v-if="block.sectionSummary"
         class="section-summary"
-        v-html="block.sectionSummary"
+        v-dompurify-html="block.sectionSummary"
       />
     </div>
     <ul v-if="block.impactNumberCards && block.impactNumberCards.length > 0" class="impact-number-cards-list">

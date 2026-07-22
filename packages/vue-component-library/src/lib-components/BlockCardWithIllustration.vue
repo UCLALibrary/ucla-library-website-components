@@ -114,7 +114,7 @@ export default {
       <div
         v-if="category"
         class="category"
-        v-html="category"
+        v-dompurify-html="category"
       />
 
       <SmartLink
@@ -123,7 +123,7 @@ export default {
       >
         <h3
           class="title"
-          v-html="title"
+          v-dompurify-html="title"
         />
       </SmartLink>
 

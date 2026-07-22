@@ -91,7 +91,7 @@ function onClick(slug) {
           :is="parsedSelectedSVG(view.iconName)"
           class="svg"
         />
-        <div v-html="view.title" />
+        <div v-dompurify-html="view.title" />
       </li>
     </ul>
   </div>

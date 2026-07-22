@@ -152,10 +152,10 @@ function Template(args) {
                     :sentence-split-count="excerptPod.sentenceSplitCount"
                   >
                     <template #default>
-                      <p v-html="splitText(excerptPod.text, excerptPod.sentenceSplitCount).truncated" />
+                      <p v-dompurify-html="splitText(excerptPod.text, excerptPod.sentenceSplitCount).truncated" />
                     </template>
                     <template #content>
-                      <p v-html="splitText(excerptPod.text, excerptPod.sentenceSplitCount).remaining" />
+                      <p v-dompurify-html="splitText(excerptPod.text, excerptPod.sentenceSplitCount).remaining" />
                     </template>
                   </ExcerptPod>
                 </div>

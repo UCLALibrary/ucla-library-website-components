@@ -58,12 +58,12 @@ const classes = computed(() => [
       <h2
         v-if="sectionTitle"
         class="section-title"
-        v-html="sectionTitle"
+        v-dompurify-html="sectionTitle"
       />
       <div
         v-if="sectionSummary"
         class="section-summary"
-        v-html="sectionSummary"
+        v-dompurify-html="sectionSummary"
       />
     </div>
     <div class="grid-wrapper">

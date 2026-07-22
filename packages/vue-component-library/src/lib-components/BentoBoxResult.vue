@@ -166,7 +166,7 @@ watch(
   <div :class="classes">
     <h5
       class="title"
-      v-html="props.title"
+      v-dompurify-html="props.title"
     />
     <div
       ref="itemsRef"

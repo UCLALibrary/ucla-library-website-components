@@ -64,7 +64,7 @@ const classes = computed(() => {
       <div
         v-if="sectionSummary"
         class="section-summary"
-        v-html="sectionSummary"
+        v-dompurify-html="sectionSummary"
       />
     </div>
 

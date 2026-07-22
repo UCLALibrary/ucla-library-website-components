@@ -174,7 +174,7 @@ const classes = computed(() => {
     <div
       v-if="category"
       class="category"
-      v-html="category"
+      v-dompurify-html="category"
     />
 
     <!-- Slot for injecting a title with any tags / styles (useful to substitute h1 tags for accessibility) -->
@@ -198,14 +198,14 @@ const classes = computed(() => {
         v-if="alternativeFullName"
         :lang="language"
         class="translation"
-        v-html="alternativeFullName"
+        v-dompurify-html="alternativeFullName"
       />
     </SmartLink>
 
     <h3
       v-else-if="title"
       class="title-no-link"
-      v-html="title"
+      v-dompurify-html="title"
     />
 
     <!-- Named slot for custom description -->
@@ -229,12 +229,12 @@ const classes = computed(() => {
       <div
         v-if="bylineOne"
         class="schedule-item"
-        v-html="bylineOne"
+        v-dompurify-html="bylineOne"
       />
       <div
         v-if="bylineTwo"
         class="schedule-item"
-        v-html="bylineTwo"
+        v-dompurify-html="bylineTwo"
       />
       <div
         v-if="dateCreated"
@@ -263,12 +263,12 @@ const classes = computed(() => {
       <time
         v-if="startDate"
         class="schedule-item start-date"
-        v-html="parsedDate"
+        v-dompurify-html="parsedDate"
       />
       <time
         v-if="startDate && sectionHandle !== 'ftvaEventSeries'"
         class="schedule-item parsed-time"
-        v-html="parsedTime"
+        v-dompurify-html="parsedTime"
       />
     </div>
 

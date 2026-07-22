@@ -53,8 +53,8 @@ const cypressSelector = computed(() => {
 <template>
   <section :class="classes" :data-cy="cypressSelector">
     <div v-if="sectionTitle || sectionSummary" class="section-header">
-      <h2 v-if="sectionTitle" id="cards-with-illustration-title" class="section-title" v-html="sectionTitle" />
-      <div v-if="sectionSummary" class="section-summary" v-html="sectionSummary" />
+      <h2 v-if="sectionTitle" id="cards-with-illustration-title" class="section-title" v-dompurify-html="sectionTitle" />
+      <div v-if="sectionSummary" class="section-summary" v-dompurify-html="sectionSummary" />
     </div>
 
     <ul v-if="items && items.length > 0" class="cards">

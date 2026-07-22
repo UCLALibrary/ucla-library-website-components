@@ -179,7 +179,7 @@ const parsedLocations = computed(() => {
           />
           <div
             :class="categoryClasses"
-            v-html="category"
+            v-dompurify-html="category"
           />
         </div>
 
@@ -190,7 +190,7 @@ const parsedLocations = computed(() => {
               v-if="alternativeFullName"
               :lang="language"
               class="translation"
-              v-html="alternativeFullName"
+              v-dompurify-html="alternativeFullName"
             />
           </h1>
 
@@ -286,17 +286,17 @@ const parsedLocations = computed(() => {
               <time
                 v-if="dateCreated"
                 class="date-created"
-                v-html="parsedDateCreated"
+                v-dompurify-html="parsedDateCreated"
               />
               <time
                 v-if="startDate"
                 class="schedule-item"
-                v-html="parsedDate"
+                v-dompurify-html="parsedDate"
               />
               <time
                 v-if="parsedTime"
                 class="schedule-item"
-                v-html="parsedTime"
+                v-dompurify-html="parsedTime"
               />
               <div
                 v-if="isOnline"

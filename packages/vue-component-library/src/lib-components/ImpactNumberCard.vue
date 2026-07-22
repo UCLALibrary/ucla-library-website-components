@@ -30,11 +30,11 @@ const classes = computed(() => {
       <div
         v-if="impactNumber"
         class="impact-number"
-        v-html="impactNumber"
+        v-dompurify-html="impactNumber"
       />
-      <div v-if="title" class="title" v-html="title" />
+      <div v-if="title" class="title" v-dompurify-html="title" />
     </div>
-    <div v-if="text" class="text" v-html="text" />
+    <div v-if="text" class="text" v-dompurify-html="text" />
   </li>
 </template>
 
