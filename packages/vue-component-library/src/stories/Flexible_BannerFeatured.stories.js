@@ -435,7 +435,8 @@ const mockInternalContentExternalArticle = {
         {
           contentType: 'externalArticle',
           title: 'Davenport California',
-          to: 'https://www.tripadvisor.com/Tourism-g32282-Davenport_California-Vacations.html',
+          to: 'https:/www.tripadvisor.com/Tourism-g32282-Davenport_California-Vacations.html',
+          externalResourceUrl: 'https://www.tripadvisor.com/Tourism-g32282-Davenport_California-Vacations.html',
           summary: '<p>New External Article field. Davenport is notable for its scenery, with numerous bluffs and cliff faces stretching along its perimeter, as well as foothills and forests toward its east.</p>',
           articleCategory: [
             {

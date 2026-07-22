@@ -339,7 +339,8 @@ export const mockInternalArticle = {
         {
           id: '4989564',
           contentType: 'externalArticle',
-          to: 'https://twiggyshow.com',
+          to: 'https:/twiggyshow.com',
+          externalResourceUrl: 'https://twiggyshow.com',
           title: 'Twiggy the Skiing Squirrel',
           text: '<p><strong>New External Article field.</strong> Twiggy the squirrel has appeared in numerous books, magazines, newspapers, and television shows all over the world.</p>',
           articleCategory: [

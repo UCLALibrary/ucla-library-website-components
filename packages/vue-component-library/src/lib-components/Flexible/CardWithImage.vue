@@ -148,7 +148,7 @@ const parsedItems = computed(() => {
       ) {
         return {
           ...obj,
-          to: obj.to, // external link (DO NOT strip)
+          to: obj.externalResourceUrl,
           parsedImage: _get(obj, 'heroImage[0].image[0]', undefined),
           parsedLocation: _get(obj, 'associatedLocations', []),
           parsedCategory: _get(obj, 'articleCategory[0].title', ''),

@@ -38,7 +38,7 @@ function flattenTimeLineStructure(galleryData: FlexibleGridGallery) {
           // Is it externalArticle?
           subitem.contentLink[0].contentType === 'externalArticle'
             // Yes → return raw external URL
-            ? subitem.contentLink[0].to
+            ? subitem.contentLink[0].externalResourceUrl
             // Else → return /local/version
             : stripMeapFromURI(subitem.contentLink[0].to)
         )
