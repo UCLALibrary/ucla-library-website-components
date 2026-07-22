@@ -97,7 +97,7 @@ const lastDepartment = computed(() => {
         </h3>
         <div
           class="job-title"
-          v-html="jobTitle"
+          v-dompurify-html="jobTitle"
         />
         <ul
           v-if="departments.length"

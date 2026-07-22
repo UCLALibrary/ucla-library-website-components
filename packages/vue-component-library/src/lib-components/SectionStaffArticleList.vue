@@ -70,7 +70,7 @@ function getNonFTVADate(date: string) {
       <div
         v-if="sectionTitle"
         class="section-title"
-        v-html="sectionTitle"
+        v-dompurify-html="sectionTitle"
       />
       <ul v-if="items && items.length > 0" class="block-staff-article-list">
         <BlockStaffArticleList

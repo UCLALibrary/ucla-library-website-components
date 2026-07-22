@@ -95,17 +95,17 @@ const parsedDateFormat = computed(() => {
       <time
         v-if="startDate"
         class="day"
-        v-html="parsedFormatFullDay"
+        v-dompurify-html="parsedFormatFullDay"
       />
       <div class="month-date">
         <time
           v-if="startDate"
           class="month"
-          v-html="parsedDateMonth"
+          v-dompurify-html="parsedDateMonth"
         />
         <time
           v-if="startDate"
-          v-html="parsedDateDay"
+          v-dompurify-html="parsedDateDay"
         />
       </div>
     </div>

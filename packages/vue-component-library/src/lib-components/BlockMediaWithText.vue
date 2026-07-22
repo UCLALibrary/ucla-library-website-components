@@ -122,7 +122,7 @@ const showButton = computed(() => {
     <div class="text-grouping">
       <h3
         class="section-header"
-        v-html="sectionHeader"
+        v-dompurify-html="sectionHeader"
       />
       <div class="meta-mobile">
         <MediaItem
@@ -159,7 +159,7 @@ const showButton = computed(() => {
       <div
         v-if="shortDescription"
         class="short-description"
-        v-html="shortDescription"
+        v-dompurify-html="shortDescription"
       />
 
       <template v-if="showButton">

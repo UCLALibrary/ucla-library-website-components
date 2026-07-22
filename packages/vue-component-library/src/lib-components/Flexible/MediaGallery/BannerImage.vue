@@ -123,7 +123,7 @@ const classes = computed(() => {
       <RichText
         v-if="sectionSummary"
         class="summary"
-        v-html="sectionSummary"
+        v-dompurify-html="sectionSummary"
       />
     </div>
   </div>

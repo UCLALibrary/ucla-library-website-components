@@ -69,7 +69,7 @@ const classes = computed(() => {
       <div class="meta">
         <h1
           class="title"
-          v-html="title"
+          v-dompurify-html="title"
         />
         <RichText
           v-if="text"

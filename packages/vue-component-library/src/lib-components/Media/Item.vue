@@ -84,7 +84,7 @@ const hasCoverImage = computed(() => {
 
 <template>
   <div class="media-item">
-    <div v-if="isEmbed" class="media media-embed" v-html="embedCode" />
+    <div v-if="isEmbed" class="media media-embed" v-dompurify-html="embedCode" />
     <img v-else-if="hasImage" class="media media-image" :style="mediaStyles" v-bind="item[0]">
     <img v-else-if="hasCoverImage" class="media media-image coveronly" :style="mediaStyles" v-bind="props.coverImage[0]">
     <VideoJs

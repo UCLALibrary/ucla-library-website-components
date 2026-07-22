@@ -88,7 +88,7 @@ export default {
       <div v-if="!collapsed">
         <div
           class="detail-text"
-          v-html="message"
+          v-dompurify-html="message"
         />
       </div>
     </div>

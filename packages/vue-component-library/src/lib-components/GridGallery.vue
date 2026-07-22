@@ -58,7 +58,7 @@ const parsedItems = computed(() => {
         <div
           v-if="!card.featured && card.snippet"
           class="snippet"
-          v-html="card.snippet"
+          v-dompurify-html="card.snippet"
         />
         <div v-if="card.featured && card.snippet" class="section-text">
           <div class="text">
@@ -71,7 +71,7 @@ const parsedItems = computed(() => {
                 {{ card.headlineText }}
               </SmartLink>
             </h5>
-            <div class="snippet" v-html="card.snippet" />
+            <div class="snippet" v-dompurify-html="card.snippet" />
           </div>
         </div>
       </li>

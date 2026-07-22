@@ -95,7 +95,7 @@ const parsedLabel = computed(() => {
       aria-hidden="true"
     />
     <template v-for="(item, index) in parsedLabel" :key="`label-${index}`">
-      <div class="label" v-html="item" />
+      <div class="label" v-dompurify-html="item" />
       <component
         :is="SvgArrowRight"
         v-if="index !== parsedLabel.length - 1"

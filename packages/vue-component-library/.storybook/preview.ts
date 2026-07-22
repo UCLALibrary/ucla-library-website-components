@@ -5,11 +5,18 @@ import router from "@/router"
 import { createPinia } from 'pinia'
 import { allModes } from "../.storybook/modes"
 import type { App } from 'vue'
+import VueDOMPurifyHTML from 'vue-dompurify-html'
 
 import { vuetify } from '../src/plugins/vuetify'
 
 function registerPlugins(app: App) {
     app.use(vuetify)
+    app.use(VueDOMPurifyHTML, {
+        default: {
+          ADD_TAGS: ['iframe'],
+          ADD_ATTR: ['src', 'allowfullscreen', 'frameborder', 'scrolling']
+        }
+      })
 }
 
 export const parameters = {

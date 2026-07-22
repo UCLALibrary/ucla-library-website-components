@@ -46,13 +46,13 @@ function toggle() {
     <!-- Title -->
     <h5
       class="title"
-      v-html="title"
+      v-dompurify-html="title"
     />
     <!-- Info -->
     <div class="info">
       <h6
         class="subtitle"
-        v-html="subtitle"
+        v-dompurify-html="subtitle"
       />
       <div class="text-excerpt">
         <EffectSlideToggle
@@ -62,12 +62,12 @@ function toggle() {
           <!-- summary -->
           <template #summary>
             <div class="summary-content">
-              <!-- <span v-html="textParts.truncatedText" />  -->
+              <!-- <span v-dompurify-html="textParts.truncatedText" />  -->
               <slot />
             </div>
           </template>
           <!-- content -->
-          <!-- <div v-html="textParts.remainingText" /> -->
+          <!-- <div v-dompurify-html="textParts.remainingText" /> -->
           <slot name="content" />
         </EffectSlideToggle>
         <ButtonShowDynamic

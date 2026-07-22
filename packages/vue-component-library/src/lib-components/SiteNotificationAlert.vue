@@ -67,7 +67,7 @@ export default {
       </div>
       <div
         class="alert-text"
-        v-html="title"
+        v-dompurify-html="title"
       />
     </button>
 

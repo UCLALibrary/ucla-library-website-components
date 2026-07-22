@@ -57,7 +57,7 @@ export default {
   <li :class="classes">
     <button
       class="section-name"
-      v-html="item.name"
+      v-dompurify-html="item.name"
     />
     <slot /> <!-- can be used to insert '>' icons etc, into the row -->
     <ul v-if="parsedChildren && parsedChildren.length > 0" class="sub-menu">
