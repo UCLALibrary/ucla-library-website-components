@@ -179,6 +179,7 @@ interface FlexibleHighlight {
   locations: LocationItemType[]
   text: string
   to: string
+  externalResourceUrl?: string
 }
 
 export interface FlexibleHorizontalDividerBlock {
