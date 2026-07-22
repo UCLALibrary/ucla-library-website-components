@@ -58,7 +58,7 @@ function isSingleCheckboxSelected(filters: QueryFilters) {
   return !!key && !!filters[key]?.includes('yes')
 }
 
-const checkedState = ref(isSingleCheckboxSelected(props.queryFilters))
+const checkedState = ref(false)
 
 function syncCheckedState() {
   checkedState.value = isSingleCheckboxSelected(queryFilterButtonDropDownStates.value)
@@ -68,11 +68,8 @@ const openItemIndex = ref(-1) // -1 indicates that no item is open
 watch(() => props.queryFilters, (newQueryFilters) => {
   // Assuming newQueryFilters is always an object as per your default prop definition.
   queryFilterButtonDropDownStates.value = { ...(newQueryFilters || {}) }
-}, { deep: true, immediate: true })
-
-/*watch(() => props.filters, (newFilters) => {
   syncCheckedState()
-}, { deep: true, immediate: true })*/
+}, { deep: true, immediate: true })
 
 // filter buttons
 const parsedFilters = computed(() => {
