@@ -64,12 +64,6 @@ watch(() => searchGenericQuery, (newQueryFilters) => {
   searchWords.value = newQueryFilters.queryText
 }, { deep: true, immediate: true })
 
-
-function updateQueryFilters(newVal: QueryFilters) {
-  console.log('In updateQueryFilters', newVal)
-  selectedFilters.value = newVal
-}
-
 function doSearch() {
   console.log('dosearch called')
   console.log(
@@ -118,8 +112,7 @@ function doSearch() {
     <div class="search-generic-filters-container" />
     <SearchGenericFilters
       :filters="filters"
-      :query-filters="selectedFilters"
-      @update:query-filters="updateQueryFilters"
+      v-model:query-filters="selectedFilters"
       @filters-selection-action="doSearch"
     />
   </div>
