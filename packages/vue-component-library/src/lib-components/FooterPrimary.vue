@@ -179,7 +179,7 @@ function formatTarget(target: string) {
         </ul>
 
         <ul
-          v-if="parsedPressItems"
+          v-if="parsedPressItems && parsedPressItems.length > 0"
           class="press-links"
         >
           <li
