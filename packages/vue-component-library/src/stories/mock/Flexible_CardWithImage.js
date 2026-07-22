@@ -302,7 +302,7 @@ export const mockInternalArticle = {
               title: 'Featured'
             }
           ],
-          articleByline2: '2024-03-22T15:21:00-07:00',
+          articleByline2: '2027-03-22T15:21:00-07:00',
           associatedLocations: [
             {
               id: '11560',
@@ -348,7 +348,7 @@ export const mockInternalArticle = {
               title: 'Animals'
             }
           ],
-          articleByline2: '2026-07-08T16: 51: 00-07: 00',
+          articleByline2: '2027-07-08T16: 51: 00-07: 00',
           associatedLocations: [],
           heroImage: [
             {

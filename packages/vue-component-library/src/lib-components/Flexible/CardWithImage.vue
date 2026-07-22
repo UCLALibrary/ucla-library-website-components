@@ -71,6 +71,10 @@ function parsedFtvaImage(obj: any) {
     return undefined
 }
 
+function isValidDate(value: any) {
+  return value && !isNaN(new Date(value).getTime())
+}
+
 const parsedList = computed(() => {
   const items = []
   for (const indexProperty in block.cardWithImage) {
@@ -131,13 +135,9 @@ const parsedItems = computed(() => {
             ''
           ),
           byline1: _get(obj, 'articleByline1[0].title', ''),
-          byline2:
-            obj.articleByline2 !== null
-              ? formatDates(
-                obj.articleByline2,
-                obj.articleByline2
-              )
-              : '',
+          byline2: isValidDate(obj.articleByline2)
+            ? formatDates(obj.articleByline2, obj.articleByline2)
+            : '',
         }
       }
 
@@ -153,10 +153,9 @@ const parsedItems = computed(() => {
           parsedLocation: _get(obj, 'associatedLocations', []),
           parsedCategory: _get(obj, 'articleCategory[0].title', ''),
           byline1: _get(obj, 'articleByline1[0].title', ''),
-          byline2:
-            obj.articleByline2 !== null
-              ? formatDates(obj.articleByline2, obj.articleByline2)
-              : '',
+          byline2: isValidDate(obj.articleByline2)
+            ? formatDates(obj.articleByline2, obj.articleByline2)
+            : '',
         }
       }
 

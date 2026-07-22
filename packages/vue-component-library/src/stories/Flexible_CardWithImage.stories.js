@@ -96,7 +96,7 @@ export function InternalSeries() {
 }
 
 // Internal Content - ARTICLE
-export function InternalArticle() {
+export function InternalContentArticleAndExternalArticle() {
   return {
     data() {
       return {
