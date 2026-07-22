@@ -78,7 +78,6 @@ interface FlexibleCardWithImageContentLink extends ContentLink {
   sectionHandle: string
   slug: string
   uri: string
-  externalResourceUrl: string
   eventTitle: string
   titleGeneral: string
 }
@@ -94,6 +93,7 @@ interface FlexibleCardWithImage {
   contentLink: FlexibleCardWithImageContentLink[]
   text: string
   to: string
+  externalResourceUrl?: string
   category: string
   locations: LocationItemType[]
   startDate: string
