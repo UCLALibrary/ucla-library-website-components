@@ -72,7 +72,7 @@ function parsedFtvaImage(obj: any) {
 }
 
 function isValidDate(value: any) {
-  return value && !isNaN(new Date(value).getTime())
+  return value && !Number.isNaN(new Date(value).getTime())
 }
 
 const parsedList = computed(() => {
