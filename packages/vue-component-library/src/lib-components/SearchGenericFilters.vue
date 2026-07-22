@@ -55,16 +55,7 @@ const openItemIndex = ref(-1) // -1 indicates that no item is open
 
 watch(() => props.queryFilters, (newQueryFilters) => {
   // Assuming newQueryFilters is always an object as per your default prop definition.
-  console.log('In watch function props.queryFilters updated', JSON.stringify(newQueryFilters), JSON.stringify(props.filters))
-  if (newQueryFilters === null || newQueryFilters === undefined || Object.keys(newQueryFilters).length === 0)
-    queryFilterButtonDropDownStates.value = {}
-
-  Object.entries(newQueryFilters).forEach(([key, value]) => {
-    queryFilterButtonDropDownStates.value[key] = value
-  })
-  console.log('queryFilterButtonDropDownStates.value', JSON.stringify(queryFilterButtonDropDownStates.value))
-
-  console.log('In watch function props.queryFilters checkedState.value', checkedState.value, JSON.stringify(props.filters))
+  queryFilterButtonDropDownStates.value = { ...(newQueryFilters || {}) }
 }, { deep: true, immediate: true })
 watch(() => props.filters, (newFilters) => {
   console.log('In watch function props.filters updated', JSON.stringify(props.filters), JSON.stringify(newFilters))
