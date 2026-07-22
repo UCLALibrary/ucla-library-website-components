@@ -45,6 +45,7 @@ interface ContentLink {
   typeHandle: string
   contentType: string
   to: string
+  externalResourceUrl: string
   title: string
   text: string
   eventDescription: string
