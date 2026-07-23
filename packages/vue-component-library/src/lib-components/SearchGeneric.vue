@@ -111,8 +111,8 @@ function doSearch() {
     </form>
     <div class="search-generic-filters-container" />
     <SearchGenericFilters
-      :filters="filters"
       v-model:query-filters="selectedFilters"
+      :filters="filters"
       @filters-selection-action="doSearch"
     />
   </div>
