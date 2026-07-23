@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.79.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.79.0...@ucla-library-monorepo/ucla-library-website-components-v1.79.1) (2026-07-23)
+
+
+### Bug Fixes
+
+* LADI-5307 make sure list array exists and has items before rendering the ul ([#965](https://github.com/UCLALibrary/ucla-library-website-components/issues/965)) ([635a700](https://github.com/UCLALibrary/ucla-library-website-components/commit/635a700380d928e7e00b97d2935a1de2c7d08793))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.79.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.3...@ucla-library-monorepo/ucla-library-website-components-v1.79.0) (2026-07-17)
 
 
