@@ -105,7 +105,7 @@ function toggleTransition(index: number) {
 function doUpdateQueryFilters(key: string) {
   console.log('emit event to parent if checkbox is selected')
   queryFilterButtonDropDownStates.value[key] = checkedState.value ? ['yes'] : []
-  emit('update:queryFilters', queryFilterButtonDropDownStates.value)
+  emit('update:queryFilters', { ...queryFilterButtonDropDownStates.value })
   emit('filters-selection-action')
 }
 // Handler to update filters reactively
@@ -113,12 +113,11 @@ function handleFilterUpdate(updatedFilters: QueryFilters) {
   // Replace the entire object reactively
   queryFilterButtonDropDownStates.value = { ...updatedFilters }
   console.log('Updated Filters:', queryFilterButtonDropDownStates.value)
-  // Emit an event if necessary
-  // emit('update:queryFilters', queryFilterButtonDropDownStates.value);
+
 }
 function doSearch() {
   console.log('doSearch function called to emit update:queryFilters and filters-selection-action events to the parent component', queryFilterButtonDropDownStates.value)
-  emit('update:queryFilters', queryFilterButtonDropDownStates.value)
+  emit('update:queryFilters', { ...queryFilterButtonDropDownStates.value })
   emit('filters-selection-action')
 }
 
