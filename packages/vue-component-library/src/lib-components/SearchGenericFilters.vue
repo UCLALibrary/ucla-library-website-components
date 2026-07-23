@@ -41,13 +41,6 @@ const emit = defineEmits(['update:queryFilters', 'filters-selection-action'])
 
 const queryFilterButtonDropDownStates = ref<QueryFilters>({})
 
-function updateSelected(key: string, newValue: string[]) {
-  // This function updates the selected state and could emit an event for parent component
-  console.log('Search Generic Filters updateSelected: ', key, JSON.stringify(newValue))
-  queryFilterButtonDropDownStates.value[key] = newValue
-  // Emit an event if needed
-}
-
 // single-checkbox
 const singleCheckboxKey = computed(() =>
   props.filters.find(filter => filter.inputType === 'single-checkbox')?.esFieldName || ''
@@ -165,13 +158,13 @@ onClickOutside(clickOutsideTarget,
         name="slide-toggle"
         mode="out-in"
       >
+        <!--  @update:selected="newValue => updateSelected(group.esFieldName, newValue)" -->
         <component
           :is="group.componentName"
           v-if="group.isVisible"
           v-model:selected="queryFilterButtonDropDownStates[group.esFieldName]"
           :items="group.items"
           class="filter-group"
-          @update:selected="newValue => updateSelected(group.esFieldName, newValue)"
           @input-selected="doSearch"
         />
       </transition>
