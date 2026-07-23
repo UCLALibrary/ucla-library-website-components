@@ -71,6 +71,10 @@ function parsedFtvaImage(obj: any) {
     return undefined
 }
 
+function isValidDate(value: any) {
+  return value && !Number.isNaN(new Date(value).getTime())
+}
+
 const parsedList = computed(() => {
   const items = []
   for (const indexProperty in block.cardWithImage) {
@@ -107,9 +111,10 @@ const parsedItems = computed(() => {
         }
       }
 
+      // INTERNAL ARTICLE (internal link)
       else if (
         obj.typeHandle !== 'externalContent'
-        && obj.contentType.includes('article')
+        && obj.contentType === 'article'
       ) {
         return {
           ...obj,
@@ -130,13 +135,27 @@ const parsedItems = computed(() => {
             ''
           ),
           byline1: _get(obj, 'articleByline1[0].title', ''),
-          byline2:
-            obj.articleByline2 !== null
-              ? formatDates(
-                obj.articleByline2,
-                obj.articleByline2
-              )
-              : '',
+          byline2: isValidDate(obj.articleByline2)
+            ? formatDates(obj.articleByline2, obj.articleByline2)
+            : '',
+        }
+      }
+
+      // EXTERNAL ARTICLE (external link)
+      else if (
+        obj.typeHandle !== 'externalContent'
+        && obj.contentType === 'externalArticle'
+      ) {
+        return {
+          ...obj,
+          to: obj.externalResourceUrl,
+          parsedImage: _get(obj, 'heroImage[0].image[0]', undefined),
+          parsedLocation: _get(obj, 'associatedLocations', []),
+          parsedCategory: _get(obj, 'articleCategory[0].title', ''),
+          byline1: _get(obj, 'articleByline1[0].title', ''),
+          byline2: isValidDate(obj.articleByline2)
+            ? formatDates(obj.articleByline2, obj.articleByline2)
+            : '',
         }
       }
 
@@ -183,8 +202,8 @@ const parsedItems = computed(() => {
       }
       else if (
         obj.typeHandle !== 'externalContent'
-        && (obj.contentType === 'exhibition'
-          || 'workshopOrEventSeries')
+          && (obj.contentType === 'exhibition'
+          || obj.contentType === 'workshopOrEventSeries')
       ) {
         return {
           ...obj,

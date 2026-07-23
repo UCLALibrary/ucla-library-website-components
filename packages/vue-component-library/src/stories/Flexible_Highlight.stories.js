@@ -1,4 +1,4 @@
-import { mockExternalContent, mockInternalContentArticleAndExternalArticle, mockInternalContentEndowmentAndCollectionAndGeneralContentPage, mockInternalContentEventAndExhibition, mockInternalContentMeapArticleAndProject, mockInternalContentWorshopSeriesAndEventSeries } from './mock/Flexible_Highlight'
+import { mockExternalContent, mockInternalContentArticleAndExternalArticle, mockInternalContentEndowmentAndCollectionAndGeneralContentPage, mockInternalContentEventAndExhibition, mockInternalContentWorshopSeriesAndEventSeries } from './mock/Flexible_Highlight'
 import FlexibleHighlight from '@/lib-components/Flexible/Highlight'
 
 export default {
@@ -59,22 +59,6 @@ export function InternalContentEndowmentAndCollectionAndGeneralContentPage() {
     data() {
       return {
         block: mockInternalContentEndowmentAndCollectionAndGeneralContentPage,
-      }
-    },
-    components: { FlexibleHighlight },
-    template: `
-        <flexible-highlight
-            :block="block"
-       />
-    `,
-  }
-}
-
-export function InternalContentMeapArticleAndProject() {
-  return {
-    data() {
-      return {
-        block: mockInternalContentMeapArticleAndProject,
       }
     },
     components: { FlexibleHighlight },

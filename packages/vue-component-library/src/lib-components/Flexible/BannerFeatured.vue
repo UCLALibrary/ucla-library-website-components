@@ -258,7 +258,7 @@ const parsedLink = computed(() => {
 
   // Internal Content → External Article
   if (content?.contentLink?.[0]?.contentType === 'externalArticle')
-    return content.contentLink[0].to
+    return content.contentLink[0].externalResourceUrl
 
   // Internal Content → Article and other internal entries
   if (content?.contentLink?.[0]?.to)

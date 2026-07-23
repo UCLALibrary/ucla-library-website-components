@@ -45,6 +45,7 @@ interface ContentLink {
   typeHandle: string
   contentType: string
   to: string
+  externalResourceUrl?: string
   title: string
   text: string
   eventDescription: string
@@ -92,6 +93,7 @@ interface FlexibleCardWithImage {
   contentLink: FlexibleCardWithImageContentLink[]
   text: string
   to: string
+  externalResourceUrl?: string
   category: string
   locations: LocationItemType[]
   startDate: string
@@ -177,6 +179,7 @@ interface FlexibleHighlight {
   locations: LocationItemType[]
   text: string
   to: string
+  externalResourceUrl?: string
 }
 
 export interface FlexibleHorizontalDividerBlock {
