@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.80.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.79.1...@ucla-library-monorepo/ucla-library-website-components-v1.80.0) (2026-07-24)
+
+
+### Features
+
+* LADI-5303-5240-2 Add External Article entry type ([#964](https://github.com/UCLALibrary/ucla-library-website-components/issues/964)) ([f829913](https://github.com/UCLALibrary/ucla-library-website-components/commit/f82991311e82f197372596bd1e01e13edd59a4f0))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.79.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.79.0...@ucla-library-monorepo/ucla-library-website-components-v1.79.1) (2026-07-23)
+
+
+### Bug Fixes
+
+* LADI-5307 make sure list array exists and has items before rendering the ul ([#965](https://github.com/UCLALibrary/ucla-library-website-components/issues/965)) ([635a700](https://github.com/UCLALibrary/ucla-library-website-components/commit/635a700380d928e7e00b97d2935a1de2c7d08793))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.79.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.3...@ucla-library-monorepo/ucla-library-website-components-v1.79.0) (2026-07-17)
 
 
