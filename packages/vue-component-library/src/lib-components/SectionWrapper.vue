@@ -31,24 +31,29 @@ const props = defineProps({
     default: false,
   },
 })
-// console.log('SectionWrapper code initialized')
 const parentLevel = inject('sectionLevel', 1)
 const ancestorSetMargins = inject('ancestorSetMargins', false)
-// console.log('ancestorSetMargins', ancestorSetMargins)
 
 // THEME
 const theme = useTheme()
 
 const levelComputed = computed(() => {
-  // console.log('SectionWrapper levelComputed', Number(props.level || parentLevel + 1))
   return Number(props.level || parentLevel + 1)
 })
 const setMargins = computed(() => {
-  // console.log('SectionWrapper setMargins', props.noMargins || ancestorSetMargins)
   return !(props.noMargins || ancestorSetMargins)
 })
 
+// DYNAMIC HEADING LEVELS
+// sectionLevel: heading depth for this section's own title (SectionHeader).
 provide('sectionLevel', levelComputed.value)
+// contentHeadingLevel: heading depth for child content (e.g. card titles).
+// Only bumped when sectionTitle is set — if this wrapper has no title, children
+// use the same level so the outline doesn't skip a heading level.
+provide(
+  'contentHeadingLevel',
+  props.sectionTitle ? levelComputed.value + 1 : levelComputed.value,
+)
 provide('ancestorSetMargins', ancestorSetMargins || setMargins.value)
 
 const classes = computed(() => {
@@ -63,7 +68,6 @@ const classes = computed(() => {
 })
 
 const getId = computed(() => {
-  // console.log('SectionWrapper getId', kebabCase(props.sectionTitle))
   return kebabCase(props.sectionTitle)
 })
 </script>

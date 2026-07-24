@@ -74,6 +74,16 @@ export default {
       type: Boolean,
       default: false,
     },
+    level: {
+      type: Number,
+      default: 0,
+    },
+  },
+  inject: {
+    contentHeadingLevel: {
+      from: 'contentHeadingLevel',
+      default: 3,
+    },
   },
   computed: {
     classes() {
@@ -98,6 +108,12 @@ export default {
     parsedTextVertical() {
       return this.text ? removeHtmlTruncate(this.text) : ''
     },
+    // DYNAMIC HEADING LEVELS
+    headerTag() {
+      const level = this.level || this.contentHeadingLevel
+      const clamped = Math.min(Math.max(level, 1), 6)
+      return `h${clamped}`
+    },
   },
 }
 </script>
@@ -121,7 +137,8 @@ export default {
         v-if="to"
         :to="to"
       >
-        <h3
+        <component
+          :is="headerTag"
           class="title"
           v-html="title"
         />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 
 import _kebabCase from 'lodash/kebabCase'
 
@@ -48,6 +48,16 @@ const cypressSelector = computed(() => {
   return `section-cards-with-illustrations-${_kebabCase(props.sectionTitle) || 'untitled'
     }`
 })
+
+// DYNAMIC HEADING LEVELS
+// Inject the content heading level from the section wrapper, or default to 2 if not found.
+const contentHeadingLevel = inject('contentHeadingLevel', inject('sectionLevel', 2))
+// Calculate the card heading level based on the section title.
+// If the section has a title, the card titles should be one level deeper.
+// If the section has no title, the card titles should use the same level as the section title.
+const cardHeadingLevel = computed(() =>
+  props.sectionTitle ? contentHeadingLevel + 1 : contentHeadingLevel,
+)
 </script>
 
 <template>
@@ -61,6 +71,7 @@ const cypressSelector = computed(() => {
       <BlockCardWithIllustration
         v-for="item in items" :key="item.to" :icon-name="item.iconName" :to="item.to"
         :title="item.title" :text="item.text" :category="item.category" :is-horizontal="isHorizontal"
+        :level="cardHeadingLevel"
       />
 
       <li v-if="to" class="card card-more">
