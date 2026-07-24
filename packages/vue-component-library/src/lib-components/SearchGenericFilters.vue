@@ -112,18 +112,19 @@ function doUpdateQueryFilters(key: string) {
 function handleFilterUpdate(updatedFilters: QueryFilters) {
   // Replace the entire object reactively
   queryFilterButtonDropDownStates.value = { ...updatedFilters }
+  syncCheckedState()
   console.log('Updated Filters:', queryFilterButtonDropDownStates.value)
-
 }
 function doSearch() {
   console.log('doSearch function called to emit update:queryFilters and filters-selection-action events to the parent component', queryFilterButtonDropDownStates.value)
   emit('update:queryFilters', { ...queryFilterButtonDropDownStates.value })
   emit('filters-selection-action')
 }
-
+/*
 watch(queryFilterButtonDropDownStates, () => {
   syncCheckedState()
 })
+  */
 
 // click outside setup
 const clickOutsideTarget = ref(null)
