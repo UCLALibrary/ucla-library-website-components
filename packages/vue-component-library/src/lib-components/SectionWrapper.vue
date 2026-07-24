@@ -86,7 +86,7 @@ const getId = computed(() => {
       <RichText
         v-if="sectionSummary"
         class="section-summary"
-        v-html="sectionSummary"
+        v-dompurify-html="sectionSummary"
       />
     </div>
 

@@ -40,7 +40,7 @@ const parsedChildren = computed(() => {
 
 <template>
   <li :class="classes">
-    <button class="section-name" v-html="item.name" />
+    <button class="section-name" v-dompurify-html="item.name" />
 
     <ul v-if="parsedChildren && parsedChildren.length > 0" class="sub-menu">
       <li v-for="child in parsedChildren" :key="child.id" class="sub-menu-item">

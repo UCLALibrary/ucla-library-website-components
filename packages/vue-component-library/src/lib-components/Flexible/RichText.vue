@@ -23,7 +23,7 @@ const { block } = defineProps({
     <h2
       v-if="block.sectionTitle"
       class="section-title"
-      v-html="block.sectionTitle"
+      v-dompurify-html="block.sectionTitle"
     />
 
     <RichText :rich-text-content="block.richText" />

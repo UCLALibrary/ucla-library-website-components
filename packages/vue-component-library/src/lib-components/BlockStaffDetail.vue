@@ -155,7 +155,7 @@ const mergeSortTopics = computed(() => {
           <div class="staff-info">
             <div
               class="job-title"
-              v-html="jobTitle"
+              v-dompurify-html="jobTitle"
             />
 
             <ul
@@ -238,7 +238,7 @@ const mergeSortTopics = computed(() => {
               <li
                 v-for="topic in mergeSortTopics"
                 :key="topic.id"
-                v-html="topic.title"
+                v-dompurify-html="topic.title"
               />
             </ul>
           </RichText>

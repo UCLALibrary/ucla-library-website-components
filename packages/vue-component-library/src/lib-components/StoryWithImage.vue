@@ -47,9 +47,9 @@ const parsedRatio = 60
         <h2 v-if="title" class="title">
           {{ title }}
         </h2>
-        <div v-if="text" class="text" v-html="text" />
+        <div v-if="text" class="text" v-dompurify-html="text" />
         <DividerGeneral class="divider-general" />
-        <div v-if="footnote" class="footnote" v-html="footnote" />
+        <div v-if="footnote" class="footnote" v-dompurify-html="footnote" />
         <DividerGeneral class="divider-general" />
         <div class="calltoaction">
           <span v-if="calltoaction"> {{ calltoaction }}</span>

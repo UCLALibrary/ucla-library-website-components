@@ -156,7 +156,7 @@ export function Default() {
              {{ item.alternativeName[0].fullName }}
            </span>
         </SmartLink>
-        <div class="job-title" v-html="item.jobTitle" />
+        <div class="job-title" v-dompurify-html="item.jobTitle" />
         <ul v-if="item.departments && item.departments.length > 0" class="departments">
           <li class="department">
             {{ item.departments[item.departments.length - 1].title }}

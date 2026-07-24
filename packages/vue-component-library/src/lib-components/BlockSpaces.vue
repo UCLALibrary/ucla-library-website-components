@@ -50,7 +50,7 @@ export default {
           </SmartLink>
         </h3>
         <!-- if no link (:to)  - do not display as a link -->
-        <h3 v-else class="space-title-no-link" v-html="title" />
+        <h3 v-else class="space-title-no-link" v-dompurify-html="title" />
       </div>
       <div class="meta">
         <RichText v-if="text" class="text" :rich-text-content="text" />

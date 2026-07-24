@@ -38,7 +38,7 @@ const parsedText = computed(() => {
       <SmartLink
         class="title"
         :to="to"
-        v-html="title"
+        v-dompurify-html="title"
       />
     </slot>
 

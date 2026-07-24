@@ -243,7 +243,7 @@ const parsedLocations = computed(() => {
       />
       <div
         class="text"
-        v-html="category"
+        v-dompurify-html="category"
       />
     </div>
 
@@ -277,7 +277,7 @@ const parsedLocations = computed(() => {
     <div class="meta">
       <h1
         class="title"
-        v-html="title"
+        v-dompurify-html="title"
       />
 
       <RichText
@@ -334,17 +334,17 @@ const parsedLocations = computed(() => {
           <time
             v-if="dateCreated"
             class="date-created"
-            v-html="parsedDateCreated"
+            v-dompurify-html="parsedDateCreated"
           />
           <time
             v-if="startDate"
             class="schedule-item"
-            v-html="parsedDate"
+            v-dompurify-html="parsedDate"
           />
           <time
             v-if="parsedTime"
             class="schedule-item"
-            v-html="parsedTime"
+            v-dompurify-html="parsedTime"
           />
         </div>
 

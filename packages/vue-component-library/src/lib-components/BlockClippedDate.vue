@@ -128,12 +128,12 @@ const parsedDateMonth = computed(() => {
         <time
           v-if="startDate"
           class="month"
-          v-html="parsedDateMonth"
+          v-dompurify-html="parsedDateMonth"
         />
         <time
           v-if="startDate"
           class="day"
-          v-html="parsedDateDay"
+          v-dompurify-html="parsedDateDay"
         />
       </div>
       <ResponsiveImage

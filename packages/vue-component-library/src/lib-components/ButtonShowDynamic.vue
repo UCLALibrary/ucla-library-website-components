@@ -78,7 +78,7 @@ function handleClick(e: MouseEvent) {
         <span
           :key="dynamicLabel"
           class="label"
-          v-html="dynamicLabel"
+          v-dompurify-html="dynamicLabel"
         />
       </transition>
       <SvgArrowDown

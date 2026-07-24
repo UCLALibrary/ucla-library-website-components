@@ -181,12 +181,12 @@ function TemplateFTVACustomTitleDescription(args) {
 
         <template #customTitle>
         <smart-link :to="uri" class="custom-title">
-          <rich-text v-html="title" />
+          <rich-text v-dompurify-html="title" />
         </smart-link>
         </template>
 
         <template #customDescription>
-          <rich-text v-html="ftvaHomepageDescription" />
+          <rich-text v-dompurify-html="ftvaHomepageDescription" />
         </template>
       </block-card-with-image>
     `,

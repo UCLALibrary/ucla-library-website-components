@@ -96,7 +96,7 @@ const classes = computed(() => {
     <figcaption
       v-if="props.media?.caption || props.caption"
       class="caption"
-      v-html="props.media?.caption || props.caption"
+      v-dompurify-html="props.media?.caption || props.caption"
     />
     <div class="sizer" :style="styles" />
     <slot />

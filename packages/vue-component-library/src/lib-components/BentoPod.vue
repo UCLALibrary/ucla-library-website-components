@@ -103,7 +103,7 @@ onUnmounted(() => {
     <h4
       v-if="title"
       class="title"
-      v-html="title"
+      v-dompurify-html="title"
     />
 
     <SmartLink
@@ -113,7 +113,7 @@ onUnmounted(() => {
     >
       <span
         class="button-label underline-hover"
-        v-html="buttonLabel"
+        v-dompurify-html="buttonLabel"
       />
       <SvgExternalLink aria-hidden="true" />
     </SmartLink>
@@ -134,13 +134,13 @@ onUnmounted(() => {
             <h5
               v-if="item.title"
               class="item-title"
-              v-html="item.title"
+              v-dompurify-html="item.title"
             />
           </SmartLink>
           <h5
             v-else-if="item.title"
             class="item-title"
-            v-html="item.title"
+            v-dompurify-html="item.title"
           />
           <div class="item-details">
             <span
@@ -151,7 +151,7 @@ onUnmounted(() => {
               <strong>{{ key }}:</strong>
               <span
                 class="detail"
-                v-html="value"
+                v-dompurify-html="value"
               />
             </span>
           </div>
@@ -177,13 +177,13 @@ onUnmounted(() => {
             <h5
               v-if="item.title"
               class="item-title"
-              v-html="item.title"
+              v-dompurify-html="item.title"
             />
           </SmartLink>
           <h5
             v-else-if="item.title"
             class="item-title"
-            v-html="item.title"
+            v-dompurify-html="item.title"
           />
           <div class="item-details">
             <span
@@ -194,7 +194,7 @@ onUnmounted(() => {
               <strong>{{ key }}:</strong>
               <span
                 class="detail"
-                v-html="value"
+                v-dompurify-html="value"
               />
             </span>
           </div>

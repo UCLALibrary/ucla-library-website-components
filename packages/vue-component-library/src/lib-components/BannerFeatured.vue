@@ -261,7 +261,7 @@ const classes = computed(() => {
         <h2
           v-if="category"
           class="category category-mobile"
-          v-html="category"
+          v-dompurify-html="category"
         />
       </div>
       <div class="hatch">
@@ -276,7 +276,7 @@ const classes = computed(() => {
       <div
         v-if="category"
         class="category category-desktop"
-        v-html="category"
+        v-dompurify-html="category"
       />
 
       <div v-if="titleLink.length > 0">
@@ -293,7 +293,7 @@ const classes = computed(() => {
         <h3
           :id="titleId"
           class="title"
-          v-html="title"
+          v-dompurify-html="title"
         />
       </div>
 
@@ -305,7 +305,7 @@ const classes = computed(() => {
           <time
             v-if="dateCreated"
             class="date-created"
-            v-html="parsedDateCreated"
+            v-dompurify-html="parsedDateCreated"
           />
         </div>
 
@@ -318,7 +318,7 @@ const classes = computed(() => {
             v-for="(item, index) in byline"
             :key="`external-${index}`"
             class="byline-item"
-            v-html="item"
+            v-dompurify-html="item"
           />
         </div>
 
@@ -335,12 +335,12 @@ const classes = computed(() => {
           <time
             v-if="startDate"
             class="schedule-item"
-            v-html="parsedDate"
+            v-dompurify-html="parsedDate"
           />
           <time
             v-if="parsedTime"
             class="schedule-item"
-            v-html="parsedTime"
+            v-dompurify-html="parsedTime"
           />
         </div>
 

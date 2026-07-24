@@ -96,13 +96,13 @@ const parsedTextAll = computed(() => {
       <div
         v-if="props.category"
         class="category"
-        v-html="props.category"
+        v-dompurify-html="props.category"
       />
 
       <SmartLink
         class="title"
         :to="props.to"
-        v-html="props.title"
+        v-dompurify-html="props.title"
       />
 
       <!-- SUMMARY ONLY -->
@@ -125,12 +125,12 @@ const parsedTextAll = computed(() => {
           v-for="author in props.authors"
           :key="author.id"
           class="author"
-          v-html="author.title"
+          v-dompurify-html="author.title"
         />
         <div
           v-if="props.date"
           class="date"
-          v-html="parsedDate"
+          v-dompurify-html="parsedDate"
         />
         <div
           v-if="props.description"
