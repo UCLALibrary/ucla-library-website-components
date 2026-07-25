@@ -13,7 +13,7 @@ interface ContentItem {
   name: string
 }
 
-interface Item {
+interface FilterDefinition {
   inputType: string
   label: string
   esFieldName: string
@@ -28,7 +28,7 @@ interface QueryFilters {
 
 const props = defineProps({
   filters: {
-    type: Array as PropType<Item[]>, // array of objects that contain the filter objects
+    type: Array as PropType<FilterDefinition[]>, // array of objects that contain the filter objects
     default: () => [],
   },
   queryFilters: {
@@ -103,7 +103,6 @@ function toggleTransition(index: number) {
 }
 
 function doUpdateQueryFilters(key: string) {
-  console.log('emit event to parent if checkbox is selected')
   queryFilterButtonDropDownStates.value[key] = checkedState.value ? ['yes'] : []
   emit('update:queryFilters', { ...queryFilterButtonDropDownStates.value })
   emit('filters-selection-action')
@@ -113,18 +112,12 @@ function handleFilterUpdate(updatedFilters: QueryFilters) {
   // Replace the entire object reactively
   queryFilterButtonDropDownStates.value = { ...updatedFilters }
   syncCheckedState()
-  console.log('Updated Filters:', queryFilterButtonDropDownStates.value)
+ 
 }
 function doSearch() {
-  console.log('doSearch function called to emit update:queryFilters and filters-selection-action events to the parent component', queryFilterButtonDropDownStates.value)
   emit('update:queryFilters', { ...queryFilterButtonDropDownStates.value })
   emit('filters-selection-action')
 }
-/*
-watch(queryFilterButtonDropDownStates, () => {
-  syncCheckedState()
-})
-  */
 
 // click outside setup
 const clickOutsideTarget = ref(null)

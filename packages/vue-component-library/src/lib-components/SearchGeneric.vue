@@ -15,7 +15,7 @@ interface Item {
 interface QueryFilters {
   [key: string]: string[]
 }
-interface RouterQuery {
+interface SearchState {
   queryText: string
   queryFilters: QueryFilters
 }
@@ -34,7 +34,7 @@ const { filters, searchGenericQuery, placeholder } = defineProps({
       default: () => [],
   }, */
   searchGenericQuery: {
-    type: Object as PropType<RouterQuery>,
+    type: Object as PropType<SearchState>,
     default: () => { },
   },
   placeholder: {
@@ -53,25 +53,14 @@ const searchWords = ref<string>(searchGenericQuery.queryText || '')
 const selectedFilters = ref(searchGenericQuery ? searchGenericQuery.queryFilters : {})
 
 onMounted(() => {
-  // console.log('On mOunted searchGenericQuery', searchGenericQuery)
-  // console.log('searchWords', searchWords.value)
-  // console.log('selectedFilters', selectedFilters.value)
   searchWords.value = searchGenericQuery.queryText
 })
 watch(() => searchGenericQuery, (newQueryFilters) => {
-  // console.log(' watcher searchGenericQuery', newQueryFilters)
   selectedFilters.value = newQueryFilters.queryFilters
   searchWords.value = newQueryFilters.queryText
 }, { deep: true, immediate: true })
 
 function doSearch() {
-  console.log('dosearch called')
-  console.log(
-    `selected filters in component are: ${JSON.stringify(selectedFilters.value)}`
-  )
-  console.log(
-    `search text in component are: ${JSON.stringify(searchWords.value)}`
-  )
   emit('search-ready', {
     filters: selectedFilters.value,
     text: searchWords.value,
