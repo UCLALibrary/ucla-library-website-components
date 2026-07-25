@@ -39,7 +39,7 @@ const parsedItems = computed(() => {
       ) {
         return {
           ...obj,
-          to: obj.to, // DO NOT strip
+          to: obj.externalResourceUrl,
           parsedImage: _get(obj, 'heroImage[0].image[0]', undefined),
           locations: _get(obj, 'articleLocations', undefined),
           category: _get(obj, 'articleCategory[0].title', ''),
