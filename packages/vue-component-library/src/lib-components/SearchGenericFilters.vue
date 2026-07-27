@@ -112,7 +112,6 @@ function handleFilterUpdate(updatedFilters: QueryFilters) {
   // Replace the entire object reactively
   queryFilterButtonDropDownStates.value = { ...updatedFilters }
   syncCheckedState()
- 
 }
 function doSearch() {
   emit('update:queryFilters', { ...queryFilterButtonDropDownStates.value })

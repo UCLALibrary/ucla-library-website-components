@@ -58,10 +58,9 @@ Default.parameters = {
 export function WithMoreFilters() {
   return {
     data() {
-      return { filters: JSON.parse(JSON.stringify(mockBigger))}
-      
+      return { filters: JSON.parse(JSON.stringify(mockBigger)) }
     },
-     methods: {
+    methods: {
       updateFilters(newFilters) {
         this.filters = newFilters
       },
@@ -87,7 +86,7 @@ export function FTVA() {
         theme: computed(() => 'ftva'),
       }
     },
-     methods: {
+    methods: {
       updateFilters(newFilters) {
         this.filters = newFilters
       },
