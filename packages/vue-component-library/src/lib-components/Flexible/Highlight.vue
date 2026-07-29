@@ -134,6 +134,7 @@ const parsedItems = computed(() => {
         && (
           obj.contentType === 'exhibition'
           || obj.contentType === 'workshopOrEventSeries'
+          || obj.contentType === 'endowment'
         )
       ) {
         return {
