@@ -45,7 +45,7 @@
         .slot-container {
             display: block;
             position: absolute;
-            // margin-top: 64px; // offset height of the header
+            margin-top: 64px; // offset height of the header
             width: 100%;
             background-color: ftvatokens.$navy-blue;
             transform: scaleY(0);
@@ -204,7 +204,7 @@
 
             .slot-container {
                 transition-duration: 0s; // no transition on mobile
-
+                margin-top: 0px; // header height does not need to be offset on mobile
                 :deep(.nav-search) {
                     width: unset;
                 }
