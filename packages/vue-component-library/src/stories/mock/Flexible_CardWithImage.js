@@ -302,7 +302,7 @@ export const mockInternalArticle = {
               title: 'Featured'
             }
           ],
-          articleByline2: '2024-03-22T15:21:00-07:00',
+          articleByline2: '2027-03-22T15:21:00-07:00',
           associatedLocations: [
             {
               id: '11560',
@@ -339,7 +339,8 @@ export const mockInternalArticle = {
         {
           id: '4989564',
           contentType: 'externalArticle',
-          to: 'https://twiggyshow.com',
+          to: 'https:/twiggyshow.com',
+          externalResourceUrl: 'https://twiggyshow.com',
           title: 'Twiggy the Skiing Squirrel',
           text: '<p><strong>New External Article field.</strong> Twiggy the squirrel has appeared in numerous books, magazines, newspapers, and television shows all over the world.</p>',
           articleCategory: [
@@ -347,7 +348,7 @@ export const mockInternalArticle = {
               title: 'Animals'
             }
           ],
-          articleByline2: '2026-07-08T16: 51: 00-07: 00',
+          articleByline2: '2027-07-08T16: 51: 00-07: 00',
           associatedLocations: [],
           heroImage: [
             {
