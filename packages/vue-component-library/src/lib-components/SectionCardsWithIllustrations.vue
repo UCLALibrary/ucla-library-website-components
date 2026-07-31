@@ -34,7 +34,11 @@ const props = defineProps({
   isHorizontal: {
     type: Boolean,
     default: false,
-  }
+  },
+  level: {
+    type: Number,
+    default: 0, // use the level prop to override the injected heading level
+  },
 })
 
 const classes = computed(() => {
@@ -51,19 +55,34 @@ const cypressSelector = computed(() => {
 
 // DYNAMIC HEADING LEVELS
 // Inject the content heading level from the section wrapper, or default to 2 if not found.
-const contentHeadingLevel = inject('contentHeadingLevel', inject('sectionLevel', 2))
-// Calculate the card heading level based on the section title.
-// If the section has a title, the card titles should be one level deeper.
-// If the section has no title, the card titles should use the same level as the section title.
+const injectedHeadingLevel = inject(
+  'contentHeadingLevel',
+  inject('sectionLevel', 2),
+)
+const sectionHeadingLevel = computed(() => {
+  const level = props.level || injectedHeadingLevel // if level is 0, use the contentHeadingLevel
+  return Math.min(Math.max(level, 1), 6) // clamp the level between 1 and 6
+})
+const sectionTitleTag = computed(() => `h${sectionHeadingLevel.value}`)
+// If the section has a title, card titles should be one level deeper.
+// If the section has no title, card titles should use the same level.
 const cardHeadingLevel = computed(() =>
-  props.sectionTitle ? contentHeadingLevel + 1 : contentHeadingLevel,
+  props.sectionTitle
+    ? sectionHeadingLevel.value + 1
+    : sectionHeadingLevel.value,
 )
 </script>
 
 <template>
   <section :class="classes" :data-cy="cypressSelector">
     <div v-if="sectionTitle || sectionSummary" class="section-header">
-      <h2 v-if="sectionTitle" id="cards-with-illustration-title" class="section-title" v-html="sectionTitle" />
+      <component
+        v-if="sectionTitle"
+        :is="sectionTitleTag"
+        id="cards-with-illustration-title"
+        class="section-title"
+        v-html="sectionTitle"
+      />
       <div v-if="sectionSummary" class="section-summary" v-html="sectionSummary" />
     </div>
 
