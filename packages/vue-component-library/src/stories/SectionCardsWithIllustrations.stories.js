@@ -1,6 +1,6 @@
 // Storybook default settings
+import { itemsHorizontal, itemsVertical } from './mock/Section_cardsWithIllustration'
 import SectionCardsWithIllustrations from '@/lib-components/SectionCardsWithIllustrations'
-import { itemsVertical, itemsHorizontal } from './mock/Section_cardsWithIllustration'
 
 export default {
   title: 'SECTION / Cards With Illustrations',

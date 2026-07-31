@@ -77,8 +77,8 @@ const cardHeadingLevel = computed(() =>
   <section :class="classes" :data-cy="cypressSelector">
     <div v-if="sectionTitle || sectionSummary" class="section-header">
       <component
-        v-if="sectionTitle"
         :is="sectionTitleTag"
+        v-if="sectionTitle"
         id="cards-with-illustration-title"
         class="section-title"
         v-html="sectionTitle"
