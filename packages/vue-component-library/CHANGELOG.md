@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.80.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.80.0...@ucla-library-monorepo/ucla-library-website-components-v1.80.1) (2026-08-01)
+
+
+### Bug Fixes
+
+* LADI-5320 force header height ([#969](https://github.com/UCLALibrary/ucla-library-website-components/issues/969)) ([1a96fc8](https://github.com/UCLALibrary/ucla-library-website-components/commit/1a96fc8a3bdb1fc3e50682d1c32f6136cf9c9301))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.80.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.79.1...@ucla-library-monorepo/ucla-library-website-components-v1.80.0) (2026-07-24)
 
 
