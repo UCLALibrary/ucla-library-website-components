@@ -175,6 +175,13 @@ const parsedItems = computed(() => {
             undefined
           ),
           to: stripMeapFromURI(obj.to),
+          locations: _get(
+            obj,
+            'associatedLocations',
+            undefined
+          ),
+          startDate: _get(obj, 'startDate', ''),
+          endDate: _get(obj, 'endDate', ''),
         }
       }
     })
