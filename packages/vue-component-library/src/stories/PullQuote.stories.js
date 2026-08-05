@@ -30,6 +30,11 @@ export function Default() {
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/design/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=1044-18893&t=0qblaqIYBpGec6AY-4"
+    //url: "https://www.figma.com/design/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?m=auto&node-id=1044-18893&t=0qblaqIYBpGec6AY-1",
+  }
 }
 
 const mockNoAttribution = {
