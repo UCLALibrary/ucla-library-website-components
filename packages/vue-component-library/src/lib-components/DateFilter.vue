@@ -489,9 +489,14 @@ onMounted(() => {
       color: ftvatokens.$medium-grey;
       border-radius: 8px;
 
-      &:hover,
-      &:focus {
+      &:hover {
         border-color: #ddd;
+      }
+
+      &:focus,
+      &:focus-visible {
+        border-color: #ddd;
+        outline: 2px solid ftvatokens.$accent-blue;
       }
 
       &:hover {
