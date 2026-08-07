@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.82.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.81.0...@ucla-library-monorepo/ucla-library-website-components-v1.82.0) (2026-08-07)
+
+
+### Features
+
+* LADI-5298 add dynamic heading logic to blockCardWithIllustration & related components ([#966](https://github.com/UCLALibrary/ucla-library-website-components/issues/966)) ([77c0800](https://github.com/UCLALibrary/ucla-library-website-components/commit/77c0800af70222838396ea923243ebbb7d4f6967))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.81.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.80.1...@ucla-library-monorepo/ucla-library-website-components-v1.81.0) (2026-08-05)
 
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 
 import _kebabCase from 'lodash/kebabCase'
 
@@ -34,7 +34,11 @@ const props = defineProps({
   isHorizontal: {
     type: Boolean,
     default: false,
-  }
+  },
+  level: {
+    type: Number,
+    default: 0, // use the level prop to override the injected heading level
+  },
 })
 
 const classes = computed(() => {
@@ -48,12 +52,37 @@ const cypressSelector = computed(() => {
   return `section-cards-with-illustrations-${_kebabCase(props.sectionTitle) || 'untitled'
     }`
 })
+
+// DYNAMIC HEADING LEVELS
+// Inject the content heading level from the section wrapper, or default to 2 if not found.
+const injectedHeadingLevel = inject(
+  'contentHeadingLevel',
+  inject('sectionLevel', 2),
+)
+const sectionHeadingLevel = computed(() => {
+  const level = props.level || injectedHeadingLevel // if level is 0, use the contentHeadingLevel
+  return Math.min(Math.max(level, 1), 6) // clamp the level between 1 and 6
+})
+const sectionTitleTag = computed(() => `h${sectionHeadingLevel.value}`)
+// If the section has a title, card titles should be one level deeper.
+// If the section has no title, card titles should use the same level.
+const cardHeadingLevel = computed(() =>
+  props.sectionTitle
+    ? sectionHeadingLevel.value + 1
+    : sectionHeadingLevel.value,
+)
 </script>
 
 <template>
   <section :class="classes" :data-cy="cypressSelector">
     <div v-if="sectionTitle || sectionSummary" class="section-header">
-      <h2 v-if="sectionTitle" id="cards-with-illustration-title" class="section-title" v-html="sectionTitle" />
+      <component
+        :is="sectionTitleTag"
+        v-if="sectionTitle"
+        id="cards-with-illustration-title"
+        class="section-title"
+        v-html="sectionTitle"
+      />
       <div v-if="sectionSummary" class="section-summary" v-html="sectionSummary" />
     </div>
 
@@ -61,6 +90,7 @@ const cypressSelector = computed(() => {
       <BlockCardWithIllustration
         v-for="item in items" :key="item.to" :icon-name="item.iconName" :to="item.to"
         :title="item.title" :text="item.text" :category="item.category" :is-horizontal="isHorizontal"
+        :level="cardHeadingLevel"
       />
 
       <li v-if="to" class="card card-more">
