@@ -497,6 +497,7 @@ onMounted(() => {
       &:focus-visible {
         border-color: #ddd;
         outline: 2px solid ftvatokens.$accent-blue;
+        outline-offset: -2px;
       }
 
       @media #{$small} {
