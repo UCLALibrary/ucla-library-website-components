@@ -49,6 +49,12 @@ export default {
         'ucla-library-design-tokens/assets/svgs/illustration-teaching.svg'
       )), */
   },
+  inject: {
+    contentHeadingLevel: {
+      from: 'contentHeadingLevel',
+      default: 3, // respect backwards compatibility and default to h3 for headers
+    },
+  },
   props: {
     iconName: {
       type: String,
@@ -74,6 +80,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    level: {
+      type: Number,
+      default: 0,
+    },
   },
   computed: {
     classes() {
@@ -98,6 +108,12 @@ export default {
     parsedTextVertical() {
       return this.text ? removeHtmlTruncate(this.text) : ''
     },
+    // DYNAMIC HEADING LEVELS
+    headerTag() {
+      const level = this.level || this.contentHeadingLevel // if level is 0, use the contentHeadingLevel
+      const clamped = Math.min(Math.max(level, 1), 6) // clamp the level between 1 and 6
+      return `h${clamped}` // return the heading tag
+    },
   },
 }
 </script>
@@ -121,7 +137,8 @@ export default {
         v-if="to"
         :to="to"
       >
-        <h3
+        <component
+          :is="headerTag"
           class="title"
           v-html="title"
         />
