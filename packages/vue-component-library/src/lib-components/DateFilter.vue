@@ -456,7 +456,6 @@ onMounted(() => {
   button:focus,
   button:focus-visible {
     outline: 2px solid ftvatokens.$accent-blue;
-    outline-offset: 2px;
   }
 
   .button-text {
@@ -697,8 +696,7 @@ onMounted(() => {
           height: 31px;
           transition: background-color 0.3s ease;
 
-          &:hover,
-          &:focus {
+          &:hover {
             background-color: ftvatokens.$grey-blue;
           }
         }
@@ -787,8 +785,7 @@ onMounted(() => {
           display: none;
         }
 
-        &:hover,
-        &:focus {
+        &:hover {
           background-color: ftvatokens.$navy-blue;
         }
       }
@@ -801,8 +798,7 @@ onMounted(() => {
           stroke: ftvatokens.$accent-blue;
         }
 
-        &:hover,
-        &:focus {
+        &:hover {
           background-color: ftvatokens.$navy-blue;
           color: var(--color-white);
 
