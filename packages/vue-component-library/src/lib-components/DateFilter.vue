@@ -496,7 +496,7 @@ onMounted(() => {
       &:focus,
       &:focus-visible {
         border-color: #ddd;
-        outline: 2px solid ftvatokens.$accent-blue;
+        outline: 1px solid ftvatokens.$accent-blue;
         outline-offset: -2px;
       }
 
@@ -836,7 +836,12 @@ onMounted(() => {
     .mobile-button {
       width: 166px;
       padding: 6px;
-      // border: none;
+
+      &:focus,
+      &:focus-visible {
+        outline: 1px solid ftvatokens.$accent-blue;
+        outline-offset: -2px;
+      }
 
       &:active {
         color: white;
