@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.83.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.82.0...@ucla-library-monorepo/ucla-library-website-components-v1.83.0) (2026-08-07)
+
+
+### Features
+
+* LADI-5241 Refactor search components ([#967](https://github.com/UCLALibrary/ucla-library-website-components/issues/967)) ([0171a73](https://github.com/UCLALibrary/ucla-library-website-components/commit/0171a73aa5f40aff7a68d13eb7c10f945807ec68))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.82.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.81.0...@ucla-library-monorepo/ucla-library-website-components-v1.82.0) (2026-08-07)
 
 
