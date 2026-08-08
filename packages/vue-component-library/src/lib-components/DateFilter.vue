@@ -837,12 +837,6 @@ onMounted(() => {
       width: 166px;
       padding: 6px;
 
-      // &:focus,
-      // &:focus-visible {
-      //   outline: 2px solid ftvatokens.$accent-blue;
-      //   outline-offset: -2px;
-      // }
-
       &:active {
         color: white;
         background-color: ftvatokens.$accent-blue;
