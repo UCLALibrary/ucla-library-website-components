@@ -1,7 +1,7 @@
 {
   "name": "@ucla-library-monorepo/ucla-library-website-components",
   "type": "module",
-  "version": "1.83.0",
+  "version": "1.84.0",
   "homepage": "https://ucla-library-storybook.netlify.app/?path=/docs/configure-your-project--docs",
   "repository": {
     "type": "git",
@@ -63,6 +63,7 @@
     "@storybook/addon-essentials": "^7.1.1",
     "@storybook/addon-interactions": "^7.1.1",
     "@storybook/addon-links": "^7.1.1",
+    "@storybook/addon-designs": "^7.0.0",
     "@storybook/blocks": "^7.1.1",
     "@storybook/testing-library": "^0.2.0",
     "@storybook/vue3": "^7.1.1",
