@@ -80,7 +80,7 @@ const classes = computed(() => {
               <IconWithLink
                 :text="parsedItems.email || ''"
                 icon-name="svg-icon-ftva-email"
-                :to="parsedItems.email"
+                :to="`mailto:${parsedItems.email || ''}`"
               />
             </li>
             <li class="info-address">
