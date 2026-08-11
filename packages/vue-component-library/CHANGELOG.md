@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.84.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.84.0...@ucla-library-monorepo/ucla-library-website-components-v1.84.1) (2026-08-11)
+
+
+### Bug Fixes
+
+* LADI-5330 fix contact email links at component level ([#972](https://github.com/UCLALibrary/ucla-library-website-components/issues/972)) ([4595858](https://github.com/UCLALibrary/ucla-library-website-components/commit/45958581bee378ddbbe368083951a2e93f751f37))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.84.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.83.0...@ucla-library-monorepo/ucla-library-website-components-v1.84.0) (2026-08-11)
 
 
