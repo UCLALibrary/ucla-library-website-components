@@ -455,7 +455,7 @@ onMounted(() => {
 
   button:focus,
   button:focus-visible {
-    outline: 2px solid ftvatokens.$accent-blue;
+    outline: -webkit-focus-ring-color auto 1px;
   }
 
   .button-text {
@@ -496,8 +496,7 @@ onMounted(() => {
       &:focus,
       &:focus-visible {
         border-color: #ddd;
-        outline: 2px solid ftvatokens.$accent-blue;
-        outline-offset: -2px;
+        outline: -webkit-focus-ring-color auto 1px;
       }
 
       @media #{$small} {
