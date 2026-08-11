@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.84.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.83.0...@ucla-library-monorepo/ucla-library-website-components-v1.84.0) (2026-08-11)
+
+
+### Features
+
+* LADI 5279 Implement Figma Storybook integration ([#973](https://github.com/UCLALibrary/ucla-library-website-components/issues/973)) ([cc654fa](https://github.com/UCLALibrary/ucla-library-website-components/commit/cc654fa5aa2e255f77e5243fd45b6e4f57d0cbaa))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.83.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.82.0...@ucla-library-monorepo/ucla-library-website-components-v1.83.0) (2026-08-07)
 
 
