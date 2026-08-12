@@ -5,6 +5,18 @@
   @include ftva-body;
   color: ftvatokens.$body-grey;
 
+  :deep(h2) {
+    // @include step-3;
+    // color: var(--color-primary-blue-03);
+    // margin-bottom: var(--space-m);
+    @include ftva-h5;
+    color: ftvatokens.$accent-blue;
+    // @include ftva-h3;
+    // color: ftvatokens.$body-grey;
+    // margin-bottom: 0;
+    // margin-bottom: var(--space-m);
+  }
+
   :deep(h3) {
     @include ftva-h3;
     color: ftvatokens.$body-grey;
