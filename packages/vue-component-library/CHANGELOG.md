@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.85.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.84.1...@ucla-library-monorepo/ucla-library-website-components-v1.85.0) (2026-08-13)
+
+
+### Features
+
+* LADI-5304 h2 styles for default and ftva themes ([#974](https://github.com/UCLALibrary/ucla-library-website-components/issues/974)) ([c10181a](https://github.com/UCLALibrary/ucla-library-website-components/commit/c10181a8440de8dc21a026b359ee01f9a4909545))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.84.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.84.0...@ucla-library-monorepo/ucla-library-website-components-v1.84.1) (2026-08-11)
 
 
