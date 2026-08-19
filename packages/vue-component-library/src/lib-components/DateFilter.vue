@@ -455,7 +455,7 @@ onMounted(() => {
 
   button:focus,
   button:focus-visible {
-    outline: 1px hidden ftvatokens.$accent-blue;
+    outline: -webkit-focus-ring-color auto 1px;
   }
 
   .button-text {
@@ -488,13 +488,15 @@ onMounted(() => {
       color: ftvatokens.$medium-grey;
       border-radius: 8px;
 
-      &:hover,
-      &:focus {
+      &:hover {
         border-color: #ddd;
+        background-color: #f1f1f1;
       }
 
-      &:hover {
-        background-color: #f1f1f1;
+      &:focus,
+      &:focus-visible {
+        border-color: #ddd;
+        outline: -webkit-focus-ring-color auto 1px;
       }
 
       @media #{$small} {
@@ -833,7 +835,6 @@ onMounted(() => {
     .mobile-button {
       width: 166px;
       padding: 6px;
-      // border: none;
 
       &:active {
         color: white;
