@@ -14,6 +14,7 @@ import SvgXIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_x.
 import SvgFbIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_fb.svg'
 import SvgLbIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-social_letterboxd.svg'
 import SvgBsIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-social_bluesky.svg'
+import SvgVmIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-social_vimeo.svg'
 import formatLinkTarget from '@/utils/formatLinkTarget'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { useTheme } from '@/composables/useTheme'
@@ -54,7 +55,9 @@ const socialMediaIcons = {
   letterboxd: SvgLbIcon,
   Letterboxd: SvgLbIcon,
   bluesky: SvgBsIcon,
-  Bluesky: SvgBsIcon
+  Bluesky: SvgBsIcon,
+  vimeo: SvgVmIcon,
+  Vimeo: SvgVmIcon
 }
 
 // THEME
