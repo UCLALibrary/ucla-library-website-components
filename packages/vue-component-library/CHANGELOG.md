@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.87.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.86.0...@ucla-library-monorepo/ucla-library-website-components-v1.87.0) (2026-08-20)
+
+
+### Features
+
+* LADI-3584 Add Vimeo to FTVA social media footer ([#975](https://github.com/UCLALibrary/ucla-library-website-components/issues/975)) ([b93cabe](https://github.com/UCLALibrary/ucla-library-website-components/commit/b93cabea4f1e53d6d567fe0a7b20eadb541ffe2a))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.86.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.85.0...@ucla-library-monorepo/ucla-library-website-components-v1.86.0) (2026-08-19)
 
 
