@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.87.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.0...@ucla-library-monorepo/ucla-library-website-components-v1.87.1) (2026-08-20)
+
+
+### Bug Fixes
+
+* LADI-5346   Component - FlexibleContactInfoBlock Remove text-transform ([#976](https://github.com/UCLALibrary/ucla-library-website-components/issues/976)) ([1470b1f](https://github.com/UCLALibrary/ucla-library-website-components/commit/1470b1fa4e5224a78901edb42d04e7ae02cdbdf9))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.87.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.86.0...@ucla-library-monorepo/ucla-library-website-components-v1.87.0) (2026-08-20)
 
 
