@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.87.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.1...@ucla-library-monorepo/ucla-library-website-components-v1.87.2) (2026-08-21)
+
+
+### Bug Fixes
+
+* LADI-3622 add color setting so browser stylesheet isn't used ([#977](https://github.com/UCLALibrary/ucla-library-website-components/issues/977)) ([04a8b36](https://github.com/UCLALibrary/ucla-library-website-components/commit/04a8b36b69bc5ab8acf717d135a6eb34344556c8))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.87.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.0...@ucla-library-monorepo/ucla-library-website-components-v1.87.1) (2026-08-20)
 
 
