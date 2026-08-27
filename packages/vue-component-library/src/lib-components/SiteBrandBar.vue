@@ -38,8 +38,8 @@ const parsedHeaderThemeSettings = computed(() => {
         v-else
         class="svg ucla-logo"
       />
-      <span v-if="theme === 'ftva'" class="visually-hidden">UCLA Library Film and Television Archive</span>
-      <span v-else class="visually-hidden">UCLA Home</span>
+
+      <span v-if="theme !== 'ftva'" class="visually-hidden">UCLA Home</span>
     </a>
     <span
       v-if="parsedHeaderThemeSettings.buttonLink && parsedHeaderThemeSettings.buttonText"
