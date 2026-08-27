@@ -77,11 +77,15 @@ onMounted(() => {
         v-if="isDropdownExpanded"
         class="button-dropdown-modal"
       >
-        <SvgGlyphClose
+        <button
           v-if="isMobile"
           class="svg-glyph-close"
+          aria-label="Close"
+          type="button"
           @click="removeOverlay"
-        />
+        >
+          <SvgGlyphClose />
+        </button>
         <div
           class="button-dropdown-modal-wrapper"
           :class="isDropdownExpandedClass"
