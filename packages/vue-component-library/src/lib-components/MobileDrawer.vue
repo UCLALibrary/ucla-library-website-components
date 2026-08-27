@@ -54,6 +54,7 @@ onMounted(() => {
       />
       <button
         class="mobile-button"
+        aria-label="Toggle Menu"
         :class="isDropdownExpandedClass"
         @click="handleDropdownExpansion"
       >
