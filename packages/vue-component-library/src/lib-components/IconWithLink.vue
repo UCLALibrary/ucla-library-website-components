@@ -296,15 +296,6 @@ export default {
     gap: var(--space-xs);
   }
 
-  // .action {
-  //   padding: 0;
-  //   border: 0;
-  //   color: inherit;
-  //   background: transparent;
-  //   font: inherit;
-  //   cursor: pointer;
-  // }
-
   .icon {
     flex-shrink: 0;
 
