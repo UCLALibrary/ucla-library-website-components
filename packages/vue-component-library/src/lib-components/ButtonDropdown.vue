@@ -224,14 +224,13 @@ const parsedClasses = computed(() => {
               @click="handleCopiedLink()"
             />
 
-            
             <IconWithLink
               v-else
               text="Link Copied!"
               :class="isLinkCopiedClass"
               :icon-name="SvgIconFtvaSocialConfirm"
             />
-        </template>
+          </template>
 
           <!-- Generic Dropdown Items -->
           <IconWithLink
