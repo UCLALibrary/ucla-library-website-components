@@ -3,6 +3,33 @@ import SiteNotificationBanner from '@/lib-components/SiteNotificationBanner.vue'
 export default {
   title: 'GLOBAL / Site Notification Banner',
   component: SiteNotificationBanner,
+  parameters: {
+    docs: {
+      description: {
+        component: `
+The SiteNotificationBanner displays a persistent, non-dismissible site-wide notification above the site brand bars.
+
+The component uses the same design across Library, MEAP, and FTVA sites.
+
+The notification supports rich text content, including links. The alert icon is displayed on desktop and hidden at tablet and mobile breakpoints.
+        `,
+      },
+    },
+  },
+  argTypes: {
+    text: {
+      description: 'Rich text content displayed in the notification banner.',
+      control: 'text',
+      table: {
+        type: {
+          summary: 'String',
+        },
+        defaultValue: {
+          summary: "''",
+        },
+      },
+    },
+  },
 }
 
 export function Default() {
