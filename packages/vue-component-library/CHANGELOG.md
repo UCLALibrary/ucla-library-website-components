@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.87.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.2...@ucla-library-monorepo/ucla-library-website-components-v1.87.3) (2026-09-01)
+
+
+### Bug Fixes
+
+* LADI-5324 fix missing focus states ([#980](https://github.com/UCLALibrary/ucla-library-website-components/issues/980)) ([7a6589f](https://github.com/UCLALibrary/ucla-library-website-components/commit/7a6589ff9297e3a1572125a88cb694fcbf87a77c))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.87.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.1...@ucla-library-monorepo/ucla-library-website-components-v1.87.2) (2026-08-21)
 
 
