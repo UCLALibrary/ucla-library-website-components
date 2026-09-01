@@ -74,6 +74,9 @@ const currentFullUrl = computed(() => {
 
   return window.location.origin + route.fullPath
 })
+// encode the current page URL for use in the email link
+// although some e-mail clients will work without this, 'New Outlook' wil not, so we encode it to be safe
+const emailLink = computed(() => `mailto:?body=${encodeURIComponent(currentFullUrl.value)}`)
 
 // Event data computations
 const parsedLocation = computed(() => {
@@ -199,19 +202,17 @@ const parsedClasses = computed(() => {
           class="dropdown-modal-item"
         >
           <!-- "Send to Email" -->
-          <span v-if="item.dropdownItemTitle === 'Email'"><a
-            :href="`mailto:?&body=${currentFullUrl}`"
-            class="email-icon"
-          >
+          <template v-if="item.dropdownItemTitle === 'Email'">
             <IconWithLink
               :text="item.dropdownItemTitle"
               :icon-name="item.iconName"
+              :to="emailLink"
               class="not-smart-link"
             />
-          </a></span>
+          </template>
 
           <!-- "Copy URL/Link" -->
-          <span
+          <template
             v-else-if="item.dropdownItemTitle === 'Copy Link'"
           >
             <!-- Swap on click -->
@@ -229,7 +230,7 @@ const parsedClasses = computed(() => {
               :class="isLinkCopiedClass"
               :icon-name="SvgIconFtvaSocialConfirm"
             />
-          </span>
+          </template>
 
           <!-- Generic Dropdown Items -->
           <IconWithLink

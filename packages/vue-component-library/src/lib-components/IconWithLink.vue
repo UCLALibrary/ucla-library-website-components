@@ -4,6 +4,7 @@ import SmartLink from '@/lib-components/SmartLink.vue'
 
 export default {
   name: 'IconWithLink',
+  emits: ['click'],
   components: {
     SmartLink,
     SvgIconConsultation: defineAsyncComponent(() =>
@@ -248,9 +249,12 @@ export default {
         v-text="text"
       />
     </SmartLink>
-    <div
+    <!-- if there is no link, use a tabbable / clickable button element to preserve interaction -->
+    <button
       v-else
+      type="button"
       class="icon-with-link-container"
+      @click="$emit('click', $event)"
     >
       <component
         :is="iconName"
@@ -261,7 +265,7 @@ export default {
         class="text"
         v-text="text"
       />
-    </div>
+    </button>
   </div>
 </template>
 
