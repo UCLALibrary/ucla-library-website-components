@@ -131,7 +131,6 @@ export function FeaturedNoSnippet() {
   }
 }
 
-
 export function GridGalleryWithHeading() {
   return {
     data() {
