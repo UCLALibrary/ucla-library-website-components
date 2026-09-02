@@ -186,8 +186,12 @@
                 text-decoration-color: ftvatokens.$grey-blue;
     }
 
-    add-to-calendar-button::part(atcb-list-item):hover {
+    add-to-calendar-button::part(atcb-list-item):hover, add-to-calendar-button::part(atcb-list-item):focus {
         -webkit-text-decoration-color: ftvatokens.$bright-blue;
                 text-decoration-color: ftvatokens.$bright-blue;
+    }
+    // outline on focus only to match other button dropdowns
+    add-to-calendar-button::part(atcb-list-item):focus {
+        outline: 4px auto ftvatokens.$bright-blue;
     }
 }

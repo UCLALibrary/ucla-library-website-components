@@ -65,7 +65,7 @@
                 background-color: #f1f1f1;
             }
 
-            .svg__icon-close.svg-glyph-close:hover {
+            .svg-glyph-close:hover {
                 cursor: pointer;
             }
         }
@@ -119,11 +119,19 @@
             margin: 0;
         }
 
-        .svg__icon-close.svg-glyph-close {
+        .svg-glyph-close {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: inherit;
             position: absolute;
             right: 24px;
             top: 12px;
             z-index: 1;
+
+            svg {
+                display: block;
+            }
         }
     }
 }
