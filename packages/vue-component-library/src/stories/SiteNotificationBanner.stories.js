@@ -48,6 +48,22 @@ export function Default() {
   }
 }
 
+export function ShortNotice() {
+  return {
+    components: {
+      SiteNotificationBanner,
+    },
+    data() {
+      return {
+        text: '<p>Campus is closed for the holidays 12-21-26 through  1-1-27.</p>',
+      }
+    },
+    template: `
+      <SiteNotificationBanner :text="text" />
+    `,
+  }
+}
+
 Default.parameters = {
   chromatic: { disableSnapshot: false },
   design: {
