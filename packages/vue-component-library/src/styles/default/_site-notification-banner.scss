@@ -65,6 +65,10 @@
 
   // Mobile
   @media #{$medium} {
+    .notification-inner {
+      padding: var(--space-s) var(--unit-gutter);
+    }
+
     .notification-icon {
       display: none;
     }
