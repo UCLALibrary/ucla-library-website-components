@@ -1,10 +1,15 @@
 <script>
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, getCurrentInstance } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 export default {
   name: 'IconWithLink',
   emits: ['click'],
+  computed: {
+    hasClickListener() {
+      return Boolean(getCurrentInstance()?.vnode.props?.onClick)
+    },
+  },
   components: {
     SmartLink,
     SvgIconConsultation: defineAsyncComponent(() =>
@@ -249,12 +254,11 @@ export default {
         v-text="text"
       />
     </SmartLink>
-    <!-- if there is no link, use a tabbable / clickable button element to preserve interaction -->
-     <!-- TODO need an additional check for non-interactive elements to use div instead 
-      https://github.com/UCLALibrary/ucla-library-website-components/pull/980/changes#diff-b29d502440652119a8456449f6082211576c316da4974786a73b8fc71a76633d-->
-    <button
+    <!-- if there is no link, use a div UNLESS a click listener is present, then use an interactive button element -->
+    <component
       v-else
-      type="button"
+      :is="hasClickListener ? 'button' : 'div'"
+      :type="hasClickListener ? 'button' : undefined"
       class="icon-with-link-container"
       @click="$emit('click', $event)"
     >
@@ -267,7 +271,7 @@ export default {
         class="text"
         v-text="text"
       />
-    </button>
+    </component>
   </div>
 </template>
 
