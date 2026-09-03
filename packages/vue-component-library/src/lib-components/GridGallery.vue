@@ -62,7 +62,7 @@ const parsedItems = computed(() => {
         />
         <div v-if="card.featured && card.snippet" class="section-text">
           <div class="text">
-            <span v-if="card.headlineText" class="title">
+            <h5 v-if="card.headlineText" class="title">
               <SmartLink
                 :to="card.to"
                 link-target="_blank"
@@ -70,7 +70,7 @@ const parsedItems = computed(() => {
               >
                 {{ card.headlineText }}
               </SmartLink>
-            </span>
+            </h5>
             <div class="snippet" v-html="card.snippet" />
           </div>
         </div>
