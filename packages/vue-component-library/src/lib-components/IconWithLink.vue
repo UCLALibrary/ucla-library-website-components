@@ -250,6 +250,8 @@ export default {
       />
     </SmartLink>
     <!-- if there is no link, use a tabbable / clickable button element to preserve interaction -->
+     <!-- TODO need an additional check for non-interactive elements to use div instead 
+      https://github.com/UCLALibrary/ucla-library-website-components/pull/980/changes#diff-b29d502440652119a8456449f6082211576c316da4974786a73b8fc71a76633d-->
     <button
       v-else
       type="button"
