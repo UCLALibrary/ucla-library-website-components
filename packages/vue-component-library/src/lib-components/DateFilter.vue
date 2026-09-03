@@ -477,6 +477,7 @@ onMounted(() => {
     --dp-menu-padding: 26px;
     --dp-cell-size: 38px;
     --dp-input-icon-padding: 30px;
+
     width: 380px;
 
     // Input styling
@@ -509,6 +510,13 @@ onMounted(() => {
       }
     }
 
+    // Firefox Focus
+    @supports (-moz-appearance: none) {
+      :deep(.dp__input.dp__input_focus) {
+        outline: revert;
+      }
+    }
+
     :deep(.dp__input_icon) {
       width: 100%;
 
@@ -536,7 +544,6 @@ onMounted(() => {
           display: none;
         }
       }
-
     }
 
     :deep(.dp__clear_icon) {
@@ -567,7 +574,6 @@ onMounted(() => {
     }
 
     // Calendar styling
-
     .custom-month-year-component {
       color: ftvatokens.$heading-grey;
     }
@@ -605,7 +611,6 @@ onMounted(() => {
         .day-content>.event-dots>.dot {
           background-color: var(--color-white);
         }
-
       }
 
       &.dp__range_end,
