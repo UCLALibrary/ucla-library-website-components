@@ -488,6 +488,7 @@ onMounted(() => {
       font-size: 18px;
       color: ftvatokens.$medium-grey;
       border-radius: 8px;
+      cursor: pointer;
 
       &:hover {
         border-color: #ddd;
