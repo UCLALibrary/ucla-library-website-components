@@ -23,7 +23,8 @@
   </div>
 
   <div>
-    <h2> BannerHeader
+    <h2>
+      BannerHeader
     </h2>
     <BannerHeader
       :start-date="MOCK.mockdata.startDate"
