@@ -41,10 +41,13 @@ const { eventDates, initialDates, hideInput } = defineProps({
 // EMITS
 const emit = defineEmits(['input-selected'])
 const threeLetterDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
 const vue3datepickerConfig = {
   closeOnAutoApply: false,
   keepActionRow: true,
+  tabOutClosesMenu: false,
 }
+
 const date = ref<Date[] | Date>([])
 const datepicker = ref<DatePickerInstance | null>(null)
 const isSelecting = ref(false)
@@ -53,6 +56,7 @@ const isMobile = ref(false)
 const todayBtnActive = ref(false)
 const textConfig = ref({
   rangeSeparator: ' — ',
+  tabSubmit: false,
 })
 
 // Format the selected date(s) into consistent object
@@ -233,7 +237,6 @@ onMounted(() => {
       onInput,
       onFocus,
       onBlur,
-      onTab,
       onKeypress,
       onPaste,
       openMenu,
@@ -250,7 +253,6 @@ onMounted(() => {
       @focus="onFocus"
       @blur="onBlur"
       @keyup.enter.prevent="openMenu"
-      @keydown.tab="onTab"
       @keypress="onKeypress"
       @paste="onPaste"
     >
