@@ -236,7 +236,7 @@ onMounted(() => {
       onTab,
       onKeypress,
       onPaste,
-      openMenu
+      openMenu,
     }"
   >
     <input
