@@ -227,6 +227,35 @@ onMounted(() => {
       @open="toggleArrow"
       @closed="toggleArrow"
     >
+  <template
+    #dp-input="{
+      value,
+      onInput,
+      onFocus,
+      onBlur,
+      onTab,
+      onKeypress,
+      onPaste,
+      openMenu
+    }"
+  >
+    <input
+      class="dp__input dp__input_icon_pad"
+      type="text"
+      :value="value"
+      placeholder="All upcoming"
+      aria-label="Choose a date"
+      autocomplete="off"
+      @input="onInput"
+      @focus="onFocus"
+      @blur="onBlur"
+      @keyup.enter.prevent="openMenu"
+      @keydown.tab="onTab"
+      @keypress="onKeypress"
+      @paste="onPaste"
+    >
+  </template>
+
       <template #input-icon>
         <SvgIconFTVACalender />
         <!-- <span :class="inputIconClass">
