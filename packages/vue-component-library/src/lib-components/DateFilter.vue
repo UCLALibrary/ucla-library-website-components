@@ -482,11 +482,6 @@ onMounted(() => {
     padding-bottom: 30px;
   }
 
-  button:focus,
-  button:focus-visible {
-    outline: -webkit-focus-ring-color auto 1px;
-  }
-
   .button-text {
     display: inline-flex;
     align-items: center;
@@ -510,6 +505,7 @@ onMounted(() => {
     width: 380px;
 
     // Input styling
+
     :deep(.dp__input) {
       height: 59px;
       font-family: var(--font-primary);
@@ -524,10 +520,8 @@ onMounted(() => {
         background-color: #f1f1f1;
       }
 
-      &:focus,
       &:focus-visible {
-        border-color: #ddd;
-        outline: -webkit-focus-ring-color auto 1px;
+        outline: revert;
       }
 
       @media #{$small} {
