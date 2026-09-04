@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.88.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.4...@ucla-library-monorepo/ucla-library-website-components-v1.88.0) (2026-09-04)
+
+
+### Features
+
+* LADI-5355 better html structure GridGallery ([#981](https://github.com/UCLALibrary/ucla-library-website-components/issues/981)) ([bd730d3](https://github.com/UCLALibrary/ucla-library-website-components/commit/bd730d3f33abe8f4b789a788d9dc669212accba4))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.87.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.3...@ucla-library-monorepo/ucla-library-website-components-v1.87.4) (2026-09-04)
 
 
