@@ -126,7 +126,7 @@ function clearDate() {
   datepicker.value?.updateInternalModelValue(null)
   todayBtnActive.value = false
   datepicker.value?.clearValue()
-  datepicker.value?.openMenu() // reopen after clear
+  datepicker.value?.closeMenu() // close after clear
   emit('input-selected', formattedDateSelection.value)
 }
 
@@ -811,6 +811,13 @@ onMounted(() => {
 
         :deep(.hover) {
           display: none;
+        }
+
+        // Visible keyboard focus on the Done button in the DateFilter - All Upcoming
+        &:focus,
+        &:focus-visible {
+          outline: 2px solid var(--color-black);
+          outline-offset: -4px;
         }
 
         &:hover {
