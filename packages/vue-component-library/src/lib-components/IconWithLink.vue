@@ -1,10 +1,15 @@
 <script>
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, getCurrentInstance } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 export default {
   name: 'IconWithLink',
   emits: ['click'],
+  computed: {
+    hasClickListener() {
+      return Boolean(getCurrentInstance()?.vnode.props?.onClick)
+    },
+  },
   components: {
     SmartLink,
     SvgIconConsultation: defineAsyncComponent(() =>
@@ -249,10 +254,11 @@ export default {
         v-text="text"
       />
     </SmartLink>
-    <!-- if there is no link, use a tabbable / clickable button element to preserve interaction -->
-    <button
+    <!-- if there is no link, use a div UNLESS a click listener is present, then use an interactive button element -->
+    <component
       v-else
-      type="button"
+      :is="hasClickListener ? 'button' : 'div'"
+      :type="hasClickListener ? 'button' : undefined"
       class="icon-with-link-container"
       @click="$emit('click', $event)"
     >
@@ -265,7 +271,7 @@ export default {
         class="text"
         v-text="text"
       />
-    </button>
+    </component>
   </div>
 </template>
 
