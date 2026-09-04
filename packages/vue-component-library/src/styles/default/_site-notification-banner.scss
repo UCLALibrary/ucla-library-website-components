@@ -1,0 +1,76 @@
+@use "ucla-library-design-tokens/scss/app.scss" as *;
+
+.site-notification-banner {
+  width: 100%;
+  min-height: 56px;
+  background-color: var(--color-primary-yellow-01);
+
+  .notification-inner {
+    box-sizing: border-box;
+
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
+    gap: 8px;
+
+    width: 100%;
+    min-height: 56px;
+
+    margin-inline: auto;
+    padding: var(--space-xs) var(--unit-gutter);
+  }
+
+  .notification-icon {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+
+    :deep(path) {
+      stroke: var(--color-primary-blue-05);
+    }
+  }
+
+  :deep(.rich-text) {
+    max-width: unset;
+  }
+
+  .notification-text {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    color: var(--color-black);
+    text-align: left;
+
+    :deep(.parsed-content) {
+      margin: 0;
+      padding: 0;
+    }
+
+    :deep(p) {
+      margin: 0;
+
+      font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: $font-weight-semibold;
+      line-height: 24px;
+    }
+
+    :deep(a) {
+      color: var(--color-black);
+      font-weight: $font-weight-semibold;
+      text-decoration: underline;
+    }
+  }
+
+  // Mobile
+  @media #{$medium} {
+    .notification-inner {
+      padding: var(--space-s) var(--unit-gutter);
+    }
+
+    .notification-icon {
+      display: none;
+    }
+  }
+}
