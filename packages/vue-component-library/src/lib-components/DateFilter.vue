@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 // @ts-nocheck
 /* @ts-expect-error */
-import { computed, defineAsyncComponent, onMounted, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, nextTick, onMounted, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import VueDatePicker from '@vuepic/vue-datepicker'
 import type { DatePickerInstance } from '@vuepic/vue-datepicker'
@@ -50,6 +50,7 @@ const vue3datepickerConfig = {
 
 const date = ref<Date[] | Date>([])
 const datepicker = ref<DatePickerInstance | null>(null)
+const datepickerInput = ref<HTMLInputElement | null>(null)
 const isSelecting = ref(false)
 const isOpen = ref(false)
 const isMobile = ref(false)
@@ -122,12 +123,18 @@ function goToToday() {
   }
 }
 // Clear date selection
-function clearDate() {
+async function clearDate() {
   datepicker.value?.updateInternalModelValue(null)
   todayBtnActive.value = false
   datepicker.value?.clearValue()
-  datepicker.value?.closeMenu() // close after clear
+  datepicker.value?.closeMenu()
+
   emit('input-selected', formattedDateSelection.value)
+
+  // Wait for the calendar to close, then return keyboard focus
+  // to the DateFilter input.
+  await nextTick()
+  datepickerInput.value?.focus()
 }
 
 function onDoneClick() {
@@ -243,11 +250,15 @@ onMounted(() => {
     }"
   >
     <input
+      ref="datepickerInput"
       class="dp__input dp__input_icon_pad"
       type="text"
       :value="value"
       placeholder="All upcoming"
+      role="combobox"
       aria-label="Choose a date"
+      aria-haspopup="dialog"
+      :aria-expanded="isOpen"
       autocomplete="off"
       @input="onInput"
       @focus="onFocus"
