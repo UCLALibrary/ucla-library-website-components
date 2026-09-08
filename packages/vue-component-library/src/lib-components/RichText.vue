@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // UTILITY FUNCTIONS
-import { computed, ref, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import stripCraftURLFromText from '@/utils/stripCraftURLFromText'
 import accessibleExternalLinks from '@/utils/accessibleExternalLinks'
 
@@ -19,16 +19,16 @@ const classes = computed(() => {
   return ['rich-text', theme?.value || '']
 })
 
-/* 
+/*
 Reference: LADI 5311
 
-Inline YouTube embeds sometimes are missing their title attribute; this causes SiteImprove / A11Y errors. To resolve this, YouTube video titles have to be retrieved with the oEmbed api, and RichText content has to go through extra parsing for YouTube embeds. 
+Inline YouTube embeds sometimes are missing their title attribute; this causes SiteImprove / A11Y errors. To resolve this, YouTube video titles have to be retrieved with the oEmbed api, and RichText content has to go through extra parsing for YouTube embeds.
 */
 
 const youTubeEmbedArray = ref<{
-  initialURL: string;
-  oEmbedURL: string;
-  videoTitle: string;
+  initialURL: string
+  oEmbedURL: string
+  videoTitle: string
 }[]>([])
 
 const iframeWithYouTubePattern = /<iframe\b[^>]*\bsrc=["']((?:https?:)?\/\/(?:www\.)?(?:youtube\.com|youtube-nocookie\.com)\/[^"']+)["'][^>]*><\/iframe>/gi
@@ -45,7 +45,7 @@ onMounted(async () => {
       return {
         initialURL: item,
         oEmbedURL: urlForOembedFetch,
-        videoTitle: `YouTube Video Player ${index}` // Fallback title 
+        videoTitle: `YouTube Video Player ${index}` // Fallback title
       }
     })
   }
@@ -55,7 +55,8 @@ onMounted(async () => {
       youTubeEmbedArray.value.map(async (urlObj) => {
         const url = `https://www.youtube.com/oembed?url=${urlObj.oEmbedURL}`
         const response = await fetch(url)
-        if (!response.ok) throw new Error(`Failed: ${url}`)
+        if (!response.ok)
+          throw new Error(`Failed: ${url}`)
         return response.json()
       }),
     )
@@ -70,21 +71,19 @@ onMounted(async () => {
 const parsedContent = computed(() => {
   const content = stripCraftURLFromText(props.richTextContent)
 
-  // Find inline YouTube iframe(s) and add fetched video title(s) 
+  // Find inline YouTube iframe(s) and add fetched video title(s)
   return accessibleExternalLinks(content.replace(
     iframeWithYouTubePattern,
     (iframe: string, url: string) => {
       const embed = youTubeEmbedArray.value.find(item => item.initialURL === url)
 
-      if (!embed) return iframe
+      if (!embed)
+        return iframe
 
       return iframe.replace('<iframe', `<iframe title="${embed.videoTitle}"`)
     },
   ))
 })
-
-
-
 </script>
 
 <template>
