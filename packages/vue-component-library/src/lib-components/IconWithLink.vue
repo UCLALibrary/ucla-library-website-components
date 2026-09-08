@@ -1,3 +1,32 @@
+<!--
+  IconWithLink displays an icon next to text and can be used as an internal
+  or external link, or as a button when a click handler is provided.
+
+  Required props:
+    - text: Text displayed beside the icon.
+    - iconName: Registered icon component name, for example
+      "svg-icon-location" or "svg-icon-search".
+
+  Link:
+    <IconWithLink
+      text="Powell Library"
+      icon-name="svg-icon-location"
+      to="/visit/library/powell"
+    />
+
+  Button:
+    <IconWithLink
+      text="Search"
+      icon-name="svg-icon-search"
+      has-custom-click="true"
+      @click="handleSearch"
+    />
+
+  Omit `to` and `@click` when the component should only display an icon and
+  text without interaction.
+
+  Set has-custom-click to true when using the button option or it will not be accessible / tabbable. 
+-->
 <script>
 import { defineAsyncComponent, getCurrentInstance } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
@@ -229,9 +258,12 @@ export default {
       required: true,
     },
     to: {
-      // URL to link to
       type: String,
       default: '',
+    },
+    hasCustomClick: {
+      type: Boolean,
+      default: false,
     },
   },
 }
