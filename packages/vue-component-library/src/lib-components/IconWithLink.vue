@@ -25,7 +25,7 @@
   Omit `to` and `@click` when the component should only display an icon and
   text without interaction.
 
-  Set has-custom-click to true when using the button option or it will not be accessible / tabbable. 
+  Set has-custom-click to true when using the button option or it will not be accessible / tabbable.
 -->
 <script>
 import { defineAsyncComponent } from 'vue'
@@ -282,8 +282,8 @@ export default {
       />
     </SmartLink>
     <component
-      v-else
       :is="hasCustomClick ? 'button' : 'div'"
+      v-else
       :type="hasCustomClick ? 'button' : undefined"
       class="icon-with-link-container"
       @click="$emit('click', $event)"
