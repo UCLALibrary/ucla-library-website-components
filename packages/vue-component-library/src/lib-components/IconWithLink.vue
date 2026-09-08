@@ -28,17 +28,12 @@
   Set has-custom-click to true when using the button option or it will not be accessible / tabbable. 
 -->
 <script>
-import { defineAsyncComponent, getCurrentInstance } from 'vue'
+import { defineAsyncComponent } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 export default {
   name: 'IconWithLink',
   emits: ['click'],
-  computed: {
-    hasClickListener() {
-      return Boolean(getCurrentInstance()?.vnode.props?.onClick)
-    },
-  },
   components: {
     SmartLink,
     SvgIconConsultation: defineAsyncComponent(() =>
@@ -286,11 +281,10 @@ export default {
         v-text="text"
       />
     </SmartLink>
-    <!-- if there is no link, use a div UNLESS a click listener is present, then use an interactive button element -->
     <component
       v-else
-      :is="hasClickListener ? 'button' : 'div'"
-      :type="hasClickListener ? 'button' : undefined"
+      :is="hasCustomClick ? 'button' : 'div'"
+      :type="hasCustomClick ? 'button' : undefined"
       class="icon-with-link-container"
       @click="$emit('click', $event)"
     >
