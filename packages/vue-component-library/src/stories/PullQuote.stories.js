@@ -31,8 +31,8 @@ export function Default() {
 Default.parameters = {
   chromatic: { disableSnapshot: false },
   design: {
-    type: "figma",
-    url: "https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?m=auto&node-id=1044-18893&t=5NYsFDCVzQBTOW9f-1"
+    type: 'figma',
+    url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?m=auto&node-id=1044-18893&t=5NYsFDCVzQBTOW9f-1'
   }
 }
 

@@ -44,7 +44,7 @@ const parsedItems = computed(() => {
           :aspect-ratio="60"
           object-fit="cover"
         />
-        <h5
+        <span
           v-if="
             card.headlineText
               && ((card.featured && !card.snippet) || !card.featured)
@@ -54,7 +54,7 @@ const parsedItems = computed(() => {
           <SmartLink :to="card.to" link-target="_blank" class="link">
             {{ card.headlineText }}
           </SmartLink>
-        </h5>
+        </span>
         <div
           v-if="!card.featured && card.snippet"
           class="snippet"
@@ -62,7 +62,7 @@ const parsedItems = computed(() => {
         />
         <div v-if="card.featured && card.snippet" class="section-text">
           <div class="text">
-            <h5 v-if="card.headlineText" class="title">
+            <span v-if="card.headlineText" class="title">
               <SmartLink
                 :to="card.to"
                 link-target="_blank"
@@ -70,7 +70,7 @@ const parsedItems = computed(() => {
               >
                 {{ card.headlineText }}
               </SmartLink>
-            </h5>
+            </span>
             <div class="snippet" v-html="card.snippet" />
           </div>
         </div>
@@ -133,6 +133,7 @@ const parsedItems = computed(() => {
 
     .title {
         @include step-1;
+        display: block;
         color: var(--color-primary-blue-03);
         margin: 16px 0 0 0;
         line-height: $line-height--1;

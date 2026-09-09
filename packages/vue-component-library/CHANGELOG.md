@@ -1,3 +1,24 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.88.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.88.0...@ucla-library-monorepo/ucla-library-website-components-v1.88.1) (2026-09-09)
+
+
+### Bug Fixes
+
+* LADI-5324_fix-button-implementation ([#983](https://github.com/UCLALibrary/ucla-library-website-components/issues/983)) ([768601a](https://github.com/UCLALibrary/ucla-library-website-components/commit/768601ad9b218fd2b26b9c1e5e072de440a584f3))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.88.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.4...@ucla-library-monorepo/ucla-library-website-components-v1.88.0) (2026-09-04)
+
+
+### Features
+
+* LADI-5355 better html structure GridGallery ([#981](https://github.com/UCLALibrary/ucla-library-website-components/issues/981)) ([bd730d3](https://github.com/UCLALibrary/ucla-library-website-components/commit/bd730d3f33abe8f4b789a788d9dc669212accba4))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.87.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.3...@ucla-library-monorepo/ucla-library-website-components-v1.87.4) (2026-09-04)
+
+
+### Bug Fixes
+
+* Test date filter focus firefox ([#984](https://github.com/UCLALibrary/ucla-library-website-components/issues/984)) ([68a0509](https://github.com/UCLALibrary/ucla-library-website-components/commit/68a05098001b811df0c1911bfd1815d2916f006f))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.87.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.2...@ucla-library-monorepo/ucla-library-website-components-v1.87.3) (2026-09-01)
 
 
