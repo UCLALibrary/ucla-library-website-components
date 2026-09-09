@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.88.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.88.0...@ucla-library-monorepo/ucla-library-website-components-v1.88.1) (2026-09-09)
+
+
+### Bug Fixes
+
+* LADI-5324_fix-button-implementation ([#983](https://github.com/UCLALibrary/ucla-library-website-components/issues/983)) ([768601a](https://github.com/UCLALibrary/ucla-library-website-components/commit/768601ad9b218fd2b26b9c1e5e072de440a584f3))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.88.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.4...@ucla-library-monorepo/ucla-library-website-components-v1.88.0) (2026-09-04)
 
 
