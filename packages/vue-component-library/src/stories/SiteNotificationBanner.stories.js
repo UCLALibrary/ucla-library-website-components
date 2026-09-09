@@ -68,6 +68,6 @@ Default.parameters = {
   chromatic: { disableSnapshot: false },
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/design/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=11180-2368&t=XPJo8x5Lj9gWIEM9-4',
+    url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=11180-2368&t=XPJo8x5Lj9gWIEM9-4',
   },
 }
