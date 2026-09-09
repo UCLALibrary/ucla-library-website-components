@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.89.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.88.1...@ucla-library-monorepo/ucla-library-website-components-v1.89.0) (2026-09-09)
+
+
+### Features
+
+* LADI-5323 Create SiteNotificationBanner component ([#978](https://github.com/UCLALibrary/ucla-library-website-components/issues/978)) ([1870ccd](https://github.com/UCLALibrary/ucla-library-website-components/commit/1870ccd7f3103d59ad604a2d0c4ecd677cf01dcd))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.88.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.88.0...@ucla-library-monorepo/ucla-library-website-components-v1.88.1) (2026-09-09)
 
 
