@@ -74,13 +74,13 @@ const parsedContent = computed(() => {
   // Find inline YouTube iframe(s) and add fetched video title(s)
   return accessibleExternalLinks(content.replace(
     iframeWithYouTubePattern,
-    (iframe: string, url: string) => {
+    (iframeElement: string, url: string) => {
       const embed = youTubeEmbedArray.value.find(item => item.initialURL === url)
 
       if (!embed)
-        return iframe
+        return iframeElement
 
-      return iframe.replace('<iframe', `<iframe title="${embed.videoTitle}"`)
+      return iframeElement.replace('<iframe', `<iframe title="${embed.videoTitle}"`)
     },
   ))
 })
