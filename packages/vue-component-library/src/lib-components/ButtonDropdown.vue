@@ -220,6 +220,7 @@ const parsedClasses = computed(() => {
               v-if="!isLinkCopied"
               :text="item.dropdownItemTitle"
               :icon-name="item.iconName"
+              has-custom-click="true"
               class="not-smart-link"
               @click="handleCopiedLink()"
             />
