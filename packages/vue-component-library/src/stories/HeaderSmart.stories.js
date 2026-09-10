@@ -368,3 +368,29 @@ export function DLC() {
     template: '<header-smart />',
   }
 }
+
+export function WithSiteNotificationBanner() {
+  return {
+    setup() {
+      const globalStore = useGlobalStore()
+
+      globalStore.header.primary = mock.primary
+      globalStore.header.secondary = mock.secondary
+    },
+
+    components: { HeaderSmart },
+
+    data() {
+      return {
+        notificationText:
+          '<p>Please check <a href="/visit">Library Status Updates</a> before visiting for the latest information regarding Library locations and hours, current services and returning materials.</p>',
+      }
+    },
+
+    template: `
+      <header-smart
+        :notification-text="notificationText"
+      />
+    `,
+  }
+}

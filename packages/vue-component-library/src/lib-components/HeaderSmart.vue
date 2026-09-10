@@ -3,6 +3,7 @@ import { computed, markRaw, onMounted, ref, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useGlobalStore } from '@/stores/GlobalStore'
+import SiteNotificationBanner from '@/lib-components/SiteNotificationBanner'
 import SiteBrandBar from '@/lib-components/SiteBrandBar'
 import HeaderMainResponsive from '@/lib-components/HeaderMainResponsive'
 import HeaderMain from '@/lib-components/HeaderMain'
@@ -11,6 +12,10 @@ import { useTheme } from '@/composables/useTheme'
 // Props
 const props = defineProps({
   title: {
+    type: String,
+    default: '',
+  },
+  notificationText: {
     type: String,
     default: '',
   },
@@ -70,7 +75,14 @@ onMounted(() => {
 
 <template>
   <header :class="classes" aria-label="Main site header">
+
+    <SiteNotificationBanner
+      v-if="notificationText"
+      :text="notificationText"
+    />
+
     <SiteBrandBar class="brand-bar" />
+
     <component
       :is="currentHeader"
       :class="isMobile ? 'mobile-header' : 'desktop-header'"
