@@ -1,10 +1,12 @@
 <script setup lang="ts">
 // UTILITY FUNCTIONS
-import { computed, onMounted, ref } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import stripCraftURLFromText from '@/utils/stripCraftURLFromText'
 import accessibleExternalLinks from '@/utils/accessibleExternalLinks'
 
 import { useTheme } from '@/composables/useTheme'
+import { useOEmbedFetch } from '@/composables/useOEmbedFetch'
+import formatYouTubeUrlsForOembed from '@/utils/formatYouTubeUrlsForOembed'
 
 const props = defineProps({
   richTextContent: {
@@ -19,57 +21,51 @@ const classes = computed(() => {
   return ['rich-text', theme?.value || '']
 })
 
+const content = stripCraftURLFromText(props.richTextContent)
+
 /*
 Reference: LADI 5311
 
-Inline YouTube embeds sometimes are missing their title attribute; this causes SiteImprove / A11Y errors. To resolve this, YouTube video titles have to be retrieved with the oEmbed api, and RichText content has to go through extra parsing for YouTube embeds.
+Inline YouTube embeds may not always have title attribute; this causes accessibility errors. To resolve this, RichText content has to go through extra parsing for YouTube embeds. YouTube urls are retrieved to make a fetch call to the oEmbed api to retrieve video titles from metadata.
 */
 
-const youTubeEmbedArray = ref<{
-  initialURL: string
-  oEmbedURL: string
+type UrlObj = {
+  initialURL:string,
+  oEmbedURL: string,
   videoTitle: string
-}[]>([])
+}
+
+const youTubeEmbedArray = ref<UrlObj[]>([])
 
 const iframeWithYouTubePattern = /<iframe\b[^>]*\bsrc=["']((?:https?:)?\/\/(?:www\.)?(?:youtube\.com|youtube-nocookie\.com)\/[^"']+)["'][^>]*><\/iframe>/gi
 
-// Call to oEmbed
-onMounted(async () => {
-  const content = stripCraftURLFromText(props.richTextContent)
+// Identify YouTube urls
+const youtubeUrls = [...content.matchAll(iframeWithYouTubePattern)].map(match => match[1])
 
-  const youtubeUrls = [...content.matchAll(iframeWithYouTubePattern)].map(match => match[1])
+// If urls exist, format them for oEmbed and make the fetch call
+if (youtubeUrls.length > 0) {
+  const urlObjs = formatYouTubeUrlsForOembed(youtubeUrls)
 
-  if (youtubeUrls.length > 0) {
-    youTubeEmbedArray.value = youtubeUrls.map((item, index) => {
-      const urlForOembedFetch = item.replace('embed/', 'watch?v=')
-      return {
-        initialURL: item,
-        oEmbedURL: urlForOembedFetch,
-        videoTitle: `YouTube Video Player ${index}` // Fallback title
-      }
-    })
-  }
+  const { data } = useOEmbedFetch(urlObjs)
 
-  if (youTubeEmbedArray.value.length > 0) {
-    const data = await Promise.all(
-      youTubeEmbedArray.value.map(async (urlObj) => {
-        const url = `https://www.youtube.com/oembed?url=${urlObj.oEmbedURL}`
-        const response = await fetch(url)
-        if (!response.ok)
-          throw new Error(`Failed: ${url}`)
-        return response.json()
-      }),
-    )
+  watchEffect(() => {
+    if (!data.value) {
+      return
+    }
 
-    youTubeEmbedArray.value = youTubeEmbedArray.value.map((obj, index) => ({
-      ...obj,
-      videoTitle: data[index]?.title || obj.videoTitle,
+    // Update url(s) with returned video title(s)
+    const results = data?.value.map((item, index) => ({
+      initialURL: urlObjs[index]?.initialURL ?? '',
+      oEmbedURL: urlObjs[index]?.oEmbedURL ?? '',
+      videoTitle: item.title ?? urlObjs[index]?.videoTitle ?? ''
     }))
-  }
-})
+
+    youTubeEmbedArray.value = results
+  })
+}
+
 
 const parsedContent = computed(() => {
-  const content = stripCraftURLFromText(props.richTextContent)
 
   // Find inline YouTube iframe(s) and add fetched video title(s)
   return accessibleExternalLinks(content.replace(
