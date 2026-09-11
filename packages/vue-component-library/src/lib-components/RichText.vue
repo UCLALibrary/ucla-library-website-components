@@ -68,7 +68,6 @@ const parsedContent = computed(() => {
   return accessibleExternalLinks(content.replace(
     iframeWithYouTubePattern,
     (iframeElement: string, url: string) => {
-      
       const embed = youTubeEmbedArray.value.find(item => item.initialURL === url)
 
       if (!embed)
