@@ -29,9 +29,9 @@ Reference: LADI 5311
 Inline YouTube embeds may not always have title attribute; this causes accessibility errors. To resolve this, RichText content has to go through extra parsing for YouTube embeds. YouTube urls are retrieved to make a fetch call to the oEmbed api to retrieve video titles from metadata.
 */
 
-type UrlObj = {
-  initialURL:string,
-  oEmbedURL: string,
+interface UrlObj {
+  initialURL: string
+  oEmbedURL: string
   videoTitle: string
 }
 
@@ -49,9 +49,8 @@ if (youtubeUrls.length > 0) {
   const { data } = useOEmbedFetch(urlObjs)
 
   watchEffect(() => {
-    if (!data.value) {
+    if (!data.value)
       return
-    }
 
     // Update url(s) with returned video title(s)
     const results = data?.value.map((item, index) => ({
@@ -64,9 +63,7 @@ if (youtubeUrls.length > 0) {
   })
 }
 
-
 const parsedContent = computed(() => {
-
   // Find inline YouTube iframe(s) and add fetched video title(s)
   return accessibleExternalLinks(content.replace(
     iframeWithYouTubePattern,

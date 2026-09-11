@@ -25,7 +25,7 @@ The notification supports rich text content, including links. The alert icon is 
           summary: 'String',
         },
         defaultValue: {
-          summary: "''",
+          summary: '\'\'',
         },
       },
     },
