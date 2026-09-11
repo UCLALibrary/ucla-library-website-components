@@ -24,9 +24,9 @@ const classes = computed(() => {
 const content = stripCraftURLFromText(props.richTextContent)
 
 /*
-Reference: LADI 5311
+Reference: LADI-5311
 
-Inline YouTube embeds may not always have title attribute; this causes accessibility errors. To resolve this, RichText content has to go through extra parsing for YouTube embeds. YouTube urls are retrieved to make a fetch call to the oEmbed api to retrieve video titles from metadata.
+Inline YouTube embeds may not always have title attribute; this can accessibility errors. To address this, RichText content has to go through extra parsing for YouTube embeds. YouTube urls are extracted and used in a fetch call to YouTube's oEmbed API to retrieve video titles from metadata.
 */
 
 interface UrlObj {
@@ -39,10 +39,10 @@ const youTubeEmbedArray = ref<UrlObj[]>([])
 
 const iframeWithYouTubePattern = /<iframe\b[^>]*\bsrc=["']((?:https?:)?\/\/(?:www\.)?(?:youtube\.com|youtube-nocookie\.com)\/[^"']+)["'][^>]*><\/iframe>/gi
 
-// Identify YouTube urls
+// Identify YouTube urls in rich text content
 const youtubeUrls = [...content.matchAll(iframeWithYouTubePattern)].map(match => match[1])
 
-// If urls exist, format them for oEmbed and make the fetch call
+// If urls exist, format them for oEmbed; make fetch call to oEmbed
 if (youtubeUrls.length > 0) {
   const urlObjs = formatYouTubeUrlsForOembed(youtubeUrls)
 
@@ -64,10 +64,11 @@ if (youtubeUrls.length > 0) {
 }
 
 const parsedContent = computed(() => {
-  // Find inline YouTube iframe(s) and add fetched video title(s)
+  // Find inline YouTube iframe(s) and add title attribute with fetched video title(s)
   return accessibleExternalLinks(content.replace(
     iframeWithYouTubePattern,
     (iframeElement: string, url: string) => {
+      
       const embed = youTubeEmbedArray.value.find(item => item.initialURL === url)
 
       if (!embed)

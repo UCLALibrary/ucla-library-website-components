@@ -1,6 +1,7 @@
 /*
-Explanation:
+Reference: LADI-5244, LADI-5311
 
+To resolve accessibiity issues with YouTube iframes that have missing titles, we make calls to YouTube's oEmbed API to retrieve the embed video's title from its metadata.
 */
 
 import { onMounted, ref } from 'vue'
