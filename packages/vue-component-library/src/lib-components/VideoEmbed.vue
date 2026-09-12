@@ -6,6 +6,7 @@ import { computed, ref, watchEffect } from 'vue'
 import type { MediaItemType } from '@/types/types'
 import { useOEmbedFetch } from '@/composables/useOEmbedFetch'
 import formatYouTubeUrlsForOembed from '@/utils/formatYouTubeUrlsForOembed'
+import escapeHtml from '@/utils/escapeHtml'
 
 const { trailer, posterImage } = defineProps({
   trailer: {
@@ -53,7 +54,9 @@ if (parsedTrailer.value) {
 
     const result = Array.isArray(data.value) ? data.value[0] : data.value
 
-    parsedIframeTitle.value = result?.title ?? 'YouTube Video Player'
+    const videoTitle = escapeHtml(result?.title)
+
+    parsedIframeTitle.value = videoTitle ?? 'YouTube Video Player'
   })
 }
 </script>

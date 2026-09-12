@@ -7,6 +7,7 @@ import accessibleExternalLinks from '@/utils/accessibleExternalLinks'
 import { useTheme } from '@/composables/useTheme'
 import { useOEmbedFetch } from '@/composables/useOEmbedFetch'
 import formatYouTubeUrlsForOembed from '@/utils/formatYouTubeUrlsForOembed'
+import escapeHtml from '@/utils/escapeHtml'
 
 const props = defineProps({
   richTextContent: {
@@ -73,7 +74,9 @@ const parsedContent = computed(() => {
       if (!embed)
         return iframeElement
 
-      return iframeElement.replace('<iframe', `<iframe title="${embed.videoTitle}"`)
+      const videoTitle = escapeHtml(embed.videoTitle)
+
+      return iframeElement.replace('<iframe', `<iframe title="${videoTitle}"`)
     },
   ))
 })
