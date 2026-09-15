@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.89.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.89.0...@ucla-library-monorepo/ucla-library-website-components-v1.89.1) (2026-09-15)
+
+
+### Bug Fixes
+
+* LADI-5311 Fix missing inline YoutTube video titles ([#985](https://github.com/UCLALibrary/ucla-library-website-components/issues/985)) ([8b1c8a3](https://github.com/UCLALibrary/ucla-library-website-components/commit/8b1c8a37a2e0bb86a58ca9d94c6bbd363e12b7ec))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.89.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.88.1...@ucla-library-monorepo/ucla-library-website-components-v1.89.0) (2026-09-09)
 
 
