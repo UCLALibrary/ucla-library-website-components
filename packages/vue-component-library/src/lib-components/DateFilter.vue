@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 // @ts-nocheck
 /* @ts-expect-error */
-import { computed, defineAsyncComponent, onMounted, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, nextTick, onMounted, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import VueDatePicker from '@vuepic/vue-datepicker'
 import type { DatePickerInstance } from '@vuepic/vue-datepicker'
@@ -41,18 +41,23 @@ const { eventDates, initialDates, hideInput } = defineProps({
 // EMITS
 const emit = defineEmits(['input-selected'])
 const threeLetterDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
 const vue3datepickerConfig = {
   closeOnAutoApply: false,
   keepActionRow: true,
+  tabOutClosesMenu: false,
 }
+
 const date = ref<Date[] | Date>([])
 const datepicker = ref<DatePickerInstance | null>(null)
+const datepickerInput = ref<HTMLInputElement | null>(null)
 const isSelecting = ref(false)
 const isOpen = ref(false)
 const isMobile = ref(false)
 const todayBtnActive = ref(false)
 const textConfig = ref({
   rangeSeparator: ' — ',
+  tabSubmit: false,
 })
 
 // Format the selected date(s) into consistent object
@@ -118,12 +123,18 @@ function goToToday() {
   }
 }
 // Clear date selection
-function clearDate() {
+async function clearDate() {
   datepicker.value?.updateInternalModelValue(null)
   todayBtnActive.value = false
   datepicker.value?.clearValue()
-  datepicker.value?.openMenu() // reopen after clear
+  datepicker.value?.closeMenu()
+
   emit('input-selected', formattedDateSelection.value)
+
+  // Wait for the calendar to close, then return keyboard focus
+  // to the DateFilter input.
+  await nextTick()
+  datepickerInput.value?.focus()
 }
 
 function onDoneClick() {
@@ -227,6 +238,37 @@ onMounted(() => {
       @open="toggleArrow"
       @closed="toggleArrow"
     >
+  <template
+    #dp-input="{
+      value,
+      onInput,
+      onFocus,
+      onBlur,
+      onKeypress,
+      onPaste,
+      openMenu,
+    }"
+  >
+    <input
+      ref="datepickerInput"
+      class="dp__input dp__input_icon_pad"
+      type="text"
+      :value="value"
+      placeholder="All upcoming"
+      role="combobox"
+      aria-label="Choose a date"
+      aria-haspopup="dialog"
+      :aria-expanded="isOpen"
+      autocomplete="off"
+      @input="onInput"
+      @focus="onFocus"
+      @blur="onBlur"
+      @keyup.enter.prevent="openMenu"
+      @keypress="onKeypress"
+      @paste="onPaste"
+    >
+  </template>
+
       <template #input-icon>
         <SvgIconFTVACalender />
         <!-- <span :class="inputIconClass">
@@ -472,6 +514,7 @@ onMounted(() => {
     --dp-menu-padding: 26px;
     --dp-cell-size: 38px;
     --dp-input-icon-padding: 30px;
+
     width: 380px;
 
     // Input styling
@@ -483,6 +526,7 @@ onMounted(() => {
       font-size: 18px;
       color: ftvatokens.$medium-grey;
       border-radius: 8px;
+      cursor: pointer;
 
       &:hover {
         border-color: #ddd;
@@ -500,6 +544,13 @@ onMounted(() => {
       &::placeholder {
         color: ftvatokens.$medium-grey;
         opacity: 1;
+      }
+    }
+
+    // Firefox Focus
+    @supports (-moz-appearance: none) {
+      :deep(.dp__input.dp__input_focus) {
+        outline: revert;
       }
     }
 
@@ -530,7 +581,6 @@ onMounted(() => {
           display: none;
         }
       }
-
     }
 
     :deep(.dp__clear_icon) {
@@ -561,7 +611,6 @@ onMounted(() => {
     }
 
     // Calendar styling
-
     .custom-month-year-component {
       color: ftvatokens.$heading-grey;
     }
@@ -599,7 +648,6 @@ onMounted(() => {
         .day-content>.event-dots>.dot {
           background-color: var(--color-white);
         }
-
       }
 
       &.dp__range_end,
@@ -774,6 +822,13 @@ onMounted(() => {
 
         :deep(.hover) {
           display: none;
+        }
+
+        // Visible keyboard focus on the Done button in the DateFilter - All Upcoming
+        &:focus,
+        &:focus-visible {
+          outline: 2px solid var(--color-black);
+          outline-offset: -4px;
         }
 
         &:hover {
