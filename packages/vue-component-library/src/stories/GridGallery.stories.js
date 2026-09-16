@@ -130,3 +130,34 @@ export function FeaturedNoSnippet() {
   `,
   }
 }
+
+export function GridGalleryWithHeading() {
+  return {
+    data() {
+      return { items: mock }
+    },
+    computed: {
+      parsedItems() {
+        return this.items.map((obj, index) => {
+          const copyObj = Object.assign({}, obj)
+          let featured = false
+          if (index === 3)
+            copyObj.snippet = ''
+          if (index === 5 || index === 3)
+            featured = true
+          return {
+            ...copyObj,
+            featured,
+          }
+        })
+      },
+    },
+    components: { GridGallery },
+    template: `
+      <h3>Grid Gallery Heading</h3>
+      <grid-gallery
+        :items="parsedItems"
+      />
+  `,
+  }
+}
