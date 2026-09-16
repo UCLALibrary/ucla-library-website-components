@@ -95,6 +95,13 @@ const mockFTVAFooterPrimary = {
       classes: null,
       target: '1'
     },
+    {
+      id: '4343812',
+      name: 'Vimeo',
+      to: 'https://vimeo.com/uclafilmtvarchive/',
+      classes: null,
+      target: '1'
+    }
   ],
 
   pressItems: [

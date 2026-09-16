@@ -4,7 +4,6 @@ import type { PropType } from 'vue'
 // components and SVG's
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-search.svg'
 import { onMounted, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
 import SearchGenericFilters from './SearchGenericFilters.vue'
 import SearchInput from './SearchInput.vue'
 
@@ -16,7 +15,7 @@ interface Item {
 interface QueryFilters {
   [key: string]: string[]
 }
-interface RouterQuery {
+interface SearchState {
   queryText: string
   queryFilters: QueryFilters
 }
@@ -35,7 +34,7 @@ const { filters, searchGenericQuery, placeholder } = defineProps({
       default: () => [],
   }, */
   searchGenericQuery: {
-    type: Object as PropType<RouterQuery>,
+    type: Object as PropType<SearchState>,
     default: () => { },
   },
   placeholder: {
@@ -49,41 +48,19 @@ const { filters, searchGenericQuery, placeholder } = defineProps({
 })
 
 const emit = defineEmits(['search-ready'])
-const route = useRoute()
-const searchWords = ref<string>(Array.isArray(route.query.q) ? route.query.q[0] || '' : route.query.q || '') // this.$route.query.q
+
+const searchWords = ref<string>(searchGenericQuery.queryText || '')
 const selectedFilters = ref(searchGenericQuery ? searchGenericQuery.queryFilters : {})
 
 onMounted(() => {
-  // console.log('On mOunted searchGenericQuery', searchGenericQuery)
-  // console.log('searchWords', searchWords.value)
-  // console.log('selectedFilters', selectedFilters.value)
   searchWords.value = searchGenericQuery.queryText
 })
 watch(() => searchGenericQuery, (newQueryFilters) => {
-  // console.log(' watcher searchGenericQuery', newQueryFilters)
   selectedFilters.value = newQueryFilters.queryFilters
   searchWords.value = newQueryFilters.queryText
 }, { deep: true, immediate: true })
 
-watch(() => route.query, (/* newRouteQuery */) => {
-  // console.log(' watcher route.query', newRouteQuery)
-  if (searchGenericQuery.queryText === route.query.q)
-    searchWords.value = route.query.q
-}, { deep: true, immediate: true })
-
-function updateQueryFilters(newVal: QueryFilters) {
-  console.log('In updateQueryFilters', newVal)
-  selectedFilters.value = newVal
-}
-
 function doSearch() {
-  console.log('dosearch called')
-  console.log(
-    `selected filters in component are: ${JSON.stringify(selectedFilters.value)}`
-  )
-  console.log(
-    `search text in component are: ${JSON.stringify(searchWords.value)}`
-  )
   emit('search-ready', {
     filters: selectedFilters.value,
     text: searchWords.value,
@@ -123,9 +100,8 @@ function doSearch() {
     </form>
     <div class="search-generic-filters-container" />
     <SearchGenericFilters
+      v-model:query-filters="selectedFilters"
       :filters="filters"
-      :query-filters="selectedFilters"
-      @update:query-filters="updateQueryFilters"
       @filters-selection-action="doSearch"
     />
   </div>

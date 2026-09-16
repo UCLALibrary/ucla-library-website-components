@@ -9,7 +9,7 @@ import { useTheme } from '@/composables/useTheme'
 
 const { title, iconName, isSelected, removeIconName } = defineProps({
   title: {
-    type: String,
+    type: [String, Array],
     default: '',
   },
   iconName: {
@@ -51,8 +51,8 @@ const classes = computed(() => {
   return [
     'block-remove-search-filter',
     theme?.value || '',
-        `color-${sectionName.value}`,
-        isSelected && theme?.value ? 'selected' : '',
+    `color-${sectionName.value}`,
+    isSelected && theme?.value ? 'selected' : '',
   ]
 })
 
@@ -74,7 +74,11 @@ function closeBlockFilter() {
 </script>
 
 <template>
-  <button type="button" :class="classes" @click="closeBlockFilter">
+  <button
+    type="button"
+    :class="classes"
+    @click="closeBlockFilter"
+  >
     <BlockTag
       :label="title"
       :icon-name="iconName"

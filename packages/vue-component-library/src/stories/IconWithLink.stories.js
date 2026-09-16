@@ -322,10 +322,11 @@ export function FTVASocialIcons() {
                 to= "/help/services-and-resources"
             /></li>
 
-                        <li><icon-with-link
+            <li><icon-with-link
                 text="Copy Link"
                 icon-name="svg-icon-ftva-social-link"
-                to= "/help/services-and-resources"
+                @click=""
+                has-custom-click
             /></li>
 
             <li><icon-with-link

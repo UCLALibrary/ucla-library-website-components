@@ -204,7 +204,7 @@
 
             .slot-container {
                 transition-duration: 0s; // no transition on mobile
-
+                margin-top: 0px; // header height does not need to be offset on mobile
                 :deep(.nav-search) {
                     width: unset;
                 }

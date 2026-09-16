@@ -86,10 +86,10 @@ export const mockInternalContentEventAndExhibition = {
   ]
 }
 
-export const mockInternalContentWorshopSeriesAndEventSeries = {
+export const mockInternalContentWorkshopSeriesAndEventSeries = {
   id: '4988975',
   typeHandle: 'highlight',
-  sectionTitle: 'Highlight with Internal Content - Worshop Series & Event Series',
+  sectionTitle: 'Highlight with Internal Content - Workshop Series & Event Series',
   sectionSummary: null,
   highlight: [
     {
@@ -339,7 +339,7 @@ export const mockInternalContentEndowmentAndCollectionAndGeneralContentPage = {
           id: '796386',
           contentType: 'collection',
           to: 'collections/explore/spools',
-          title: 'Spools are so interesting',
+          title: 'Spool Collections are so interesting',
           text: '<p>A cylindrical device on which film, magnetic tape, thread, or other flexible materials can be wound; a reel.</p>',
           articleByline2: '2023-02-03T01:08:00-08:00',
           heroImage: [
@@ -372,7 +372,7 @@ export const mockInternalContentEndowmentAndCollectionAndGeneralContentPage = {
           id: '6333',
           contentType: 'generalContentPage',
           to: 'get-help',
-          title: 'Get Help',
+          title: 'Get Help - General Content Page',
           text: null,
           articleByline2: '2022-03-01T09:56:00-08:00',
           heroImage: []

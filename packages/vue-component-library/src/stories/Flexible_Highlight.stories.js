@@ -1,4 +1,4 @@
-import { mockExternalContent, mockInternalContentArticleAndExternalArticle, mockInternalContentEndowmentAndCollectionAndGeneralContentPage, mockInternalContentEventAndExhibition, mockInternalContentWorshopSeriesAndEventSeries } from './mock/Flexible_Highlight'
+import { mockExternalContent, mockInternalContentArticleAndExternalArticle, mockInternalContentEndowmentAndCollectionAndGeneralContentPage, mockInternalContentEventAndExhibition, mockInternalContentWorkshopSeriesAndEventSeries } from './mock/Flexible_Highlight'
 import FlexibleHighlight from '@/lib-components/Flexible/Highlight'
 
 export default {
@@ -22,11 +22,11 @@ export function Default() {
   }
 }
 
-export function InternalContentWorshopSeriesAndEventSeries() {
+export function InternalContentWorkshopSeriesAndEventSeries() {
   return {
     data() {
       return {
-        block: mockInternalContentWorshopSeriesAndEventSeries,
+        block: mockInternalContentWorkshopSeriesAndEventSeries,
       }
     },
     components: { FlexibleHighlight },

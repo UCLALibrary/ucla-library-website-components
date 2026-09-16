@@ -13,7 +13,7 @@ interface ContentItem {
   name: string
 }
 
-interface Item {
+interface FilterDefinition {
   inputType: string
   label: string
   esFieldName: string
@@ -28,7 +28,7 @@ interface QueryFilters {
 
 const props = defineProps({
   filters: {
-    type: Array as PropType<Item[]>, // array of objects that contain the filter objects
+    type: Array as PropType<FilterDefinition[]>, // array of objects that contain the filter objects
     default: () => [],
   },
   queryFilters: {
@@ -41,36 +41,27 @@ const emit = defineEmits(['update:queryFilters', 'filters-selection-action'])
 
 const queryFilterButtonDropDownStates = ref<QueryFilters>({})
 
-function updateSelected(key: string, newValue: string[]) {
-  // This function updates the selected state and could emit an event for parent component
-  console.log('Search Generic Filters updateSelected: ', key, JSON.stringify(newValue))
-  queryFilterButtonDropDownStates.value[key] = newValue
-  // Emit an event if needed
+// single-checkbox
+const singleCheckboxKey = computed(() =>
+  props.filters.find(filter => filter.inputType === 'single-checkbox')?.esFieldName || ''
+)
+
+function isSingleCheckboxSelected(filters: QueryFilters) {
+  const key = singleCheckboxKey.value
+  return !!key && !!filters[key]?.includes('yes')
 }
 
-// single-checkbox
-const checkedState = ref(props.filters.some(obj => obj.inputType === 'single-checkbox' && props.queryFilters[obj.esFieldName]?.includes('yes')))
+const checkedState = ref(false)
 
+function syncCheckedState() {
+  checkedState.value = isSingleCheckboxSelected(queryFilterButtonDropDownStates.value)
+}
 const openItemIndex = ref(-1) // -1 indicates that no item is open
 
 watch(() => props.queryFilters, (newQueryFilters) => {
   // Assuming newQueryFilters is always an object as per your default prop definition.
-  console.log('In watch function props.queryFilters updated', JSON.stringify(newQueryFilters), JSON.stringify(props.filters))
-  if (newQueryFilters === null || newQueryFilters === undefined || Object.keys(newQueryFilters).length === 0)
-    queryFilterButtonDropDownStates.value = {}
-
-  Object.entries(newQueryFilters).forEach(([key, value]) => {
-    queryFilterButtonDropDownStates.value[key] = value
-  })
-  console.log('queryFilterButtonDropDownStates.value', JSON.stringify(queryFilterButtonDropDownStates.value))
-
-  console.log('In watch function props.queryFilters checkedState.value', checkedState.value, JSON.stringify(props.filters))
-}, { deep: true, immediate: true })
-watch(() => props.filters, (newFilters) => {
-  console.log('In watch function props.filters updated', JSON.stringify(props.filters), JSON.stringify(newFilters))
-  console.log('In watch funciton props.filters heello query filters props.queryFilters', props.queryFilters)
-  console.log('In watch fucntion props.filters queryFilterButtonDropDownStates', queryFilterButtonDropDownStates.value)
-  checkedState.value = newFilters?.some(obj => obj.inputType === 'single-checkbox' && queryFilterButtonDropDownStates.value[obj.esFieldName]?.includes('yes'))
+  queryFilterButtonDropDownStates.value = { ...(newQueryFilters || {}) }
+  syncCheckedState()
 }, { deep: true, immediate: true })
 
 // filter buttons
@@ -112,29 +103,20 @@ function toggleTransition(index: number) {
 }
 
 function doUpdateQueryFilters(key: string) {
-  console.log('emit event to parent if checkbox is selected')
   queryFilterButtonDropDownStates.value[key] = checkedState.value ? ['yes'] : []
-  emit('update:queryFilters', queryFilterButtonDropDownStates.value)
+  emit('update:queryFilters', { ...queryFilterButtonDropDownStates.value })
   emit('filters-selection-action')
 }
 // Handler to update filters reactively
 function handleFilterUpdate(updatedFilters: QueryFilters) {
   // Replace the entire object reactively
   queryFilterButtonDropDownStates.value = { ...updatedFilters }
-  console.log('Updated Filters:', queryFilterButtonDropDownStates.value)
-  // Emit an event if necessary
-  // emit('update:queryFilters', queryFilterButtonDropDownStates.value);
+  syncCheckedState()
 }
 function doSearch() {
-  console.log('doSearch function called to emit update:queryFilters and filters-selection-action events to the parent component', queryFilterButtonDropDownStates.value)
-  emit('update:queryFilters', queryFilterButtonDropDownStates.value)
+  emit('update:queryFilters', { ...queryFilterButtonDropDownStates.value })
   emit('filters-selection-action')
 }
-
-watch(queryFilterButtonDropDownStates, () => {
-  console.log('Update checked state')
-  checkedState.value = props.filters.some(obj => obj.inputType === 'single-checkbox' && queryFilterButtonDropDownStates.value[obj.esFieldName]?.includes('yes'))
-})
 
 // click outside setup
 const clickOutsideTarget = ref(null)
@@ -168,13 +150,13 @@ onClickOutside(clickOutsideTarget,
         name="slide-toggle"
         mode="out-in"
       >
+        <!--  @update:selected="newValue => updateSelected(group.esFieldName, newValue)" -->
         <component
           :is="group.componentName"
           v-if="group.isVisible"
           v-model:selected="queryFilterButtonDropDownStates[group.esFieldName]"
           :items="group.items"
           class="filter-group"
-          @update:selected="newValue => updateSelected(group.esFieldName, newValue)"
           @input-selected="doSearch"
         />
       </transition>

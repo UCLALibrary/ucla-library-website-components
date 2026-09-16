@@ -1,73 +1,70 @@
 <script setup lang="ts">
-// Helpers
-
-import { computed, ref, watch } from 'vue'
+import { computed } from 'vue'
 import type { PropType } from 'vue'
 import BlockRemoveSearchFilter from '@/lib-components/BlockRemoveSearchFilter.vue'
 import { useTheme } from '@/composables/useTheme'
 
-interface Item {
+interface Filters {
   [key: string]: string[]
 }
 
-const { filters } = defineProps({
-  filters: {
-    type: Object as PropType<Item>,
-    default: () => { },
-  },
-})
-const emit = defineEmits(['update:filters', 'remove-selected'])
-
-const theme = useTheme()
-
-const filteredFilters = ref<Item>({})
-
-watch(() => filters, (newFilters) => {
-  // console.log('SectionRemoveSearchFilters filters', newFilters)
-  if (newFilters === null || newFilters === undefined || Object.keys(newFilters).length === 0)
-    filteredFilters.value = {}
-  Object.entries(newFilters).forEach(([key, value]) => {
-    filteredFilters.value[key] = value
-  })
-  // console.log('SectionRemoveSearchFilters filters', filteredFilters.value)
-}, { deep: true, immediate: true })
-
-const parsedFilters = computed(() => {
-  const result = Object.entries(filteredFilters.value).flatMap(([name, value]) => {
-    const items = Array.isArray(value) ? value : []
-    return items.map(item => ({ name, value: item }))
-  })
-  return result
-})
-function getCheckBoxLabel(esFieldName: string) {
-  return esFieldName === 'subjectLibrarian.keyword' ? 'Subject Librarian' : 'Past Events'
+interface ParsedFilter {
+  name: string
+  value: string
 }
 
-function closeBlockFilter(esfieldName: string, label: string | boolean) {
-  filteredFilters.value[esfieldName] = filteredFilters.value[esfieldName].filter(item => item !== label)
-  emit('update:filters', filteredFilters.value)
+const props = defineProps({
+  filters: {
+    type: Object as PropType<Filters>,
+    default: () => ({}),
+  },
+})
+
+const emit = defineEmits(['update:filters', 'remove-selected'])
+const theme = useTheme()
+
+const parsedFilters = computed<ParsedFilter[]>(() => {
+  return Object.entries(props.filters ?? {}).flatMap(([name, values]) =>
+    (values ?? []).map(value => ({ name, value }))
+  )
+})
+
+function getCheckBoxLabel(esFieldName: string) {
+  return esFieldName === 'subjectLibrarian.keyword'
+    ? 'Subject Librarian'
+    : 'Past Events'
+}
+
+function closeBlockFilter(esFieldName: string, label: string) {
+  const nextFilters: Filters = Object.fromEntries(
+    Object.entries(props.filters ?? {})
+      .map(([key, values]) => {
+        if (key !== esFieldName)
+          return [key, values]
+
+        return [key, (values ?? []).filter(item => item !== label)]
+      })
+      .filter(([, values]) => (values as string[]).length > 0)
+  )
+
+  emit('update:filters', nextFilters)
   emit('remove-selected')
 }
 </script>
 
 <template>
   <div
-    v-show="filteredFilters"
+    v-show="parsedFilters.length > 0"
     class="section-remove-search-filter"
   >
     <div
-      v-for="(filter) in parsedFilters"
-      :key="`filter-${filter.value}`"
+      v-for="filter in parsedFilters"
+      :key="`filter-${filter.name}-${filter.value}`"
     >
       <BlockRemoveSearchFilter
         :is-selected="theme === 'ftva'"
         :title="filter.value === 'yes' ? getCheckBoxLabel(filter.name) : filter.value"
-        @remove-block-filter="
-          closeBlockFilter(
-            filter.name,
-            filter.value,
-          )
-        "
+        @remove-block-filter="closeBlockFilter(filter.name, filter.value)"
       />
     </div>
   </div>

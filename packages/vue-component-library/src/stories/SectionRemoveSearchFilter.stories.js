@@ -32,14 +32,22 @@ const mockBigger = {
 // Variations of stories below
 export function Default() {
   return {
-    data() {
-      return { mock }
-    },
     components: { SectionRemoveSearchFilter },
+    data() {
+      return {
+        filters: JSON.parse(JSON.stringify(mock)),
+      }
+    },
+    methods: {
+      updateFilters(newFilters) {
+        this.filters = JSON.parse(JSON.stringify(newFilters))
+      },
+    },
     template: `
-        <section-remove-search-filter
-            :filters="mock"
-        />
+      <section-remove-search-filter
+        :filters="filters"
+        @update:filters="updateFilters"
+      />
     `,
   }
 }
@@ -50,12 +58,18 @@ Default.parameters = {
 export function WithMoreFilters() {
   return {
     data() {
-      return { mockBigger }
+      return { filters: JSON.parse(JSON.stringify(mockBigger)) }
+    },
+    methods: {
+      updateFilters(newFilters) {
+        this.filters = newFilters
+      },
     },
     components: { SectionRemoveSearchFilter },
     template: `
         <section-remove-search-filter
-            :filters="mockBigger"
+            :filters="filters"
+             @update:filters="updateFilters"
         />
     `,
   }
@@ -65,17 +79,23 @@ export function WithMoreFilters() {
 export function FTVA() {
   return {
     data() {
-      return { mock }
+      return { filters: JSON.parse(JSON.stringify(mock)) }
     },
     provide() {
       return {
         theme: computed(() => 'ftva'),
       }
     },
+    methods: {
+      updateFilters(newFilters) {
+        this.filters = newFilters
+      },
+    },
     components: { SectionRemoveSearchFilter },
     template: `
         <section-remove-search-filter
-            :filters="mock"
+            :filters="filters"
+             @update:filters="updateFilters"
         />
     `,
   }
@@ -93,12 +113,17 @@ const mockDLC = {
 export function DLC() {
   return {
     data() {
-      return { mockDLC }
+      return { filters: JSON.parse(JSON.stringify(mockDLC)) }
     },
     provide() {
       return {
         theme: computed(() => 'dlc'),
       }
+    },
+    methods: {
+      updateFilters(newFilters) {
+        this.filters = newFilters
+      },
     },
     setup() {
       return {
@@ -106,6 +131,6 @@ export function DLC() {
       }
     },
     components: { SectionRemoveSearchFilter },
-    template: '<section-remove-search-filter :filters="mockDLC" />',
+    template: '<section-remove-search-filter :filters="filters"  @update:filters="updateFilters" />',
   }
 }

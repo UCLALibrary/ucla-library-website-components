@@ -2,6 +2,7 @@ import { computed } from 'vue'
 
 // Import component
 import { mock as mockMediaWithText } from './mock/BlockMediaWithText'
+import { itemsHorizontal } from './mock/Section_cardsWithIllustration'
 import * as API from '@/stories/mock-api.json'
 import SectionWrapper from '@/lib-components/SectionWrapper'
 
@@ -19,6 +20,7 @@ import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import RichText from '@/lib-components/RichText.vue'
 import ScrollWrapper from '@/lib-components/ScrollWrapper.vue'
 import ImageSlider from '@/lib-components/ImageSlider.vue'
+import SectionCardsWithIllustrations from '@/lib-components/SectionCardsWithIllustrations.vue'
 
 const propsForMediaWithText = {
   sectionHeader: mockMediaWithText.mediaWithText[0].titleLink,
@@ -171,6 +173,29 @@ export function Nested() {
         <section-wrapper level=6 sectionTitle="level 6 (via prop)">
             <section-wrapper sectionTitle="level 7 (auto)" />
         </section-wrapper>
+    </section-wrapper>
+  `,
+  }
+}
+
+export function DynamicHeadingLevelsWithSectionCardsWithIllustrations() {
+  return {
+    data() {
+      return {
+        itemsHorizontal,
+      }
+    },
+    components: { SectionWrapper, SectionCardsWithIllustrations },
+    template: `
+    <section-wrapper
+      class="section"
+      :level="1"
+    >
+      <section-cards-with-illustrations
+        class="section"
+        :items="itemsHorizontal"
+        :is-horizontal="true"
+      />
     </section-wrapper>
   `,
   }

@@ -5,6 +5,13 @@
   margin: 0 auto;
   padding-right: 96px;
 
+  // rich text h2s mimic section-titles
+  :deep(h2) {
+    @include step-3;
+    color: var(--color-primary-blue-03);
+    margin-bottom: var(--space-m);
+  }
+
   :deep(h3) {
     color: var(--color-primary-blue-03);
     @include step-2;
