@@ -135,6 +135,7 @@
 
     add-to-calendar-button::part(atcb-button):focus {
         outline: 4px auto -webkit-focus-ring-color;
+        outline-offset: 1px;
     }
 
     add-to-calendar-button::part(atcb-button-text)::after {
@@ -147,19 +148,19 @@
 
     add-to-calendar-button::part(atcb-list-wrapper) {
         background: $white;
-        width: 274px;
-        min-width: 0;
+        min-width: 282px;
+        max-width: 282px;
         min-height: auto;
         padding: 20px 20px 24px 20px;
-        margin: 0 4px;
+        margin: 0;
         border-width: 0 1px 1px 1px;
         border-style: solid;
         border-color: #{$primary-blue-03};
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         position: absolute;
-        top: unset;
-        left: unset;
+        top: 52px;
+        left: 1px;
     }
 
     add-to-calendar-button::part(atcb-list) {

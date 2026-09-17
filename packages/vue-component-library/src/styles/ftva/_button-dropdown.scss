@@ -18,4 +18,17 @@
         border-bottom-width: 1px;
         border-color: ftvatokens.$medium-grey;
     }
+
+    add-to-calendar-button::part(atcb-button) {
+        color: ftvatokens.$medium-grey;
+    }
+
+    add-to-calendar-button::part(atcb-button),
+    add-to-calendar-button::part(atcb-list-wrapper) {
+        border-color: ftvatokens.$medium-grey;
+    }
+
+    add-to-calendar-button::part(atcb-button-text)::after {
+        filter: brightness(0) saturate(100%) invert(30%);
+    }
 }
