@@ -135,6 +135,7 @@
 
     add-to-calendar-button::part(atcb-button):focus {
         outline: 4px auto -webkit-focus-ring-color;
+        outline-offset: 1px;
     }
 
     add-to-calendar-button::part(atcb-button-text)::after {
