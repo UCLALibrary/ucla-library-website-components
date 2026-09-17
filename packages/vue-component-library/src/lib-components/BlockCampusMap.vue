@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     parsedSrc() {
-      return `https://map.ucla.edu/?id=${this.campusLocationId}&e=true`
+      return `https://www.maps.ucla.edu/?id=2043#!m/${this.campusLocationId}?s/`
     },
   },
   methods: {
