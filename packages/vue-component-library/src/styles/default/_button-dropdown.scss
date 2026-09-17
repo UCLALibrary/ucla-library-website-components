@@ -147,8 +147,8 @@
 
     add-to-calendar-button::part(atcb-list-wrapper) {
         background: $white;
-        min-width: 282px !important;
-        max-width: 282px !important;
+        min-width: 282px;
+        max-width: 282px;
         min-height: auto;
         padding: 20px 20px 24px 20px;
         margin: 0;
