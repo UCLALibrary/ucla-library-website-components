@@ -1,5 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
 import SvgIconCalendar from 'ucla-library-design-tokens/assets/svgs/icon-calendar.svg'
@@ -91,7 +92,7 @@ function onClick(slug) {
           :is="parsedSelectedSVG(view.iconName)"
           class="svg"
         />
-        <div v-html="view.title" />
+        <div v-html="sanitizeHtml(view.title)" />
       </li>
     </ul>
   </div>

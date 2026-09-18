@@ -4,12 +4,16 @@
 
 // Helpers
 import SmartLink from '@/lib-components/SmartLink'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { useTheme } from '@/composables/useTheme'
 
 export default {
   name: 'NavMenuItem',
   components: {
     SmartLink,
+  },
+  methods: {
+    sanitizeHtml,
   },
   props: {
     item: {
@@ -57,7 +61,7 @@ export default {
   <li :class="classes">
     <button
       class="section-name"
-      v-html="item.name"
+      v-html="sanitizeHtml(item.name)"
     />
     <slot /> <!-- can be used to insert '>' icons etc, into the row -->
     <ul v-if="parsedChildren && parsedChildren.length > 0" class="sub-menu">

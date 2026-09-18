@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { computed, defineAsyncComponent } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
@@ -95,7 +96,7 @@ const parsedLabel = computed(() => {
       aria-hidden="true"
     />
     <template v-for="(item, index) in parsedLabel" :key="`label-${index}`">
-      <div class="label" v-html="item" />
+      <div class="label" v-html="sanitizeHtml(item)" />
       <component
         :is="SvgArrowRight"
         v-if="index !== parsedLabel.length - 1"

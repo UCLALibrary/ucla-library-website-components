@@ -3,6 +3,8 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 import type { FlexibleImpactNumberCards } from '@/types/flexible_types'
 import { useTheme } from '@/composables/useTheme'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 import ImpactNumberCard from '@/lib-components/ImpactNumberCard.vue'
 
@@ -25,12 +27,12 @@ const classes = computed(() => {
       <h3
         v-if="block.sectionTitle"
         class="section-title"
-        v-html="block.sectionTitle"
+        v-html="sanitizeHtml(block.sectionTitle)"
       />
       <div
         v-if="block.sectionSummary"
         class="section-summary"
-        v-html="block.sectionSummary"
+        v-html="sanitizeHtml(block.sectionSummary)"
       />
     </div>
     <ul v-if="block.impactNumberCards && block.impactNumberCards.length > 0" class="impact-number-cards-list">

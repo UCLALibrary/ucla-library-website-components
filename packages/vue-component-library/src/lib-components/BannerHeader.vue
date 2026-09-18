@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, defineAsyncComponent } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
 
@@ -243,7 +244,7 @@ const parsedLocations = computed(() => {
       />
       <div
         class="text"
-        v-html="category"
+        v-html="sanitizeHtml(category)"
       />
     </div>
 
@@ -277,7 +278,7 @@ const parsedLocations = computed(() => {
     <div class="meta">
       <h1
         class="title"
-        v-html="title"
+        v-html="sanitizeHtml(title)"
       />
 
       <RichText
@@ -334,17 +335,17 @@ const parsedLocations = computed(() => {
           <time
             v-if="dateCreated"
             class="date-created"
-            v-html="parsedDateCreated"
+            v-html="sanitizeHtml(parsedDateCreated)"
           />
           <time
             v-if="startDate"
             class="schedule-item"
-            v-html="parsedDate"
+            v-html="sanitizeHtml(parsedDate)"
           />
           <time
             v-if="parsedTime"
             class="schedule-item"
-            v-html="parsedTime"
+            v-html="sanitizeHtml(parsedTime)"
           />
         </div>
 

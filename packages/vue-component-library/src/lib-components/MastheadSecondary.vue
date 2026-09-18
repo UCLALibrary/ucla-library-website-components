@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { PropType } from 'vue'
 
 import _isEmpty from 'lodash/isEmpty'
@@ -69,7 +70,7 @@ const classes = computed(() => {
       <div class="meta">
         <h1
           class="title"
-          v-html="title"
+          v-html="sanitizeHtml(title)"
         />
         <RichText
           v-if="text"

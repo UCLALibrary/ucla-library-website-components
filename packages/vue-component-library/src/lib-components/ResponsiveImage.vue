@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type {
   MediaItemType,
   ResponsiveImageType as ResponsiveImagepProps,
@@ -96,7 +97,7 @@ const classes = computed(() => {
     <figcaption
       v-if="props.media?.caption || props.caption"
       class="caption"
-      v-html="props.media?.caption || props.caption"
+      v-html="sanitizeHtml(props.media?.caption || props.caption)"
     />
     <div class="sizer" :style="styles" />
     <slot />
