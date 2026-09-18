@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { PropType } from 'vue'
 
 // TYPESCRIPT
@@ -155,7 +156,7 @@ const mergeSortTopics = computed(() => {
           <div class="staff-info">
             <div
               class="job-title"
-              v-html="jobTitle"
+              v-html="sanitizeHtml(jobTitle)"
             />
 
             <ul
@@ -238,7 +239,7 @@ const mergeSortTopics = computed(() => {
               <li
                 v-for="topic in mergeSortTopics"
                 :key="topic.id"
-                v-html="topic.title"
+                v-html="sanitizeHtml(topic.title)"
               />
             </ul>
           </RichText>

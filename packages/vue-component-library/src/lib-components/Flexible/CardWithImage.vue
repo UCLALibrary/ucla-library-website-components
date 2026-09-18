@@ -6,6 +6,7 @@ import _get from 'lodash/get'
 import { useTheme } from '@/composables/useTheme'
 import formatDates from '@/utils/formatEventDates'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 // COMPONENTS
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
@@ -262,7 +263,7 @@ const parsedItems = computed(() => {
       <div
         v-if="block.sectionSummary"
         class="section-summary"
-        v-html="block.sectionSummary"
+        v-html="sanitizeHtml(block.sectionSummary)"
       />
     </div>
 

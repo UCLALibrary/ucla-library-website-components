@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // Imports
 import { computed } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import SvgArrowDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
 import { useTheme } from '@/composables/useTheme'
 
@@ -78,7 +79,7 @@ function handleClick(e: MouseEvent) {
         <span
           :key="dynamicLabel"
           class="label"
-          v-html="dynamicLabel"
+          v-html="sanitizeHtml(dynamicLabel)"
         />
       </transition>
       <SvgArrowDown

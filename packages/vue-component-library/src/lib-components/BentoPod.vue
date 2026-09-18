@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // Imports
 import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import SvgExternalLink from 'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
 import DividerGeneral from './DividerGeneral.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
@@ -103,7 +104,7 @@ onUnmounted(() => {
     <h4
       v-if="title"
       class="title"
-      v-html="title"
+      v-html="sanitizeHtml(title)"
     />
 
     <SmartLink
@@ -113,7 +114,7 @@ onUnmounted(() => {
     >
       <span
         class="button-label underline-hover"
-        v-html="buttonLabel"
+        v-html="sanitizeHtml(buttonLabel)"
       />
       <SvgExternalLink aria-hidden="true" />
     </SmartLink>
@@ -134,13 +135,13 @@ onUnmounted(() => {
             <h5
               v-if="item.title"
               class="item-title"
-              v-html="item.title"
+              v-html="sanitizeHtml(item.title)"
             />
           </SmartLink>
           <h5
             v-else-if="item.title"
             class="item-title"
-            v-html="item.title"
+            v-html="sanitizeHtml(item.title)"
           />
           <div class="item-details">
             <span
@@ -151,7 +152,7 @@ onUnmounted(() => {
               <strong>{{ key }}:</strong>
               <span
                 class="detail"
-                v-html="value"
+                v-html="sanitizeHtml(value)"
               />
             </span>
           </div>
@@ -177,13 +178,13 @@ onUnmounted(() => {
             <h5
               v-if="item.title"
               class="item-title"
-              v-html="item.title"
+              v-html="sanitizeHtml(item.title)"
             />
           </SmartLink>
           <h5
             v-else-if="item.title"
             class="item-title"
-            v-html="item.title"
+            v-html="sanitizeHtml(item.title)"
           />
           <div class="item-details">
             <span
@@ -194,7 +195,7 @@ onUnmounted(() => {
               <strong>{{ key }}:</strong>
               <span
                 class="detail"
-                v-html="value"
+                v-html="sanitizeHtml(value)"
               />
             </span>
           </div>

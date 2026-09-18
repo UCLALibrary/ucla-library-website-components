@@ -1,6 +1,5 @@
 export default defineNuxtConfig({
   modules: [
-    '@radya/nuxt-dompurify',
     '../src/module',
   ],
   devtools: { enabled: true },

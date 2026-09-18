@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 
@@ -97,7 +98,7 @@ const lastDepartment = computed(() => {
         </h3>
         <div
           class="job-title"
-          v-html="jobTitle"
+          v-html="sanitizeHtml(jobTitle)"
         />
         <ul
           v-if="departments.length"

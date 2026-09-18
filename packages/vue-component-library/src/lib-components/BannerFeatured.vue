@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, useId } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
 
@@ -261,7 +262,7 @@ const classes = computed(() => {
         <h2
           v-if="category"
           class="category category-mobile"
-          v-html="category"
+          v-html="sanitizeHtml(category)"
         />
       </div>
       <div class="hatch">
@@ -276,7 +277,7 @@ const classes = computed(() => {
       <div
         v-if="category"
         class="category category-desktop"
-        v-html="category"
+        v-html="sanitizeHtml(category)"
       />
 
       <div v-if="titleLink.length > 0">
@@ -293,7 +294,7 @@ const classes = computed(() => {
         <h3
           :id="titleId"
           class="title"
-          v-html="title"
+          v-html="sanitizeHtml(title)"
         />
       </div>
 
@@ -305,7 +306,7 @@ const classes = computed(() => {
           <time
             v-if="dateCreated"
             class="date-created"
-            v-html="parsedDateCreated"
+            v-html="sanitizeHtml(parsedDateCreated)"
           />
         </div>
 
@@ -318,7 +319,7 @@ const classes = computed(() => {
             v-for="(item, index) in byline"
             :key="`external-${index}`"
             class="byline-item"
-            v-html="item"
+            v-html="sanitizeHtml(item)"
           />
         </div>
 
@@ -335,12 +336,12 @@ const classes = computed(() => {
           <time
             v-if="startDate"
             class="schedule-item"
-            v-html="parsedDate"
+            v-html="sanitizeHtml(parsedDate)"
           />
           <time
             v-if="parsedTime"
             class="schedule-item"
-            v-html="parsedTime"
+            v-html="sanitizeHtml(parsedTime)"
           />
         </div>
 

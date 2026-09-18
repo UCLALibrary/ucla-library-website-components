@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
@@ -38,7 +39,7 @@ const parsedText = computed(() => {
       <SmartLink
         class="title"
         :to="to"
-        v-html="title"
+        v-html="sanitizeHtml(title)"
       />
     </slot>
 
