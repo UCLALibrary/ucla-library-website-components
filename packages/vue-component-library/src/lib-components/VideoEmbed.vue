@@ -96,8 +96,6 @@ if (parsedTrailer.value) {
 <style lang="scss" scoped>
 .video-embed {
     position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
 
     &.has-poster {
         .video-container {
@@ -128,7 +126,7 @@ if (parsedTrailer.value) {
             cursor: pointer;
             width: 100%;
             height: 100%;
-            aspect-ratio: 16 / 9;
+            // aspect-ratio: 16 / 9;
             object-fit: cover;
         }
 
@@ -140,11 +138,28 @@ if (parsedTrailer.value) {
         }
     }
 
+    .video-container {
+      padding-top: 56.25%;
+      position: relative;
+    }
+
+    .responsive-iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%; 
+      top:0;
+      left: 0;
+    }
+
     .video-container,
     .responsive-iframe {
-        position: absolute;
-        width: 100%;
-        height: 100%;
+        // position: absolute;
+        // width: 100%;
+        // height: 100%; 
+        // top:0;
+        // bottom: 0;
+        // left: 0;
+        // right: 0;
     }
 }
 </style>
