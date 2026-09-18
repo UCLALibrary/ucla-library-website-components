@@ -8,7 +8,7 @@ import { useTheme } from '@/composables/useTheme'
 import { useOEmbedFetch } from '@/composables/useOEmbedFetch'
 import formatYouTubeUrlsForOembed from '@/utils/formatYouTubeUrlsForOembed'
 import escapeHtml from '@/utils/escapeHtml'
-import { sanitizeHtml, IFRAME_CONFIG } from '@/utils/sanitizeHtml'
+import { IFRAME_CONFIG, sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const props = defineProps({
   richTextContent: {
