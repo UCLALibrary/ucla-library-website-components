@@ -15,7 +15,7 @@ const { images, pullQuote, textBlocks } = defineProps({
     default: () => [],
   },
   textBlocks: {
-    type: Array as ,
+    type: Array as PropType<string[]>,
     default: () => [],
   },
 })

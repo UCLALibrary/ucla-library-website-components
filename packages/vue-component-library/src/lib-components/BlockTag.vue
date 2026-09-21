@@ -6,7 +6,7 @@ import { useTheme } from '@/composables/useTheme'
 // PROPS & DATA
 const { label, iconName, isSecondary, isHighlighted } = defineProps({
   label: {
-    type: [String, Array],
+    type: [String, Array] as PropType<string | string[]>,
     default: '', // Text displayed on the tag or pill.
   },
   iconName: {
@@ -95,7 +95,7 @@ const parsedLabel = computed(() => {
       class="svg"
       aria-hidden="true"
     />
-    <template v-for="(item as string, index) in parsedLabel" :key="`label-${index}`">
+    <template v-for="(item, index) in parsedLabel" :key="`label-${index}`">
       <div class="label" v-html="sanitizeHtml(item)" />
       <component
         :is="SvgArrowRight"
