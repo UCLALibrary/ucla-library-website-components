@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { PropType } from 'vue'
 
 // TYPESCRIPT
 import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { AcademicDepartmentsItemType, AlternativeNameItemType, DepartmentItemType, MediaItemType, StaffLocationItemType, TopicsItemType } from '@/types/types'
 
 // SVGs

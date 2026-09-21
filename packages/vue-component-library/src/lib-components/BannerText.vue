@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, defineAsyncComponent } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 import type { LocationItemType, SubjectAreaItemType } from '@/types/types'
 

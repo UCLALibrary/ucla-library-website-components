@@ -12,9 +12,6 @@ export default {
   components: {
     SmartLink,
   },
-  methods: {
-    sanitizeHtml,
-  },
   props: {
     item: {
       type: Object,
@@ -53,6 +50,9 @@ export default {
         }
       })
     },
+  },
+  methods: {
+    sanitizeHtml,
   },
 }
 </script>

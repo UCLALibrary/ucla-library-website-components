@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed, defineAsyncComponent } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
 
 // Components
 import SvgMoleculeHalfFaceted from 'ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg'
 import SvgHatchRight from 'ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
 import BlockForm from '@/lib-components/BlockForm.vue'

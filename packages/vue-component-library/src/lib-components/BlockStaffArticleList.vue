@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 
 // LODASH FUNCTIONS
 import format from 'date-fns/format'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 // TYPESCRIPT
 import type { ArticleStaffItemType, MediaItemType } from '@/types/types'

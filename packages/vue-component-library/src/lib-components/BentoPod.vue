@@ -1,9 +1,9 @@
 <script setup lang="ts">
 // Imports
 import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import SvgExternalLink from 'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
 import DividerGeneral from './DividerGeneral.vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonShowDynamic from '@/lib-components/ButtonShowDynamic.vue'
 import { useTheme } from '@/composables/useTheme'

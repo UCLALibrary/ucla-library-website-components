@@ -4,9 +4,9 @@
   lang="ts"
 >
 import { computed } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS

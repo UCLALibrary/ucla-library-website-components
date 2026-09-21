@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
+import type { PropType } from 'vue'
 import { computed, defineAsyncComponent } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { useTheme } from '@/composables/useTheme'
 
 // PROPS & DATA

@@ -86,9 +86,6 @@ export default {
       default: 0,
     },
   },
-  methods: {
-    sanitizeHtml,
-  },
   computed: {
     classes() {
       return [
@@ -118,6 +115,9 @@ export default {
       const clamped = Math.min(Math.max(level, 1), 6) // clamp the level between 1 and 6
       return `h${clamped}` // return the heading tag
     },
+  },
+  methods: {
+    sanitizeHtml,
   },
 }
 </script>

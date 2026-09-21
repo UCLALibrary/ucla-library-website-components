@@ -4,9 +4,9 @@
   lang="ts"
 >
 import { computed } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'

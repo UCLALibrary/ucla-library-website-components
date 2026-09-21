@@ -11,9 +11,6 @@ export default {
     RichText,
     SvgAlertCircle,
   },
-  methods: {
-    sanitizeHtml,
-  },
   props: {
     title: {
       type: String,
@@ -43,6 +40,9 @@ export default {
   },
   mounted() {
     this.delayedClose()
+  },
+  methods: {
+    sanitizeHtml,
   },
   methods: {
     toggleAlert() {

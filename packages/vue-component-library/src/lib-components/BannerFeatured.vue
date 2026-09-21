@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, useId } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
 
@@ -8,6 +7,7 @@ import format from 'date-fns/format'
 import SvgMoleculeHalfFaceted from 'ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg'
 import SvgHatchRight from 'ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg'
 import SvgHeadingVector from 'ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { useTheme } from '@/composables/useTheme'
 
 // Components

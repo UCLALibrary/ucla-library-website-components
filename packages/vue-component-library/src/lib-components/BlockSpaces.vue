@@ -14,9 +14,6 @@ export default {
     ButtonLink,
     RichText,
   },
-  methods: {
-    sanitizeHtml,
-  },
   props: {
     to: {
       type: String,
@@ -38,6 +35,9 @@ export default {
       type: String,
       default: 'Reserve',
     },
+  },
+  methods: {
+    sanitizeHtml,
   },
 }
 </script>

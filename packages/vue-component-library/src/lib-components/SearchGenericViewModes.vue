@@ -1,11 +1,11 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
 import SvgIconCalendar from 'ucla-library-design-tokens/assets/svgs/icon-calendar.svg'
 import SvgIconCard from 'ucla-library-design-tokens/assets/svgs/icon-card.svg'
 import SvgIconList from 'ucla-library-design-tokens/assets/svgs/icon-list.svg'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const props = defineProps({
   isOpened: {

@@ -13,14 +13,14 @@ export default {
       required: true,
     },
   },
-  methods: {
-    sanitizeHtml,
-  },
   data() {
     return {
       show: true,
       collapsed: true,
     }
+  },
+  methods: {
+    sanitizeHtml,
   },
   methods: {
     closeModal() {

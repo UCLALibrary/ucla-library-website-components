@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { PropType } from 'vue'
 
 import _isEmpty from 'lodash/isEmpty'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import RichText from '@/lib-components/RichText.vue'

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, defineAsyncComponent } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 import format from 'date-fns/format'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 // Imports
 import { computed } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import SvgArrowDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { useTheme } from '@/composables/useTheme'
 
 // Props
