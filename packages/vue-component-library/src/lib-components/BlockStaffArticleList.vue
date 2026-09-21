@@ -126,7 +126,7 @@ const parsedTextAll = computed(() => {
           v-for="author in props.authors"
           :key="author.id"
           class="author"
-          v-html="sanitizeHtml(author.title)"
+          v-html="sanitizeHtml(author.title ?? '')"
         />
         <div
           v-if="props.date"

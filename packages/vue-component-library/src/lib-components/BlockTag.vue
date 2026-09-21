@@ -95,7 +95,7 @@ const parsedLabel = computed(() => {
       class="svg"
       aria-hidden="true"
     />
-    <template v-for="(item, index) in parsedLabel" :key="`label-${index}`">
+    <template v-for="(item as string, index) in parsedLabel" :key="`label-${index}`">
       <div class="label" v-html="sanitizeHtml(item)" />
       <component
         :is="SvgArrowRight"

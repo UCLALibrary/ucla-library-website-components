@@ -4,7 +4,6 @@ import type { PropType } from 'vue'
 import type { FlexibleImpactNumberCards } from '@/types/flexible_types'
 import { useTheme } from '@/composables/useTheme'
 import { sanitizeHtml } from '@/utils/sanitizeHtml'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 import ImpactNumberCard from '@/lib-components/ImpactNumberCard.vue'
 

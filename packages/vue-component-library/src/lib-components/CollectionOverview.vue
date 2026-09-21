@@ -85,7 +85,7 @@ const classes = computed(() => {
         <h3 v-if="subtitle" class="subtitle">
           {{ subtitle }}
         </h3>
-        <div class="description" v-html="sanitizeHtml(description)" />
+        <div class="description" v-html="sanitizeHtml(description ?? '')" />
 
         <BlockButtons
           v-if="blockButtons && hasButtons"
