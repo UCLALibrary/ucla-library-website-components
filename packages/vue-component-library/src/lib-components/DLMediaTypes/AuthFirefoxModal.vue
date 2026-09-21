@@ -21,8 +21,6 @@ export default {
   },
   methods: {
     sanitizeHtml,
-  },
-  methods: {
     closeModal() {
       this.show = false
     },

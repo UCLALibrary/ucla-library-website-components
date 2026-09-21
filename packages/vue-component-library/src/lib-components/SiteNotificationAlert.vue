@@ -43,8 +43,6 @@ export default {
   },
   methods: {
     sanitizeHtml,
-  },
-  methods: {
     toggleAlert() {
       this.isOpened = !this.isOpened
     },
