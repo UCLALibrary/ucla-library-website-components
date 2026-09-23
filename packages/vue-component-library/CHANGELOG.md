@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.89.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.89.1...@ucla-library-monorepo/ucla-library-website-components-v1.89.2) (2026-09-23)
+
+
+### Bug Fixes
+
+* LADI-5357 Update styling for Add-to-Calendar button ([#986](https://github.com/UCLALibrary/ucla-library-website-components/issues/986)) ([3b61514](https://github.com/UCLALibrary/ucla-library-website-components/commit/3b6151433c79db7f0679da8c62dc635240cbf9ff))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.89.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.89.0...@ucla-library-monorepo/ucla-library-website-components-v1.89.1) (2026-09-15)
 
 
