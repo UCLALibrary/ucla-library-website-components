@@ -1,3 +1,6 @@
+/*
+This component is deprecated. Do not use it in new development.
+
 import BlockCampusMap from '@/lib-components/BlockCampusMap'
 
 export default {
@@ -45,3 +48,4 @@ export const ShortText = Template.bind({})
 ShortText.args = {
   buildingAccess: '<p>Just find it! </p>',
 }
+*/

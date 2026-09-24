@@ -1,3 +1,6 @@
+<!-- 
+This component is deprecated. Do not use it in new development.
+
 <script>
 import ModalGeneric from '@/lib-components/ModalGeneric.vue'
 import RichText from '@/lib-components/RichText.vue'
@@ -225,3 +228,4 @@ export default {
     }
 }
 </style>
+-->
