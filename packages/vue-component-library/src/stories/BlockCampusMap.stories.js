@@ -1,3 +1,7 @@
+export default {
+  title: 'Deprecated/BlockCampusMap',
+};
+
 /*
 This component is deprecated. Do not use it in new development.
 
