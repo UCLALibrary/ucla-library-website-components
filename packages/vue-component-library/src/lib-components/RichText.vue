@@ -81,7 +81,7 @@ const parsedContent = computed(() => {
     },
   ))
 })
-// sanitize the content since we're using v-html to display
+// sanitize the content since we're using v-html to display, allow iframes
 const sanitizedContent = computed(() => {
   return sanitizeHtml(parsedContent.value, IFRAME_CONFIG)
 })

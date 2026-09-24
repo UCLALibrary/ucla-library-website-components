@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 // Import components
 import FooterPrimary from '../lib-components/FooterPrimary.vue'
@@ -116,6 +117,7 @@ function Template(args) {
         buttonMore,
         excerptPod,
         splitText,
+        sanitizeHtml
       }
     },
     template: `
@@ -152,10 +154,10 @@ function Template(args) {
                     :sentence-split-count="excerptPod.sentenceSplitCount"
                   >
                     <template #default>
-                      <p v-html="splitText(excerptPod.text, excerptPod.sentenceSplitCount).truncated" />
+                      <p v-html="sanitizeHtml(splitText(excerptPod.text, excerptPod.sentenceSplitCount).truncated)" />
                     </template>
                     <template #content>
-                      <p v-html="splitText(excerptPod.text, excerptPod.sentenceSplitCount).remaining" />
+                      <p v-html="sanitizeHtml(splitText(excerptPod.text, excerptPod.sentenceSplitCount).remaining)" />
                     </template>
                   </ExcerptPod>
                 </div>
