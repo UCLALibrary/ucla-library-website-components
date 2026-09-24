@@ -6,6 +6,7 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
@@ -95,17 +96,17 @@ const parsedDateFormat = computed(() => {
       <time
         v-if="startDate"
         class="day"
-        v-html="parsedFormatFullDay"
+        v-html="sanitizeHtml(parsedFormatFullDay)"
       />
       <div class="month-date">
         <time
           v-if="startDate"
           class="month"
-          v-html="parsedDateMonth"
+          v-html="sanitizeHtml(parsedDateMonth)"
         />
         <time
           v-if="startDate"
-          v-html="parsedDateDay"
+          v-html="sanitizeHtml(parsedDateDay)"
         />
       </div>
     </div>

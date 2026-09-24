@@ -4,6 +4,7 @@ import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chev
 import SmartLink from '@/lib-components/SmartLink'
 import ButtonLink from '@/lib-components/ButtonLink'
 import RichText from '@/lib-components/RichText'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 export default {
   name: 'BlockSpaces',
@@ -35,6 +36,9 @@ export default {
       default: 'Reserve',
     },
   },
+  methods: {
+    sanitizeHtml,
+  },
 }
 </script>
 
@@ -50,7 +54,7 @@ export default {
           </SmartLink>
         </h3>
         <!-- if no link (:to)  - do not display as a link -->
-        <h3 v-else class="space-title-no-link" v-html="title" />
+        <h3 v-else class="space-title-no-link" v-html="sanitizeHtml(title)" />
       </div>
       <div class="meta">
         <RichText v-if="text" class="text" :rich-text-content="text" />

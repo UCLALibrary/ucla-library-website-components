@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // Imports
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import BentoBoxBlock from '@/lib-components/BentoBoxBlock.vue'
 import type { MediaItemType } from '@/types/types'
 import { useTheme } from '@/composables/useTheme'
@@ -166,7 +167,7 @@ watch(
   <div :class="classes">
     <h5
       class="title"
-      v-html="props.title"
+      v-html="sanitizeHtml(props.title)"
     />
     <div
       ref="itemsRef"

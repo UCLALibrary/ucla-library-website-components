@@ -3,6 +3,7 @@ import { computed, defineAsyncComponent, ref } from 'vue'
 
 import type { PropType } from 'vue'
 import SvgIconHeadphones from 'ucla-library-design-tokens/assets/svgs/molecule-headphones.svg'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { MediaGalleryItemType, MediaItemType } from '@/types/types'
 
 import { useTheme } from '@/composables/useTheme'
@@ -122,7 +123,7 @@ const showButton = computed(() => {
     <div class="text-grouping">
       <h3
         class="section-header"
-        v-html="sectionHeader"
+        v-html="sanitizeHtml(sectionHeader)"
       />
       <div class="meta-mobile">
         <MediaItem
@@ -159,7 +160,7 @@ const showButton = computed(() => {
       <div
         v-if="shortDescription"
         class="short-description"
-        v-html="shortDescription"
+        v-html="sanitizeHtml(shortDescription)"
       />
 
       <template v-if="showButton">

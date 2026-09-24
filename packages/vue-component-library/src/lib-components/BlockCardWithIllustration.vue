@@ -9,6 +9,7 @@ import SmartLink from '@/lib-components/SmartLink.vue'
 // UTILITY FUNCTIONS
 import getSectionName from '@/utils/getSectionName'
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 export default {
   name: 'BlockCardWithIllustration',
@@ -115,6 +116,9 @@ export default {
       return `h${clamped}` // return the heading tag
     },
   },
+  methods: {
+    sanitizeHtml,
+  },
 }
 </script>
 
@@ -130,7 +134,7 @@ export default {
       <div
         v-if="category"
         class="category"
-        v-html="category"
+        v-html="sanitizeHtml(category)"
       />
 
       <SmartLink
@@ -140,7 +144,7 @@ export default {
         <component
           :is="headerTag"
           class="title"
-          v-html="title"
+          v-html="sanitizeHtml(title)"
         />
       </SmartLink>
 

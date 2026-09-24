@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import TableRow from '@/lib-components/TableRow.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ResponsiveImage from '@/lib-components/ResponsiveImage'
@@ -124,6 +125,7 @@ export function Default() {
         },
       }
     },
+    methods: { sanitizeHtml },
     components: { TableRow, SmartLink, IconWithLink },
     template: `
       <TableRow
@@ -139,7 +141,7 @@ export function Default() {
              {{ item.alternativeName[0].fullName }}
            </span>
         </SmartLink>
-        <div class="job-title" v-html="item.jobTitle" />
+        <div class="job-title" v-html="sanitizeHtml(item.jobTitle)" />
         <ul v-if="item.departments && item.departments.length > 0" class="departments">
           <li class="department">
             {{ item.departments[item.departments.length - 1].title }}
