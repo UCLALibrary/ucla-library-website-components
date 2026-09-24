@@ -1,5 +1,4 @@
 import { computed } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 // Import components
 import FooterPrimary from '../lib-components/FooterPrimary.vue'
@@ -18,6 +17,7 @@ import {
   getMockGlobalNavSearch,
   setupGlobalStore,
 } from './helpers/storyHelpers'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { mockPageCollectionsDetailVariants } from '@/stories/mock/Funkhaus/MockPageCollectionsDetail'
 
 // Import styles
