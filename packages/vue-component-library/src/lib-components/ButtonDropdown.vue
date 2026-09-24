@@ -118,7 +118,16 @@ const parsedEventDescription = computed(() => {
 function handleActbExpandedStyle(e) {
   const style = document.createElement('style')
   style.innerHTML
-        = '.atcb-button.atcb-click.atcb-active { border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; } .atcb-active .atcb-text::after { transform: rotate(180deg); } #atcb-bgoverlay.atcb-click:hover {  cursor: unset; }'
+    = `.atcb-button.atcb-click.atcb-active { 
+          border-bottom-left-radius: 0 !important; 
+          border-bottom-right-radius: 0 !important; 
+        } 
+        .atcb-active .atcb-text::after { 
+          transform: rotate(180deg); 
+        } 
+        #atcb-bgoverlay.atcb-click:hover {  
+          cursor: unset; 
+        }`
 
   e.target.shadowRoot.appendChild(style)
 }
