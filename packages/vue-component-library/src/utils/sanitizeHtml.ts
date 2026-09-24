@@ -7,7 +7,7 @@ interface SanitizeConfig {
 
 // always allow default tags like aria-hidden, but allow for additional tags and attributes to be added in the config
 const DEFAULT_CONFIG: SanitizeConfig = {
-  ADD_ATTR: ['aria-hidden'],
+  ADD_ATTR: ['aria-hidden', 'target', 'rel'],
 }
 
 // pre-made config for components that need to allow iframes, like the RichText component
@@ -43,5 +43,21 @@ export function sanitizeHtml(
     ],
   })
 }
+
+DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+  if (
+    node.getAttribute('target') === '_blank'
+  ) {
+    // get existing rel values
+    const rel = new Set(
+      (node.getAttribute('rel') ?? '').split(/\s+/).filter(Boolean),
+    )
+    // add noopener and noreferrer to the rel attribute to prevent tabnabbing attacks
+    rel.add('noopener')
+    rel.add('noreferrer')
+
+    node.setAttribute('rel', [...rel].join(' '))
+  }
+})
 
 export { IFRAME_CONFIG }
