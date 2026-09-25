@@ -1,3 +1,6 @@
+<!--
+This component is deprecated. Do not use it in new development.
+
 <script>
 import ModalGeneric from '@/lib-components/ModalGeneric.vue'
 import RichText from '@/lib-components/RichText.vue'
@@ -29,7 +32,7 @@ export default {
   },
   computed: {
     parsedSrc() {
-      return `https://map.ucla.edu/?id=${this.campusLocationId}&e=true`
+      return `https://www.maps.ucla.edu/?id=2043#!m/${this.campusLocationId}?s/`
     },
   },
   methods: {
@@ -225,3 +228,4 @@ export default {
     }
 }
 </style>
+-->
