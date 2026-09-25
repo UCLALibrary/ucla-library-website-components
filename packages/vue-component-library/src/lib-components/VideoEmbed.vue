@@ -125,7 +125,6 @@ const parsedIframeTitle = computed(() => titles.value[0])
 
     .video-container {
       padding-top: 56.25%;
-      position: relative;
     }
 
     .responsive-iframe {
