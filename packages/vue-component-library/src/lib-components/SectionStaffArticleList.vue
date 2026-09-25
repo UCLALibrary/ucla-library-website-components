@@ -12,6 +12,7 @@ import { useTheme } from '@/composables/useTheme'
 // UTILS
 import formatDates from '@/utils/formatEventDates'
 import formatSeriesDates from '@/utils/formatEventSeriesDates'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 // CHILD COMPONENTS
@@ -70,7 +71,7 @@ function getNonFTVADate(date: string) {
       <div
         v-if="sectionTitle"
         class="section-title"
-        v-html="sectionTitle"
+        v-html="sanitizeHtml(sectionTitle)"
       />
       <ul v-if="items && items.length > 0" class="block-staff-article-list">
         <BlockStaffArticleList

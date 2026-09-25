@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { useTheme } from '@/composables/useTheme'
 
 const { title, text, impactNumber } = defineProps({
@@ -30,11 +31,11 @@ const classes = computed(() => {
       <div
         v-if="impactNumber"
         class="impact-number"
-        v-html="impactNumber"
+        v-html="sanitizeHtml(impactNumber)"
       />
-      <div v-if="title" class="title" v-html="title" />
+      <div v-if="title" class="title" v-html="sanitizeHtml(title)" />
     </div>
-    <div v-if="text" class="text" v-html="text" />
+    <div v-if="text" class="text" v-html="sanitizeHtml(text)" />
   </li>
 </template>
 

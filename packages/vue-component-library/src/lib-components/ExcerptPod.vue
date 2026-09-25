@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // Imports
 import { computed, ref } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { useTheme } from '@/composables/useTheme'
 import EffectSlideToggle from '@/lib-components/EffectSlideToggle.vue'
 import ButtonShowDynamic from '@/lib-components/ButtonShowDynamic.vue'
@@ -46,13 +47,13 @@ function toggle() {
     <!-- Title -->
     <h5
       class="title"
-      v-html="title"
+      v-html="sanitizeHtml(title)"
     />
     <!-- Info -->
     <div class="info">
       <h6
         class="subtitle"
-        v-html="subtitle"
+        v-html="sanitizeHtml(subtitle)"
       />
       <div class="text-excerpt">
         <EffectSlideToggle

@@ -3,6 +3,7 @@ import { computed } from 'vue'
 
 import type { PropType } from 'vue'
 import type { GridGalleryItemType } from '@/types/types'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
@@ -58,7 +59,7 @@ const parsedItems = computed(() => {
         <div
           v-if="!card.featured && card.snippet"
           class="snippet"
-          v-html="card.snippet"
+          v-html="sanitizeHtml(card.snippet)"
         />
         <div v-if="card.featured && card.snippet" class="section-text">
           <div class="text">
@@ -71,7 +72,7 @@ const parsedItems = computed(() => {
                 {{ card.headlineText }}
               </SmartLink>
             </span>
-            <div class="snippet" v-html="card.snippet" />
+            <div class="snippet" v-html="sanitizeHtml(card.snippet)" />
           </div>
         </div>
       </li>

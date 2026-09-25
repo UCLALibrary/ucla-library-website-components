@@ -4,6 +4,7 @@ import type { PropType } from 'vue'
 
 // LODASH FUNCTIONS
 import format from 'date-fns/format'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 // TYPESCRIPT
 import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
@@ -96,13 +97,13 @@ const parsedTextAll = computed(() => {
       <div
         v-if="props.category"
         class="category"
-        v-html="props.category"
+        v-html="sanitizeHtml(props.category)"
       />
 
       <SmartLink
         class="title"
         :to="props.to"
-        v-html="props.title"
+        v-html="sanitizeHtml(props.title)"
       />
 
       <!-- SUMMARY ONLY -->
@@ -125,12 +126,12 @@ const parsedTextAll = computed(() => {
           v-for="author in props.authors"
           :key="author.id"
           class="author"
-          v-html="author.title"
+          v-html="sanitizeHtml(author.title ?? '')"
         />
         <div
           v-if="props.date"
           class="date"
-          v-html="parsedDate"
+          v-html="sanitizeHtml(parsedDate)"
         />
         <div
           v-if="props.description"

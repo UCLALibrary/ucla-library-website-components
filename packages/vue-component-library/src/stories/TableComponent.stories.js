@@ -1,4 +1,5 @@
 import { computed, ref } from 'vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 // Import component
 import TableComponent from '@/lib-components/TableComponent'
@@ -143,6 +144,7 @@ export function Default() {
     data() {
       return { items: mockDefaultStaffSubjectLibrarian, tableHeaders: tableH, tableCaption: 'Subject Librarians' }
     },
+    methods: { sanitizeHtml },
     components: { TableComponent, TableRow, SmartLink, IconWithLink },
     template: `<tableComponent :tableHeaders="tableHeaders" :tableCaption="tableCaption">
       <TableRow v-for="item, index in items" :key="index" :num-cells="3" :class="subject-librarian-item">
@@ -156,7 +158,7 @@ export function Default() {
              {{ item.alternativeName[0].fullName }}
            </span>
         </SmartLink>
-        <div class="job-title" v-html="item.jobTitle" />
+        <div class="job-title" v-html="sanitizeHtml(item.jobTitle)" />
         <ul v-if="item.departments && item.departments.length > 0" class="departments">
           <li class="department">
             {{ item.departments[item.departments.length - 1].title }}

@@ -10,6 +10,7 @@ import BlockPostSmall from '@/lib-components/BlockPostSmall.vue'
 
 // THEME
 import { useTheme } from '@/composables/useTheme'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 // TYPES
 interface PostSmallItemType {
@@ -58,12 +59,12 @@ const classes = computed(() => [
       <h2
         v-if="sectionTitle"
         class="section-title"
-        v-html="sectionTitle"
+        v-html="sanitizeHtml(sectionTitle)"
       />
       <div
         v-if="sectionSummary"
         class="section-summary"
-        v-html="sectionSummary"
+        v-html="sanitizeHtml(sectionSummary)"
       />
     </div>
     <div class="grid-wrapper">
