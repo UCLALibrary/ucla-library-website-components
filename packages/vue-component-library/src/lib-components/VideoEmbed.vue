@@ -132,7 +132,7 @@ const parsedIframeTitle = computed(() => titles.value[0])
     .responsive-iframe {
       position: absolute;
       width: 100%;
-      height: 100%; 
+      height: 100%;
       top:0;
       left: 0;
     }
@@ -141,7 +141,7 @@ const parsedIframeTitle = computed(() => titles.value[0])
     .responsive-iframe {
         // position: absolute;
         // width: 100%;
-        // height: 100%; 
+        // height: 100%;
         // top:0;
         // bottom: 0;
         // left: 0;
