@@ -139,7 +139,6 @@ if (parsedTrailer.value) {
 
     .video-container {
       padding-top: 56.25%;
-      position: relative;
     }
 
     .responsive-iframe {
