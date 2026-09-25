@@ -17,6 +17,7 @@ import {
   getMockGlobalNavSearch,
   setupGlobalStore,
 } from './helpers/storyHelpers'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { mockPageCollectionsDetailVariants } from '@/stories/mock/Funkhaus/MockPageCollectionsDetail'
 
 // Import styles
@@ -116,6 +117,7 @@ function Template(args) {
         buttonMore,
         excerptPod,
         splitText,
+        sanitizeHtml
       }
     },
     template: `
@@ -152,10 +154,10 @@ function Template(args) {
                     :sentence-split-count="excerptPod.sentenceSplitCount"
                   >
                     <template #default>
-                      <p v-html="splitText(excerptPod.text, excerptPod.sentenceSplitCount).truncated" />
+                      <p v-html="sanitizeHtml(splitText(excerptPod.text, excerptPod.sentenceSplitCount).truncated)" />
                     </template>
                     <template #content>
-                      <p v-html="splitText(excerptPod.text, excerptPod.sentenceSplitCount).remaining" />
+                      <p v-html="sanitizeHtml(splitText(excerptPod.text, excerptPod.sentenceSplitCount).remaining)" />
                     </template>
                   </ExcerptPod>
                 </div>

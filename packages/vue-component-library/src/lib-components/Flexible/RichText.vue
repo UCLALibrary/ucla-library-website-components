@@ -6,6 +6,7 @@ import type { PropType } from 'vue'
 
 // COMPONENTS
 import RichText from '@/lib-components/RichText.vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 // TYPESCRPT
 import type { FlexibleRichText } from '@/types/flexible_types'
@@ -23,7 +24,7 @@ const { block } = defineProps({
     <h2
       v-if="block.sectionTitle"
       class="section-title"
-      v-html="block.sectionTitle"
+      v-html="sanitizeHtml(block.sectionTitle)"
     />
 
     <RichText :rich-text-content="block.richText" />

@@ -2,6 +2,7 @@
 import SvgAlertCircle from 'ucla-library-design-tokens/assets/svgs/icon-alert.svg'
 import ButtonLink from './ButtonLink'
 import RichText from './RichText.vue'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 export default {
   name: 'SiteNotificationAlert',
@@ -41,6 +42,7 @@ export default {
     this.delayedClose()
   },
   methods: {
+    sanitizeHtml,
     toggleAlert() {
       this.isOpened = !this.isOpened
     },
@@ -67,7 +69,7 @@ export default {
       </div>
       <div
         class="alert-text"
-        v-html="title"
+        v-html="sanitizeHtml(title)"
       />
     </button>
 

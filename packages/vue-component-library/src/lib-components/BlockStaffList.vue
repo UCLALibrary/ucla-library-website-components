@@ -4,6 +4,7 @@ import type { PropType } from 'vue'
 
 // SVGs
 import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 // TYPESCRIPT
 import type { DepartmentItemType, MediaItemType, StaffLocationItemType } from '@/types/types'
@@ -97,7 +98,7 @@ const lastDepartment = computed(() => {
         </h3>
         <div
           class="job-title"
-          v-html="jobTitle"
+          v-html="sanitizeHtml(jobTitle)"
         />
         <ul
           v-if="departments.length"

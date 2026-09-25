@@ -4,6 +4,7 @@ import type { PropType } from 'vue'
 
 // TYPESCRIPT
 import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { AcademicDepartmentsItemType, AlternativeNameItemType, DepartmentItemType, MediaItemType, StaffLocationItemType, TopicsItemType } from '@/types/types'
 
 // SVGs
@@ -155,7 +156,7 @@ const mergeSortTopics = computed(() => {
           <div class="staff-info">
             <div
               class="job-title"
-              v-html="jobTitle"
+              v-html="sanitizeHtml(jobTitle)"
             />
 
             <ul
@@ -238,7 +239,7 @@ const mergeSortTopics = computed(() => {
               <li
                 v-for="topic in mergeSortTopics"
                 :key="topic.id"
-                v-html="topic.title"
+                v-html="sanitizeHtml(topic.title)"
               />
             </ul>
           </RichText>

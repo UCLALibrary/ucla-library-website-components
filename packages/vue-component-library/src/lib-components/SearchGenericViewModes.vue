@@ -5,6 +5,7 @@ import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-
 import SvgIconCalendar from 'ucla-library-design-tokens/assets/svgs/icon-calendar.svg'
 import SvgIconCard from 'ucla-library-design-tokens/assets/svgs/icon-card.svg'
 import SvgIconList from 'ucla-library-design-tokens/assets/svgs/icon-list.svg'
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const props = defineProps({
   isOpened: {
@@ -91,7 +92,7 @@ function onClick(slug) {
           :is="parsedSelectedSVG(view.iconName)"
           class="svg"
         />
-        <div v-html="view.title" />
+        <div v-html="sanitizeHtml(view.title)" />
       </li>
     </ul>
   </div>

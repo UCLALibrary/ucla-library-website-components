@@ -1,4 +1,6 @@
 <script>
+import { sanitizeHtml } from '@/utils/sanitizeHtml'
+
 export default {
   name: 'AuthFirefoxModal',
   props: {
@@ -18,6 +20,7 @@ export default {
     }
   },
   methods: {
+    sanitizeHtml,
     closeModal() {
       this.show = false
     },
@@ -88,7 +91,7 @@ export default {
       <div v-if="!collapsed">
         <div
           class="detail-text"
-          v-html="message"
+          v-html="sanitizeHtml(message)"
         />
       </div>
     </div>

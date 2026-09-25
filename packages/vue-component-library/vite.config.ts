@@ -59,11 +59,12 @@ export default defineConfig({
         entryFileNames: `[name].js`,
         assetFileNames: `[name].[ext]`
       }, */
-      external: ['vue', 'vue-router', 'pinia', 'vuetify'],
+      external: ['vue', 'vue-router', 'pinia', 'vuetify', 'isomorphic-dompurify'],
       output: {
         exports: 'named',
         globals: {
-          vue: 'Vue',
+          'vue': 'Vue',
+          'isomorphic-dompurify': 'DOMPurify',
         },
       },
     },
