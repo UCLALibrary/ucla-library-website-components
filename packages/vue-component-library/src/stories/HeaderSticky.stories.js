@@ -357,5 +357,3 @@ export function FTVAStickyWithBanner() {
     `,
   }
 }
-
-
