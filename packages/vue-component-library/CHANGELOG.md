@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.90.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.90.0...@ucla-library-monorepo/ucla-library-website-components-v1.90.1) (2026-09-25)
+
+
+### Bug Fixes
+
+* deprecate BlockCampusMap ([#987](https://github.com/UCLALibrary/ucla-library-website-components/issues/987)) ([73fed8b](https://github.com/UCLALibrary/ucla-library-website-components/commit/73fed8b452cfc0933460e43226cd621e50598200))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.90.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.89.2...@ucla-library-monorepo/ucla-library-website-components-v1.90.0) (2026-09-24)
 
 
