@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.90.1...@ucla-library-monorepo/ucla-library-website-components-v1.91.0) (2026-09-26)
+
+
+### Features
+
+* LADI-5424 Add Month Change Support to BaseCalendar ([#991](https://github.com/UCLALibrary/ucla-library-website-components/issues/991)) ([0c47a36](https://github.com/UCLALibrary/ucla-library-website-components/commit/0c47a3650f43fb59ec4a7e530de8356dfc166281))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.90.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.90.0...@ucla-library-monorepo/ucla-library-website-components-v1.90.1) (2026-09-25)
 
 
