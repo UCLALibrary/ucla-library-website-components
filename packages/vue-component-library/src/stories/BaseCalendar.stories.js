@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import BaseCalendar from '../lib-components/BaseCalendar.vue'
 import { mockCalendarEvents } from './mock/CalendarEvents'
 
@@ -90,5 +90,147 @@ export function SameDayEvents() {
           :events="events"
           :firstEventMonth="mockCalendarStart" />
       </div>`
+  }
+}
+export function MonthToMonthEvents() {
+  return {
+    setup() {
+      const today = new Date()
+
+      const currentYear = today.getFullYear()
+      const currentMonth = today.getMonth()
+
+      const mockCalendarStartMonth = [
+        new Date(currentYear, currentMonth, 1),
+      ]
+
+      function createEventsForMonth(date) {
+        const year = date.getFullYear()
+        const month = date.getMonth()
+
+        return [
+          {
+            ...mockCalendarEvents.events[0],
+            id: `calendar-event-${year}-${month}-1`,
+            title: `Event 1 - ${date.toLocaleString('default', { month: 'long' })} ${year}`,
+            startDateWithTime: new Date(
+              year,
+              month,
+              5,
+              19,
+              0,
+              0,
+            ).toISOString(),
+            startDate: new Date(
+              year,
+              month,
+              5,
+              19,
+              0,
+              0,
+            ).toISOString(),
+            startTime: new Date(
+              year,
+              month,
+              5,
+              19,
+              0,
+              0,
+            ).toISOString(),
+          },
+          {
+            ...mockCalendarEvents.events[1],
+            id: `calendar-event-${year}-${month}-2`,
+            title: `Event 2 - ${date.toLocaleString('default', { month: 'long' })} ${year}`,
+            startDateWithTime: new Date(
+              year,
+              month,
+              15,
+              19,
+              0,
+              0,
+            ).toISOString(),
+            startDate: new Date(
+              year,
+              month,
+              15,
+              19,
+              0,
+              0,
+            ).toISOString(),
+            startTime: new Date(
+              year,
+              month,
+              15,
+              19,
+              0,
+              0,
+            ).toISOString(),
+          },
+          {
+            ...mockCalendarEvents.events[2],
+            id: `calendar-event-${year}-${month}-3`,
+            title: `Event 3 - ${date.toLocaleString('default', { month: 'long' })} ${year}`,
+            startDateWithTime: new Date(
+              year,
+              month,
+              25,
+              19,
+              0,
+              0,
+            ).toISOString(),
+            startDate: new Date(
+              year,
+              month,
+              25,
+              19,
+              0,
+              0,
+            ).toISOString(),
+            startTime: new Date(
+              year,
+              month,
+              25,
+              19,
+              0,
+              0,
+            ).toISOString(),
+          },
+        ]
+      }
+
+      const events = ref(
+        createEventsForMonth(mockCalendarStartMonth[0]),
+      )
+
+      function handleMonthChange(date) {
+        console.log('Story month-change:', date)
+        events.value = createEventsForMonth(date)
+      }
+
+      return {
+        events,
+        mockCalendarStartMonth,
+        handleMonthChange,
+      }
+    },
+
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+
+    components: { BaseCalendar },
+
+    template: `
+      <div style="display: flex; justify-content: center;">
+        <base-calendar
+          :events="events"
+          :firstEventMonth="mockCalendarStartMonth"
+          @month-change="handleMonthChange"
+        />
+      </div>
+    `,
   }
 }
