@@ -1,3 +1,10 @@
+# [@ucla-library/component-library-nuxt-module-v1.5.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.4...@ucla-library/component-library-nuxt-module-v1.5.5) (2026-09-29)
+
+
+### Bug Fixes
+
+* Revert "feat: LADI-3671 sanitize HTML" ([#994](https://github.com/UCLALibrary/ucla-library-website-components/issues/994)) ([f8b6899](https://github.com/UCLALibrary/ucla-library-website-components/commit/f8b68992ac2d1900460a2c4e48253ff4b45dcb7e)), closes [#988](https://github.com/UCLALibrary/ucla-library-website-components/issues/988)
+
 # [@ucla-library/component-library-nuxt-module-v1.5.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.3...@ucla-library/component-library-nuxt-module-v1.5.4) (2026-09-29)
 
 # [@ucla-library/component-library-nuxt-module-v1.5.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.2...@ucla-library/component-library-nuxt-module-v1.5.3) (2026-09-29)
