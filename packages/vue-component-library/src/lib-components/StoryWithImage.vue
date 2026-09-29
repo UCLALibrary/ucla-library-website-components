@@ -4,7 +4,6 @@ import type { PropType } from 'vue'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import DividerGeneral from '@/lib-components/DividerGeneral.vue'
 import type { MediaItemType } from '@/types/types'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const { image, caption, title, text, footnote, calltoaction } = defineProps({
   image: {
@@ -48,9 +47,9 @@ const parsedRatio = 60
         <h2 v-if="title" class="title">
           {{ title }}
         </h2>
-        <div v-if="text" class="text" v-html="sanitizeHtml(text)" />
+        <div v-if="text" class="text" v-html="text" />
         <DividerGeneral class="divider-general" />
-        <div v-if="footnote" class="footnote" v-html="sanitizeHtml(footnote)" />
+        <div v-if="footnote" class="footnote" v-html="footnote" />
         <DividerGeneral class="divider-general" />
         <div class="calltoaction">
           <span v-if="calltoaction"> {{ calltoaction }}</span>

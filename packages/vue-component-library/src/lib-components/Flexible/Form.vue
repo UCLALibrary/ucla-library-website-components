@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 import type { FlexibleForm } from '@/types/flexible_types'
 import { useTheme } from '@/composables/useTheme'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const { block } = defineProps({
   block: {
@@ -29,12 +28,12 @@ const parsedClasses = computed(() => {
       <h2
         v-if="block.sectionTitle"
         class="section-title"
-        v-html="sanitizeHtml(block.sectionTitle)"
+        v-html="block.sectionTitle"
       />
       <div
         v-if="block.sectionSummary"
         class="section-summary"
-        v-html="sanitizeHtml(block.sectionSummary)"
+        v-html="block.sectionSummary"
       />
     </div>
 
