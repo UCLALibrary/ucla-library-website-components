@@ -220,6 +220,7 @@ onMounted(() => {
       v-if="!isMobile"
       ref="datepicker"
       v-model="date"
+      arrow-navigation
       :aria-labels="{ menu: 'Date Picker' }"
       :config="vue3datepickerConfig"
       :range="!isMobile"
