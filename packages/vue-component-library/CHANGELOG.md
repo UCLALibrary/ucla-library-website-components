@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.0...@ucla-library-monorepo/ucla-library-website-components-v1.91.1) (2026-09-29)
+
+
+### Bug Fixes
+
+* clearWIndow periodically ([#992](https://github.com/UCLALibrary/ucla-library-website-components/issues/992)) ([aadc5bc](https://github.com/UCLALibrary/ucla-library-website-components/commit/aadc5bcd76603e72b648eba4384800a8a31632d6))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.91.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.90.1...@ucla-library-monorepo/ucla-library-website-components-v1.91.0) (2026-09-26)
 
 
