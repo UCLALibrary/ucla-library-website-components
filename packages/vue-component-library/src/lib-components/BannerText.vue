@@ -2,7 +2,6 @@
 import { computed, defineAsyncComponent } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 import type { LocationItemType, SubjectAreaItemType } from '@/types/types'
 
@@ -180,7 +179,7 @@ const parsedLocations = computed(() => {
           />
           <div
             :class="categoryClasses"
-            v-html="sanitizeHtml(category)"
+            v-html="category"
           />
         </div>
 
@@ -191,7 +190,7 @@ const parsedLocations = computed(() => {
               v-if="alternativeFullName"
               :lang="language"
               class="translation"
-              v-html="sanitizeHtml(alternativeFullName)"
+              v-html="alternativeFullName"
             />
           </h1>
 
@@ -287,17 +286,17 @@ const parsedLocations = computed(() => {
               <time
                 v-if="dateCreated"
                 class="date-created"
-                v-html="sanitizeHtml(parsedDateCreated)"
+                v-html="parsedDateCreated"
               />
               <time
                 v-if="startDate"
                 class="schedule-item"
-                v-html="sanitizeHtml(parsedDate)"
+                v-html="parsedDate"
               />
               <time
                 v-if="parsedTime"
                 class="schedule-item"
-                v-html="sanitizeHtml(parsedTime)"
+                v-html="parsedTime"
               />
               <div
                 v-if="isOnline"

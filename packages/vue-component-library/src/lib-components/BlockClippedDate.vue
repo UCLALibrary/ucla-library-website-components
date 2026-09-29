@@ -6,7 +6,6 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
@@ -129,12 +128,12 @@ const parsedDateMonth = computed(() => {
         <time
           v-if="startDate"
           class="month"
-          v-html="sanitizeHtml(parsedDateMonth)"
+          v-html="parsedDateMonth"
         />
         <time
           v-if="startDate"
           class="day"
-          v-html="sanitizeHtml(parsedDateDay)"
+          v-html="parsedDateDay"
         />
       </div>
       <ResponsiveImage

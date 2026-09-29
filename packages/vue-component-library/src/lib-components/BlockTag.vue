@@ -1,13 +1,11 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue'
 import { computed, defineAsyncComponent } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { useTheme } from '@/composables/useTheme'
 
 // PROPS & DATA
 const { label, iconName, isSecondary, isHighlighted } = defineProps({
   label: {
-    type: [String, Array] as PropType<string | string[]>,
+    type: [String, Array],
     default: '', // Text displayed on the tag or pill.
   },
   iconName: {
@@ -97,7 +95,7 @@ const parsedLabel = computed(() => {
       aria-hidden="true"
     />
     <template v-for="(item, index) in parsedLabel" :key="`label-${index}`">
-      <div class="label" v-html="sanitizeHtml(item)" />
+      <div class="label" v-html="item" />
       <component
         :is="SvgArrowRight"
         v-if="index !== parsedLabel.length - 1"

@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import RichText from './RichText.vue'
 import { useTheme } from '@/composables/useTheme'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const { text, attribution } = defineProps({
   text: {
@@ -26,7 +25,7 @@ const classes = computed(() => {
     <RichText v-if="text" class="quote" :rich-text-content="text" />
     <div v-if="attribution" class="attribution-block">
       <span class="dash">—</span>
-      <span v-if="attribution" class="attribution" v-html="sanitizeHtml(attribution)" />
+      <span v-if="attribution" class="attribution" v-html="attribution" />
     </div>
   </div>
 </template>

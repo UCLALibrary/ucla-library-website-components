@@ -8,7 +8,6 @@ import BlockSimpleCard from '@/lib-components/BlockSimpleCard.vue'
 import { useTheme } from '@/composables/useTheme'
 
 import type { CardItemType } from '@/types/types'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const { items, sectionTitle, sectionSummary } = defineProps({
   items: {
@@ -65,7 +64,7 @@ const classes = computed(() => {
       <div
         v-if="sectionSummary"
         class="section-summary"
-        v-html="sanitizeHtml(sectionSummary)"
+        v-html="sectionSummary"
       />
     </div>
 
