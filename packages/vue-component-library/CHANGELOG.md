@@ -1,3 +1,52 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.2...@ucla-library-monorepo/ucla-library-website-components-v1.91.3) (2026-09-29)
+
+
+### Bug Fixes
+
+* Revert "feat: LADI-3671 sanitize HTML" ([#994](https://github.com/UCLALibrary/ucla-library-website-components/issues/994)) ([f8b6899](https://github.com/UCLALibrary/ucla-library-website-components/commit/f8b68992ac2d1900460a2c4e48253ff4b45dcb7e)), closes [#988](https://github.com/UCLALibrary/ucla-library-website-components/issues/988)
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.1...@ucla-library-monorepo/ucla-library-website-components-v1.91.2) (2026-09-29)
+
+
+### Bug Fixes
+
+* revert clearWIndow periodically ([#993](https://github.com/UCLALibrary/ucla-library-website-components/issues/993)) ([0889836](https://github.com/UCLALibrary/ucla-library-website-components/commit/08898367e7fee6c2e8f7b55b60cfd3e35d53ec11)), closes [#992](https://github.com/UCLALibrary/ucla-library-website-components/issues/992)
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.0...@ucla-library-monorepo/ucla-library-website-components-v1.91.1) (2026-09-29)
+
+
+### Bug Fixes
+
+* clearWIndow periodically ([#992](https://github.com/UCLALibrary/ucla-library-website-components/issues/992)) ([aadc5bc](https://github.com/UCLALibrary/ucla-library-website-components/commit/aadc5bcd76603e72b648eba4384800a8a31632d6))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.90.1...@ucla-library-monorepo/ucla-library-website-components-v1.91.0) (2026-09-26)
+
+
+### Features
+
+* LADI-5424 Add Month Change Support to BaseCalendar ([#991](https://github.com/UCLALibrary/ucla-library-website-components/issues/991)) ([0c47a36](https://github.com/UCLALibrary/ucla-library-website-components/commit/0c47a3650f43fb59ec4a7e530de8356dfc166281))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.90.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.90.0...@ucla-library-monorepo/ucla-library-website-components-v1.90.1) (2026-09-25)
+
+
+### Bug Fixes
+
+* deprecate BlockCampusMap ([#987](https://github.com/UCLALibrary/ucla-library-website-components/issues/987)) ([73fed8b](https://github.com/UCLALibrary/ucla-library-website-components/commit/73fed8b452cfc0933460e43226cd621e50598200))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.90.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.89.2...@ucla-library-monorepo/ucla-library-website-components-v1.90.0) (2026-09-24)
+
+
+### Features
+
+* LADI-3671 sanitize HTML ([#988](https://github.com/UCLALibrary/ucla-library-website-components/issues/988)) ([7336018](https://github.com/UCLALibrary/ucla-library-website-components/commit/7336018ca98576d97b12bf942c5d707c457d0309))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.89.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.89.1...@ucla-library-monorepo/ucla-library-website-components-v1.89.2) (2026-09-23)
+
+
+### Bug Fixes
+
+* LADI-5357 Update styling for Add-to-Calendar button ([#986](https://github.com/UCLALibrary/ucla-library-website-components/issues/986)) ([3b61514](https://github.com/UCLALibrary/ucla-library-website-components/commit/3b6151433c79db7f0679da8c62dc635240cbf9ff))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.89.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.89.0...@ucla-library-monorepo/ucla-library-website-components-v1.89.1) (2026-09-15)
 
 
