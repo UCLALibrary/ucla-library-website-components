@@ -6,7 +6,6 @@ import BlockFloatingHighlight from '@/lib-components/BlockFloatingHighlight.vue'
 import formatDates from '@/utils/formatEventDates'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
 import type { FlexibleHighlightBlock } from '@/types/flexible_types'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const { block } = defineProps({
   block: {
@@ -195,12 +194,12 @@ const parsedItems = computed(() => {
       <h2
         v-if="block.sectionTitle"
         class="section-title"
-        v-html="sanitizeHtml(block.sectionTitle)"
+        v-html="block.sectionTitle"
       />
       <div
         v-if="block.sectionSummary"
         class="section-summary"
-        v-html="sanitizeHtml(block.sectionSummary)"
+        v-html="block.sectionSummary"
       />
     </div>
     <ul v-if="parsedItems && parsedItems.length > 0" class="block-group">

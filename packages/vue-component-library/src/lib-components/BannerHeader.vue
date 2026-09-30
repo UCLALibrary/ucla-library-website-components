@@ -6,7 +6,6 @@ import format from 'date-fns/format'
 // Components
 import SvgMoleculeHalfFaceted from 'ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg'
 import SvgHatchRight from 'ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
 import BlockForm from '@/lib-components/BlockForm.vue'
@@ -244,7 +243,7 @@ const parsedLocations = computed(() => {
       />
       <div
         class="text"
-        v-html="sanitizeHtml(category)"
+        v-html="category"
       />
     </div>
 
@@ -278,7 +277,7 @@ const parsedLocations = computed(() => {
     <div class="meta">
       <h1
         class="title"
-        v-html="sanitizeHtml(title)"
+        v-html="title"
       />
 
       <RichText
@@ -335,17 +334,17 @@ const parsedLocations = computed(() => {
           <time
             v-if="dateCreated"
             class="date-created"
-            v-html="sanitizeHtml(parsedDateCreated)"
+            v-html="parsedDateCreated"
           />
           <time
             v-if="startDate"
             class="schedule-item"
-            v-html="sanitizeHtml(parsedDate)"
+            v-html="parsedDate"
           />
           <time
             v-if="parsedTime"
             class="schedule-item"
-            v-html="sanitizeHtml(parsedTime)"
+            v-html="parsedTime"
           />
         </div>
 
