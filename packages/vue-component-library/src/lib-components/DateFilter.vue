@@ -131,10 +131,8 @@ async function clearDate() {
 
   emit('input-selected', formattedDateSelection.value)
 
-  // Wait for the calendar to close, then return keyboard focus
-  // to the DateFilter input.
+  // Wait for the calendar to close.
   await nextTick()
-  datepickerInput.value?.focus()
 }
 
 function onDoneClick() {
