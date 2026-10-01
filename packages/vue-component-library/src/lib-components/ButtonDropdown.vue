@@ -1,7 +1,6 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import 'add-to-calendar-button'
 import { atcb_generate_ssr_html } from 'add-to-calendar-button/ssr'
 import format from 'date-fns/format'
 
@@ -118,6 +117,22 @@ const atcbSsrHtml = computed(() => atcb_generate_ssr_html({
   name: title, startDate: parsedDateAndTime.value.startDate, startTime: parsedDateAndTime.value.startTime, endTime: parsedEndTime.value, timeZone: 'America/Los_Angeles', location: parsedLocation.value, description: parsedEventDescription.value, options: ['google', 'apple', 'ms365', 'outlookcom', 'ical'], trigger: 'click', hideBranding: true, hideCheckmark: true, hideBackground: true, hideIconButton: true, listStyle: 'dropdown-static', debug: debugModeEnabled,
 }))
 
+// Vue preserves this SSR content during hydration. Reassigning innerHTML would
+// discard the declarative Shadow DOM rendered by Add to Calendar Button.
+const vAtcbSsrHtml = {
+  getSSRProps(binding) {
+    return { innerHTML: binding.value }
+  },
+  mounted(element, binding) {
+    if (!element.hasChildNodes())
+      element.innerHTML = binding.value
+  },
+}
+
+// The web component accesses the DOM while registering, so it must never be
+// evaluated by the server bundle. The SSR helper above is DOM-free.
+onMounted(() => import('add-to-calendar-button'))
+
 /*
 - Copy page path to clipboard;
 - Show "Copied Link" icon for 4secs
@@ -148,7 +163,7 @@ const parsedClasses = computed(() => {
 
 <template>
   <div :class="parsedClasses">
-    <div v-if="isEvent" v-html="atcbSsrHtml" />
+    <div v-if="isEvent" v-atcb-ssr-html="atcbSsrHtml" />
 
     <!-- Generic Button -->
     <MobileDrawer v-else>

@@ -17,6 +17,3 @@ catalog:
   vue-tsc: "^2.1.6"
 
 engineStrict: true
-
-minimumReleaseAgeExclude:
-  - add-to-calendar-button@3.3.0
