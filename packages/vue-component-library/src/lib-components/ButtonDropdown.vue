@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import 'add-to-calendar-button'
+import { atcb_generate_ssr_html } from 'add-to-calendar-button/ssr'
 import format from 'date-fns/format'
 
 import SvgIconFtvaShare from 'ucla-library-design-tokens/assets/svgs/icon-ftva-share.svg'
@@ -110,27 +111,12 @@ const parsedEventDescription = computed(() => {
   return ''
 })
 
-/* Inject styles into ATCB ShadowDOM on button dropdown:
- - Remove border bottom radii on button
- - Rotate FTVA dropdown triangle
- - Disable custom cursor
-*/
-function handleActbExpandedStyle(e) {
-  const style = document.createElement('style')
-  style.innerHTML
-    = `.atcb-button.atcb-click.atcb-active { 
-          border-bottom-left-radius: 0 !important; 
-          border-bottom-right-radius: 0 !important; 
-        } 
-        .atcb-active .atcb-text::after { 
-          transform: rotate(180deg); 
-        } 
-        #atcb-bgoverlay.atcb-click:hover {  
-          cursor: unset; 
-        }`
-
-  e.target.shadowRoot.appendChild(style)
-}
+// Add to Calendar Button configuration for server-rendered markup.
+// https://add-to-calendar-button.com/configuration
+// debugModeEnabled is passed as the Add to Calendar Button debug option; enable it at page level when troubleshooting.
+const atcbSsrHtml = computed(() => atcb_generate_ssr_html({
+  name: title, startDate: parsedDateAndTime.value.startDate, startTime: parsedDateAndTime.value.startTime, endTime: parsedEndTime.value, timeZone: 'America/Los_Angeles', location: parsedLocation.value, description: parsedEventDescription.value, options: ['google', 'apple', 'ms365', 'outlookcom', 'ical'], trigger: 'click', hideBranding: true, hideCheckmark: true, hideBackground: true, hideIconButton: true, listStyle: 'dropdown-static', debug: debugModeEnabled,
+}))
 
 /*
 - Copy page path to clipboard;
@@ -162,37 +148,7 @@ const parsedClasses = computed(() => {
 
 <template>
   <div :class="parsedClasses">
-    <div v-if="isEvent">
-      <!-- Add to Calendar Button plugin component
-
-      - https://add-to-calendar-button.com/configuration
-
-      - plugin's debug attribute is bound to the component's debugModeEnabled prop; set to 'true' at page-level for troubleshooting
-
-      - Plugin's attributes must be camelCased
-
-      - eslint flag to prevent attribute hyphenation -->
-
-      <!-- eslint-disable -->
-      <add-to-calendar-button
-        :name="title"
-        :startDate="parsedDateAndTime.startDate"
-        :startTime="parsedDateAndTime.startTime"
-        :endTime="parsedEndTime"
-        timeZone="America/Los_Angeles"
-        :location="parsedLocation"
-        :description="parsedEventDescription"
-        options="'Google','Apple','Microsoft365','Outlook.com','iCal'"
-        trigger="click"
-        hideBranding="true"
-        hideCheckmark="true"
-        hideBackground="true"
-        hideIconButton="true"
-        listStyle="dropdown-static"
-        :debug="debugModeEnabled"
-        @click="handleActbExpandedStyle"></add-to-calendar-button>
-      <!-- eslint-enable -->
-    </div>
+    <div v-if="isEvent" v-html="atcbSsrHtml" />
 
     <!-- Generic Button -->
     <MobileDrawer v-else>
