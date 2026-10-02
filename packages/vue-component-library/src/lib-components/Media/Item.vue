@@ -26,11 +26,6 @@ const props = defineProps({
   loop: { type: Boolean, default: false },
   muted: { type: Boolean, default: false },
   playsinline: { type: Boolean, default: true },
-  // add interactivity
-  hasCustomClick: {
-    type: Boolean,
-    default: false,
-  },
 })
 
 const isAudio = computed<boolean>(() => {
@@ -85,9 +80,6 @@ const hasImage = computed(() => {
 const hasCoverImage = computed(() => {
   return props.coverOnly && (props.coverImage && props.coverImage.length > 0)
 })
-const computedRole = computed(() => props.hasCustomClick ? 'button' : null)
-const computedTabIndex = computed(() => props.hasCustomClick ? 0 : null)
-const computedAriaLabel = computed(() => props.hasCustomClick ? 'Click to interact' : null)
 </script>
 
 <template>
