@@ -8,7 +8,6 @@ import { useTheme } from '@/composables/useTheme'
 import { useOEmbedFetch } from '@/composables/useOEmbedFetch'
 import formatYouTubeUrlsForOembed from '@/utils/formatYouTubeUrlsForOembed'
 import escapeHtml from '@/utils/escapeHtml'
-import { IFRAME_CONFIG, sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const props = defineProps({
   richTextContent: {
@@ -81,15 +80,11 @@ const parsedContent = computed(() => {
     },
   ))
 })
-// sanitize the content since we're using v-html to display, allow iframes
-const sanitizedContent = computed(() => {
-  return sanitizeHtml(parsedContent.value, IFRAME_CONFIG)
-})
 </script>
 
 <template>
   <div :class="classes">
-    <div class="parsed-content" v-html="sanitizedContent" />
+    <div class="parsed-content" v-html="parsedContent" />
     <slot />
   </div>
 </template>

@@ -7,7 +7,6 @@ import type { PropType } from 'vue'
 import type { FlexibleImpactNumbersCarousel } from '@/types/flexible_types'
 
 import ImpactNumbersCarousel from '@/lib-components/ImpactNumbersCarousel.vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const { block } = defineProps({
   block: {
@@ -31,7 +30,7 @@ const { block } = defineProps({
       <div
         v-if="block.sectionSummary"
         class="section-summary"
-        v-html="sanitizeHtml(block.sectionSummary)"
+        v-html="block.sectionSummary"
       />
     </div>
 

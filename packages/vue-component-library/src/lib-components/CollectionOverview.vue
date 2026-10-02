@@ -1,7 +1,6 @@
 <script setup lang="ts">
 // Imports
 import { computed } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import type { BlockButtonsProps } from '@/types/components/blockButtons.types'
 import type { MediaItemType } from '@/types/types'
 import SearchResultsCount from '@/lib-components/SearchResultsCount.vue'
@@ -85,7 +84,7 @@ const classes = computed(() => {
         <h3 v-if="subtitle" class="subtitle">
           {{ subtitle }}
         </h3>
-        <div class="description" v-html="sanitizeHtml(description ?? '')" />
+        <div class="description" v-html="description" />
 
         <BlockButtons
           v-if="blockButtons && hasButtons"

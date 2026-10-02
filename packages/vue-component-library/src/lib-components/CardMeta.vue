@@ -4,7 +4,6 @@ import { computed, defineAsyncComponent } from 'vue'
 import format from 'date-fns/format'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
@@ -175,7 +174,7 @@ const classes = computed(() => {
     <div
       v-if="category"
       class="category"
-      v-html="sanitizeHtml(category)"
+      v-html="category"
     />
 
     <!-- Slot for injecting a title with any tags / styles (useful to substitute h1 tags for accessibility) -->
@@ -199,14 +198,14 @@ const classes = computed(() => {
         v-if="alternativeFullName"
         :lang="language"
         class="translation"
-        v-html="sanitizeHtml(alternativeFullName)"
+        v-html="alternativeFullName"
       />
     </SmartLink>
 
     <h3
       v-else-if="title"
       class="title-no-link"
-      v-html="sanitizeHtml(title)"
+      v-html="title"
     />
 
     <!-- Named slot for custom description -->
@@ -230,12 +229,12 @@ const classes = computed(() => {
       <div
         v-if="bylineOne"
         class="schedule-item"
-        v-html="sanitizeHtml(bylineOne)"
+        v-html="bylineOne"
       />
       <div
         v-if="bylineTwo"
         class="schedule-item"
-        v-html="sanitizeHtml(bylineTwo)"
+        v-html="bylineTwo"
       />
       <div
         v-if="dateCreated"
@@ -264,12 +263,12 @@ const classes = computed(() => {
       <time
         v-if="startDate"
         class="schedule-item start-date"
-        v-html="sanitizeHtml(parsedDate)"
+        v-html="parsedDate"
       />
       <time
         v-if="startDate && sectionHandle !== 'ftvaEventSeries'"
         class="schedule-item parsed-time"
-        v-html="sanitizeHtml(parsedTime)"
+        v-html="parsedTime"
       />
     </div>
 

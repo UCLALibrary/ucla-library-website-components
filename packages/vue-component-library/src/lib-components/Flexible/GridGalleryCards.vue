@@ -7,7 +7,6 @@ import type { FlexibleGridGallery } from '@/types/flexible_types'
 
 import GridGallery from '@/lib-components/GridGallery.vue'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const { block } = defineProps ({
   block: {
@@ -78,12 +77,12 @@ const parseGalleryCards = computed(() => {
       <h2
         v-if="block.sectionTitle"
         class="section-title"
-        v-html="sanitizeHtml(block.sectionTitle)"
+        v-html="block.sectionTitle"
       />
       <div
         v-if="block.sectionSummary"
         class="section-summary"
-        v-html="sanitizeHtml(block.sectionSummary)"
+        v-html="block.sectionSummary"
       />
     </div>
 

@@ -11,7 +11,6 @@ import RichText from '@/lib-components/RichText.vue'
 import type { MediaItemType } from '@/types/types'
 
 import { useTheme } from '@/composables/useTheme'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const props = defineProps({
   item: {
@@ -129,7 +128,7 @@ const classes = computed(() => {
       <RichText
         v-if="sectionSummary"
         class="summary"
-        v-html="sanitizeHtml(sectionSummary)"
+        v-html="sectionSummary"
       />
     </div>
   </div>

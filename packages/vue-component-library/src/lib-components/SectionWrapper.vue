@@ -4,7 +4,6 @@ import SectionHeader from '@/lib-components/SectionHeader.vue'
 import RichText from '@/lib-components/RichText.vue'
 import kebabCase from '@/utils/kebabCase'
 import { useTheme } from '@/composables/useTheme'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 const props = defineProps({
   sectionTitle: {
@@ -91,7 +90,7 @@ const getId = computed(() => {
       <RichText
         v-if="sectionSummary"
         class="section-summary"
-        v-html="sanitizeHtml(sectionSummary)"
+        v-html="sectionSummary"
       />
     </div>
 
