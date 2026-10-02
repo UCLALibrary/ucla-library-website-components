@@ -70,6 +70,11 @@ const classes = computed(() => {
       object-fit="cover"
       class="media-item"
       @click="emit('toggleThumbnails')"
+      @keydown.enter="emit('toggleThumbnails')"
+      @keydown.space="emit('toggleThumbnails')"
+      tabindex="0"
+      aria-label="'Click to interact'"
+      role="button""
     >
       <div v-if="nItems > 1 && !expanded">
         <div class="gradient" />
