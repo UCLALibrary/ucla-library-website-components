@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.4...@ucla-library-monorepo/ucla-library-website-components-v1.91.5) (2026-10-02)
+
+
+### Bug Fixes
+
+* LADI-5427 Fix oEmbed fetch call to resolve A11Y errors ([#996](https://github.com/UCLALibrary/ucla-library-website-components/issues/996)) ([5d0a4a6](https://github.com/UCLALibrary/ucla-library-website-components/commit/5d0a4a62a93ef26f08b492f103b8621192f94a19))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.3...@ucla-library-monorepo/ucla-library-website-components-v1.91.4) (2026-10-02)
+
+
+### Bug Fixes
+
+* LADI-5397 add button role info to BannerImage ([#997](https://github.com/UCLALibrary/ucla-library-website-components/issues/997)) ([1646bd9](https://github.com/UCLALibrary/ucla-library-website-components/commit/1646bd9a6afaaf2f0005fc6ba23b862857afdcdb))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.91.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.2...@ucla-library-monorepo/ucla-library-website-components-v1.91.3) (2026-09-29)
 
 

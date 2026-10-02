@@ -5,11 +5,10 @@ The iframe has a default aspect ratio of 16:9. A parent component with a lower a
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import SvgIconPlayFilled from 'ucla-library-design-tokens/assets/svgs/icon-ftva-playvideo.svg'
-import { computed, ref, watchEffect } from 'vue'
+import { computed } from 'vue'
 import type { MediaItemType } from '@/types/types'
 import { useOEmbedFetch } from '@/composables/useOEmbedFetch'
 import formatYouTubeUrlsForOembed from '@/utils/formatYouTubeUrlsForOembed'
-import escapeHtml from '@/utils/escapeHtml'
 
 const { trailer, posterImage } = defineProps({
   trailer: {
@@ -44,24 +43,11 @@ Reference: LADI-5244
 Craft injects a generic iframe title 'YouTube video player' into embedded video content that Chrome is unable to override. (Other browsers are able to pull and retain a video's original title.) This generic title becomes an accessibility issue when there are multiple embed videos on a page. To address this issue in Chrome, we use YouTube's oEmbed API to retrieve a video's title from its metadata and assign it to the iframe element's title attribute.
 */
 
-const parsedIframeTitle = ref('')
+const urlObj = formatYouTubeUrlsForOembed([parsedTrailer.value])
 
-if (parsedTrailer.value) {
-  const urlObj = formatYouTubeUrlsForOembed([parsedTrailer.value])
+const { titles } = useOEmbedFetch(urlObj)
 
-  const { data } = useOEmbedFetch(urlObj)
-
-  watchEffect(() => {
-    if (!data.value)
-      return
-
-    const result = Array.isArray(data.value) ? data.value[0] : data.value
-
-    const videoTitle = escapeHtml(result?.title)
-
-    parsedIframeTitle.value = videoTitle ?? 'YouTube Video Player'
-  })
-}
+const parsedIframeTitle = computed(() => titles.value[0])
 </script>
 
 <template>
