@@ -21,7 +21,7 @@ export default function formatYouTubeUrlsForOembed(urlArr) {
     return {
       initialURL: url,
       oEmbedURL: secondParse,
-      videoTitle: `YouTube Video Player ${index}` // Fallback title
+      videoTitle: `YouTube Video Player ${index + 1}` // Fallback title
     }
   })
 
