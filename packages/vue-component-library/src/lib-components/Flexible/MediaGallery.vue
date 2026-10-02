@@ -126,6 +126,11 @@ function selectItem(itemIndex: number) {
         :key="item.id"
         v-bind="item"
         @click="selectItem(index)"
+        @keydown.enter="selectItem(index)"
+        @keydown.space="selectItem(index)"
+        role="button"
+        tabindex="0"
+        :aria-label="item.captionTitle"
       />
     </div>
   </section>
