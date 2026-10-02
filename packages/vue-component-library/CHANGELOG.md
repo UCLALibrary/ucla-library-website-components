@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.3...@ucla-library-monorepo/ucla-library-website-components-v1.91.4) (2026-10-02)
+
+
+### Bug Fixes
+
+* LADI-5397 add button role info to BannerImage ([#997](https://github.com/UCLALibrary/ucla-library-website-components/issues/997)) ([1646bd9](https://github.com/UCLALibrary/ucla-library-website-components/commit/1646bd9a6afaaf2f0005fc6ba23b862857afdcdb))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.91.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.2...@ucla-library-monorepo/ucla-library-website-components-v1.91.3) (2026-09-29)
 
 
