@@ -307,6 +307,11 @@ function onPlaying() {
     top:0;
     left: 0;
     width: 100%;
+    height: 100%;
+
+    .video-container {
+      padding-top: 0; // Overrides VideoEmbed's default aspect ratio (56.25% / 16:9), and eliminates potential negative space below an embed if ResponsiveVideo's aspect-ratio is less than 56.25%
+    }
   }
 }
 </style>

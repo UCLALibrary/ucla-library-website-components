@@ -1,4 +1,7 @@
-<!-- The VideoEmbed component creates an iframe with a youtube video embed; it has an optional custom posterImage and icon -->
+<!-- The VideoEmbed component creates an iframe with a YouTube video embed; it has an optional custom posterImage and icon.
+
+The iframe has a default aspect ratio of 16:9. A parent component with a lower aspect ratio (less than 56.25%) will need to set VideoEmbed's .video-container class to padding-top:0 to offset negative space below the embed. -->
+
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import SvgIconPlayFilled from 'ucla-library-design-tokens/assets/svgs/icon-ftva-playvideo.svg'
@@ -82,8 +85,6 @@ const parsedIframeTitle = computed(() => titles.value[0])
 <style lang="scss" scoped>
 .video-embed {
     position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
 
     &.has-poster {
         .video-container {
@@ -114,7 +115,6 @@ const parsedIframeTitle = computed(() => titles.value[0])
             cursor: pointer;
             width: 100%;
             height: 100%;
-            aspect-ratio: 16 / 9;
             object-fit: cover;
         }
 
@@ -126,11 +126,16 @@ const parsedIframeTitle = computed(() => titles.value[0])
         }
     }
 
-    .video-container,
+    .video-container {
+      padding-top: 56.25%;
+    }
+
     .responsive-iframe {
-        position: absolute;
-        width: 100%;
-        height: 100%;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top:0;
+      left: 0;
     }
 }
 </style>
