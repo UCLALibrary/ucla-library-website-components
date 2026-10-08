@@ -54,6 +54,6 @@ export function WithSlottedVideoEmbed() {
       }
     },
     components: { ResponsiveVideo, VideoEmbed },
-    template: '<responsive-video :aspect-ratio="56.9" :controls="true"><template v-slot><video-embed :trailer="mockFTVAData.trailer" /></template></responsive-video>',
+    template: '<responsive-video :aspect-ratio="56.9" :controls="true"><template v-slot><video-embed :aspect-ratio="56.9" :trailer="mockFTVAData.trailer" /></template></responsive-video>',
   }
 }
