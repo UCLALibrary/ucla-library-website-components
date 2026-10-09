@@ -1,4 +1,4 @@
-<!-- The VideoEmbed component creates an iframe with a YouTube video embed; it has an optional custom posterImage and icon. It has a default aspect ratio of 16:9, which can be changed with the aspectRatio prop (set as a percentage value).-->
+<!-- The VideoEmbed component creates an iframe with a YouTube video embed; it has an optional custom posterImage and icon. It has a default aspect ratio of 16:9, which can be changed with the aspectRatio prop (set as a percentage value). -->
 
 <script lang="ts" setup>
 import type { PropType } from 'vue'
