@@ -124,7 +124,7 @@ export function FTVAVersion() {
   }
 }
 
-export function FTVAStickyNoBanner() {
+export function FTVASticky() {
   return {
     setup() {
       const globalStore = useGlobalStore()
@@ -139,28 +139,10 @@ export function FTVAStickyNoBanner() {
       onMounted(() => {
         updateWinWidth()
         window.addEventListener('resize', updateWinWidth)
-
-        const menu = document.querySelector('.ftva-sticky-example .menu')
-
-        if (menu) {
-          const updateMenuState = () => {
-            isMobileMenuOpen.value = menu.classList.contains('is-opened-mobile')
-          }
-
-          updateMenuState()
-
-          observer = new MutationObserver(updateMenuState)
-
-          observer.observe(menu, {
-            attributes: true,
-            attributeFilter: ['class'],
-          })
-        }
       })
 
       onBeforeUnmount(() => {
         window.removeEventListener('resize', updateWinWidth)
-        observer?.disconnect()
       })
 
       const showBrandBar = computed(() => globalStore.winWidth > 850)
