@@ -1,4 +1,4 @@
-<!-- The VideoEmbed component creates an iframe with a YouTube video embed; it has an optional custom posterImage and icon. -->
+<!-- The VideoEmbed component creates an iframe with a YouTube video embed; it has an optional custom posterImage and icon. It has a default aspect ratio of 16:9, which can be changed with the aspectRatio prop (set as a percentage value).-->
 
 <script lang="ts" setup>
 import type { PropType } from 'vue'
@@ -11,7 +11,7 @@ import formatYouTubeUrlsForOembed from '@/utils/formatYouTubeUrlsForOembed'
 const { aspectRatio, posterImage, trailer } = defineProps({
   aspectRatio: {
     type: Number,
-    default: 56.25,
+    default: 56.25, // 16:9
     required: true
   },
   posterImage: {
@@ -124,7 +124,7 @@ onMounted(() => {
         display: grid;
         grid-template: 1fr / 1fr;
         place-items: center;
-        padding-top: var(--aspect-ratio); // Value set by aspect-ratio prop
+        padding-top: var(--aspect-ratio); // Set by aspect-ratio prop
 
         .cover {
           position: absolute;
@@ -144,7 +144,7 @@ onMounted(() => {
     }
 
     .video-container {
-      padding-top: var(--aspect-ratio); // Value set by aspect-ratio prop
+      padding-top: var(--aspect-ratio); // Set by aspect-ratio prop
     }
 
     .responsive-iframe {

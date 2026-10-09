@@ -27,23 +27,23 @@ Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-const mockData43AspectRatio = {
+const mockDataAspectRatio43 = {
   trailer: '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/n_CC_FSrRdQ?si=Tjfxvu_KGBKgv6V" title="YouTube video player" frameborder="0"></iframe></figure>'
 }
 
-export function _4_3AspectRatio() {
+export function AspectRatio4_3() {
   return {
     data() {
       return {
-        mockData43AspectRatio
+        mockDataAspectRatio43
       }
     },
     components: { VideoEmbed },
-    template: '<video-embed :trailer="mockData43AspectRatio.trailer" aspect-ratio="75" />',
+    template: '<video-embed :trailer="mockDataAspectRatio43.trailer" aspect-ratio="75" />',
   }
 }
 
-export function WithCustomImageandIcon() {
+export function CustomImageandIcon() {
   return {
     data() {
       return {
