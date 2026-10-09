@@ -11,6 +11,10 @@ const mock = {
   attribution: 'Tony Morgan',
 }
 
+const mockNoAttribution = {
+  text: 'If I could reach up and hold a star for every time you have made me smile, <a href="https://earthsky.org/astronomy-essentials/visible-planets-tonight-mars-jupiter-venus-saturn-mercury/">the entire evening sky</a> would be in the palm of my hand.',
+}
+
 export function Default() {
   return {
     data() {
@@ -30,14 +34,23 @@ export function Default() {
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?m=auto&node-id=1044-18893&t=5NYsFDCVzQBTOW9f-1'
-  }
-}
-
-const mockNoAttribution = {
-  text: 'If I could reach up and hold a star for every time you have made me smile, <a href="https://earthsky.org/astronomy-essentials/visible-planets-tonight-mars-jupiter-venus-saturn-mercury/">the entire evening sky</a> would be in the palm of my hand.',
+  design: [
+    {
+      type: 'figma',
+      name: 'Large',
+      url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19233-3376&t=MEcwK4Lx0N8ktXZr-4'
+    },
+    {
+      type: 'figma',
+      name: 'Medium',
+      url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=1044-18893&t=MEcwK4Lx0N8ktXZr-4'
+    },
+    {
+      type: 'figma',
+      name: 'Small',
+      url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=1044-18893&t=MEcwK4Lx0N8ktXZr-4'
+    }
+  ]
 }
 
 export function NoAttribution() {
@@ -53,6 +66,13 @@ export function NoAttribution() {
             :text="text"
         />
     `,
+  }
+}
+
+NoAttribution.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19288-76&t=MEcwK4Lx0N8ktXZr-4'
   }
 }
 
@@ -77,6 +97,14 @@ export function FTVADefault() {
     `,
   }
 }
+
+FTVADefault.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19356-95&t=MEcwK4Lx0N8ktXZr-4'
+  }
+}
+
 export function FTVADefaultNoAttribution() {
   return {
     data() {
@@ -95,5 +123,12 @@ export function FTVADefaultNoAttribution() {
             :text="text"
         />
     `,
+  }
+}
+
+FTVADefaultNoAttribution.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19356-96&t=MEcwK4Lx0N8ktXZr-4'
   }
 }
