@@ -1,4 +1,4 @@
-<!-- The VideoEmbed component creates an iframe with a YouTube video embed; it has an optional custom posterImage and icon.-->
+<!-- The VideoEmbed component creates an iframe with a YouTube video embed; it has an optional custom posterImage and icon. -->
 
 <script lang="ts" setup>
 import type { PropType } from 'vue'
@@ -18,7 +18,7 @@ const { aspectRatio, posterImage, trailer } = defineProps({
     type: Object as PropType<MediaItemType>,
     required: false,
   },
-    trailer: {
+  trailer: {
     type: String,
     required: true,
   }
@@ -66,14 +66,13 @@ function setAspectRatio() {
 onMounted(() => {
   setAspectRatio()
 })
-
 </script>
 
 <template>
   <div v-if="trailer" :class="classes">
     <div
-      class="cover-container"
       ref="coverContainerRef"
+      class="cover-container"
       onclick="this.nextElementSibling.style.display='block'; this.style.display='none'"
     >
       <img
