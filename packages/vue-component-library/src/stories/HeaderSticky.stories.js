@@ -145,7 +145,7 @@ export function FTVASticky() {
         window.removeEventListener('resize', updateWinWidth)
       })
 
-      const showBrandBar = computed(() => globalStore.winWidth > 850)
+      const showBrandBar = computed(() => globalStore.winWidth > 850) // mobile breakpoint
 
       return {
         showBrandBar,
