@@ -6,29 +6,30 @@ export default {
   component: VideoEmbed,
 }
 
-const mockTrailerData = {
-  trailer: '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/uYr_SvIKKuI?si=ihenbmyE91KqyXK5" title="YouTube video player" frameborder="0"></iframe></figure>',
+const mockData = {
+  trailer: '<iframe width="560" height="315" src="https://www.youtube.com/embed/zCvQOYBQ4vE?si=sA_3OA-BYbLpVien" title="YouTube video player" frameborder="0" ></iframe>',
   posterImage: API.image
+}
+
+const mockDataAspectRatio43 = {
+  trailer: '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/n_CC_FSrRdQ?si=Tjfxvu_KGBKgv6V" title="YouTube video player" frameborder="0"></iframe></figure>',
+  posterImage: API.image_aspect_ratio_43
 }
 
 export function Default() {
   return {
     data() {
       return {
-        mockTrailerData
+        mockData
       }
     },
     components: { VideoEmbed },
-    template: '<video-embed :trailer="mockTrailerData.trailer" />',
+    template: '<video-embed :trailer="mockData.trailer" />',
   }
 }
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
-}
-
-const mockDataAspectRatio43 = {
-  trailer: '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/n_CC_FSrRdQ?si=Tjfxvu_KGBKgv6V" title="YouTube video player" frameborder="0"></iframe></figure>'
 }
 
 export function AspectRatio4_3() {
@@ -43,14 +44,26 @@ export function AspectRatio4_3() {
   }
 }
 
-export function CustomImageandIcon() {
+export function CustomImage() {
   return {
     data() {
       return {
-        mockTrailerData
+        mockData
       }
     },
     components: { VideoEmbed },
-    template: '<video-embed :trailer="mockTrailerData.trailer" :posterImage="mockTrailerData.posterImage"/>',
+    template: '<video-embed :trailer="mockData.trailer" :posterImage="mockData.posterImage"/>',
+  }
+}
+
+export function CustomImage4_3() {
+  return {
+    data() {
+      return {
+        mockDataAspectRatio43
+      }
+    },
+    components: { VideoEmbed },
+    template: '<video-embed :trailer="mockDataAspectRatio43.trailer" :posterImage="mockDataAspectRatio43.posterImage" aspect-ratio="75"/>',
   }
 }
