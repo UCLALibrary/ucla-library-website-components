@@ -1,5 +1,6 @@
 @use "ucla-library-design-tokens/scss/app.scss" as *;
 @use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
+
 .ftva.nav-primary.primary {
     position: relative; //absolutely positioned children will be relative to this
     overflow: visible; //allows the search button menu to overflow the container
@@ -7,9 +8,9 @@
     background-color: ftvatokens.$navy-blue;
 
     &.is-opened {
-    height: -webkit-max-content;
-    height: -moz-max-content;
-    height: max-content;
+        height: -webkit-max-content;
+        height: -moz-max-content;
+        height: max-content;
     }
 
     .support-links {
@@ -52,7 +53,7 @@
             transform-origin: top;
             transition-duration: .2s;
             transition-timing-function: ease-in-out;
-            
+
             &.is-opened {
                 transform: scaleY(1);
             }
@@ -88,7 +89,8 @@
             transition-timing-function: ease-in-out;
         }
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             ::after {
                 opacity: 1;
             }
@@ -125,7 +127,7 @@
         }
 
         .item-top-mobile {
-            position: fixed; 
+            position: fixed;
             top: 0;
             color: white;
             line-height: 64px;
@@ -133,12 +135,12 @@
             z-index: 25;
 
             .svg__logo-ftva {
-                
+
                 height: 24px;
                 width: auto;
             }
         }
-        
+
         .nav-background-fill {
             display: block;
             position: fixed;
@@ -156,7 +158,7 @@
             flex-direction: column;
             align-self: flex-end;
             gap: 12px;
-            
+
             .search-button,
             .close-button,
             .more-menu-button {
@@ -205,6 +207,7 @@
             .slot-container {
                 transition-duration: 0s; // no transition on mobile
                 margin-top: 0px; // header height does not need to be offset on mobile
+
                 :deep(.nav-search) {
                     width: unset;
                 }
@@ -223,7 +226,7 @@
         .menu {
             // closed menu
             display: none;
-            position: relative; 
+            position: relative;
             grid-column: 1 / span 3;
             width: 100%;
 
@@ -331,6 +334,26 @@
             display: block;
             padding-top: 40px;
             background-color: ftvatokens.$navy-blue;
+        }
+    }
+
+    @media #{$small} {
+
+        .nav-background-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 64px;
+        }
+
+        .item-top-mobile {
+            position: absolute;
+            top: 0;
+            left: 18px;
+            height: 64px;
+            display: flex;
+            align-items: center;
         }
     }
 }
