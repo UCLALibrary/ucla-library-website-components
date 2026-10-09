@@ -38,7 +38,7 @@ Default.parameters = {
     {
       type: 'figma',
       name: 'Large',
-    url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19233-3376&t=MEcwK4Lx0N8ktXZr-4'
+      url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19233-3376&t=MEcwK4Lx0N8ktXZr-4'
     },
     {
       type: 'figma',
