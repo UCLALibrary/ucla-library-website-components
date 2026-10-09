@@ -7,7 +7,6 @@ import format from 'date-fns/format'
 import SvgMoleculeHalfFaceted from 'ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg'
 import SvgHatchRight from 'ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg'
 import SvgHeadingVector from 'ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 import { useTheme } from '@/composables/useTheme'
 
 // Components
@@ -262,7 +261,7 @@ const classes = computed(() => {
         <h2
           v-if="category"
           class="category category-mobile"
-          v-html="sanitizeHtml(category)"
+          v-html="category"
         />
       </div>
       <div class="hatch">
@@ -277,7 +276,7 @@ const classes = computed(() => {
       <div
         v-if="category"
         class="category category-desktop"
-        v-html="sanitizeHtml(category)"
+        v-html="category"
       />
 
       <div v-if="titleLink.length > 0">
@@ -294,7 +293,7 @@ const classes = computed(() => {
         <h3
           :id="titleId"
           class="title"
-          v-html="sanitizeHtml(title)"
+          v-html="title"
         />
       </div>
 
@@ -306,7 +305,7 @@ const classes = computed(() => {
           <time
             v-if="dateCreated"
             class="date-created"
-            v-html="sanitizeHtml(parsedDateCreated)"
+            v-html="parsedDateCreated"
           />
         </div>
 
@@ -319,7 +318,7 @@ const classes = computed(() => {
             v-for="(item, index) in byline"
             :key="`external-${index}`"
             class="byline-item"
-            v-html="sanitizeHtml(item)"
+            v-html="item"
           />
         </div>
 
@@ -336,12 +335,12 @@ const classes = computed(() => {
           <time
             v-if="startDate"
             class="schedule-item"
-            v-html="sanitizeHtml(parsedDate)"
+            v-html="parsedDate"
           />
           <time
             v-if="parsedTime"
             class="schedule-item"
-            v-html="sanitizeHtml(parsedTime)"
+            v-html="parsedTime"
           />
         </div>
 

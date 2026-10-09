@@ -3,7 +3,6 @@ import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 
 import _isEmpty from 'lodash/isEmpty'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import RichText from '@/lib-components/RichText.vue'
@@ -70,7 +69,7 @@ const classes = computed(() => {
       <div class="meta">
         <h1
           class="title"
-          v-html="sanitizeHtml(title)"
+          v-html="title"
         />
         <RichText
           v-if="text"

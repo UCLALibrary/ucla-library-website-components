@@ -5,7 +5,6 @@ import _kebabCase from 'lodash/kebabCase'
 
 import type { PropType } from 'vue'
 import type { CardItemType } from '@/types/types'
-import { sanitizeHtml } from '@/utils/sanitizeHtml'
 
 import BlockCardWithIllustration from '@/lib-components/BlockCardWithIllustration.vue'
 import ButtonMore from '@/lib-components/ButtonMore.vue'
@@ -82,9 +81,9 @@ const cardHeadingLevel = computed(() =>
         v-if="sectionTitle"
         id="cards-with-illustration-title"
         class="section-title"
-        v-html="sanitizeHtml(sectionTitle)"
+        v-html="sectionTitle"
       />
-      <div v-if="sectionSummary" class="section-summary" v-html="sanitizeHtml(sectionSummary)" />
+      <div v-if="sectionSummary" class="section-summary" v-html="sectionSummary" />
     </div>
 
     <ul v-if="items && items.length > 0" class="cards">
