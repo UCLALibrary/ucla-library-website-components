@@ -41,7 +41,7 @@ export function VideoWithControls() {
 const mockFTVAData = {
   trailer: '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/uYr_SvIKKuI?si=ihenbmyE91KqyXK5" title="YouTube video player" frameborder="0"></iframe></figure>'
 }
-export function WithSlottedVideoEmbed() {
+export function SlottedVideoEmbed16_9() {
   return {
     setup() {
       return {
@@ -55,5 +55,22 @@ export function WithSlottedVideoEmbed() {
     },
     components: { ResponsiveVideo, VideoEmbed },
     template: '<responsive-video :aspect-ratio="56.9" :controls="true"><template v-slot><video-embed :trailer="mockFTVAData.trailer" /></template></responsive-video>',
+  }
+}
+
+export function SlottedVideoEmbed4_3() {
+  return {
+    setup() {
+      return {
+        mockFTVAData
+      }
+    },
+    data() {
+      return {
+        video: API.video,
+      }
+    },
+    components: { ResponsiveVideo, VideoEmbed },
+    template: '<responsive-video :aspect-ratio="75" :controls="true"><template v-slot><video-embed :aspect-ratio="75" :trailer="mockFTVAData.trailer" /></template></responsive-video>',
   }
 }
