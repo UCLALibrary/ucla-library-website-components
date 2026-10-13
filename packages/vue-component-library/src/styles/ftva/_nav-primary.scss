@@ -337,8 +337,17 @@
         }
     }
 
-    @media #{$small} {
+    // Prevent the mobile navigation from covering the banner
+    // between the mobile nav breakpoint and the small breakpoint
+    @media (min-width: 751px) and (max-width: 850px) {
 
+        .nav-background-fill,
+        .item-top-mobile {
+            position: absolute;
+        }
+    }
+
+    @media #{$small} {
         .nav-background-fill {
             position: absolute;
             top: 0;
