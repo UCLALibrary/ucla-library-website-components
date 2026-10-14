@@ -31,7 +31,6 @@ const mockDefault = {
   image: API.image
 }
 
-// Variations of stories below
 export function Default() {
   return {
     data() {
