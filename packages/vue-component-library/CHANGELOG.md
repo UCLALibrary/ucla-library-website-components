@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.92.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.6...@ucla-library-monorepo/ucla-library-website-components-v1.92.0) (2026-10-14)
+
+
+### Features
+
+* LADI-5423 Move deep styles to FTVA version of SiteNotificationBanner ([#989](https://github.com/UCLALibrary/ucla-library-website-components/issues/989)) ([7611a1b](https://github.com/UCLALibrary/ucla-library-website-components/commit/7611a1b986e9c1fa09a1f12cb13317a2bb5dcd20))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.91.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.5...@ucla-library-monorepo/ucla-library-website-components-v1.91.6) (2026-10-13)
 
 
