@@ -38,17 +38,17 @@ Default.parameters = {
     {
       type: 'figma',
       name: 'Large',
-      url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19233-3376&t=MEcwK4Lx0N8ktXZr-4'
+      url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19617-65&t=4RTvLflIGrdBsyBB-4'
     },
     {
       type: 'figma',
       name: 'Medium',
-      url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=1044-18893&t=MEcwK4Lx0N8ktXZr-4'
+      url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19233-3376&t=4RTvLflIGrdBsyBB-4'
     },
     {
       type: 'figma',
       name: 'Small',
-      url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=1044-18893&t=MEcwK4Lx0N8ktXZr-4'
+      url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19617-67&t=4RTvLflIGrdBsyBB-4'
     }
   ]
 }
@@ -72,7 +72,7 @@ export function NoAttribution() {
 NoAttribution.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19288-76&t=MEcwK4Lx0N8ktXZr-4'
+    url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19288-76&t=4RTvLflIGrdBsyBB-4'
   }
 }
 
@@ -101,7 +101,7 @@ export function FTVADefault() {
 FTVADefault.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19356-95&t=MEcwK4Lx0N8ktXZr-4'
+    url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19356-95&t=4RTvLflIGrdBsyBB-4'
   }
 }
 
@@ -129,6 +129,6 @@ export function FTVADefaultNoAttribution() {
 FTVADefaultNoAttribution.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19356-96&t=MEcwK4Lx0N8ktXZr-4'
+    url: 'https://www.figma.com/file/EKazRIMP4B15bD16UDbOwR/UCLA-Library-Design-System?node-id=19356-96&t=4RTvLflIGrdBsyBB-4'
   }
 }
