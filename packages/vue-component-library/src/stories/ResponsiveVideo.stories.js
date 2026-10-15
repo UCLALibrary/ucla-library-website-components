@@ -33,7 +33,7 @@ export function VideoWithControls() {
       }
     },
     components: { ResponsiveVideo },
-    template: '<responsive-video :media="video" :controls="true"/>',
+    template: '<responsive-video :media="video" :controls=true />',
   }
 }
 
@@ -54,7 +54,7 @@ export function SlottedVideoEmbed16_9() {
       }
     },
     components: { ResponsiveVideo, VideoEmbed },
-    template: '<responsive-video :aspect-ratio="56.9" :controls="true"><template v-slot><video-embed :trailer="mockFTVAData.trailer" /></template></responsive-video>',
+    template: '<responsive-video :aspect-ratio=56.9 :controls=true><template v-slot><video-embed :trailer=mockFTVAData.trailer /></template></responsive-video>',
   }
 }
 
@@ -71,6 +71,6 @@ export function SlottedVideoEmbed4_3() {
       }
     },
     components: { ResponsiveVideo, VideoEmbed },
-    template: '<responsive-video :aspect-ratio="75" :controls="true"><template v-slot><video-embed :aspect-ratio="75" :trailer="mockFTVAData.trailer" /></template></responsive-video>',
+    template: '<responsive-video :aspect-ratio=75 :controls=true><template v-slot><video-embed :aspect-ratio=75 :trailer=mockFTVAData.trailer /></template></responsive-video>',
   }
 }

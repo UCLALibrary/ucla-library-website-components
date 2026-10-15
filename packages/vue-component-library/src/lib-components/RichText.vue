@@ -7,7 +7,7 @@ import accessibleExternalLinks from '@/utils/accessibleExternalLinks'
 import { useTheme } from '@/composables/useTheme'
 
 import { useOEmbedFetch } from '@/composables/useOEmbedFetch'
-import formatYouTubeUrlsForOembed from '@/utils/formatYouTubeUrlsForOembed'
+import { formatYouTubeUrlsForOembed } from '@/utils/formatYouTubeUrls'
 
 const props = defineProps({
   richTextContent: {
