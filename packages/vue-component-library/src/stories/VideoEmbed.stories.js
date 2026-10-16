@@ -79,7 +79,7 @@ export function CustomImage4_3() {
 // Edge case: Non-embeddable YouTube
 
 export function ShortenedYoutubeURL() {
-    return {
+  return {
     data() {
       return {
         mockDataShortenedYouTubeURL
@@ -92,7 +92,7 @@ export function ShortenedYoutubeURL() {
 
 // Non YouTube Embed
 export function VimeoEmbed() {
-    return {
+  return {
     data() {
       return {
         mockDataVimeoEmbed

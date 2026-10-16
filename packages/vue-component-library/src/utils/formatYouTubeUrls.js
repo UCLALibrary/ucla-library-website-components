@@ -5,7 +5,7 @@ Format YouTube embed urls for call to YouTube's oEmbed API in the `useOEmbedFetc
 
 URL input patterns:
 
-- From VideoEmbed: 
+- From VideoEmbed:
   - [ "https://www.youtube.com/embed/uYr_SvIKKuI?si=ihenbmyE91KqyXK5" ]
   - [ "https://www.youtube.com/embed/uYr_SvIKKuI" ]
   - [ "//www.youtube.com/embed/uYr_SvIKKuI" ]
@@ -14,15 +14,13 @@ URL input patterns:
 */
 
 export function formatYouTubeUrlsForOembed(urlArr) {
-
   const urlObjsArr = urlArr.map((url, index) => {
-
     // Remove extra characters after '?' in url, inclusive
     const firstParse = url.replace(/\?.*$/, '')
 
     // Replace 'embed' keyword because oEmbed only returns data with 'watch...' keyword
     const secondParse = firstParse.replace('embed/', 'watch?v=')
-    
+
     return {
       initialURL: url,
       oEmbedURL: secondParse,
@@ -32,7 +30,6 @@ export function formatYouTubeUrlsForOembed(urlArr) {
 
   return urlObjsArr
 }
-
 
 /*
 Reference: LADI-5453
@@ -49,14 +46,12 @@ Covers the following URL patterns:
 */
 
 export function formatYouTubeUrlForVideoEmbedding(url) {
-
   const youtubePattern = /(?:watch\?v=|youtu\.be\/)([\w-]{11})/
 
   const videoID = url.match(youtubePattern)?.[1] ?? ''
 
-  if (!videoID) {
+  if (!videoID)
     return ''
-  }
 
   const formattedURL = `https://www.youtube.com/embed/${videoID}`
 

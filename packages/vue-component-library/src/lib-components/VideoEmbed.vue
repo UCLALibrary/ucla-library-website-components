@@ -6,7 +6,7 @@ import SvgIconPlayFilled from 'ucla-library-design-tokens/assets/svgs/icon-ftva-
 import { computed, onMounted, ref } from 'vue'
 import type { MediaItemType } from '@/types/types'
 import { useOEmbedFetch } from '@/composables/useOEmbedFetch'
-import { formatYouTubeUrlsForOembed, formatYouTubeUrlForVideoEmbedding } from '@/utils/formatYouTubeUrls'
+import { formatYouTubeUrlForVideoEmbedding, formatYouTubeUrlsForOembed } from '@/utils/formatYouTubeUrls'
 
 const { aspectRatio, posterImage, trailer } = defineProps({
   aspectRatio: {
@@ -66,17 +66,14 @@ const trailerContainerRef = ref()
 const coverContainerRef = ref()
 
 function setAspectRatio() {
-
   const trailerContainer = trailerContainerRef.value
   const coverContainer = coverContainerRef.value
 
-  if (posterImage) {
+  if (posterImage)
     coverContainer.style.setProperty('--aspect-ratio', `${aspectRatio}%`)
-  }
 
-  if (parsedTrailer.value) {
+  if (parsedTrailer.value)
     trailerContainer.style.setProperty('--aspect-ratio', `${aspectRatio}%`)
-  }
 }
 
 onMounted(() => {
@@ -86,7 +83,8 @@ onMounted(() => {
 
 <template>
   <div :class="classes">
-    <div v-if="posterImage"
+    <div
+      v-if="posterImage"
       ref="coverContainerRef"
       class="cover-container"
       onclick="this.nextElementSibling.style.display='block'; this.style.display='none'"
@@ -113,7 +111,7 @@ onMounted(() => {
         allowfullscreen
         loading="lazy"
       />
-    </div> 
+    </div>
   </div>
 </template>
 
