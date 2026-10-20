@@ -12,10 +12,14 @@
     color: var(--color-primary-blue-03);
   }
 
+  // Below 1188px: Letters wrap into multiple rows
+  // 1,188–1200px: All 27 letters fit on one row
+  // Above 1200px: The alphabet stops growing preventing excessive spacing
   .alphabet-list {
     @include step-1;
     width: 100%;
-    max-width: 928px;
+    // max-width: 928px;
+    max-width: 1200px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
     list-style: none;
