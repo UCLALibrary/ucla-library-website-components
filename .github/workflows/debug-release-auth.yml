@@ -113,3 +113,38 @@ jobs:
 
           echo "Actual Git push succeeded."
           echo "Created branch: $TEST_BRANCH"
+
+      - name: Test real Git push with authenticated URL and tag
+        env:
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+        run: |
+          set -euo pipefail
+
+          TEST_BRANCH="debug-release-url-${GITHUB_RUN_ID}"
+          TEST_TAG="debug-release-auth-${GITHUB_RUN_ID}"
+
+          echo "Testing actual Git push with authenticated URL and tag..."
+          echo "Temporary branch: $TEST_BRANCH"
+          echo "Temporary tag: $TEST_TAG"
+
+          # Create a new local commit
+          git config user.name "Release Authentication Test"
+          git config user.email "release-auth-test@users.noreply.github.com"
+
+          git commit --allow-empty \
+            -m "test: verify authenticated Git push with tag [skip ci]"
+
+          # Create a temporary tag pointing to the test commit
+          git tag "$TEST_TAG"
+
+          # Use the same authentication style as semantic-release
+          GIT_TERMINAL_PROMPT=0 \
+          git -c credential.helper= \
+            push \
+            "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" \
+            "HEAD:refs/heads/$TEST_BRANCH" \
+            "refs/tags/$TEST_TAG:refs/tags/$TEST_TAG"
+
+          echo "Authenticated URL and tag push succeeded."
+          echo "Created branch: $TEST_BRANCH"
+          echo "Created tag: $TEST_TAG"
