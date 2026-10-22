@@ -40,7 +40,7 @@ jobs:
           working_directory: packages/vue-component-library
           semantic_version: 24.2.9
           extends: semantic-release-monorepo
-          branches: '["test-release-automation"]'
+          branches: '["LADI-5321"]'
           dry_run: true
           extra_plugins: |
             @semantic-release/changelog
@@ -75,7 +75,7 @@ jobs:
           working_directory: packages/component-library-nuxt-module
           semantic_version: 24.2.9
           extends: semantic-release-monorepo
-          branches: '["test-release-automation"]'
+          branches: '["LADI-5321"]'
           dry_run: true
           extra_plugins: |
             @semantic-release/changelog
