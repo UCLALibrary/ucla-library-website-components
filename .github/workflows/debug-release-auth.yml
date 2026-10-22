@@ -1,3 +1,4 @@
+
 name: Debug Release Authentication
 
 on:
@@ -52,11 +53,22 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Test Git push with HTTP header
+      - name: Prepare temporary test commit
+        run: |
+          git config user.name "Release Authentication Test"
+          git config user.email "release-auth-test@users.noreply.github.com"
+
+          git commit --allow-empty \
+            -m "test: verify release push authentication"
+
+          echo "Temporary commit created locally."
+          git log -1 --format='%h %s'
+
+      - name: Test new commit push with HTTP header
         env:
           GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
         run: |
-          echo "Testing Git push using HTTP authentication header..."
+          echo "Testing new commit push using HTTP authentication header..."
 
           AUTH_HEADER=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
 
@@ -66,17 +78,17 @@ jobs:
             "https://github.com/${{ github.repository }}.git" \
             HEAD:refs/heads/main
 
-          echo "HTTP header push test completed."
+          echo "HTTP header push dry-run completed."
 
-      - name: Test Git push with authenticated URL
+      - name: Test new commit push with authenticated URL
         env:
           GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
         run: |
-          echo "Testing Git push using authenticated URL..."
+          echo "Testing new commit push using authenticated URL..."
 
           GIT_TERMINAL_PROMPT=0 \
           git push --dry-run \
             "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" \
             HEAD:refs/heads/main
 
-          echo "Authenticated URL push test completed."
+          echo "Authenticated URL push dry-run completed."
