@@ -24,21 +24,11 @@ jobs:
           persist-credentials: false
           token: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
 
-      - name: Detect Changed Packages
-        id: filter
-        uses: dorny/paths-filter@v3
-        with:
-          filters: |
-            component-library:
-              - 'packages/vue-component-library/**'
-            nuxt-module:
-              - 'packages/component-library-nuxt-module/**'
-
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 24.16.0
-          registry-url: "https://registry.npmjs.org/"
+          registry-url: https://registry.npmjs.org/
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v4
@@ -46,19 +36,20 @@ jobs:
           run_install: false
 
       - name: Install dependencies
-        run: pnpm install
-
-      - name: Install semantic-release extra plugins
-        run: pnpm install --save-dev @semantic-release/changelog @semantic-release/git -w
+        run: pnpm install --frozen-lockfile
 
       - name: Release Vue Component Library
-          id: vue_release
-          uses: cycjimmy/semantic-release-action@v6
-          with:
-            working_directory: packages/vue-component-library
-            semantic_version: 24.2.9
-          env:
-            GITHUB_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+        id: vue_release
+        uses: cycjimmy/semantic-release-action@v6
+        with:
+          working_directory: packages/vue-component-library
+          semantic_version: 24.2.9
+          extends: semantic-release-monorepo
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
 
       - name: Publish Vue Component Library
         id: vue_publish
@@ -73,25 +64,23 @@ jobs:
         if: steps.vue_publish.conclusion == 'success'
         shell: bash
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
 
-          # Navigate to nuxt-module package
-          cd packages/component-library-nuxt-module
+          # Include any release commit already pushed by semantic-release.
+          git fetch origin main
+          git merge --ff-only origin/main
 
-          # Create or update a dummy file to ensure a file change is detected
-          echo "Triggered release at $(date)" > FORCE_RELEASE.txt
+          # Create the Nuxt patch-release trigger.
+          echo "Triggered release at $(date)" > packages/component-library-nuxt-module/FORCE_RELEASE.txt
 
-          # Stage only this file in nuxt-module
-          git add FORCE_RELEASE.txt
+          git add packages/component-library-nuxt-module/FORCE_RELEASE.txt
 
-          # Create a commit to trigger a new release
           git commit -m "fix(nuxt-module): force release after vue-component-library update [skip ci]"
 
-          git remote set-url origin "https://x-access-token:${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}@github.com/${{ github.repository }}"
+          git remote set-url origin "https://x-access-token:${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}@github.com/${{ github.repository }}.git"
 
-          # Push the commit to trigger CI/CD
-          git push origin main
+          git push origin HEAD:main
 
       - name: Release Nuxt Module
         id: nuxt_release
@@ -100,17 +89,18 @@ jobs:
           working_directory: packages/component-library-nuxt-module
           semantic_version: 24.2.9
           extends: semantic-release-monorepo
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
 
-      # Manually publish Nuxt Module using pnpm
       - name: Publish Nuxt Module
         if: steps.nuxt_release.outputs.new_release_published == 'true'
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          pnpm --filter @ucla-library-monorepo/ucla-library-website-components install
           pnpm --filter @ucla-library-monorepo/ucla-library-website-components build
-          pnpm --filter @ucla-library/component-library-nuxt-module install
-          pnpm --filter @ucla-library/component-library-nuxt-module publish --no-git-checks --access public
+
+          pnpm --filter @ucla-library/component-library-nuxt-module publish \
+            --no-git-checks --access public
