@@ -1,0 +1,47 @@
+name: Debug Release Authentication
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  debug-auth:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verify PAT authentication
+        env:
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::PAT secret is missing or empty"
+            exit 1
+          fi
+
+          echo "Checking GitHub API authentication..."
+          gh auth status
+
+          echo "Checking authenticated account..."
+          gh api user --jq '.login'
+
+          echo "Checking repository permissions..."
+          gh api repos/${{ github.repository }} \
+            --jq '.permissions'
+
+      - name: Verify Git HTTPS authentication
+        env:
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+        run: |
+          echo "Checking Git HTTPS authentication..."
+
+          AUTH_HEADER=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+
+          GIT_TERMINAL_PROMPT=0 \
+          git -c http.extraheader="AUTHORIZATION: basic $AUTH_HEADER" \
+            ls-remote \
+            https://github.com/${{ github.repository }}.git \
+            HEAD
+
+          echo "Git HTTPS authentication test completed."
