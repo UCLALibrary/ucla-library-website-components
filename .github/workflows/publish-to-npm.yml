@@ -51,22 +51,26 @@ jobs:
       - name: Install semantic-release extra plugins
         run: pnpm install --save-dev @semantic-release/changelog @semantic-release/git -w
 
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
-        run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec -- semantic-release -e semantic-release-monorepo
+      - name: Release Vue Component Library
+          id: vue_release
+          uses: cycjimmy/semantic-release-action@v6
+          with:
+            working_directory: packages/vue-component-library
+            semantic_version: 24.2.9
+          env:
+            GITHUB_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
 
-      # Manually publish vue-component-library using pnpm
       - name: Publish Vue Component Library
+        id: vue_publish
+        if: steps.vue_release.outputs.new_release_published == 'true'
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          pnpm --filter @ucla-library-monorepo/ucla-library-website-components install
-          pnpm --filter @ucla-library-monorepo/ucla-library-website-components publish --no-git-checks --access public
+          pnpm --filter @ucla-library-monorepo/ucla-library-website-components publish \
+            --no-git-checks --access public
 
       - name: Force Commit in Nuxt Module
-        if: steps.filter.outputs.component-library == 'true' && steps.filter.outputs.nuxt-module == 'false'
+        if: steps.vue_publish.conclusion == 'success'
         shell: bash
         run: |
           git config --global user.name "GitHub Actions"
@@ -82,7 +86,7 @@ jobs:
           git add FORCE_RELEASE.txt
 
           # Create a commit to trigger a new release
-          git commit -m "chore(nuxt-module): force release after vue-component-library update [skip ci]"
+          git commit -m "fix(nuxt-module): force release after vue-component-library update [skip ci]"
 
           git remote set-url origin "https://x-access-token:${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}@github.com/${{ github.repository }}"
 
@@ -90,14 +94,18 @@ jobs:
           git push origin main
 
       - name: Release Nuxt Module
-        # if: steps.filter.outputs.component-library == 'true' || steps.filter.outputs.nuxt-module == 'true'
+        id: nuxt_release
+        uses: cycjimmy/semantic-release-action@v6
+        with:
+          working_directory: packages/component-library-nuxt-module
+          semantic_version: 24.2.9
+          extends: semantic-release-monorepo
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
-        run: pnpm --filter @ucla-library/component-library-nuxt-module exec -- semantic-release -e semantic-release-monorepo
 
       # Manually publish Nuxt Module using pnpm
       - name: Publish Nuxt Module
-        # if: steps.filter.outputs.component-library == 'true' || steps.filter.outputs.nuxt-module == 'true'
+        if: steps.nuxt_release.outputs.new_release_published == 'true'
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -105,4 +113,4 @@ jobs:
           pnpm --filter @ucla-library-monorepo/ucla-library-website-components install
           pnpm --filter @ucla-library-monorepo/ucla-library-website-components build
           pnpm --filter @ucla-library/component-library-nuxt-module install
-          pnpm --filter @ucla-library/component-library-nuxt-module publish --no-git-checks --access public --force
+          pnpm --filter @ucla-library/component-library-nuxt-module publish --no-git-checks --access public

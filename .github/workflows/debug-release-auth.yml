@@ -4,147 +4,103 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  debug-auth:
+  test-release:
+    name: Test Release Automation
     runs-on: ubuntu-latest
 
     steps:
-      - name: Verify PAT authentication
-        env:
-          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
-        run: |
-          if [ -z "$GH_TOKEN" ]; then
-            echo "::error::PAT secret is missing or empty"
-            exit 1
-          fi
-
-          echo "Checking GitHub API authentication..."
-          gh auth status
-
-          echo "Checking authenticated account..."
-          gh api user --jq '.login'
-
-          echo "Checking repository permissions..."
-          gh api repos/${{ github.repository }} \
-            --jq '.permissions'
-
-      - name: Verify Git HTTPS authentication
-        env:
-          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
-        run: |
-          echo "Checking Git HTTPS authentication..."
-
-          AUTH_HEADER=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
-
-          GIT_TERMINAL_PROMPT=0 \
-          git -c http.extraheader="AUTHORIZATION: basic $AUTH_HEADER" \
-            ls-remote \
-            "https://github.com/${{ github.repository }}.git" \
-            HEAD
-
-          echo "Git HTTPS authentication test completed."
-
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Prepare temporary test commit
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 24.16.0
+          registry-url: https://registry.npmjs.org/
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # TEST 1: Vue Component Library semantic-release
+      - name: Test Vue semantic-release
+        id: vue_release
+        uses: cycjimmy/semantic-release-action@v6
+        with:
+          working_directory: packages/vue-component-library
+          semantic_version: 24.2.9
+          extends: semantic-release-monorepo
+          branches: '["test-release-automation"]'
+          dry_run: true
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+
+      # TEST 2: Simulate the Nuxt force commit locally
+      # No git push is performed.
+      - name: Simulate Nuxt force commit locally
         run: |
-          git config user.name "Release Authentication Test"
-          git config user.email "release-auth-test@users.noreply.github.com"
+          set -euo pipefail
 
-          git commit --allow-empty \
-            -m "test: verify release push authentication [skip ci]"
+          git config user.name "GitHub Actions Test"
+          git config user.email "github-actions@github.com"
 
-          echo "Temporary commit created locally."
+          echo "Release automation test $GITHUB_RUN_ID" \
+            > packages/component-library-nuxt-module/FORCE_RELEASE.txt
+
+          git add packages/component-library-nuxt-module/FORCE_RELEASE.txt
+
+          git commit -m "fix(nuxt-module): test release synchronization"
+
+          echo "Temporary local commit created:"
           git log -1 --format='%h %s'
 
-      - name: Test new commit push with HTTP header
+      # TEST 3: Nuxt Module semantic-release
+      - name: Test Nuxt semantic-release
+        id: nuxt_release
+        uses: cycjimmy/semantic-release-action@v6
+        with:
+          working_directory: packages/component-library-nuxt-module
+          semantic_version: 24.2.9
+          extends: semantic-release-monorepo
+          branches: '["test-release-automation"]'
+          dry_run: true
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
         env:
-          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
-        run: |
-          echo "Testing new commit push using HTTP authentication header..."
+          GITHUB_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
 
-          AUTH_HEADER=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
-
-          GIT_TERMINAL_PROMPT=0 \
-          git -c http.extraheader="AUTHORIZATION: basic $AUTH_HEADER" \
-            push --dry-run \
-            "https://github.com/${{ github.repository }}.git" \
-            HEAD:refs/heads/main
-
-          echo "HTTP header push dry-run completed."
-
-      - name: Test new commit push with authenticated URL
+      # TEST 4: Display results
+      - name: Display Release Test Results
+        if: always()
         env:
-          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+          VUE_RESULT: ${{ steps.vue_release.outputs.new_release_published }}
+          VUE_VERSION: ${{ steps.vue_release.outputs.new_release_version }}
+          VUE_TAG: ${{ steps.vue_release.outputs.new_release_git_tag }}
+          NUXT_RESULT: ${{ steps.nuxt_release.outputs.new_release_published }}
+          NUXT_VERSION: ${{ steps.nuxt_release.outputs.new_release_version }}
+          NUXT_TAG: ${{ steps.nuxt_release.outputs.new_release_git_tag }}
         run: |
-          echo "Testing new commit push using authenticated URL..."
-
-          GIT_TERMINAL_PROMPT=0 \
-          git push --dry-run \
-            "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" \
-            HEAD:refs/heads/main
-
-          echo "Authenticated URL push dry-run completed."
-
-      - name: Test real Git push to temporary branch
-        env:
-          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
-        run: |
-          set -euo pipefail
-
-          TEST_BRANCH="debug-release-auth-${GITHUB_RUN_ID}"
-
-          echo "Testing actual Git push to temporary branch..."
-          echo "Temporary branch: $TEST_BRANCH"
-
-          AUTH_HEADER=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
-
-          GIT_TERMINAL_PROMPT=0 \
-          git -c http.extraheader="AUTHORIZATION: basic $AUTH_HEADER" \
-            push \
-            "https://github.com/${{ github.repository }}.git" \
-            "HEAD:refs/heads/$TEST_BRANCH"
-
-          echo "Actual Git push succeeded."
-          echo "Created branch: $TEST_BRANCH"
-
-      - name: Test real Git push with authenticated URL and tag
-        env:
-          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
-        run: |
-          set -euo pipefail
-
-          TEST_BRANCH="debug-release-url-${GITHUB_RUN_ID}"
-          TEST_TAG="debug-release-auth-${GITHUB_RUN_ID}"
-
-          echo "Testing actual Git push with authenticated URL and tag..."
-          echo "Temporary branch: $TEST_BRANCH"
-          echo "Temporary tag: $TEST_TAG"
-
-          # Create a new local commit
-          git config user.name "Release Authentication Test"
-          git config user.email "release-auth-test@users.noreply.github.com"
-
-          git commit --allow-empty \
-            -m "test: verify authenticated Git push with tag [skip ci]"
-
-          # Create a temporary tag pointing to the test commit
-          git tag "$TEST_TAG"
-
-          # Use the same authentication style as semantic-release
-          GIT_TERMINAL_PROMPT=0 \
-          git -c credential.helper= \
-            push \
-            "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" \
-            "HEAD:refs/heads/$TEST_BRANCH" \
-            "refs/tags/$TEST_TAG:refs/tags/$TEST_TAG"
-
-          echo "Authenticated URL and tag push succeeded."
-          echo "Created branch: $TEST_BRANCH"
-          echo "Created tag: $TEST_TAG"
+          {
+            echo "## Release Automation Dry-Run Results"
+            echo ""
+            echo "| Package | Release output | Version | Tag |"
+            echo "|---|---|---|---|"
+            echo "| Vue Component Library | ${VUE_RESULT:-N/A} | ${VUE_VERSION:-N/A} | ${VUE_TAG:-N/A} |"
+            echo "| Nuxt Module | ${NUXT_RESULT:-N/A} | ${NUXT_VERSION:-N/A} | ${NUXT_TAG:-N/A} |"
+            echo ""
+            echo "Dry-run only: no npm publication or Git push."
+          } >> "$GITHUB_STEP_SUMMARY"
