@@ -1,3 +1,10 @@
+# [@ucla-library/component-library-nuxt-module-v1.6.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.9...@ucla-library/component-library-nuxt-module-v1.6.0) (2026-10-22)
+
+
+### Features
+
+* LADI-5321 ([#1005](https://github.com/UCLALibrary/ucla-library-website-components/issues/1005)) ([c13c860](https://github.com/UCLALibrary/ucla-library-website-components/commit/c13c860c7cb470433c3f9e7167d50bceed2d2a66))
+
 # [@ucla-library/component-library-nuxt-module-v1.5.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.8...@ucla-library/component-library-nuxt-module-v1.5.9) (2026-10-14)
 
 # [@ucla-library/component-library-nuxt-module-v1.5.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.7...@ucla-library/component-library-nuxt-module-v1.5.8) (2026-10-13)
