@@ -41,7 +41,42 @@ jobs:
           GIT_TERMINAL_PROMPT=0 \
           git -c http.extraheader="AUTHORIZATION: basic $AUTH_HEADER" \
             ls-remote \
-            https://github.com/${{ github.repository }}.git \
+            "https://github.com/${{ github.repository }}.git" \
             HEAD
 
           echo "Git HTTPS authentication test completed."
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Test Git push with HTTP header
+        env:
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+        run: |
+          echo "Testing Git push using HTTP authentication header..."
+
+          AUTH_HEADER=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+
+          GIT_TERMINAL_PROMPT=0 \
+          git -c http.extraheader="AUTHORIZATION: basic $AUTH_HEADER" \
+            push --dry-run \
+            "https://github.com/${{ github.repository }}.git" \
+            HEAD:refs/heads/main
+
+          echo "HTTP header push test completed."
+
+      - name: Test Git push with authenticated URL
+        env:
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+        run: |
+          echo "Testing Git push using authenticated URL..."
+
+          GIT_TERMINAL_PROMPT=0 \
+          git push --dry-run \
+            "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" \
+            HEAD:refs/heads/main
+
+          echo "Authenticated URL push test completed."
