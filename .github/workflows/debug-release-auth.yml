@@ -1,0 +1,150 @@
+name: Debug Release Authentication
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  debug-auth:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verify PAT authentication
+        env:
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::PAT secret is missing or empty"
+            exit 1
+          fi
+
+          echo "Checking GitHub API authentication..."
+          gh auth status
+
+          echo "Checking authenticated account..."
+          gh api user --jq '.login'
+
+          echo "Checking repository permissions..."
+          gh api repos/${{ github.repository }} \
+            --jq '.permissions'
+
+      - name: Verify Git HTTPS authentication
+        env:
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+        run: |
+          echo "Checking Git HTTPS authentication..."
+
+          AUTH_HEADER=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+
+          GIT_TERMINAL_PROMPT=0 \
+          git -c http.extraheader="AUTHORIZATION: basic $AUTH_HEADER" \
+            ls-remote \
+            "https://github.com/${{ github.repository }}.git" \
+            HEAD
+
+          echo "Git HTTPS authentication test completed."
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Prepare temporary test commit
+        run: |
+          git config user.name "Release Authentication Test"
+          git config user.email "release-auth-test@users.noreply.github.com"
+
+          git commit --allow-empty \
+            -m "test: verify release push authentication [skip ci]"
+
+          echo "Temporary commit created locally."
+          git log -1 --format='%h %s'
+
+      - name: Test new commit push with HTTP header
+        env:
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+        run: |
+          echo "Testing new commit push using HTTP authentication header..."
+
+          AUTH_HEADER=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+
+          GIT_TERMINAL_PROMPT=0 \
+          git -c http.extraheader="AUTHORIZATION: basic $AUTH_HEADER" \
+            push --dry-run \
+            "https://github.com/${{ github.repository }}.git" \
+            HEAD:refs/heads/main
+
+          echo "HTTP header push dry-run completed."
+
+      - name: Test new commit push with authenticated URL
+        env:
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+        run: |
+          echo "Testing new commit push using authenticated URL..."
+
+          GIT_TERMINAL_PROMPT=0 \
+          git push --dry-run \
+            "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" \
+            HEAD:refs/heads/main
+
+          echo "Authenticated URL push dry-run completed."
+
+      - name: Test real Git push to temporary branch
+        env:
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+        run: |
+          set -euo pipefail
+
+          TEST_BRANCH="debug-release-auth-${GITHUB_RUN_ID}"
+
+          echo "Testing actual Git push to temporary branch..."
+          echo "Temporary branch: $TEST_BRANCH"
+
+          AUTH_HEADER=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+
+          GIT_TERMINAL_PROMPT=0 \
+          git -c http.extraheader="AUTHORIZATION: basic $AUTH_HEADER" \
+            push \
+            "https://github.com/${{ github.repository }}.git" \
+            "HEAD:refs/heads/$TEST_BRANCH"
+
+          echo "Actual Git push succeeded."
+          echo "Created branch: $TEST_BRANCH"
+
+      - name: Test real Git push with authenticated URL and tag
+        env:
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+        run: |
+          set -euo pipefail
+
+          TEST_BRANCH="debug-release-url-${GITHUB_RUN_ID}"
+          TEST_TAG="debug-release-auth-${GITHUB_RUN_ID}"
+
+          echo "Testing actual Git push with authenticated URL and tag..."
+          echo "Temporary branch: $TEST_BRANCH"
+          echo "Temporary tag: $TEST_TAG"
+
+          # Create a new local commit
+          git config user.name "Release Authentication Test"
+          git config user.email "release-auth-test@users.noreply.github.com"
+
+          git commit --allow-empty \
+            -m "test: verify authenticated Git push with tag [skip ci]"
+
+          # Create a temporary tag pointing to the test commit
+          git tag "$TEST_TAG"
+
+          # Use the same authentication style as semantic-release
+          GIT_TERMINAL_PROMPT=0 \
+          git -c credential.helper= \
+            push \
+            "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git" \
+            "HEAD:refs/heads/$TEST_BRANCH" \
+            "refs/tags/$TEST_TAG:refs/tags/$TEST_TAG"
+
+          echo "Authenticated URL and tag push succeeded."
+          echo "Created branch: $TEST_BRANCH"
+          echo "Created tag: $TEST_TAG"

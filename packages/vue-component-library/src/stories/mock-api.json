@@ -14,6 +14,20 @@
             0.5
         ]
     },
+    "image_aspect_ratio_43": {
+        "src": "https://placehold.co/1024x768",
+        "srcset": "https://placehold.co/320x240 320w, https://placehold.co/640x480 640w, https://placehold.co/800x600 800w, https://placehold.co/1024x768 1024w, https://placehold.co/1280x960 1280w",
+        "sizes": "100vw",
+        "alt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "title": "Placeholder Image - 4:3 aspect-ratio",
+        "caption": "Placeholder Image - 4:3 aspect-ratio",
+        "height": 768,
+        "width": 1024,
+        "focalPoint": [
+            0.5,
+            0.5
+        ]
+    },
     "images": [
         {
             "src": "https://placehold.co/1920x1080",

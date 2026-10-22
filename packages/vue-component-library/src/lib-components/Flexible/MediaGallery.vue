@@ -125,7 +125,12 @@ function selectItem(itemIndex: number) {
         v-for="(item, index) in block.mediaGallery"
         :key="item.id"
         v-bind="item"
+        role="button"
+        tabindex="0"
+        :aria-label="item.captionTitle"
         @click="selectItem(index)"
+        @keydown.enter="selectItem(index)"
+        @keydown.space="selectItem(index)"
       />
     </div>
   </section>
