@@ -1,3 +1,15 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.93.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.92.0...@ucla-library-monorepo/ucla-library-website-components-v1.93.0) (2026-10-22)
+
+
+### Bug Fixes
+
+* update VideoEmbed logic to handle non-embed youtube urls ([#999](https://github.com/UCLALibrary/ucla-library-website-components/issues/999)) ([35838ee](https://github.com/UCLALibrary/ucla-library-website-components/commit/35838ee7fe4b2e67d825eb9ada8a952448f44fbd))
+
+
+### Features
+
+* LADI-5444 Link Pullquote stories to Figma frames ([#998](https://github.com/UCLALibrary/ucla-library-website-components/issues/998)) ([3f319a9](https://github.com/UCLALibrary/ucla-library-website-components/commit/3f319a92484ea508edb891a6f5cf50ebf927a3e4))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.92.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.6...@ucla-library-monorepo/ucla-library-website-components-v1.92.0) (2026-10-14)
 
 
