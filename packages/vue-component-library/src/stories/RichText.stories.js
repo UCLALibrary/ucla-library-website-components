@@ -86,7 +86,6 @@ const LegacyRichText = defineComponent({
   `,
 })
 
-
 /**
  * Demonstrates RichText reactivity in Craft CMS draft previews.
  * Reference: LADI-5483
