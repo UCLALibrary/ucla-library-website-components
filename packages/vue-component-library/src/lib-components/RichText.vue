@@ -23,7 +23,7 @@ const classes = computed(() => {
 })
 
 const content = computed(() => {
-  return stripCraftURLFromText(props.richTextContent)
+  return stripCraftURLFromText(props.richTextContent) ?? ''
 })
 
 /*
