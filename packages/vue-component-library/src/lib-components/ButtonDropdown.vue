@@ -109,7 +109,6 @@ const parsedEventDescription = computed(() => {
   return ''
 })
 
-
 /* Inject styles into ATCB ShadowDOM on button dropdown:
  - Remove border bottom radii on button
  - Rotate FTVA dropdown triangle
@@ -132,42 +131,42 @@ function handleActbExpandedStyle(e) {
   e.target.shadowRoot.appendChild(style)
 }
 
-
 // Add to Calendar Button configuration for server-rendered markup.
 // https://add-to-calendar-button.com/configuration
 // debugModeEnabled is passed as the Add to Calendar Button debug option; enable it at page level when troubleshooting.
 const atcbSsrHtml = computed(() =>
-    atcb_generate_ssr_html({
-        name: title,
-        startDate: parsedDateAndTime.value.startDate,
-        startTime: parsedDateAndTime.value.startTime,
-        endTime: parsedEndTime.value,
-        timeZone: "America/Los_Angeles",
-        location: parsedLocation.value,
-        description: parsedEventDescription.value,
-        options: ["google", "apple", "ms365", "outlookcom", "ical"],
-        trigger: "click",
-        hideBranding: true,
-        hideCheckmark: true,
-        hideBackground: true,
-        hideIconButton: true,
-        listStyle: "dropdown-static",
-        debug: debugModeEnabled,
-    })
+  atcb_generate_ssr_html({
+    name: title,
+    startDate: parsedDateAndTime.value.startDate,
+    startTime: parsedDateAndTime.value.startTime,
+    endTime: parsedEndTime.value,
+    timeZone: 'America/Los_Angeles',
+    location: parsedLocation.value,
+    description: parsedEventDescription.value,
+    options: ['google', 'apple', 'ms365', 'outlookcom', 'ical'],
+    trigger: 'click',
+    hideBranding: true,
+    hideCheckmark: true,
+    hideBackground: true,
+    hideIconButton: true,
+    listStyle: 'dropdown-static',
+    debug: debugModeEnabled,
+  })
 )
 
-/* Vue preserves this SSR content during hydration. Reassigning innerHTML would discard the declarative Shadow DOM rendered by Add to Calendar Button.*/
+/* Vue preserves this SSR content during hydration. Reassigning innerHTML would discard the declarative Shadow DOM rendered by Add to Calendar Button. */
 const vAtcbSsrHtml = {
-    getSSRProps(binding) {
-        return { innerHTML: binding.value }
-    },
-    mounted(element, binding) {
-        if (!element.hasChildNodes()) element.innerHTML = binding.value
-    },
+  getSSRProps(binding) {
+    return { innerHTML: binding.value }
+  },
+  mounted(element, binding) {
+    if (!element.hasChildNodes())
+      element.innerHTML = binding.value
+  },
 }
 
-/* The web component accesses the DOM while registering, so it must never be evaluated by the server bundle. The SSR helper above is DOM-free.*/
-onMounted(() => import("add-to-calendar-button"))
+/* The web component accesses the DOM while registering, so it must never be evaluated by the server bundle. The SSR helper above is DOM-free. */
+onMounted(() => import('add-to-calendar-button'))
 
 /*
 - Copy page path to clipboard;
@@ -199,7 +198,7 @@ const parsedClasses = computed(() => {
 
 <template>
   <div :class="parsedClasses">
-    <!-- Add to Calendar Button plugin component-->
+    <!-- Add to Calendar Button plugin component -->
     <div v-if="isEvent" v-atcb-ssr-html="atcbSsrHtml" @click="handleActbExpandedStyle" />
 
     <!-- Generic Button -->
