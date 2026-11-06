@@ -134,6 +134,8 @@ function handleActbExpandedStyle(e) {
 https://add-to-calendar-button.com/configuration
 
 debugModeEnabled is passed as the Add-to-Calendar-Button debug option; enable it at page level when troubleshooting. */
+
+/* Build calendar button's HTML for SSR */
 const atcbSsrHtml = computed(() =>
   atcb_generate_ssr_html({
     name: title,
@@ -154,7 +156,7 @@ const atcbSsrHtml = computed(() =>
   })
 )
 
-/* Vue preserves this SSR content during hydration. Reassigning innerHTML would discard the declarative Shadow DOM rendered by Add-to-Calendar-Button. */
+/* Vue preserves SSR content during hydration. Reassigning innerHTML would discard the declarative Shadow DOM rendered by Add-to-Calendar-Button. */
 const vAtcbSsrHtml = {
   getSSRProps(binding) {
     return { innerHTML: binding.value }
