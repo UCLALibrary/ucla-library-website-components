@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.93.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.93.0...@ucla-library-monorepo/ucla-library-website-components-v1.93.1) (2026-10-28)
+
+
+### Bug Fixes
+
+* Fix RichText Reactivity for Craft CMS Draft Previews LADI-5483 ([#1006](https://github.com/UCLALibrary/ucla-library-website-components/issues/1006)) ([88fc410](https://github.com/UCLALibrary/ucla-library-website-components/commit/88fc410827060718b054fec2bccc9df5102db73d))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.93.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.92.0...@ucla-library-monorepo/ucla-library-website-components-v1.93.0) (2026-10-22)
 
 

@@ -22,7 +22,9 @@ const classes = computed(() => {
   return ['rich-text', theme?.value || '']
 })
 
-const content = stripCraftURLFromText(props.richTextContent)
+const content = computed(() => {
+  return stripCraftURLFromText(props.richTextContent)
+})
 
 /*
 Reference: LADI-5311
@@ -35,11 +37,15 @@ const youTubeEmbedArray = ref<string[]>([])
 const iframeWithYouTubePattern = /<iframe\b[^>]*\bsrc=["']((?:https?:)?\/\/(?:www\.)?(?:youtube\.com|youtube-nocookie\.com)\/[^"']+)["'][^>]*><\/iframe>/gi
 
 // Identify YouTube urls in rich text content
-const youtubeUrls = [...content.matchAll(iframeWithYouTubePattern)].map(match => match[1])
+const youtubeUrls = computed(() =>
+  [...content.value.matchAll(iframeWithYouTubePattern)]
+    .map(match => match[1])
+)
 
 // If urls exist, format them for oEmbed; make fetch call to oEmbed
-if (youtubeUrls.length > 0) {
-  const urlObjs = formatYouTubeUrlsForOembed(youtubeUrls)
+// TODO: Make this reactive
+if (youtubeUrls.value.length > 0) {
+  const urlObjs = formatYouTubeUrlsForOembed(youtubeUrls.value)
 
   const { titles } = useOEmbedFetch(urlObjs)
 
@@ -49,30 +55,35 @@ if (youtubeUrls.length > 0) {
 }
 
 const parsedContent = computed(() => {
-  // Find inline YouTube iframe(s); add title attribute with fetched video title(s)
   let index = 0
 
-  return accessibleExternalLinks(content.replace(
-    iframeWithYouTubePattern, (iframeElement: string) => {
-      const title = youTubeEmbedArray.value[index++]
+  return accessibleExternalLinks(
+    content.value.replace(
+      iframeWithYouTubePattern,
+      (iframeElement: string) => {
+        const title = youTubeEmbedArray.value[index++]
 
-      return iframeElement.replace('<iframe', `<iframe title="${title}"`)
-    },
-  ))
+        return iframeElement.replace(
+          '<iframe',
+          `<iframe title="${title}"`
+        )
+      }
+    )
+  )
 })
 </script>
 
 <template>
   <div :class="classes">
-    <div class="parsed-content" v-html="parsedContent" />
+    <div
+      class="parsed-content"
+      v-html="parsedContent"
+    />
     <slot />
   </div>
 </template>
 
-<style
-    lang="scss"
-    scoped
->
+<style lang="scss" scoped>
 @use "@/styles/default/_rich-text.scss" as *;
 @use "@/styles/ftva/_rich-text.scss" as *;
 @use "@/styles/dlc/_rich-text.scss" as *;
