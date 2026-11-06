@@ -75,8 +75,7 @@ const currentFullUrl = computed(() => {
   return window.location.origin + route.fullPath
 })
 
-// Encode the current page URL for use in the email link;
-// although some e-mail clients will work without this, 'New Outlook' wil not, so we encode it to be safe
+/* Encode the current page URL for use in the email link; although some e-mail clients will work without this, 'New Outlook' wil not, so we encode it to be safe */
 const emailLink = computed(() => `mailto:?body=${encodeURIComponent(currentFullUrl.value)}`)
 
 // Event data computations
@@ -109,10 +108,10 @@ const parsedEventDescription = computed(() => {
   return ''
 })
 
-/* Inject styles into ATCB ShadowDOM on button dropdown:
- - Remove border bottom radii on button
- - Rotate FTVA dropdown triangle
- - Disable custom cursor
+/* Inject styles into Add-to-Calendar-Button ShadowDOM on button dropdown:
+- Remove border bottom radii on button
+- Rotate FTVA dropdown triangle
+- Disable custom cursor
 */
 function handleActbExpandedStyle(e) {
   const style = document.createElement('style')
@@ -131,9 +130,10 @@ function handleActbExpandedStyle(e) {
   e.target.shadowRoot.appendChild(style)
 }
 
-// Add to Calendar Button configuration for server-rendered markup.
-// https://add-to-calendar-button.com/configuration
-// debugModeEnabled is passed as the Add to Calendar Button debug option; enable it at page level when troubleshooting.
+/* Add-to-Calendar-Button configuration for server-rendered markup.
+https://add-to-calendar-button.com/configuration
+
+debugModeEnabled is passed as the Add-to-Calendar-Button debug option; enable it at page level when troubleshooting. */
 const atcbSsrHtml = computed(() =>
   atcb_generate_ssr_html({
     name: title,
@@ -154,7 +154,7 @@ const atcbSsrHtml = computed(() =>
   })
 )
 
-/* Vue preserves this SSR content during hydration. Reassigning innerHTML would discard the declarative Shadow DOM rendered by Add to Calendar Button. */
+/* Vue preserves this SSR content during hydration. Reassigning innerHTML would discard the declarative Shadow DOM rendered by Add-to-Calendar-Button. */
 const vAtcbSsrHtml = {
   getSSRProps(binding) {
     return { innerHTML: binding.value }
@@ -198,7 +198,7 @@ const parsedClasses = computed(() => {
 
 <template>
   <div :class="parsedClasses">
-    <!-- Add to Calendar Button plugin component -->
+    <!-- Add-to-Calendar-Button plugin component -->
     <div v-if="isEvent" v-atcb-ssr-html="atcbSsrHtml" @click="handleActbExpandedStyle" />
 
     <!-- Generic Button -->
