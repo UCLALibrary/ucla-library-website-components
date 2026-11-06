@@ -51,14 +51,18 @@
         outline-offset: 1px;
     }
 
-    // add-to-calendar-button::part(atcb-button-text)::after {
-    //     position: relative;
-    //     display: inline-block;
-    //     left: 116px;
-    //     top: -1px;
-    //     content: url("ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg");
-    //     filter: brightness(0) saturate(100%) invert(30%);
-    // }
+    :deep(add-to-calendar-button)::part(atcb-button-text)::after {
+        position: relative;
+        display: inline-block;
+        left: 116px;
+        top: -1px;
+        content: url("ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg");
+        filter: brightness(0) saturate(100%) invert(30%);
+    }
+
+    :deep(add-to-calendar-button)::part(atcb-button-chevron){
+        display: none;
+    }
 
     :deep(add-to-calendar-button)::part(atcb-list-wrapper) {
         background: ftvatokens.$white;
@@ -73,8 +77,8 @@
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         position: absolute;
-        top: 52px;
-        left: 1px;
+        top: 51px;
+        left: 0px;
     }
 
     :deep(add-to-calendar-button)::part(atcb-list) {
@@ -83,12 +87,17 @@
         row-gap: 16px;
         box-shadow: unset;
         background-color: transparent;
+        padding: 0;
+        margin-top: 0;
+        border: 0;
     }
 
     :deep(add-to-calendar-button)::part(atcb-list-item) {
         box-shadow: unset;
         background-color: transparent;
         padding: 0;
+        margin: 0;
+        gap: .7em;
         font-family: "Karbon", Helvetica, Arial, sans-serif;
         font-weight: 500;
         font-size: 18px; 
@@ -109,6 +118,11 @@
     // outline on focus only to match other button dropdowns
     :deep(add-to-calendar-button)::part(atcb-list-item):focus {
         outline: 4px auto ftvatokens.$bright-blue;
+    }
+
+    :deep(add-to-calendar-button)::part(atcb-list-icon){
+        height: 1em;
+        width: 1em;
     }
 }
 

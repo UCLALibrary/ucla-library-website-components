@@ -75,7 +75,7 @@ const currentFullUrl = computed(() => {
   return window.location.origin + route.fullPath
 })
 
-// encode the current page URL for use in the email link
+// Encode the current page URL for use in the email link;
 // although some e-mail clients will work without this, 'New Outlook' wil not, so we encode it to be safe
 const emailLink = computed(() => `mailto:?body=${encodeURIComponent(currentFullUrl.value)}`)
 
@@ -115,22 +115,22 @@ const parsedEventDescription = computed(() => {
  - Rotate FTVA dropdown triangle
  - Disable custom cursor
 */
-// function handleActbExpandedStyle(e) {
-//   const style = document.createElement('style')
-//   style.innerHTML
-//     = `.atcb-button.atcb-click.atcb-active { 
-//           border-bottom-left-radius: 0 !important; 
-//           border-bottom-right-radius: 0 !important; 
-//         } 
-//         .atcb-active .atcb-text::after { 
-//           transform: rotate(180deg); 
-//         } 
-//         #atcb-bgoverlay.atcb-click:hover {  
-//           cursor: unset; 
-//         }`
+function handleActbExpandedStyle(e) {
+  const style = document.createElement('style')
+  style.innerHTML
+    = `.atcb-button.atcb-click.atcb-active { 
+          border-bottom-left-radius: 0 !important; 
+          border-bottom-right-radius: 0 !important; 
+        } 
+        .atcb-active .atcb-text::after { 
+          transform: rotate(180deg); 
+        } 
+        #atcb-bgoverlay.atcb-click:hover {  
+          cursor: unset; 
+        }`
 
-//   e.target.shadowRoot.appendChild(style)
-// }
+  e.target.shadowRoot.appendChild(style)
+}
 
 
 // Add to Calendar Button configuration for server-rendered markup.
@@ -156,8 +156,7 @@ const atcbSsrHtml = computed(() =>
     })
 )
 
-// Vue preserves this SSR content during hydration. Reassigning innerHTML would
-// discard the declarative Shadow DOM rendered by Add to Calendar Button.
+/* Vue preserves this SSR content during hydration. Reassigning innerHTML would discard the declarative Shadow DOM rendered by Add to Calendar Button.*/
 const vAtcbSsrHtml = {
     getSSRProps(binding) {
         return { innerHTML: binding.value }
@@ -167,8 +166,7 @@ const vAtcbSsrHtml = {
     },
 }
 
-// The web component accesses the DOM while registering, so it must never be
-// evaluated by the server bundle. The SSR helper above is DOM-free.
+/* The web component accesses the DOM while registering, so it must never be evaluated by the server bundle. The SSR helper above is DOM-free.*/
 onMounted(() => import("add-to-calendar-button"))
 
 /*
@@ -202,7 +200,7 @@ const parsedClasses = computed(() => {
 <template>
   <div :class="parsedClasses">
     <!-- Add to Calendar Button plugin component-->
-    <div v-if="isEvent" v-atcb-ssr-html="atcbSsrHtml" />
+    <div v-if="isEvent" v-atcb-ssr-html="atcbSsrHtml" @click="handleActbExpandedStyle" />
 
     <!-- Generic Button -->
     <MobileDrawer v-else>
