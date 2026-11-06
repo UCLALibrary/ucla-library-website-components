@@ -24,7 +24,7 @@
     :deep(add-to-calendar-button)::part(atcb-button) {
         box-sizing: border-box;
         justify-content: flex-start;
-        width: 282px;
+        width: 284px;
         height: 51px;
         padding: 0;
         font-family: inherit;
@@ -66,8 +66,8 @@
 
     :deep(add-to-calendar-button)::part(atcb-list-wrapper) {
         background: ftvatokens.$white;
-        min-width: 282px;
-        max-width: 282px;
+        min-width: 284px;
+        max-width: 284px;
         min-height: auto;
         padding: 20px 20px 24px 20px;
         margin: 0;
