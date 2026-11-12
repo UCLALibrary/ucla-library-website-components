@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.93.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.93.1...@ucla-library-monorepo/ucla-library-website-components-v1.93.2) (2026-11-12)
+
+
+### Bug Fixes
+
+* LADI-5426 ensure content always exists ([#1007](https://github.com/UCLALibrary/ucla-library-website-components/issues/1007)) ([fe24d92](https://github.com/UCLALibrary/ucla-library-website-components/commit/fe24d92fd3ff47a729ca0dd273b8f084103add2a))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.93.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.93.0...@ucla-library-monorepo/ucla-library-website-components-v1.93.1) (2026-10-28)
 
 
