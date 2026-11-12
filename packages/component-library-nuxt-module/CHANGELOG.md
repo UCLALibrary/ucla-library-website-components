@@ -1,3 +1,10 @@
+# [@ucla-library/component-library-nuxt-module-v1.6.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.6.1...@ucla-library/component-library-nuxt-module-v1.6.2) (2026-11-12)
+
+
+### Bug Fixes
+
+* **nuxt-module:** force release after vue-component-library update [skip ci] ([5b43eec](https://github.com/UCLALibrary/ucla-library-website-components/commit/5b43eecd005a8f1b004217b4332d2eafaae2d0fe))
+
 # [@ucla-library/component-library-nuxt-module-v1.6.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.6.0...@ucla-library/component-library-nuxt-module-v1.6.1) (2026-10-28)
 
 
