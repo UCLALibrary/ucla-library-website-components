@@ -1,5 +1,6 @@
 @use "ucla-library-design-tokens/scss/app.scss" as *;
 @use "ucla-library-design-tokens/scss/_tokens-ftva.scss" as ftvatokens;
+
 .ftva.section-teaser-card {
     max-width: 100%; // 100% of the parent container
     align-items: flex-start;
@@ -13,7 +14,7 @@
     }
 
     .card {
-        flex-basis: calc((100% / 3) - 22px);
+        flex-basis: calc((100% - 40px) / 3);
         min-width: 280px;
         margin-bottom: 15px;
         min-height: 350px;
