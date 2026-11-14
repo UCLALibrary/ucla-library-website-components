@@ -1,4 +1,5 @@
 @use "ucla-library-design-tokens/scss/app.scss" as *;
+
 .alphabetical-browse-by {
   display: flex;
   flex-direction: column;
@@ -11,23 +12,29 @@
     color: var(--color-primary-blue-03);
   }
 
-
-
+  // Below 1188px: Letters wrap into multiple rows
+  // 1,188–1200px: All 27 letters fit on one row
+  // Above 1200px: The alphabet stops growing preventing excessive spacing
   .alphabet-list {
     @include step-1;
-    max-width: 928px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    width: 100%;
+    // max-width: 928px;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
     list-style: none;
-    list-style-type: none;
     padding: 0;
     color: var(--color-primary-blue-03);
 
     .letter {
+      min-width: 44px;
+      min-height: 44px;
+      width: 100%;
       padding: 0 10px;
-      margin-bottom: 24px;
-      width: 44px;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       font-weight: $font-weight-medium;
 
@@ -41,22 +48,6 @@
         cursor: pointer;
         color: var(--color-primary-blue-03);
       }
-    }
-
-    @media #{$medium} {
-      // max-height: 140px;
-      justify-content: start;
-      flex-wrap: wrap;
-      margin-top: 0;
-      margin-right: 0px;
-
-      .letter {
-        width: 44px;
-      }
-    }
-
-    @media #{$small} {
-      // max-height: 180px;
     }
   }
 }
