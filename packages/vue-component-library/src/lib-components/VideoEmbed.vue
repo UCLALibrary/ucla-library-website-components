@@ -6,7 +6,7 @@ import SvgIconPlayFilled from 'ucla-library-design-tokens/assets/svgs/icon-ftva-
 import { computed, onMounted, ref } from 'vue'
 import type { MediaItemType } from '@/types/types'
 import { useOEmbedFetch } from '@/composables/useOEmbedFetch'
-import formatYouTubeUrlsForOembed from '@/utils/formatYouTubeUrlsForOembed'
+import { formatYouTubeUrlForVideoEmbedding, formatYouTubeUrlsForOembed } from '@/utils/formatYouTubeUrls'
 
 const { aspectRatio, posterImage, trailer } = defineProps({
   aspectRatio: {
@@ -30,14 +30,22 @@ const classes = computed(() => {
 })
 
 /*
-Updated trailer parsing to use a regex for safer and more reliable extraction of the `src` value. This handles cases where `trailer` may be undefined, null, or missing the expected `src="..."` pattern.
+Parse trailer data entered as embed code (iframe element) or a plain YouTube url.
+
+For embed code, extract the `src` value; this covers YouTube embeds or embeds from similar media platforms.
+
+For a YouTube url, use helper function to turn the url into an embeddable url.
 */
+
 const parsedTrailer = computed(() => {
   if (!trailer || typeof trailer !== 'string')
     return ''
 
-  const match = trailer.match(/src="([^"]+)"/)
-  return match ? match[1] : ''
+  const iframeSrcURL = trailer.match(/src="([^"]+)"/)
+
+  const youTubeURLforEmbedding = formatYouTubeUrlForVideoEmbedding(trailer)
+
+  return iframeSrcURL ? iframeSrcURL[1] : youTubeURLforEmbedding || ''
 })
 
 /*
@@ -52,15 +60,20 @@ const { titles } = useOEmbedFetch(urlObj)
 
 const parsedIframeTitle = computed(() => titles.value[0])
 
+// Set VideoEmbed aspect-ratio
+
 const trailerContainerRef = ref()
 const coverContainerRef = ref()
 
 function setAspectRatio() {
   const trailerContainer = trailerContainerRef.value
-  trailerContainer.style.setProperty('--aspect-ratio', `${aspectRatio}%`)
-
   const coverContainer = coverContainerRef.value
-  coverContainer.style.setProperty('--aspect-ratio', `${aspectRatio}%`)
+
+  if (posterImage)
+    coverContainer.style.setProperty('--aspect-ratio', `${aspectRatio}%`)
+
+  if (parsedTrailer.value)
+    trailerContainer.style.setProperty('--aspect-ratio', `${aspectRatio}%`)
 }
 
 onMounted(() => {
@@ -69,8 +82,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="trailer" :class="classes">
+  <div :class="classes">
     <div
+      v-if="posterImage"
       ref="coverContainerRef"
       class="cover-container"
       onclick="this.nextElementSibling.style.display='block'; this.style.display='none'"

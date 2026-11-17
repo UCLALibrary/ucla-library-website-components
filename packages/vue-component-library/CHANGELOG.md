@@ -1,3 +1,29 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.93.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.93.1...@ucla-library-monorepo/ucla-library-website-components-v1.93.2) (2026-11-12)
+
+
+### Bug Fixes
+
+* LADI-5426 ensure content always exists ([#1007](https://github.com/UCLALibrary/ucla-library-website-components/issues/1007)) ([fe24d92](https://github.com/UCLALibrary/ucla-library-website-components/commit/fe24d92fd3ff47a729ca0dd273b8f084103add2a))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.93.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.93.0...@ucla-library-monorepo/ucla-library-website-components-v1.93.1) (2026-10-28)
+
+
+### Bug Fixes
+
+* Fix RichText Reactivity for Craft CMS Draft Previews LADI-5483 ([#1006](https://github.com/UCLALibrary/ucla-library-website-components/issues/1006)) ([88fc410](https://github.com/UCLALibrary/ucla-library-website-components/commit/88fc410827060718b054fec2bccc9df5102db73d))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.93.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.92.0...@ucla-library-monorepo/ucla-library-website-components-v1.93.0) (2026-10-22)
+
+
+### Bug Fixes
+
+* update VideoEmbed logic to handle non-embed youtube urls ([#999](https://github.com/UCLALibrary/ucla-library-website-components/issues/999)) ([35838ee](https://github.com/UCLALibrary/ucla-library-website-components/commit/35838ee7fe4b2e67d825eb9ada8a952448f44fbd))
+
+
+### Features
+
+* LADI-5444 Link Pullquote stories to Figma frames ([#998](https://github.com/UCLALibrary/ucla-library-website-components/issues/998)) ([3f319a9](https://github.com/UCLALibrary/ucla-library-website-components/commit/3f319a92484ea508edb891a6f5cf50ebf927a3e4))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.92.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.6...@ucla-library-monorepo/ucla-library-website-components-v1.92.0) (2026-10-14)
 
 
