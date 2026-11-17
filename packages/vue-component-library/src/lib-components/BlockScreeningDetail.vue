@@ -166,6 +166,7 @@ const classes = computed(() => {
           v-if="trailer || image"
           :trailer="trailer"
           :poster-image="image"
+          :aspect-ratio="56.9"
         />
       </ResponsiveVideo>
     </div>
