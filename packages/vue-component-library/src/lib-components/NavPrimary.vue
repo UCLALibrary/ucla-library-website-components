@@ -131,6 +131,15 @@ function toggleMenu() {
   }
 }
 
+// Replace globalStore logic for window width with useWindowSize
+const { width } = useWindowSize()
+
+// Use computed to check if it's mobile based on window width
+const mobileBreakpoint = 850 // change scss breakpoints in ftva _header-sticky.scss, _nav-primary.scss, _site-brand-bar.scss
+const isMobile = computed(() => width.value <= mobileBreakpoint) // Use 850px for mobile breakpoint
+const isSlotVisible = computed(() => {
+  return slotIsOpened.value || (mobileMenuIsOpened.value && isMobile.value)
+})
 // Toggle slot menu (used to render search bar)
 function toggleSlot() {
   // if menu is open, close it first & clear active
@@ -142,7 +151,7 @@ function toggleSlot() {
       slotIsOpened.value = !slotIsOpened.value
     }, 400)
   }
-  // otherwise, just open slot menu
+  // otherwise, just toggle slot menu
   else { slotIsOpened.value = !slotIsOpened.value }
 }
 
@@ -161,13 +170,6 @@ function closeSlot() {
 
 // expose if needed elsewhere too
 defineExpose({ closeSlot })
-
-// Replace globalStore logic for window width with useWindowSize
-const { width } = useWindowSize()
-
-// Use computed to check if it's mobile based on window width
-const mobileBreakpoint = 850 // change scss breakpoints in ftva _header-sticky.scss, _nav-primary.scss, _site-brand-bar.scss
-const isMobile = computed(() => width.value <= mobileBreakpoint) // Use 850px for mobile breakpoint
 
 // Parsed logo for the header
 const parsedLogo = computed(() => {
@@ -230,7 +232,7 @@ onMounted(() => {
   watch(
     [items, currentPath, title, acronym],
     ([newItems, newCurrentPath, newTitle, newAcronym]) => {
-      console.log('NavPrimary data updated from nuxt layout or app.vue when working with craft draft previews', newItems, newCurrentPath, newTitle, newAcronym)
+      // console.log('NavPrimary data updated from nuxt layout or app.vue when working with craft draft previews', newItems, newCurrentPath, newTitle, newAcronym)
       primaryItems.value = newItems || []
       currentPathRef.value = newCurrentPath
       titleRef.value = newTitle
@@ -318,40 +320,42 @@ onMounted(() => {
 
     <div class="nav-background-fill" />
 
-    <!-- search button is placed before menu so that it can be easily kept at top when menu expands -->
+    <!-- place .more-menu first on mobile so search/buttons tab before menu items when menu expands -->
     <!-- more menu was added in later version of this component and is not rendered at all in default -->
     <div
-      v-if="themeSettings.showSearch"
+      v-if="themeSettings.showSearch && isMobile"
       class="more-menu"
     >
-      <ButtonLink
-        v-if="!mobileMenuIsOpened"
-        class="search-button"
-        icon-name="none"
-        aria-label="Search"
-        @click="searchClick"
-      >
-        <IconSearch class="icon-search" />
-      </ButtonLink>
-      <ButtonLink
-        v-if="!mobileMenuIsOpened || !isMobile"
-        class="more-menu-button mobile-only"
-        icon-name="none"
-        aria-label="open menu"
-        @click="toggleMobileMenu"
-      >
-        <IconMenu class="icon-menu" />
-      </ButtonLink>
-      <ButtonLink
-        v-if="mobileMenuIsOpened"
-        class="close-button mobile-only"
-        icon-name="none"
-        aria-label="close menu"
-        @click="toggleMobileMenu"
-      >
-        <IconMenuClose class="icon-menu-close" />
-      </ButtonLink>
-      <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  -->
+      <template v-if="isMobile ">
+        <ButtonLink
+          v-if="!mobileMenuIsOpened"
+          class="search-button"
+          icon-name="none"
+          aria-label="Search"
+          @click="searchClick"
+        >
+          <IconSearch class="icon-search" />
+        </ButtonLink>
+        <ButtonLink
+          v-if="!mobileMenuIsOpened"
+          class="more-menu-button mobile-only"
+          icon-name="none"
+          aria-label="open menu"
+          @click="toggleMobileMenu"
+        >
+          <IconMenu class="icon-menu" />
+        </ButtonLink>
+        <ButtonLink
+          v-if="mobileMenuIsOpened"
+          class="close-button mobile-only"
+          icon-name="none"
+          aria-label="close menu"
+          @click="toggleMobileMenu"
+        >
+          <IconMenuClose class="icon-menu-close" />
+        </ButtonLink>
+      </template>
+      <!-- navSearch is loaded into this a slot by HeaderSticky on mobile  -->
       <div
         class="slot-container"
         :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
@@ -359,11 +363,12 @@ onMounted(() => {
         <slot
           name="additional-menu"
           :close-slot="closeSlot"
+          :is-slot-visible="isSlotVisible"
         />
       </div>
     </div>
 
-    <!-- this is the primary menu and first in the tab index -->
+    <!-- primary menu should be first in tab order on desktop -->
     <ul
       v-if="parsedItems && parsedItems.length > 0"
       class="menu"
@@ -404,23 +409,42 @@ onMounted(() => {
         </SmartLink>
       </li>
       <!-- Add search icon to nav menu list on desktop for FTVA -->
-      <ButtonLink
-        v-if="!isMobile && theme === 'ftva'"
-        class="search-button"
-        icon-name="none"
-        aria-label="Search"
-        @click="searchClick"
-      >
-        <IconSearch class="icon-search" />
-      </ButtonLink>
+      <li v-if="!isMobile && theme === 'ftva'">
+        <ButtonLink
+          class="search-button"
+          icon-name="none"
+          aria-label="Search"
+          @click="searchClick"
+        >
+          <IconSearch class="icon-search" />
+        </ButtonLink>
+      </li>
       <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
-      <div
+      <li
         v-if="isMobile && mobileMenuIsOpened"
         class="mobile-menu-slot"
       >
         <slot name="additional-mobile-menu-items" />
-      </div>
+      </li>
     </ul>
+
+    <!-- keep after .menu on desktop so menu items come first in keyboard tab order -->
+    <div
+      v-if="themeSettings.showSearch && !isMobile"
+      class="more-menu"
+    >
+      <!-- navSearch is loaded into this a slot by HeaderSticky on desktop -->
+      <div
+        class="slot-container"
+        :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
+      >
+        <slot
+          name="additional-menu"
+          :close-slot="closeSlot"
+          :is-slot-visible="isSlotVisible"
+        />
+      </div>
+    </div>
 
     <div
       v-if="!titleRef"

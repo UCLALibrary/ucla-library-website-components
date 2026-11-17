@@ -76,8 +76,6 @@ function onDocumentKeydown(event: KeyboardEvent) {
 
 // Computeds
 const isClearIconShown = computed(() => {
-  console.log('props.clearIcon', props.clearIcon)
-  console.log('props.modelValue', props.modelValue)
   return props.clearIcon && !!props.modelValue && props.modelValue.length > 0
 })
 const classes = computed(() => [
@@ -114,6 +112,7 @@ useEventListener<KeyboardEvent>(() => document, 'keydown', onDocumentKeydown)
       @keydown="onKeydown"
     >
     <button
+      v-if="isClearIconShown"
       class="clear-icon"
       aria-label="Clear input"
       @mousedown.prevent="clear"

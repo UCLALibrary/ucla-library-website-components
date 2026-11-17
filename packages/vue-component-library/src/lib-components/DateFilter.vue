@@ -453,11 +453,6 @@ onMounted(() => {
     padding-bottom: 30px;
   }
 
-  button:focus,
-  button:focus-visible {
-    outline: 1px hidden ftvatokens.$accent-blue;
-  }
-
   .button-text {
     display: inline-flex;
     align-items: center;
@@ -480,6 +475,7 @@ onMounted(() => {
     width: 380px;
 
     // Input styling
+
     :deep(.dp__input) {
       height: 59px;
       font-family: var(--font-primary);
@@ -488,13 +484,13 @@ onMounted(() => {
       color: ftvatokens.$medium-grey;
       border-radius: 8px;
 
-      &:hover,
-      &:focus {
+      &:hover {
         border-color: #ddd;
+        background-color: #f1f1f1;
       }
 
-      &:hover {
-        background-color: #f1f1f1;
+      &:focus-visible {
+        outline: revert;
       }
 
       @media #{$small} {
@@ -833,7 +829,6 @@ onMounted(() => {
     .mobile-button {
       width: 166px;
       padding: 6px;
-      // border: none;
 
       &:active {
         color: white;

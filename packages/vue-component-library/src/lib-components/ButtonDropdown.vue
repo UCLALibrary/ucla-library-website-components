@@ -74,6 +74,9 @@ const currentFullUrl = computed(() => {
 
   return window.location.origin + route.fullPath
 })
+// encode the current page URL for use in the email link
+// although some e-mail clients will work without this, 'New Outlook' wil not, so we encode it to be safe
+const emailLink = computed(() => `mailto:?body=${encodeURIComponent(currentFullUrl.value)}`)
 
 // Event data computations
 const parsedLocation = computed(() => {
@@ -115,7 +118,16 @@ const parsedEventDescription = computed(() => {
 function handleActbExpandedStyle(e) {
   const style = document.createElement('style')
   style.innerHTML
-        = '.atcb-button.atcb-click.atcb-active { border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; } .atcb-active .atcb-text::after { transform: rotate(180deg); } #atcb-bgoverlay.atcb-click:hover {  cursor: unset; }'
+    = `.atcb-button.atcb-click.atcb-active { 
+          border-bottom-left-radius: 0 !important; 
+          border-bottom-right-radius: 0 !important; 
+        } 
+        .atcb-active .atcb-text::after { 
+          transform: rotate(180deg); 
+        } 
+        #atcb-bgoverlay.atcb-click:hover {  
+          cursor: unset; 
+        }`
 
   e.target.shadowRoot.appendChild(style)
 }
@@ -199,19 +211,17 @@ const parsedClasses = computed(() => {
           class="dropdown-modal-item"
         >
           <!-- "Send to Email" -->
-          <span v-if="item.dropdownItemTitle === 'Email'"><a
-            :href="`mailto:?&body=${currentFullUrl}`"
-            class="email-icon"
-          >
+          <template v-if="item.dropdownItemTitle === 'Email'">
             <IconWithLink
               :text="item.dropdownItemTitle"
               :icon-name="item.iconName"
+              :to="emailLink"
               class="not-smart-link"
             />
-          </a></span>
+          </template>
 
           <!-- "Copy URL/Link" -->
-          <span
+          <template
             v-else-if="item.dropdownItemTitle === 'Copy Link'"
           >
             <!-- Swap on click -->
@@ -219,6 +229,7 @@ const parsedClasses = computed(() => {
               v-if="!isLinkCopied"
               :text="item.dropdownItemTitle"
               :icon-name="item.iconName"
+              has-custom-click="true"
               class="not-smart-link"
               @click="handleCopiedLink()"
             />
@@ -229,7 +240,7 @@ const parsedClasses = computed(() => {
               :class="isLinkCopiedClass"
               :icon-name="SvgIconFtvaSocialConfirm"
             />
-          </span>
+          </template>
 
           <!-- Generic Dropdown Items -->
           <IconWithLink

@@ -6,7 +6,7 @@ const mock = {
   isUclaLibrary: true,
   title: 'Arts Library',
   image: API.image,
-  libcalLocationIdForHours: '2081',
+  libcalLocationIdForHours: '4690',
   reserveSeat: 'http://google.com/reserveSeat',
   address: '1400 Public Affairs Building Los Angeles, CA 90095-1392',
   addressLink: 'http://google.com/address',
@@ -22,6 +22,20 @@ const mock = {
     { title: 'Research Help', icon: 'IconBook' },
   ],
   to: 'http://google.com/title',
+}
+
+const mockHoursResponse = {
+  locations: [
+    {
+      status: 'open',
+      day: 'Monday',
+      times: {
+        hours: [{ from: '2pm', to: '5pm' }],
+        status: 'open',
+        text: '',
+      },
+    },
+  ],
 }
 
 export default {
@@ -69,37 +83,58 @@ export default {
 function Template(args) {
   return {
     setup() {
+      /*
+      Prevent a fetch call from being made to the actual API
+      during visual regression testing, because Chromatic creates
+      differences each time data changes. Instead mock a fetch
+      call to return static [location hours] data.
+      */
+
+      const originalFetch = globalThis.fetch
+
+      globalThis.fetch = async (...fetchArgs) => {
+        try {
+          if (args.libcalLocationIdForHours === '4690') {
+            return {
+              ok: true,
+              json: async () => mockHoursResponse,
+            }
+          }
+
+          return originalFetch(...fetchArgs)
+        }
+        finally {
+          globalThis.fetch = originalFetch // Restore original fetch
+        }
+      }
+
       return { args }
     },
     components: { BlockLocationListItem },
-    template: '<block-location-list-item v-bind="args"/>',
+    template: '<block-location-list-item v-bind="args" />',
   }
 }
+
 export const Default = Template.bind({})
 Default.args = {
   ...mock,
-  libcalLocationIdForHours: '4690',
 }
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export const NoHours = Template.bind({})
-NoHours.args = {
+export const NoImage = Template.bind({})
+NoImage.args = {
   ...mock,
-  libcalLocationIdForHours: '4691',
-}
-export const TextHours = Template.bind({})
-TextHours.args = {
-  ...mock,
+  image: '',
+  // Real location id ignored by the mock Fetch call so actual Fetch call returns live data
   libcalLocationIdForHours: '2081',
 }
 
-export const WithControls = Template.bind({})
-WithControls.args = {
-  ...mock
+export const NoHours = Template.bind({})
+NoHours.args = {
+  ...mock,
+  // Fake location id that returns empty data [no location hours] with actual Fetch call
+  libcalLocationIdForHours: '208111',
 }
-
-export const WithControlsAndNoImage = Template.bind({})
-WithControlsAndNoImage.args = { ...mock, image: '' }

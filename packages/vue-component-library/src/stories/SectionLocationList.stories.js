@@ -1,3 +1,5 @@
+import { onUnmounted } from 'vue'
+
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 
@@ -81,9 +83,47 @@ const mock = [
   },
 ]
 
+const mockHoursResponse = {
+  locations: [
+    {
+      status: 'open',
+      day: 'Monday',
+      times: {
+        hours: [{ from: '3am', to: '3pm' }],
+        status: 'open',
+        text: '',
+      },
+    },
+  ],
+}
+
 // Variations of stories below
 export function Default() {
   return {
+    setup() {
+      /*
+      Prevent a fetch call from being made to the actual API
+      during visual regression testing, because Chromatic creates
+      differences each time data changes. Instead mock a fetch
+      call to return static [location hours] data.
+      */
+
+      const originalFetch = globalThis.fetch
+
+      // Use mock/fixed hours for UCLA Library locations only
+      const useMock = mock.some(({ isUclaLibrary }) => isUclaLibrary)
+
+      if (useMock) {
+        globalThis.fetch = async () => ({
+          ok: true,
+          json: async () => mockHoursResponse,
+        })
+      }
+
+      onUnmounted(() => {
+        globalThis.fetch = originalFetch
+      })
+    },
     data() {
       return { items: mock }
     },

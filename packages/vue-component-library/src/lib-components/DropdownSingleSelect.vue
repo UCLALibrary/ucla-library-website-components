@@ -42,7 +42,7 @@ const emit = defineEmits(['update-display'])
 interface SelectedFiltersTypes {
   [key: string]: string
 }
-const selectedFilters = defineModel('selectedFilters', { type: Object as PropType<SelectedFiltersTypes>, required: true, default: {} })
+const selectedFilters = defineModel('selectedFilters', { type: Object as PropType<SelectedFiltersTypes>, required: true })
 
 function onSelect() {
   emit('update-display', selectedFilters.value)

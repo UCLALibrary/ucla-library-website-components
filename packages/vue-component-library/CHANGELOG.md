@@ -1,3 +1,306 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.93.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.93.1...@ucla-library-monorepo/ucla-library-website-components-v1.93.2) (2026-11-12)
+
+
+### Bug Fixes
+
+* LADI-5426 ensure content always exists ([#1007](https://github.com/UCLALibrary/ucla-library-website-components/issues/1007)) ([fe24d92](https://github.com/UCLALibrary/ucla-library-website-components/commit/fe24d92fd3ff47a729ca0dd273b8f084103add2a))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.93.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.93.0...@ucla-library-monorepo/ucla-library-website-components-v1.93.1) (2026-10-28)
+
+
+### Bug Fixes
+
+* Fix RichText Reactivity for Craft CMS Draft Previews LADI-5483 ([#1006](https://github.com/UCLALibrary/ucla-library-website-components/issues/1006)) ([88fc410](https://github.com/UCLALibrary/ucla-library-website-components/commit/88fc410827060718b054fec2bccc9df5102db73d))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.93.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.92.0...@ucla-library-monorepo/ucla-library-website-components-v1.93.0) (2026-10-22)
+
+
+### Bug Fixes
+
+* update VideoEmbed logic to handle non-embed youtube urls ([#999](https://github.com/UCLALibrary/ucla-library-website-components/issues/999)) ([35838ee](https://github.com/UCLALibrary/ucla-library-website-components/commit/35838ee7fe4b2e67d825eb9ada8a952448f44fbd))
+
+
+### Features
+
+* LADI-5444 Link Pullquote stories to Figma frames ([#998](https://github.com/UCLALibrary/ucla-library-website-components/issues/998)) ([3f319a9](https://github.com/UCLALibrary/ucla-library-website-components/commit/3f319a92484ea508edb891a6f5cf50ebf927a3e4))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.92.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.6...@ucla-library-monorepo/ucla-library-website-components-v1.92.0) (2026-10-14)
+
+
+### Features
+
+* LADI-5423 Move deep styles to FTVA version of SiteNotificationBanner ([#989](https://github.com/UCLALibrary/ucla-library-website-components/issues/989)) ([7611a1b](https://github.com/UCLALibrary/ucla-library-website-components/commit/7611a1b986e9c1fa09a1f12cb13317a2bb5dcd20))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.5...@ucla-library-monorepo/ucla-library-website-components-v1.91.6) (2026-10-13)
+
+
+### Bug Fixes
+
+* LADI-5347 Fix VideoEmbed aspect-ratio for responsiveness ([#990](https://github.com/UCLALibrary/ucla-library-website-components/issues/990)) ([0a38920](https://github.com/UCLALibrary/ucla-library-website-components/commit/0a389205a063430c1fa0d1a9acea56a741dab885))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.4...@ucla-library-monorepo/ucla-library-website-components-v1.91.5) (2026-10-02)
+
+
+### Bug Fixes
+
+* LADI-5427 Fix oEmbed fetch call to resolve A11Y errors ([#996](https://github.com/UCLALibrary/ucla-library-website-components/issues/996)) ([5d0a4a6](https://github.com/UCLALibrary/ucla-library-website-components/commit/5d0a4a62a93ef26f08b492f103b8621192f94a19))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.3...@ucla-library-monorepo/ucla-library-website-components-v1.91.4) (2026-10-02)
+
+
+### Bug Fixes
+
+* LADI-5397 add button role info to BannerImage ([#997](https://github.com/UCLALibrary/ucla-library-website-components/issues/997)) ([1646bd9](https://github.com/UCLALibrary/ucla-library-website-components/commit/1646bd9a6afaaf2f0005fc6ba23b862857afdcdb))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.2...@ucla-library-monorepo/ucla-library-website-components-v1.91.3) (2026-09-29)
+
+
+### Bug Fixes
+
+* Revert "feat: LADI-3671 sanitize HTML" ([#994](https://github.com/UCLALibrary/ucla-library-website-components/issues/994)) ([f8b6899](https://github.com/UCLALibrary/ucla-library-website-components/commit/f8b68992ac2d1900460a2c4e48253ff4b45dcb7e)), closes [#988](https://github.com/UCLALibrary/ucla-library-website-components/issues/988)
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.1...@ucla-library-monorepo/ucla-library-website-components-v1.91.2) (2026-09-29)
+
+
+### Bug Fixes
+
+* revert clearWIndow periodically ([#993](https://github.com/UCLALibrary/ucla-library-website-components/issues/993)) ([0889836](https://github.com/UCLALibrary/ucla-library-website-components/commit/08898367e7fee6c2e8f7b55b60cfd3e35d53ec11)), closes [#992](https://github.com/UCLALibrary/ucla-library-website-components/issues/992)
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.91.0...@ucla-library-monorepo/ucla-library-website-components-v1.91.1) (2026-09-29)
+
+
+### Bug Fixes
+
+* clearWIndow periodically ([#992](https://github.com/UCLALibrary/ucla-library-website-components/issues/992)) ([aadc5bc](https://github.com/UCLALibrary/ucla-library-website-components/commit/aadc5bcd76603e72b648eba4384800a8a31632d6))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.91.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.90.1...@ucla-library-monorepo/ucla-library-website-components-v1.91.0) (2026-09-26)
+
+
+### Features
+
+* LADI-5424 Add Month Change Support to BaseCalendar ([#991](https://github.com/UCLALibrary/ucla-library-website-components/issues/991)) ([0c47a36](https://github.com/UCLALibrary/ucla-library-website-components/commit/0c47a3650f43fb59ec4a7e530de8356dfc166281))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.90.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.90.0...@ucla-library-monorepo/ucla-library-website-components-v1.90.1) (2026-09-25)
+
+
+### Bug Fixes
+
+* deprecate BlockCampusMap ([#987](https://github.com/UCLALibrary/ucla-library-website-components/issues/987)) ([73fed8b](https://github.com/UCLALibrary/ucla-library-website-components/commit/73fed8b452cfc0933460e43226cd621e50598200))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.90.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.89.2...@ucla-library-monorepo/ucla-library-website-components-v1.90.0) (2026-09-24)
+
+
+### Features
+
+* LADI-3671 sanitize HTML ([#988](https://github.com/UCLALibrary/ucla-library-website-components/issues/988)) ([7336018](https://github.com/UCLALibrary/ucla-library-website-components/commit/7336018ca98576d97b12bf942c5d707c457d0309))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.89.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.89.1...@ucla-library-monorepo/ucla-library-website-components-v1.89.2) (2026-09-23)
+
+
+### Bug Fixes
+
+* LADI-5357 Update styling for Add-to-Calendar button ([#986](https://github.com/UCLALibrary/ucla-library-website-components/issues/986)) ([3b61514](https://github.com/UCLALibrary/ucla-library-website-components/commit/3b6151433c79db7f0679da8c62dc635240cbf9ff))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.89.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.89.0...@ucla-library-monorepo/ucla-library-website-components-v1.89.1) (2026-09-15)
+
+
+### Bug Fixes
+
+* LADI-5311 Fix missing inline YoutTube video titles ([#985](https://github.com/UCLALibrary/ucla-library-website-components/issues/985)) ([8b1c8a3](https://github.com/UCLALibrary/ucla-library-website-components/commit/8b1c8a37a2e0bb86a58ca9d94c6bbd363e12b7ec))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.89.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.88.1...@ucla-library-monorepo/ucla-library-website-components-v1.89.0) (2026-09-09)
+
+
+### Features
+
+* LADI-5323 Create SiteNotificationBanner component ([#978](https://github.com/UCLALibrary/ucla-library-website-components/issues/978)) ([1870ccd](https://github.com/UCLALibrary/ucla-library-website-components/commit/1870ccd7f3103d59ad604a2d0c4ecd677cf01dcd))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.88.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.88.0...@ucla-library-monorepo/ucla-library-website-components-v1.88.1) (2026-09-09)
+
+
+### Bug Fixes
+
+* LADI-5324_fix-button-implementation ([#983](https://github.com/UCLALibrary/ucla-library-website-components/issues/983)) ([768601a](https://github.com/UCLALibrary/ucla-library-website-components/commit/768601ad9b218fd2b26b9c1e5e072de440a584f3))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.88.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.4...@ucla-library-monorepo/ucla-library-website-components-v1.88.0) (2026-09-04)
+
+
+### Features
+
+* LADI-5355 better html structure GridGallery ([#981](https://github.com/UCLALibrary/ucla-library-website-components/issues/981)) ([bd730d3](https://github.com/UCLALibrary/ucla-library-website-components/commit/bd730d3f33abe8f4b789a788d9dc669212accba4))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.87.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.3...@ucla-library-monorepo/ucla-library-website-components-v1.87.4) (2026-09-04)
+
+
+### Bug Fixes
+
+* Test date filter focus firefox ([#984](https://github.com/UCLALibrary/ucla-library-website-components/issues/984)) ([68a0509](https://github.com/UCLALibrary/ucla-library-website-components/commit/68a05098001b811df0c1911bfd1815d2916f006f))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.87.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.2...@ucla-library-monorepo/ucla-library-website-components-v1.87.3) (2026-09-01)
+
+
+### Bug Fixes
+
+* LADI-5324 fix missing focus states ([#980](https://github.com/UCLALibrary/ucla-library-website-components/issues/980)) ([7a6589f](https://github.com/UCLALibrary/ucla-library-website-components/commit/7a6589ff9297e3a1572125a88cb694fcbf87a77c))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.87.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.1...@ucla-library-monorepo/ucla-library-website-components-v1.87.2) (2026-08-21)
+
+
+### Bug Fixes
+
+* LADI-3622 add color setting so browser stylesheet isn't used ([#977](https://github.com/UCLALibrary/ucla-library-website-components/issues/977)) ([04a8b36](https://github.com/UCLALibrary/ucla-library-website-components/commit/04a8b36b69bc5ab8acf717d135a6eb34344556c8))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.87.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.87.0...@ucla-library-monorepo/ucla-library-website-components-v1.87.1) (2026-08-20)
+
+
+### Bug Fixes
+
+* LADI-5346   Component - FlexibleContactInfoBlock Remove text-transform ([#976](https://github.com/UCLALibrary/ucla-library-website-components/issues/976)) ([1470b1f](https://github.com/UCLALibrary/ucla-library-website-components/commit/1470b1fa4e5224a78901edb42d04e7ae02cdbdf9))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.87.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.86.0...@ucla-library-monorepo/ucla-library-website-components-v1.87.0) (2026-08-20)
+
+
+### Features
+
+* LADI-3584 Add Vimeo to FTVA social media footer ([#975](https://github.com/UCLALibrary/ucla-library-website-components/issues/975)) ([b93cabe](https://github.com/UCLALibrary/ucla-library-website-components/commit/b93cabea4f1e53d6d567fe0a7b20eadb541ffe2a))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.86.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.85.0...@ucla-library-monorepo/ucla-library-website-components-v1.86.0) (2026-08-19)
+
+
+### Features
+
+* LADI-5204 No visible keyboard focus indicator on DateFilter button ([#971](https://github.com/UCLALibrary/ucla-library-website-components/issues/971)) ([26b63b8](https://github.com/UCLALibrary/ucla-library-website-components/commit/26b63b8d8157ff7df9daff700bac902b8a6f25b3))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.85.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.84.1...@ucla-library-monorepo/ucla-library-website-components-v1.85.0) (2026-08-13)
+
+
+### Features
+
+* LADI-5304 h2 styles for default and ftva themes ([#974](https://github.com/UCLALibrary/ucla-library-website-components/issues/974)) ([c10181a](https://github.com/UCLALibrary/ucla-library-website-components/commit/c10181a8440de8dc21a026b359ee01f9a4909545))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.84.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.84.0...@ucla-library-monorepo/ucla-library-website-components-v1.84.1) (2026-08-11)
+
+
+### Bug Fixes
+
+* LADI-5330 fix contact email links at component level ([#972](https://github.com/UCLALibrary/ucla-library-website-components/issues/972)) ([4595858](https://github.com/UCLALibrary/ucla-library-website-components/commit/45958581bee378ddbbe368083951a2e93f751f37))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.84.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.83.0...@ucla-library-monorepo/ucla-library-website-components-v1.84.0) (2026-08-11)
+
+
+### Features
+
+* LADI 5279 Implement Figma Storybook integration ([#973](https://github.com/UCLALibrary/ucla-library-website-components/issues/973)) ([cc654fa](https://github.com/UCLALibrary/ucla-library-website-components/commit/cc654fa5aa2e255f77e5243fd45b6e4f57d0cbaa))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.83.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.82.0...@ucla-library-monorepo/ucla-library-website-components-v1.83.0) (2026-08-07)
+
+
+### Features
+
+* LADI-5241 Refactor search components ([#967](https://github.com/UCLALibrary/ucla-library-website-components/issues/967)) ([0171a73](https://github.com/UCLALibrary/ucla-library-website-components/commit/0171a73aa5f40aff7a68d13eb7c10f945807ec68))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.82.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.81.0...@ucla-library-monorepo/ucla-library-website-components-v1.82.0) (2026-08-07)
+
+
+### Features
+
+* LADI-5298 add dynamic heading logic to blockCardWithIllustration & related components ([#966](https://github.com/UCLALibrary/ucla-library-website-components/issues/966)) ([77c0800](https://github.com/UCLALibrary/ucla-library-website-components/commit/77c0800af70222838396ea923243ebbb7d4f6967))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.81.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.80.1...@ucla-library-monorepo/ucla-library-website-components-v1.81.0) (2026-08-05)
+
+
+### Features
+
+* LADI-5240-3_add-external-article-entry-type ([#968](https://github.com/UCLALibrary/ucla-library-website-components/issues/968)) ([67b62d7](https://github.com/UCLALibrary/ucla-library-website-components/commit/67b62d7a2ad48da7b2dc14e4f08b1f70f0f60116))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.80.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.80.0...@ucla-library-monorepo/ucla-library-website-components-v1.80.1) (2026-08-01)
+
+
+### Bug Fixes
+
+* LADI-5320 force header height ([#969](https://github.com/UCLALibrary/ucla-library-website-components/issues/969)) ([1a96fc8](https://github.com/UCLALibrary/ucla-library-website-components/commit/1a96fc8a3bdb1fc3e50682d1c32f6136cf9c9301))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.80.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.79.1...@ucla-library-monorepo/ucla-library-website-components-v1.80.0) (2026-07-24)
+
+
+### Features
+
+* LADI-5303-5240-2 Add External Article entry type ([#964](https://github.com/UCLALibrary/ucla-library-website-components/issues/964)) ([f829913](https://github.com/UCLALibrary/ucla-library-website-components/commit/f82991311e82f197372596bd1e01e13edd59a4f0))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.79.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.79.0...@ucla-library-monorepo/ucla-library-website-components-v1.79.1) (2026-07-23)
+
+
+### Bug Fixes
+
+* LADI-5307 make sure list array exists and has items before rendering the ul ([#965](https://github.com/UCLALibrary/ucla-library-website-components/issues/965)) ([635a700](https://github.com/UCLALibrary/ucla-library-website-components/commit/635a700380d928e7e00b97d2935a1de2c7d08793))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.79.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.3...@ucla-library-monorepo/ucla-library-website-components-v1.79.0) (2026-07-17)
+
+
+### Bug Fixes
+
+* LADI-5196 Update Calendar, ListLocation stories with static mock data ([#959](https://github.com/UCLALibrary/ucla-library-website-components/issues/959)) ([571f4b7](https://github.com/UCLALibrary/ucla-library-website-components/commit/571f4b71cd5bf7ab920cb501412e591cd4f36bdd))
+* LADI-5196b Update SectionLocationList mock API call ([#960](https://github.com/UCLALibrary/ucla-library-website-components/issues/960)) ([93807a2](https://github.com/UCLALibrary/ucla-library-website-components/commit/93807a2599250605b423f9ddedfa7ce37a15fcb0))
+* LADI-5235 prevent tabbing to search when tab is closed ([#955](https://github.com/UCLALibrary/ucla-library-website-components/issues/955)) ([39570c8](https://github.com/UCLALibrary/ucla-library-website-components/commit/39570c8b451a9c7e686c19e91ba2daa74d3bd6cd))
+* LADI-5261 add styles to prevent space on library site and meap ([#961](https://github.com/UCLALibrary/ucla-library-website-components/issues/961)) ([1a50430](https://github.com/UCLALibrary/ucla-library-website-components/commit/1a5043011b798addc17ba9dc4e1c311c3893cb4a))
+* LADI-5265 Darken FTVA homepage carousel gradient ([#957](https://github.com/UCLALibrary/ucla-library-website-components/issues/957)) ([2373813](https://github.com/UCLALibrary/ucla-library-website-components/commit/237381324be369efda3ca000f8ce30a31afab2e9))
+* LADI-5283 broken release and improve Nuxt module build and development workflow ([#962](https://github.com/UCLALibrary/ucla-library-website-components/issues/962)) ([4e32a93](https://github.com/UCLALibrary/ucla-library-website-components/commit/4e32a9356bc0a714b22cccc87172fe554e580926))
+
+
+### Features
+
+* LADI-5240 Add External Article Entry Type to Flexible Page Blocks ([#958](https://github.com/UCLALibrary/ucla-library-website-components/issues/958)) ([d785ae1](https://github.com/UCLALibrary/ucla-library-website-components/commit/d785ae1b3d486dc1eeb6a3f52d31c7cd7afe0bc1))
+* pnpm is 11.5.1 ([#956](https://github.com/UCLALibrary/ucla-library-website-components/issues/956)) ([76127a9](https://github.com/UCLALibrary/ucla-library-website-components/commit/76127a9dbf794068c271ddf21bdc11fe38da4b8d))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.78.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.2...@ucla-library-monorepo/ucla-library-website-components-v1.78.3) (2026-06-25)
+
+
+### Bug Fixes
+
+* LADI-5237 Expand PageAnchor by default on Library site ([#953](https://github.com/UCLALibrary/ucla-library-website-components/issues/953)) ([9a39284](https://github.com/UCLALibrary/ucla-library-website-components/commit/9a392841f4e801eff5d2aaf1df7dfbf96b28c12e))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.78.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.1...@ucla-library-monorepo/ucla-library-website-components-v1.78.2) (2026-06-23)
+
+
+### Bug Fixes
+
+* LADI-5247 only list items inside lists SectionCardsWithIllustration ([#954](https://github.com/UCLALibrary/ucla-library-website-components/issues/954)) ([9e3a849](https://github.com/UCLALibrary/ucla-library-website-components/commit/9e3a84935ee3d90201322faff3d69bb7db562b0c))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.78.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.78.0...@ucla-library-monorepo/ucla-library-website-components-v1.78.1) (2026-06-23)
+
+
+### Bug Fixes
+
+* LADI-5244 Use oEmbed api to retrieve iframe video title for Chrome display ([#952](https://github.com/UCLALibrary/ucla-library-website-components/issues/952)) ([3006e7e](https://github.com/UCLALibrary/ucla-library-website-components/commit/3006e7ec7512b773af661e9b0d2a280cdccee676))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.78.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.77.2...@ucla-library-monorepo/ucla-library-website-components-v1.78.0) (2026-06-12)
+
+
+### Features
+
+* LADI-5226 ensure all children of ul are li ([#948](https://github.com/UCLALibrary/ucla-library-website-components/issues/948)) ([1b3b835](https://github.com/UCLALibrary/ucla-library-website-components/commit/1b3b835bd38584ace06a468927b3745124e4673a))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.77.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.77.1...@ucla-library-monorepo/ucla-library-website-components-v1.77.2) (2026-06-11)
+
+
+### Bug Fixes
+
+* LADI-5205 Remove hardcoded iframe title in VideoEmbed component ([#949](https://github.com/UCLALibrary/ucla-library-website-components/issues/949)) ([537f527](https://github.com/UCLALibrary/ucla-library-website-components/commit/537f5277200a9e4bc5b934a7ed4f57ba33d0c9dc))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.77.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.77.0...@ucla-library-monorepo/ucla-library-website-components-v1.77.1) (2026-05-29)
+
+
+### Bug Fixes
+
+* LADI-5195 move position:relative back to top level ([#945](https://github.com/UCLALibrary/ucla-library-website-components/issues/945)) ([760d385](https://github.com/UCLALibrary/ucla-library-website-components/commit/760d385e755f65b7da01f37b17668ad69a95a0ca))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.77.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.76.2...@ucla-library-monorepo/ucla-library-website-components-v1.77.0) (2026-05-28)
+
+
+### Features
+
+* LADI-5187 v-bind image attributes ([#944](https://github.com/UCLALibrary/ucla-library-website-components/issues/944)) ([1331656](https://github.com/UCLALibrary/ucla-library-website-components/commit/13316567521e517a95807e0ca4b95171af684174))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.76.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.76.1...@ucla-library-monorepo/ucla-library-website-components-v1.76.2) (2026-05-22)
 
 

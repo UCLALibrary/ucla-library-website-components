@@ -102,10 +102,6 @@
         appearance: none;
         pointer-events: none;
 
-        &:focus {
-            outline: none;
-        }
-
         // Webkit slider thumb
         &::-webkit-slider-thumb {
             -webkit-appearance: none;

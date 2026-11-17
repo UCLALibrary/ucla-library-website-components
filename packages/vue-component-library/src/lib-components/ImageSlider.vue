@@ -43,8 +43,8 @@ function handleSliderInput(event: Event) {
 <template>
   <div ref="sliderContainer" class="image-slider" :style="{ aspectRatio: parsedSliderAspectRatio }">
     <div class="image-container" :style="{ aspectRatio: parsedSliderAspectRatio }">
-      <img class="after-image slider-image" :src="afterImage.src" :alt="parsedAfterImageAltText">
-      <img ref="beforeImageElement" class="before-image slider-image" :src="beforeImage.src" :alt="parsedBeforeImageAltText">
+      <img class="after-image slider-image" :src="afterImage.src" :alt="parsedAfterImageAltText" v-bind="afterImage">
+      <img ref="beforeImageElement" class="before-image slider-image" :src="beforeImage.src" :alt="parsedBeforeImageAltText" v-bind="beforeImage">
       <div class="image-labels">
         <span class="before-label slider-label">
           <slot name="beforeLabel">Before</slot>

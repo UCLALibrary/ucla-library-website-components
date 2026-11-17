@@ -3,10 +3,8 @@
 .ftva.filters-dropdown {
     :deep(.mobile-button) {
         border-color: #ddd;
-        &:hover, &:focus {
+        &:hover{
             border-color: #ddd;
-        }
-        &:hover {
             background-color: #f1f1f1;
         }
     }

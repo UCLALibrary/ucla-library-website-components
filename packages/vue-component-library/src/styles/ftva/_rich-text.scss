@@ -5,6 +5,12 @@
   @include ftva-body;
   color: ftvatokens.$body-grey;
 
+  :deep(h2) {
+    @include step-4;
+    color: ftvatokens.$body-grey;
+    margin-bottom: var(--space-m);
+  }
+
   :deep(h3) {
     @include ftva-h3;
     color: ftvatokens.$body-grey;
