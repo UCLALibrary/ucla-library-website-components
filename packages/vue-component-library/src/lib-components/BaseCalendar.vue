@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, useTemplateRef } from 'vue'
+import {
+  computed,
+  onMounted,
+  onUnmounted,
+  ref,
+  useTemplateRef,
+  watch,
+} from 'vue'
 import type { PropType, Ref } from 'vue'
 import format from 'date-fns/format'
 import BlockCardWithImage from './BlockCardWithImage.vue'
@@ -51,13 +58,14 @@ const { defaultEventCalendar, events, firstEventMonth } = defineProps({
   },
 
   firstEventMonth: {
-    type: Array,
-    default: () => [new Date()]
-    // Sets calendar to month of earliest event
-    // Default: Calendar opens to month of current date
+    type: Array as PropType<Date[]>,
+    default: () => [new Date()],
   }
 })
 
+const emit = defineEmits<{
+  (e: 'month-change', date: Date): void
+}>()
 const calendarRef = useTemplateRef<HTMLDivElement>('calendar')
 const firstEventMonthRef = ref(firstEventMonth)
 
@@ -168,7 +176,7 @@ function formatEventTime(date: string) {
   return formattedTime.toUpperCase()
 }
 
-function showEventItemPopup(calendarEventObj: SelectedCalendarEvent | Record <string, unknown>) {
+function showEventItemPopup(calendarEventObj: SelectedCalendarEvent | Record<string, unknown>) {
   // Remove selected style of previous selected event
   handleSelectedEventItemDeselect()
 
@@ -191,6 +199,15 @@ const theme = useTheme()
 const classes = computed(() => {
   return ['base-calendar', theme?.value || '']
 })
+
+watch(
+  firstEventMonthRef,
+  (value) => {
+    if (value.length > 0)
+      emit('month-change', value[0])
+  },
+  { deep: true }
+)
 </script>
 
 <template>
@@ -208,7 +225,11 @@ const classes = computed(() => {
           <!-- Vuetify calendar event slot -->
           <!-- Slot prop holds each parsedEvent object -->
           <template #event="event">
-            <button :ref="(el) => { eventItemRef[`item-${event.event.id}`] = el }" class="calendar-event-item" @click="showEventItemPopup(event.event)">
+            <button
+              :ref="(el) => { eventItemRef[`item-${event.event.id}`] = el }"
+              class="calendar-event-item"
+              @click="showEventItemPopup(event.event)"
+            >
               <span class="calendar-event-title">
                 {{ event.event.title }}
               </span>
@@ -227,7 +248,7 @@ const classes = computed(() => {
                 opacity="0"
               >
                 <v-card
-                  v-ripple="false"
+                  :ripple="false"
                   width="320"
                   style="overflow: hidden; z-index: initial"
                   :hover="false"
@@ -236,7 +257,10 @@ const classes = computed(() => {
                   variant="text"
                 >
                   <!-- Default Event Calendar -->
-                  <div v-if="defaultEventCalendar" class="calendar-event-popup-wrapper">
+                  <div
+                    v-if="defaultEventCalendar"
+                    class="calendar-event-popup-wrapper"
+                  >
                     <BlockCardWithImage
                       :image="selectedEventObj.image"
                       :title="selectedEventObj.title"
@@ -259,15 +283,19 @@ const classes = computed(() => {
                   </div>
 
                   <!-- Slot for new components -->
-                  <div v-else-if="$slots.calendarSlotComponent" class="calendar-slot-wrapper">
-                    <slot name="calendarSlotComponent" :event="selectedEventObj" />
+                  <div
+                    v-else-if="$slots.calendarSlotComponent"
+                    class="calendar-slot-wrapper"
+                  >
+                    <slot
+                      name="calendarSlotComponent"
+                      :event="selectedEventObj"
+                    />
                   </div>
 
                   <!-- Default Vuetify component -->
                   <v-list v-else>
-                    <v-list-item
-                      :title="selectedEventObj.title"
-                    />
+                    <v-list-item :title="selectedEventObj.title" />
                   </v-list>
                 </v-card>
               </v-menu>

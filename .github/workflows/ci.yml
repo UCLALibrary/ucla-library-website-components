@@ -212,7 +212,7 @@ jobs:
 
       # 3) Run Cypress against the static Storybook
       - name: Cypress test for Storybook Components
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v7
         with:
           install: false
           working-directory: packages/vue-component-library

@@ -1,3 +1,58 @@
+# [@ucla-library/component-library-nuxt-module-v1.6.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.6.1...@ucla-library/component-library-nuxt-module-v1.6.2) (2026-11-12)
+
+
+### Bug Fixes
+
+* **nuxt-module:** force release after vue-component-library update [skip ci] ([5b43eec](https://github.com/UCLALibrary/ucla-library-website-components/commit/5b43eecd005a8f1b004217b4332d2eafaae2d0fe))
+
+# [@ucla-library/component-library-nuxt-module-v1.6.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.6.0...@ucla-library/component-library-nuxt-module-v1.6.1) (2026-10-28)
+
+
+### Bug Fixes
+
+* **nuxt-module:** force release after vue-component-library update [skip ci] ([292ce99](https://github.com/UCLALibrary/ucla-library-website-components/commit/292ce99a43557d3a268b20f29139f6efefd4c16e))
+
+# [@ucla-library/component-library-nuxt-module-v1.6.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.9...@ucla-library/component-library-nuxt-module-v1.6.0) (2026-10-22)
+
+
+### Features
+
+* LADI-5321 ([#1005](https://github.com/UCLALibrary/ucla-library-website-components/issues/1005)) ([c13c860](https://github.com/UCLALibrary/ucla-library-website-components/commit/c13c860c7cb470433c3f9e7167d50bceed2d2a66))
+
+# [@ucla-library/component-library-nuxt-module-v1.5.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.8...@ucla-library/component-library-nuxt-module-v1.5.9) (2026-10-14)
+
+# [@ucla-library/component-library-nuxt-module-v1.5.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.7...@ucla-library/component-library-nuxt-module-v1.5.8) (2026-10-13)
+
+# [@ucla-library/component-library-nuxt-module-v1.5.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.6...@ucla-library/component-library-nuxt-module-v1.5.7) (2026-10-02)
+
+# [@ucla-library/component-library-nuxt-module-v1.5.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.5...@ucla-library/component-library-nuxt-module-v1.5.6) (2026-10-02)
+
+# [@ucla-library/component-library-nuxt-module-v1.5.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.4...@ucla-library/component-library-nuxt-module-v1.5.5) (2026-09-29)
+
+
+### Bug Fixes
+
+* Revert "feat: LADI-3671 sanitize HTML" ([#994](https://github.com/UCLALibrary/ucla-library-website-components/issues/994)) ([f8b6899](https://github.com/UCLALibrary/ucla-library-website-components/commit/f8b68992ac2d1900460a2c4e48253ff4b45dcb7e)), closes [#988](https://github.com/UCLALibrary/ucla-library-website-components/issues/988)
+
+# [@ucla-library/component-library-nuxt-module-v1.5.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.3...@ucla-library/component-library-nuxt-module-v1.5.4) (2026-09-29)
+
+# [@ucla-library/component-library-nuxt-module-v1.5.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.2...@ucla-library/component-library-nuxt-module-v1.5.3) (2026-09-29)
+
+# [@ucla-library/component-library-nuxt-module-v1.5.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.1...@ucla-library/component-library-nuxt-module-v1.5.2) (2026-09-26)
+
+# [@ucla-library/component-library-nuxt-module-v1.5.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.5.0...@ucla-library/component-library-nuxt-module-v1.5.1) (2026-09-25)
+
+# [@ucla-library/component-library-nuxt-module-v1.5.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.4.20...@ucla-library/component-library-nuxt-module-v1.5.0) (2026-09-25)
+
+
+### Features
+
+* LADI-3671 sanitize HTML ([#988](https://github.com/UCLALibrary/ucla-library-website-components/issues/988)) ([7336018](https://github.com/UCLALibrary/ucla-library-website-components/commit/7336018ca98576d97b12bf942c5d707c457d0309))
+
+# [@ucla-library/component-library-nuxt-module-v1.4.20](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.4.19...@ucla-library/component-library-nuxt-module-v1.4.20) (2026-09-23)
+
+# [@ucla-library/component-library-nuxt-module-v1.4.19](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.4.18...@ucla-library/component-library-nuxt-module-v1.4.19) (2026-09-15)
+
 # [@ucla-library/component-library-nuxt-module-v1.4.18](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.4.17...@ucla-library/component-library-nuxt-module-v1.4.18) (2026-09-09)
 
 # [@ucla-library/component-library-nuxt-module-v1.4.17](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.4.16...@ucla-library/component-library-nuxt-module-v1.4.17) (2026-09-09)
