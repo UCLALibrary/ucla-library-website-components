@@ -68,12 +68,12 @@ const classes = computed(() => {
       :aspect-ratio="60"
       object-fit="cover"
       class="media-item"
-      @click="emit('toggleThumbnails')"
-      @keydown.enter="emit('toggleThumbnails')"
-      @keydown.space="emit('toggleThumbnails')"
       tabindex="0"
       aria-label="Toggle gallery"
       role="button"
+      @click="emit('toggleThumbnails')"
+      @keydown.enter="emit('toggleThumbnails')"
+      @keydown.space="emit('toggleThumbnails')"
     >
       <div v-if="nItems > 1 && !expanded">
         <div class="gradient" />
