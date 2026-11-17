@@ -13,24 +13,26 @@
   }
 
   // Below 1188px: Letters wrap into multiple rows
-  // 1,188–1200px: All 27 letters fit on one row
-  // Above 1200px: The alphabet stops growing preventing excessive spacing
+  // 1188–1200px: All 27 letters fit on one row
+  // Above 1200px: Alphabet stops growing
+  // and remains left-aligned
   .alphabet-list {
     @include step-1;
-    width: 100%;
-    // max-width: 928px;
-    max-width: 1200px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
+    grid-template-columns: repeat(auto-fit,
+        minmax(44px, 1fr));
+    width: 100%;
+    max-width: 1200px;
     list-style: none;
     padding: 0;
     color: var(--color-primary-blue-03);
 
     .letter {
+      box-sizing: border-box;
       min-width: 44px;
       min-height: 44px;
       width: 100%;
-      padding: 0 10px;
+      padding: 0;
       margin-bottom: 0;
       display: flex;
       align-items: center;
