@@ -36,7 +36,7 @@
 
     @media #{$medium} {
         .card {
-            flex-basis: calc((100% / 2) - 22px);
+            flex-basis: calc((100% - 22px) / 2);
         }
     }
 
