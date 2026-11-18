@@ -1,7 +1,7 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import 'add-to-calendar-button'
+import { atcb_generate_ssr_html } from 'add-to-calendar-button/ssr'
 import format from 'date-fns/format'
 
 import SvgIconFtvaShare from 'ucla-library-design-tokens/assets/svgs/icon-ftva-share.svg'
@@ -14,7 +14,7 @@ import removeTags from '@/utils/removeTags'
 import { useTheme } from '@/composables/useTheme'
 
 // DATA
-const { title, eventDescription, startDateWithTime, endTime, location, isEvent, dropdownList, buttonTitle, hasIcon } = defineProps({
+const { title, eventDescription, startDateWithTime, endTime, location, isEvent, dropdownList, buttonTitle, hasIcon, debugModeEnabled } = defineProps({
   // Event props for Dropdown Calendar
   title: {
     type: String,
@@ -74,16 +74,14 @@ const currentFullUrl = computed(() => {
 
   return window.location.origin + route.fullPath
 })
-// encode the current page URL for use in the email link
-// although some e-mail clients will work without this, 'New Outlook' wil not, so we encode it to be safe
+
+/* Encode the current page URL for use in the email link; although some e-mail clients will work without this, 'New Outlook' wil not, so we encode it to be safe */
 const emailLink = computed(() => `mailto:?body=${encodeURIComponent(currentFullUrl.value)}`)
 
 // Event data computations
 const parsedLocation = computed(() => {
   const evtUrl = location[0]?.publicUrl
-
   const evtLocation = location[0]?.title
-
   return evtUrl || (evtLocation || '')
 })
 
@@ -110,10 +108,10 @@ const parsedEventDescription = computed(() => {
   return ''
 })
 
-/* Inject styles into ATCB ShadowDOM on button dropdown:
- - Remove border bottom radii on button
- - Rotate FTVA dropdown triangle
- - Disable custom cursor
+/* Inject styles into Add-to-Calendar-Button ShadowDOM on button dropdown:
+- Remove border bottom radii on button
+- Rotate FTVA dropdown triangle
+- Disable custom cursor
 */
 function handleActbExpandedStyle(e) {
   const style = document.createElement('style')
@@ -131,6 +129,46 @@ function handleActbExpandedStyle(e) {
 
   e.target.shadowRoot.appendChild(style)
 }
+
+/* Add-to-Calendar-Button configuration for server-rendered markup.
+https://add-to-calendar-button.com/configuration
+
+debugModeEnabled is passed as the Add-to-Calendar-Button debug option; enable it at page level when troubleshooting. */
+
+/* Build calendar button's HTML for SSR */
+const atcbSsrHtml = computed(() =>
+  atcb_generate_ssr_html({
+    name: title,
+    startDate: parsedDateAndTime.value.startDate,
+    startTime: parsedDateAndTime.value.startTime,
+    endTime: parsedEndTime.value,
+    timeZone: 'America/Los_Angeles',
+    location: parsedLocation.value,
+    description: parsedEventDescription.value,
+    options: ['google', 'apple', 'ms365', 'outlookcom', 'ical'],
+    trigger: 'click',
+    hideBranding: true,
+    hideCheckmark: true,
+    hideBackground: true,
+    hideIconButton: true,
+    listStyle: 'dropdown-static',
+    debug: debugModeEnabled,
+  })
+)
+
+/* Vue preserves SSR content during hydration. Reassigning innerHTML would discard the declarative Shadow DOM rendered by Add-to-Calendar-Button. */
+const vAtcbSsrHtml = {
+  getSSRProps(binding) {
+    return { innerHTML: binding.value }
+  },
+  mounted(element, binding) {
+    if (!element.hasChildNodes())
+      element.innerHTML = binding.value
+  },
+}
+
+/* The web component accesses the DOM while registering, so it must never be evaluated by the server bundle. The SSR helper above is DOM-free. */
+onMounted(() => import('add-to-calendar-button'))
 
 /*
 - Copy page path to clipboard;
@@ -162,37 +200,8 @@ const parsedClasses = computed(() => {
 
 <template>
   <div :class="parsedClasses">
-    <div v-if="isEvent">
-      <!-- Add to Calendar Button plugin component
-
-      - https://add-to-calendar-button.com/configuration
-
-      - plugin's debug attribute is bound to the component's debugModeEnabled prop; set to 'true' at page-level for troubleshooting
-
-      - Plugin's attributes must be camelCased
-
-      - eslint flag to prevent attribute hyphenation -->
-
-      <!-- eslint-disable -->
-      <add-to-calendar-button
-        :name="title"
-        :startDate="parsedDateAndTime.startDate"
-        :startTime="parsedDateAndTime.startTime"
-        :endTime="parsedEndTime"
-        timeZone="America/Los_Angeles"
-        :location="parsedLocation"
-        :description="parsedEventDescription"
-        options="'Google','Apple','Microsoft365','Outlook.com','iCal'"
-        trigger="click"
-        hideBranding="true"
-        hideCheckmark="true"
-        hideBackground="true"
-        hideIconButton="true"
-        listStyle="dropdown-static"
-        :debug="debugModeEnabled"
-        @click="handleActbExpandedStyle"></add-to-calendar-button>
-      <!-- eslint-enable -->
-    </div>
+    <!-- Add-to-Calendar-Button plugin component -->
+    <div v-if="isEvent" v-atcb-ssr-html="atcbSsrHtml" @click="handleActbExpandedStyle" />
 
     <!-- Generic Button -->
     <MobileDrawer v-else>
