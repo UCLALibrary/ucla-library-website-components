@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.93.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.93.2...@ucla-library-monorepo/ucla-library-website-components-v1.93.3) (2026-11-18)
+
+
+### Bug Fixes
+
+* LADI-5475 Correct SectionTeaserCard spacing ([#1000](https://github.com/UCLALibrary/ucla-library-website-components/issues/1000)) ([f95c0cf](https://github.com/UCLALibrary/ucla-library-website-components/commit/f95c0cfe8b6965962f2bf78fab9420d23ddeacee))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.93.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.93.1...@ucla-library-monorepo/ucla-library-website-components-v1.93.2) (2026-11-12)
 
 
