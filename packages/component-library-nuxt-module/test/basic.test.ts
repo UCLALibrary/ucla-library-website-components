@@ -5,14 +5,14 @@ import { setup, $fetch, createPage } from '@nuxt/test-utils/e2e'
 describe('ssr', async () => {
   await setup({
     rootDir: fileURLToPath(new URL('./fixtures/basic', import.meta.url)),
-    browser: true
+    browser: true,
   })
 
   it('renders the index page', async () => {
     // Get response to a server-rendered page with `$fetch`.
     const html = await $fetch('/')
     expect(html).toContain('<div>basic</div>')
-    
+
     expect(html).toContain('shadowrootmode="open"')
   })
 
@@ -29,7 +29,7 @@ describe('ssr', async () => {
     await page.locator('add-to-calendar-button').waitFor()
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
 
-    const state = await page.locator('add-to-calendar-button').evaluate((button) => ({
+    const state = await page.locator('add-to-calendar-button').evaluate(button => ({
       hasShadowRoot: Boolean(button.shadowRoot),
       hasVisibleTrigger: Boolean(button.shadowRoot?.querySelector('[part="atcb-button"]')),
     }))
