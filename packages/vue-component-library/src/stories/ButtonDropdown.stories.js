@@ -169,8 +169,8 @@ function TemplateAddToCalendar(args) {
 const mockCalendarData = {
   isEvent: true,
   title: 'TEST - La Région Centrale Screening',
-  startDateWithTime: '2025-07-08T02:30:00+00:00',
-  endTime: '20:30:00',
+  startDateWithTime: '2025-07-08T00:30:00+00:00',
+  endTime: '23:30:00',
   location: [
     {
       title: 'Billy Wilder Theater',
@@ -179,7 +179,8 @@ const mockCalendarData = {
       address: []
     }
   ],
-  eventDescription: '<p>Admission is free. No advance reservations. Your seat will be assigned to you when you pick up your ticket at the box office. Seats are assigned on a first come, first served basis. The box office opens one hour before the event.</p>\n<p>La Région Centrale</p>\n<p>Canada, 1971</p>\n<p>The late avant-garde master Michael Snow’s work explores the nature of perception, consciousness, participation, and in many ways is uncategorizable but relation to time is evident. He worked in many mediums and his films playfully and prolifically rethink the parameters while requiring audiences to actively participate in this work. La Région Centrale is a three-hour-long film that calls attention to the mechanics of filmmaking, using a computer-programmed, motorized tripod that rotates the camera 360 degrees in any direction, repeatedly, without dialogue or any other subject beyond the landscape, over the course of a day.'
+  eventDescription: '<p>Admission is free. No advance reservations. Your seat will be assigned to you when you pick up your ticket at the box office. Seats are assigned on a first come, first served basis. The box office opens one hour before the event.</p>\n<p>La Région Centrale</p>\n<p>Canada, 1971</p>\n<p>The late avant-garde master Michael Snow’s work explores the nature of perception, consciousness, participation, and in many ways is uncategorizable but relation to time is evident. He worked in many mediums and his films playfully and prolifically rethink the parameters while requiring audiences to actively participate in this work. La Région Centrale is a three-hour-long film that calls attention to the mechanics of filmmaking, using a computer-programmed, motorized tripod that rotates the camera 360 degrees in any direction, repeatedly, without dialogue or any other subject beyond the landscape, over the course of a day.',
+  debugModeEnabled: true
 }
 
 export const FTVAAddToCalendar = TemplateAddToCalendar.bind({})
