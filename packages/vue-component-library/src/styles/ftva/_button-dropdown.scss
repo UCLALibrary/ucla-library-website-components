@@ -21,10 +21,10 @@
 
     // Overwrites for Add-to-Calendar-Button CSS
 
-    add-to-calendar-button::part(atcb-button) {
+    :deep(add-to-calendar-button)::part(atcb-button) {
         box-sizing: border-box;
         justify-content: flex-start;
-        width: 282px;
+        width: 284px;
         height: 51px;
         padding: 0;
         font-family: inherit;
@@ -41,17 +41,17 @@
         z-index: 0;
     }
 
-    add-to-calendar-button::part(atcb-button):hover {
+    :deep(add-to-calendar-button)::part(atcb-button):hover {
         margin: unset;
         background-color: #f1f1f1;
     }
 
-    add-to-calendar-button::part(atcb-button):focus {
+    :deep(add-to-calendar-button)::part(atcb-button):focus {
         outline: 4px auto -webkit-focus-ring-color;
         outline-offset: 1px;
     }
 
-    add-to-calendar-button::part(atcb-button-text)::after {
+    :deep(add-to-calendar-button)::part(atcb-button-text)::after {
         position: relative;
         display: inline-block;
         left: 116px;
@@ -60,10 +60,14 @@
         filter: brightness(0) saturate(100%) invert(30%);
     }
 
-    add-to-calendar-button::part(atcb-list-wrapper) {
+    :deep(add-to-calendar-button)::part(atcb-button-chevron){
+        display: none;
+    }
+
+    :deep(add-to-calendar-button)::part(atcb-list-wrapper) {
         background: ftvatokens.$white;
-        min-width: 282px;
-        max-width: 282px;
+        min-width: 284px;
+        max-width: 284px;
         min-height: auto;
         padding: 20px 20px 24px 20px;
         margin: 0;
@@ -73,22 +77,27 @@
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         position: absolute;
-        top: 52px;
-        left: 1px;
+        top: 51px;
+        left: 0px;
     }
 
-    add-to-calendar-button::part(atcb-list) {
+    :deep(add-to-calendar-button)::part(atcb-list) {
         display: flex;
         flex-direction: column;
         row-gap: 16px;
         box-shadow: unset;
         background-color: transparent;
+        padding: 0;
+        margin-top: 0;
+        border: 0;
     }
 
-    add-to-calendar-button::part(atcb-list-item) {
+    :deep(add-to-calendar-button)::part(atcb-list-item) {
         box-shadow: unset;
         background-color: transparent;
         padding: 0;
+        margin: 0;
+        gap: .7em;
         font-family: "Karbon", Helvetica, Arial, sans-serif;
         font-weight: 500;
         font-size: 18px; 
@@ -101,13 +110,19 @@
                 text-decoration-color: ftvatokens.$grey-blue;
     }
 
-    add-to-calendar-button::part(atcb-list-item):hover, add-to-calendar-button::part(atcb-list-item):focus {
+    :deep(add-to-calendar-button)::part(atcb-list-item):hover, 
+    :deep(add-to-calendar-button)::part(atcb-list-item):focus {
         -webkit-text-decoration-color: ftvatokens.$bright-blue;
                 text-decoration-color: ftvatokens.$bright-blue;
     }
     // outline on focus only to match other button dropdowns
-    add-to-calendar-button::part(atcb-list-item):focus {
+    :deep(add-to-calendar-button)::part(atcb-list-item):focus {
         outline: 4px auto ftvatokens.$bright-blue;
+    }
+
+    :deep(add-to-calendar-button)::part(atcb-list-icon){
+        height: 1em;
+        width: 1em;
     }
 }
 
