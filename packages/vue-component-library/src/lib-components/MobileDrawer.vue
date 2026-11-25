@@ -52,9 +52,10 @@ onMounted(() => {
         class="dropdown-overlay"
         :class="isDropdownExpandedClass"
       />
+      <!-- aria-label="Toggle Menu" -->
       <button
         class="mobile-button"
-        aria-label="Toggle Menu"
+        :aria-expanded="isDropdownExpanded"
         :class="isDropdownExpandedClass"
         @click="handleDropdownExpansion"
       >
