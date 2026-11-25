@@ -51,6 +51,16 @@ const emit = defineEmits(['toggleThumbnails'])
 
 const theme = useTheme()
 
+const galleryLabel = computed(() => {
+  if (props.nItems <= 1)
+    return 'Toggle gallery'
+
+  if (theme.value === 'ftva')
+    return props.expanded ? 'Collapse Gallery' : `View all ${props.nItems} images`
+
+  return `${props.nItems} images`
+})
+
 const classes = computed(() => {
   return [
     'banner-image', theme?.value || '',
@@ -69,7 +79,8 @@ const classes = computed(() => {
       object-fit="cover"
       class="media-item"
       tabindex="0"
-      aria-label="Toggle gallery"
+      :aria-label="galleryLabel"
+      :aria-expanded="expanded"
       role="button"
       @click="emit('toggleThumbnails')"
       @keydown.enter="emit('toggleThumbnails')"
@@ -91,12 +102,10 @@ const classes = computed(() => {
       </div>
       <MediaBadge v-if="nItems > 1" :is-expanded="expanded">
         <span v-if="theme === 'ftva'">
-          <span v-if="expanded">Collapse Gallery</span>
-          <span v-else>View all {{ nItems }} images</span>
+          <span>{{ galleryLabel }}</span>
         </span>
         <span v-else>
-          {{ nItems }}
-          images
+          {{ galleryLabel }}
         </span>
 
         <!-- Toggle Icons -->

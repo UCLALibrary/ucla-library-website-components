@@ -1,5 +1,6 @@
 import { computed } from 'vue'
 import MobileDrawer from '@/lib-components/MobileDrawer.vue'
+import { userEvent, within } from '@storybook/testing-library'
 
 /**
  * A component to wrap dropdown fields in a drawer that can be toggled open and closed on mobile with a button.
@@ -34,6 +35,27 @@ Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
+Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  const button = canvas.getByRole('button', { name: 'BUTTON', exact: true })
+
+  // Verify initial collapsed state
+  if (button.getAttribute('aria-expanded') !== 'false')
+    throw new Error('Expected drawer to be collapsed initially')
+
+  // Open the drawer
+  await userEvent.click(button)
+
+  if (button.getAttribute('aria-expanded') !== 'true')
+    throw new Error('Expected drawer to be expanded after clicking')
+
+  // Close the drawer
+  await userEvent.click(button)
+
+  if (button.getAttribute('aria-expanded') !== 'false')
+    throw new Error('Expected drawer to be collapsed after clicking again')
+}
+
 export function FTVA() {
   return {
     components: { MobileDrawer },
@@ -55,3 +77,5 @@ export function FTVA() {
     </mobile-drawer>`,
   }
 }
+
+FTVA.play = Default.play
